@@ -18,8 +18,9 @@ const AppRouter = ()=>(
   <Switch>
   <Route path="/" component={Dashboard} exact={true} />
   <Route path="/addbook" component={AddBook} />
+    <Route path="/addnote" component={AddNote} />
   <Route path="/edit/:id" component={EditBook} />
-  <Route path="/viewNotes/:id" component={ViewNotes} />
+  <Route path="/viewNotes/:title/:id" component={ViewNotes} />
   <Route component={NotFound} />
   </Switch>
   </div>

@@ -8,8 +8,9 @@ import NoteForm from './NoteForm';
 export class AddNote extends React.Component{
 
  onSubmit=(note)=>{
+     console.log(this.props);
      this.props.addNote(note);
-     this.props.history.push('/')
+     // this.props.history.push(`/viewNotes/${title}/${id}`)
   }
   render(){
     return (
@@ -26,6 +27,6 @@ export class AddNote extends React.Component{
 
 
 const mapDispatchToProps = (dispatch)=> ({
-     addNote: (book)=> dispatch(addNote(note))
+     addNote: (note)=> dispatch(addNote(note))
 })
 export default connect(undefined, mapDispatchToProps)(AddNote)

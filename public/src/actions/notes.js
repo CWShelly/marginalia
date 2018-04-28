@@ -11,7 +11,7 @@ export const addNote = (
   }={}
 )=>({
   type: 'ADD_NOTE',
-    book:{
+  note:{
       id: uuid(),
       chapter_number,
       page_number,

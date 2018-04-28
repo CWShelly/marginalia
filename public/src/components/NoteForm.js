@@ -8,7 +8,7 @@ export default class NoteForm extends React.Component{
     paragraph_number:0,
     note: '',
     createdAt: moment(),
-    error: ''
+    errorNote: ''
   }
 
   onChapterNumberChange = (e) =>{
@@ -40,9 +40,9 @@ export default class NoteForm extends React.Component{
     e.preventDefault();
 
     if (!this.state.chapter_number || !this.state.page_number || !this.state.paragraph_number ){
-      this.setState(()=>({error: 'Please enter the page number, chapter number, and paragraph number'}));
+      this.setState(()=>({errorNote: 'Please enter stuff'}));
     } else{
-      this.setState(()=>(error: ''));
+      this.setState(()=>({errorNote: ''}));
       this.props.onSubmit({
         chapter_number: this.state.chapter_number,
         page_number: this.state.page_number,
@@ -58,7 +58,7 @@ export default class NoteForm extends React.Component{
   render(){
     return(
       <div>
-      {this.state.error && <p>{this.state.error}</p>}
+      {this.state.errorNote && <p>{this.state.errorNote}</p>}
       <form onSubmit={this.onSubmit}>
       <input
       type="number"
@@ -85,7 +85,7 @@ export default class NoteForm extends React.Component{
       value={this.state.note}
       onChange={this.onNoteChange}
       />
-      <button>Add Book</button>
+      <button>Add Note</button>
       </form>
 
       </div>

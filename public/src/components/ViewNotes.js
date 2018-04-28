@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AddNote from './AddNote'
+import NoteList from './NoteList'
 
+const ViewNotes = (props)=>{
+  console.log(props.match.params.title);
+return(
+  <div>
+  Viewing notes for {props.match.params.title}.
+  <NoteList />
+  <AddNote />
+  </div>
+)
 
-
-
-export default class ViewNotes extends React.Component{
-  render(){
-    return(
-      <div>
-      viewing notes
-      </div>
-    )
-  }
 }
+
+
+ export default ViewNotes
