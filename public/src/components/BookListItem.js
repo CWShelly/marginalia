@@ -11,7 +11,7 @@ const BookListItem = (
     createdAt
   }) =>(
     <div>
-      <p> <Link to={`/addNote/${id}`}>{title}</Link> by {author_first_name} {author_last_name}. <Link to={`/edit/${id}`}>Edit</Link></p>
+      <p> <Link to={`/viewNotes/${id}`}>{title}</Link> by {author_first_name} {author_last_name}. <Link to={`/edit/${id}`}>Edit</Link></p>
     </div>
   )
 
