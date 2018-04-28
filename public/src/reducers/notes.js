@@ -24,7 +24,7 @@ export default (state = notesReducerDefaultState, action)=>{
        }
      })
      default:
-    
+
       return state;
   }
 }
