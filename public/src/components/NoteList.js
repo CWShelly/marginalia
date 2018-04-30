@@ -6,8 +6,8 @@ import selectNotes from '../selectors/notes';
 export class NoteList extends React.Component{
 
   componentDidUpdate(prevProps){
-      const json = JSON.stringify(this.props.notes)
-      localStorage.setItem('notes', json)
+      const json = JSON.stringify(this.props.notes);
+      localStorage.setItem('notes', json);
  }
 
   render(){
@@ -36,17 +36,15 @@ const mapStateToProps = (state)=>{
     if(notes){
       const book_id = localStorage.getItem('book_id');
 
-      const hasBookId= (note)=>{
+      const hasBookId=(note)=>{
         return note.book_id === book_id;
       }
 
      const notes_of_this_book = notes.filter(hasBookId)
      console.log(notes_of_this_book);
 
-
- 
     return {
-      notes: notes_of_this_book.concat(state.notes)
+      notes: notes_of_this_book
     }
   }
   else{
@@ -55,8 +53,6 @@ const mapStateToProps = (state)=>{
 
     }
   }
-
-
 
 }
 

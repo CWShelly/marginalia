@@ -8,8 +8,9 @@ import BookForm from './BookForm';
 export class AddBook extends React.Component{
 
  onSubmit=(book)=>{
+   console.log(book);
      this.props.addBook(book);
-     this.props.history.push('/')
+     // this.props.history.push('/')
   }
   render(){
     return (
