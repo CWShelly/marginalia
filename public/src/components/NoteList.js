@@ -3,19 +3,49 @@ import { connect } from 'react-redux';
 import NoteListItem from './NoteListItem';
 import selectNotes from '../selectors/notes';
 
-const NoteList = (props)=>(
-  <div>
-   <h1>Note List</h1>
-   {props.notes.map((note)=>{
-     return <NoteListItem key={note.id} { ...note} />
-   })}
-   </div>
-)
+export class NoteList extends React.Component{
+
+
+  componentDidUpdate(prevProps){
+      const json = JSON.stringify(this.props.notes)
+      localStorage.setItem('notes', json)
+
+ }
+
+  render(){
+    return(
+      <div>
+       <h1>Note List</h1>
+
+       {this.props.notes.map((note, index)=>{
+         return <NoteListItem key={note.id} { ...note} index={index}/>
+       })}
+       </div>
+
+    )
+  }
+}
+
+
 
 const mapStateToProps = (state)=>{
-  return {
-    notes: selectNotes(state.notes)
+  const json = localStorage.getItem('notes')
+  const notes = JSON.parse(json);
+
+  if(notes){
+    return {
+      notes: notes.concat(state.notes)
+    }
   }
+  else{
+    return {
+      notes:state.notes
+
+    }
+  }
+
+
+
 }
 
 

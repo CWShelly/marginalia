@@ -13,9 +13,9 @@ export const addNote = (
   type: 'ADD_NOTE',
   note:{
       id: uuid(),
-      chapter_number,
-      page_number,
-      paragraph_number,
+      chapter_number: parseInt(chapter_number),
+      page_number: parseInt(page_number),
+      paragraph_number:parseInt(paragraph_number),
       note,
       createdAt
     }
