@@ -16,31 +16,12 @@ store.dispatch(addBook(
    title: 'Ripley Underground',
     createdAt:10000}))
 
-store.dispatch(addNote(
-  {chapter_number: 3,
-    page_number:5,
-   paragraph_number:9,
-    note: 'this is a note',
-    createdAt: 10000}
-  )
-
-  )
-
 
 const state = store.getState();
 
-console.log(state);
-
-
 const visibleBooks = getVisibleBooks(state.books)
-const visibleNotes = getVisibleNotes(state.notes)
-// const visibleNotes = getVisibleNotes(  {chapter_number: 3,
-//     page_number:5,
-//    paragraph_number:9,
-//     note: 'this is a note',
-//     createdAt: 10000})
 
-console.log(visibleNotes);
+
 const jsx = (
   <Provider store={store}>
     <AppRouter />

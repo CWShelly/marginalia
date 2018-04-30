@@ -8,7 +8,7 @@ import NoteForm from './NoteForm';
 export class AddNote extends React.Component{
 
  onSubmit=(note)=>{
-     console.log(this.props);
+  
      this.props.addNote(note);
      // this.props.history.push(`/viewNotes/${title}/${id}`)
   }
