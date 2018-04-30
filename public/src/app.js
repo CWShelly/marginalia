@@ -10,11 +10,7 @@ import AppRouter from './routers/AppRouter';
 
 
 const store = configureStore();
-store.dispatch(addBook(
-  {author_last_name: 'Highsmith',
-  author_first_name: 'Patricia',
-   title: 'Ripley Underground',
-    createdAt:10000}))
+ 
 
 
 const state = store.getState();

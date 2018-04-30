@@ -19,7 +19,7 @@ export const addNote = (
       paragraph_number:parseInt(paragraph_number),
       note,
       createdAt,
-      title: 'TEMP TITLE'
+      book_id: localStorage.getItem('book_id')
     }
 })
 

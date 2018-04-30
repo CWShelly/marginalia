@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class BookListItem extends React.Component{
   onHandleClick=()=>{
 
-    localStorage.setItem('title', this.props.title)
+    localStorage.setItem('book_id', this.props.id)
   }
   render(){
       console.log(this.props);

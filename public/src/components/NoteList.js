@@ -29,12 +29,24 @@ export class NoteList extends React.Component{
 const mapStateToProps = (state)=>{
   const json = localStorage.getItem('notes')
   const notes = JSON.parse(json);
-  console.log(selectNotes(notes));
   console.log(state.notes);
+  console.log(notes);
 
-  if(notes){
+
+    if(notes){
+      const book_id = localStorage.getItem('book_id');
+
+      const hasBookId= (note)=>{
+        return note.book_id === book_id;
+      }
+
+     const notes_of_this_book = notes.filter(hasBookId)
+     console.log(notes_of_this_book);
+
+
+ 
     return {
-      notes: notes.concat(state.notes)
+      notes: notes_of_this_book.concat(state.notes)
     }
   }
   else{
