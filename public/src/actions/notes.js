@@ -6,7 +6,8 @@ export const addNote = (
     page_number = 0,
     paragraph_number = 0,
     note = '',
-    createdAt = 0
+    createdAt = 0,
+    title = ''
 
   }={}
 )=>({
@@ -17,7 +18,8 @@ export const addNote = (
       page_number: parseInt(page_number),
       paragraph_number:parseInt(paragraph_number),
       note,
-      createdAt
+      createdAt,
+      title: 'TEMP TITLE'
     }
 })
 

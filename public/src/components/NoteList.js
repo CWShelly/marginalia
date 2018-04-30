@@ -5,11 +5,9 @@ import selectNotes from '../selectors/notes';
 
 export class NoteList extends React.Component{
 
-
   componentDidUpdate(prevProps){
       const json = JSON.stringify(this.props.notes)
       localStorage.setItem('notes', json)
-
  }
 
   render(){
@@ -31,6 +29,8 @@ export class NoteList extends React.Component{
 const mapStateToProps = (state)=>{
   const json = localStorage.getItem('notes')
   const notes = JSON.parse(json);
+  console.log(selectNotes(notes));
+  console.log(state.notes);
 
   if(notes){
     return {
