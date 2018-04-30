@@ -8,7 +8,7 @@ class BookListItem extends React.Component{
     localStorage.setItem('book_id', this.props.id)
   }
   render(){
-      console.log(this.props);
+      // console.log(this.props);
 
     return(
       <div>

@@ -3,16 +3,27 @@ import AddBook from './AddBook'
 import BookList from './BookList';
 
 
+class Dashboard extends React.Component{
 
+
+  render(){
+    console.log(this.props);
  
-const Dashboard = (props)=>(
-  <div>
-    The Dashboard
-      <AddBook />
-    <BookList />
 
-  </div>
-)
+    return(
+      <div>
+        The Dashboard
+          <AddBook   history={this.props.history}/>
+        <BookList />
+
+      </div>
+    )
+  }
+}
+
+
+
+
 
 
 export default Dashboard;

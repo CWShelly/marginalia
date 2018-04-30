@@ -9,8 +9,9 @@ export class AddBook extends React.Component{
 
  onSubmit=(book)=>{
    console.log(book);
+   console.log(this.props);
      this.props.addBook(book);
-     // this.props.history.push('/')
+     this.props.history.push('/')
   }
   render(){
     return (

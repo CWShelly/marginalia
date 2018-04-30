@@ -7,11 +7,20 @@ import selectBooks from '../selectors/books';
 
 export class BookList extends React.Component{
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(nextProps){
+
     console.log('updated booklist');
     const json = JSON.stringify(this.props.books)
     localStorage.setItem('books', json)
 
+ }
+
+ componentDidMount(){
+   console.log('mountd');
+
+   // console.log('updated booklist');
+   // const json = JSON.stringify(this.props.books)
+   // localStorage.setItem('books', json)
  }
 
 
@@ -24,7 +33,7 @@ export class BookList extends React.Component{
       {this.props.books.map((book)=>{
         return <BookListItem key={book.id} { ...book} />
       })}
-           
+
       </div>
 
    )
@@ -34,19 +43,18 @@ export class BookList extends React.Component{
 
 
 const mapStateToProps = (state)=>{
+  console.log('mapping');
   console.log(state);
   const json = localStorage.getItem('books')
   const books = JSON.parse(json);
   console.log(books);
 
     if(books){
-         console.log('boooks are here');
         return {
-          books: books
+          books: books.concat(state.books)
         }
     }
   else{
-    console.log('books are not here');
     return {
       books:state.books
 

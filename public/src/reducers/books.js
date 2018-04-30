@@ -1,6 +1,5 @@
 const booksReducerDefaultState = [];
 
-
 export default (state = booksReducerDefaultState, action)=>{
   switch(action.type){
     case 'ADD_BOOK':
@@ -9,7 +8,14 @@ export default (state = booksReducerDefaultState, action)=>{
         action.book
       ];
     case 'REMOVE_BOOK':
-     return state.filter(( { id }) => id !== action.id);
+     return state.filter(( { id }) =>{
+       
+       return id !== action.id
+     }
+
+     )
+
+
     case 'EDIT_BOOK':
      return state.map((book)=>{
 
@@ -19,7 +25,7 @@ export default (state = booksReducerDefaultState, action)=>{
            ...action.updates
          };
        } else{
-     
+
          return book;
        }
      })
