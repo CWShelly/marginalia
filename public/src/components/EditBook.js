@@ -4,15 +4,20 @@
  import BookForm from './BookForm';
  import { editBook, removeBook } from '../actions/books';
 
+
+
  export class EditBook extends React.Component{
    onSubmit=(book)=>{
-   this.props.editBook(this.props.book.id, book);
-   this.props.history.push('/');
+     console.log(book);
+     console.log(this.props);
+       this.props.editBook(this.props.book.id, book);
+       this.props.history.push('/');
 }
-onRemove = ()=>{
-  this.props.removeBook({ id: this.props.book.id });
-  this.props.history.push('/');
-}
+    onRemove=()=>{
+      console.log(this.props);
+      // this.props.removeBook({ id: this.props.book.id });
+      // this.props.history.push('/');
+    }
 
   render(){
     return (

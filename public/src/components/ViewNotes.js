@@ -4,7 +4,7 @@ import AddNote from './AddNote'
 import NoteList from './NoteList'
 
 const ViewNotes = (props)=>{
- 
+
   console.log(props.match.params.title);
 return(
   <div>

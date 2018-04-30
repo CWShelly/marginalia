@@ -2,12 +2,16 @@ import React from 'react';
 import moment from 'moment';
 
 export default class BookForm extends React.Component{
-  state = {
-    author_last_name: '',
-    author_first_name: '',
-    title: '',
-    createdAt: moment(),
-    error: ''
+ 
+  constructor(props){
+    super(props);
+    this.state={
+      author_last_name: props.book ? props.book.author_last_name : '',
+      author_first_name:props.book ? props.book.author_first_name : '',
+      title:  props.book ? props.book.title : '',
+      createdAt: props.book ? moment(props.book.createdAt): moment(),
+      error: ''
+    }
   }
 
   onAuthorLastNameChange = (e) =>{
@@ -36,7 +40,7 @@ export default class BookForm extends React.Component{
     if( !this.state.author_last_name || !this.state.title){
       this.setState(()=>({error: 'Please enter at least an author last name and title'}));
     } else{
-      this.setState(()=>(error: ''));
+      this.setState(()=>({error: ''}));
       this.props.onSubmit({
         author_last_name: this.state.author_last_name,
         author_first_name: this.state.author_first_name,
