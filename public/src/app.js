@@ -15,21 +15,23 @@ const store = configureStore();
 
 const state = store.getState();
 //
-store.dispatch(addBook({
-  author_last_name: 'Highsmith',
-  author_first_name: 'Patricia',
-  title: 'Ripley Under Water',
-  createdAt: 1000,
-
-}))
-
-store.dispatch(addBook({
-  author_last_name: 'Twain',
-  author_first_name: 'Mark',
-  title: 'Huck Finn',
-  createdAt: 1500,
-
-}))
+// store.dispatch(addBook({
+//   author_last_name: 'Highsmith',
+//   author_first_name: 'Patricia',
+//   title: 'Ripley Under Water',
+//   createdAt: 1000,
+//   id: 1
+//
+// }))
+//
+// store.dispatch(addBook({
+//   author_last_name: 'Twain',
+//   author_first_name: 'Mark',
+//   title: 'Huck Finn',
+//   createdAt: 1500,
+//   id: 2
+//
+// }))
 const visibleBooks = getVisibleBooks(state.books)
 
 
