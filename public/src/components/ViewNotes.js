@@ -6,11 +6,12 @@ import NoteList from './NoteList'
 const ViewNotes = (props)=>{
 
   console.log(props.match.params.title);
+  console.log(props);
 return(
   <div>
   Viewing notes for {props.match.params.title}.
   <NoteList />
-  <AddNote />
+  <AddNote history={props.history} title={props.match.params.title}/>
   </div>
 )
 
