@@ -7,7 +7,7 @@ export const addNote = (
     paragraph_number = 0,
     note = '',
     createdAt = 0,
-    title = ''
+    book_id = ''
 
   }={}
 )=>({
