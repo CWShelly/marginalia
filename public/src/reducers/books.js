@@ -9,7 +9,7 @@ export default (state = booksReducerDefaultState, action)=>{
       ];
     case 'REMOVE_BOOK':
      return state.filter(( { id }) =>{
-       
+
        return id !== action.id
      }
 
@@ -29,6 +29,8 @@ export default (state = booksReducerDefaultState, action)=>{
          return book;
        }
      })
+     case 'SET_BOOKS':
+      return action.books
      default:
       return state;
   }
