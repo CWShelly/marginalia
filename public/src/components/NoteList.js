@@ -24,7 +24,7 @@ export class NoteList extends React.Component{
 
 const mapStateToProps = (state)=>{
 
-
+console.log(state.notes);
      return {
        notes: state.notes
      }
@@ -34,7 +34,7 @@ const mapStateToProps = (state)=>{
 
 
 
- 
+
 
 
 export default connect(mapStateToProps)(NoteList);

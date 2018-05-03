@@ -44,13 +44,14 @@ export const setBooks = (books) => ({
   type: 'SET_BOOKS',
   books
 })
+
 export const startSetBooks = () => {
  return (dispatch) => {
    return database.ref('books')
    .once('value')
    .then((snapshot) => {
      const books = [];
-     
+
      snapshot.forEach((childSnapshot) => {
        books.push({
          id: childSnapshot.key,

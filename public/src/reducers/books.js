@@ -15,7 +15,6 @@ export default (state = booksReducerDefaultState, action)=>{
 
      )
 
-
     case 'EDIT_BOOK':
      return state.map((book)=>{
 
