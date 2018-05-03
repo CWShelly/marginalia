@@ -23,6 +23,8 @@ export default (state = notesReducerDefaultState, action)=>{
          return note;
        }
      })
+     case 'SET_NOTES':
+      return action.notes
      default:
 
       return state;
