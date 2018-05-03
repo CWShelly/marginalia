@@ -25,8 +25,6 @@ export const startAddBook = (bookData = {}) => {
 
   })
 
-
-
   }
 
 }
@@ -41,3 +39,28 @@ export const editBook = (id, updates)=>({
   id,
   updates
 })
+
+export const setBooks = (books) => ({
+  type: 'SET_BOOKS',
+  books
+})
+export const startSetBooks = () => {
+ return (dispatch) => {
+   return database.ref('books')
+   .once('value')
+   .then((snapshot) => {
+     const books = [];
+     
+     snapshot.forEach((childSnapshot) => {
+       books.push({
+         id: childSnapshot.key,
+         ...childSnapshot.val()
+       })
+
+     })
+    dispatch(setBooks(books))
+   })
+
+ }
+
+}

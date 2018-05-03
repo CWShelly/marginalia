@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { addBook } from './actions/books';
+import { startSetBooks } from './actions/books';
 import { addNote} from './actions/notes';
 import configureStore from './store/configureStore';
 import getVisibleBooks from './selectors/books';
@@ -41,4 +41,10 @@ const jsx = (
     <AppRouter />
   </Provider>
 )
-ReactDOM.render(jsx, document.getElementById('app'));
+// ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<p>Loading ...</p>, document.getElementById('app'));
+
+store.dispatch(startSetBooks()).then(
+  () => {
+  ReactDOM.render(jsx, document.getElementById('app'));
+})
