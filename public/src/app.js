@@ -7,6 +7,7 @@ import configureStore from './store/configureStore';
 import getVisibleBooks from './selectors/books';
 import getVisibleNotes from './selectors/notes'
 import AppRouter from './routers/AppRouter';
+import './firebase/firebase';
 
 
 const store = configureStore();

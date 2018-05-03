@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addBook } from '../actions/books';
+import { startAddBook } from '../actions/books';
 import BookForm from './BookForm';
 
 
@@ -8,8 +8,8 @@ import BookForm from './BookForm';
 export class AddBook extends React.Component{
 
  onSubmit=(book)=>{
- 
-     this.props.addBook(book);
+
+     this.props.startAddBook(book);
      this.props.history.push('/')
   }
   render(){
@@ -27,6 +27,6 @@ export class AddBook extends React.Component{
 
 
 const mapDispatchToProps = (dispatch)=> ({
-     addBook: (book)=> dispatch(addBook(book))
+     startAddBook: (book)=> dispatch(startAddBook(book))
 })
 export default connect(undefined, mapDispatchToProps)(AddBook)
