@@ -1,23 +1,35 @@
 import uuid from 'uuid';
+import database from '../firebase/firebase'
 
-export const addBook = (
-  {
+export const addBook = (book)=>({
+  type: 'ADD_BOOK',
+  book
+})
+
+export const startAddBook = (bookData = {}) => {
+  return (dispatch) => {
+  const {
     author_last_name = '',
     author_first_name = '',
     title = '',
     createdAt = 0
 
-  }={}
-)=>({
-  type: 'ADD_BOOK',
-    book:{
-      id: uuid(),
-      author_last_name,
-      author_first_name,
-      title,
-      createdAt
-    }
-})
+  } = bookData;
+  const book = { author_last_name, author_first_name, title, createdAt}
+  database.ref('books').push(book)
+  .then((ref) => {
+    dispatch(addBook({
+      id: ref.key,
+      ... book
+    }));
+
+  })
+
+
+
+  }
+
+}
 
 export const removeBook = ({ id } = {}) =>({
   type: 'REMOVE_BOOK',
