@@ -12,16 +12,22 @@ export  class MostRecentNote extends React.Component{
     note: '',
     createdAt: moment(),
     errorNote: '',
-    count: 1
+    count: 1,
+    remainingCharacters: 210
   }
 
 
   onNoteChange = (e) =>{
+    e.persist()
+    // e.preventDefault()
     const note = e.target.value;
+
 
     this.setState((prevState)=>({
        count: parseInt(prevState.count) + 1,
-       note }));
+       remainingCharacters: 210 - parseInt(e.target.value.length),
+       note,
+      }));
 
 
   }
@@ -50,6 +56,8 @@ export  class MostRecentNote extends React.Component{
    return(
      <div>
 
+
+
    <p>Quick Add -- from chapter: {this.props.last_note.chapter_number},
    page: {this.props.last_note.page_number},
     paragraph {parseInt(this.props.last_note.paragraph_number) + 1}.   </p>
@@ -63,7 +71,7 @@ export  class MostRecentNote extends React.Component{
      />
      <button> Quick Add</button>
      </form>
-
+<p>{this.state.remainingCharacters} characters left.</p>
 
      </div>
    )
