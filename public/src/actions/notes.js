@@ -22,7 +22,7 @@ export const startAddNote = (noteData = {}) => {
 
   } = noteData;
   const _note = { chapter_number, page_number, paragraph_number, note, createdAt, book_id}
-  database.ref('notes').push(_note)
+  return database.ref('notes').push(_note)
   .then((ref) => {
     dispatch(addNote({
       id: ref.key,
@@ -44,12 +44,21 @@ export const editNote = (id, updates)=>({
   updates
 })
 
-export const setNotes = (notes) => ({
-  type: 'SET_NOTES',
-  notes
-})
+// export const setNotes = (notes) => ({
+//   type: 'SET_NOTES',
+//   notes
+// })
+
+export const setNotes = (notes) => {
+  console.log('setting the notes from explicit');
+  return{   type: 'SET_NOTES',
+    notes
+
+  }
+}
 
 export const startSetNotes = () => {
+  console.log('starting set notes');
  return (dispatch) => {
    return database.ref('notes')
    .once('value')
