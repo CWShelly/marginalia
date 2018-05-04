@@ -1,22 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AddNote from './AddNote'
-import NoteList from './NoteList'
+import AddNote from './AddNote';
+import NoteList from './NoteList';
+import MostRecentNote from './MostRecentNote';
+import { startAddNote } from '../actions/notes';
+import { connect } from 'react-redux';
 
-const ViewNotes = (props)=>{
+export class ViewNotes extends React.Component{
+  onSubmit=(note)=>{
+   console.log(this.props);
+     this.props.startAddNote(note);
 
-  // console.log(props.match.params.title);
-  // console.log(props);
-  //
-return(
-  <div>
-  Viewing notes for {props.match.params.title}.
-  <NoteList />
-  <AddNote history={props.history} title={props.match.params.title}/>
-  </div>
-)
+     this.props.history.push(`/viewNotes/${this.props.title}`)
 
+  }
+
+render(){
+  return(
+    <div>
+    Viewing notes for {this.props.match.params.title}.
+    <MostRecentNote onSubmit={this.onSubmit} />
+    <NoteList />
+    <AddNote history={this.props.history} title={this.props.match.params.title}/>
+    </div>
+  )
+}
 }
 
 
- export default ViewNotes
+
+const mapDispatchToProps = (dispatch)=> ({
+     startAddNote: (note)=> dispatch(startAddNote(note))
+})
+
+
+export default connect(undefined, mapDispatchToProps)(ViewNotes)
+
+
+
+ // export default ViewNotes
