@@ -1,7 +1,8 @@
 
 export default (notes) =>{
 console.log(notes);
-  if(notes){
+
+
     const book_id = localStorage.getItem('book_id');
 
     const hasBookId= (note)=>{
@@ -9,11 +10,8 @@ console.log(notes);
     }
 
    const notes_of_this_book = notes.filter(hasBookId)
-   console.log(notes_of_this_book);
-  }
 
 
-
-  return notes;
+  return notes_of_this_book;
 
 }
