@@ -2,7 +2,7 @@
  import React from 'react';
  import { connect } from 'react-redux';
  import BookForm from './BookForm';
- import { editBook, removeBook } from '../actions/books';
+ import { editBook, startRemoveBook } from '../actions/books';
 
  export class EditBook extends React.Component{
    onSubmit=(book)=>{
@@ -10,13 +10,13 @@
    this.props.history.push('/');
 }
     onRemove = ()=>{
-      console.log(this.props);
-      this.props.removeBook({ id: this.props.book.id })
+
+      this.props.startRemoveBook({ id: this.props.book.id })
       const notBooks = (book)=>{
         return book.id !== this.props.book.id
       }
       const filtered = this.props.books.filter(notBooks)
-      console.log(filtered);
+
       const json = JSON.stringify(filtered)
       localStorage.setItem('books', json)
 
@@ -42,7 +42,7 @@
 
 
  const mapStateToProps = (state, props)=>{
-   
+
   return {
     book: state.books.find((book)=>book.id === props.match.params.id),
     books: state.books.filter((book)=> book.id !== book)
@@ -53,7 +53,7 @@
 
 const mapDispatchToProps = (dispatch, props) => ({
   editBook:(id, book)=> dispatch(editBook(id, book)),
-  removeBook: (data)=> dispatch(removeBook(data))
+  startRemoveBook: (data)=> dispatch(startRemoveBook(data))
 
 })
 

@@ -1,6 +1,7 @@
 
 export default (notes) =>{
 
+
    const book_id = localStorage.getItem('book_id');
 
     const hasBookId= (note)=>{

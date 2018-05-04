@@ -51,13 +51,21 @@ export default class NoteForm extends React.Component{
       this.setState(()=>({errorNote: ''}));
       this.props.onSubmit({
         chapter_number: this.state.chapter_number,
-        page_number: this.state.page_number,
+        page_number: this.state.chapter_number,
         paragraph_number: this.state.paragraph_number,
         note: this.state.note,
         createdAt: this.state.createdAt.valueOf(),
 
       })
     }
+
+    if(!this.state.errorNote){
+      this.state.chapter_number = 0;
+      this.state.page_number = 0;
+      this.state.paragraph_number =0;
+      this.state.note =''
+    }
+
 
   }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
  import { connect } from 'react-redux';
 import pickUpFromLastNote from '../selectors/from_last_note';
+import selectNotes from '../selectors/notes';
 
 
 export  class MostRecentNote extends React.Component{
@@ -22,17 +23,13 @@ export  class MostRecentNote extends React.Component{
     e.persist()
 
     const note = e.target.value;
-   
+
     this.setState((prevState)=>({
        count: parseInt(prevState.count) + 1,
        remainingCharacters: 210 - parseInt(e.target.value.length),
        note,
       }));
-
-
   }
-
-
 
   onSubmit = (e)=>{
     e.preventDefault();
@@ -51,6 +48,11 @@ export  class MostRecentNote extends React.Component{
       })
     }
 
+    if(!this.state.errorNote){
+
+        this.state.note = ""
+    }
+
   }
 
  render(){
@@ -59,42 +61,47 @@ export  class MostRecentNote extends React.Component{
      <div>
 
 
-
-<p> Quick Add -- </p>
+     {
+       this.props.book_notes.length > 0 && <div> <p> Quick Add -- </p>
    <p>
    Last note: {this.props.last_note.chapter_number},
    page: {this.props.last_note.page_number},
     paragraph {parseInt(this.props.last_note.paragraph_number)}. </p>
+     <p>
+      Continue from chapter: {this.props.last_note.chapter_number},
+      page: {this.props.last_note.page_number},
+      paragraph {parseInt(this.props.last_note.paragraph_number) + 1}.
+    </p>
 
-    <p>
+        {this.state.errorNote && <p>{this.state.errorNote}</p>}
 
-  Continue from chapter: {this.props.last_note.chapter_number},
-   page: {this.props.last_note.page_number},
-    paragraph {parseInt(this.props.last_note.paragraph_number) + 1}.   </p>
-
-     <form onSubmit={this.onSubmit}>
-     <textarea
-     type="type"
-     maxLength="210"
-     value={this.state.note}
-     onChange={this.onNoteChange}
-     />
-     <button> Quick Add</button>
-     </form>
-<p>{this.state.remainingCharacters} characters left.</p>
+         <form onSubmit={this.onSubmit}>
+         <textarea
+         type="type"
+         maxLength="210"
+       
+         value={this.state.note}
+         onChange={this.onNoteChange}
+         />
+         <button> Quick Add</button>
+         </form>
+    <p>{this.state.remainingCharacters} characters left.</p>
 
      </div>
+}
+     </div>
+
    )
  }
 }
 
-
-
 const mapStateToProps = (state)=>{
 
      return {
+       last_note:pickUpFromLastNote(state.notes),
+       state_notes: state.notes,
+       book_notes: selectNotes(state.notes)
 
-       last_note:pickUpFromLastNote(state.notes)
      }
 
 }

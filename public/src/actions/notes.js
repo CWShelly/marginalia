@@ -33,6 +33,29 @@ export const startAddNote = (noteData = {}) => {
 }
 
 
+export const startRemoveNote =({ id} = {})=>{
+  console.log('removing note');
+  return(dispatch)=>{
+    database.ref(`notes/${ id }`).remove()
+    .then(() => {
+      dispatch(removeBook({ id }))
+    })
+
+  }
+}
+
+export const startRemoveNotesAssociatedWithBook =({ id} = {})=>{
+  console.log('removing the notes associated with this book');
+  // return(dispatch)=>{
+  //   database.ref(`notes/${ id }`).remove()
+  //   .then(() => {
+  //     dispatch(removeBook({ id }))
+  //   })
+  //
+  // }
+}
+
+
 export const removeNote = ({ id } = {}) =>({
   type: 'REMOVE_NOTE',
   id
@@ -43,6 +66,8 @@ export const editNote = (id, updates)=>({
   id,
   updates
 })
+
+
 
 // export const setNotes = (notes) => ({
 //   type: 'SET_NOTES',
@@ -63,7 +88,7 @@ export const startSetNotes = () => {
    return database.ref('notes')
    .once('value')
    .then((snapshot) => {
- 
+
      const notes = [];
 
      snapshot.forEach((childSnapshot) => {
