@@ -9,7 +9,7 @@ export class BookList extends React.Component{
 
 
  render(){
-   console.log(this.props);
+ 
    return(
      <div>
       <h1>Book List</h1>

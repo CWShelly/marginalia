@@ -8,7 +8,8 @@ export default class NoteForm extends React.Component{
     paragraph_number:0,
     note: '',
     createdAt: moment(),
-    errorNote: ''
+    errorNote: '',
+    remainingCharacters: 210
   }
 
   onChapterNumberChange = (e) =>{
@@ -26,8 +27,13 @@ export default class NoteForm extends React.Component{
 
   }
   onNoteChange = (e) =>{
+        e.persist()
     const note = e.target.value;
-    this.setState(()=>({ note }));
+    this.setState((prevState)=>({
+       count: parseInt(prevState.count) + 1,
+       remainingCharacters: 210 - parseInt(e.target.value.length),
+       note,
+      }));
 
   }
   onDateChange = (createdAt) =>{
@@ -59,6 +65,8 @@ export default class NoteForm extends React.Component{
     return(
       <div>
       {this.state.errorNote && <p>{this.state.errorNote}</p>}
+
+      <p>{this.state.remainingCharacters} characters left.</p>
 
       <form onSubmit={this.onSubmit}>
       Chapter:
