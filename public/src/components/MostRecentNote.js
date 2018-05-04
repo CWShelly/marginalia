@@ -23,7 +23,7 @@ export  class MostRecentNote extends React.Component{
        count: parseInt(prevState.count) + 1,
        note }));
 
-   
+
   }
 
   onSubmit = (e)=>{
@@ -73,8 +73,9 @@ export  class MostRecentNote extends React.Component{
 
 
 const mapStateToProps = (state)=>{
+  console.log(state);
 
-console.log(state.notes);
+// console.log(state.notes);
      return {
 
        last_note:pickUpFromLastNote(state.notes)

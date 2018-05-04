@@ -7,20 +7,30 @@ import { startAddNote } from '../actions/notes';
 import { connect } from 'react-redux';
 
 export class ViewNotes extends React.Component{
+  componentDidMount(){
+    console.log('view notes mounted');
+  }
+
+componentWillReceiveProps(nextProps){
+console.log('will receive props');
+}
+
   onSubmit=(note)=>{
    console.log(this.props);
      this.props.startAddNote(note);
 
-     this.props.history.push(`/viewNotes/${this.props.title}`)
+     this.props.history.push(`/viewNotes/${this.props.match.params.title}`)
+      // this.props.history.push(`${this.props.match.path}`)
 
   }
 
 render(){
+    console.log(this.props);
   return(
     <div>
     Viewing notes for {this.props.match.params.title}.
-    <MostRecentNote onSubmit={this.onSubmit} />
-    <NoteList />
+    <MostRecentNote history={this.props.history}  onSubmit={this.onSubmit} />
+    <NoteList history={this.props.history}  />
     <AddNote history={this.props.history} title={this.props.match.params.title}/>
     </div>
   )
