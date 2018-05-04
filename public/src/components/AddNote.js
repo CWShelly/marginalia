@@ -15,6 +15,7 @@ export class AddNote extends React.Component{
 
   }
   render(){
+
     return (
       <div>
 
