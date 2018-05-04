@@ -1,4 +1,3 @@
-
 export default (notes) =>{
 console.log(notes);
 
@@ -10,7 +9,8 @@ console.log(notes);
     }
 
    const notes_of_this_book = notes.filter(hasBookId)
- 
-  return notes_of_this_book;
+
+console.log(notes_of_this_book[notes_of_this_book.length-1]);
+  return notes_of_this_book[notes_of_this_book.length-1]
 
 }

@@ -59,6 +59,7 @@ export default class NoteForm extends React.Component{
     return(
       <div>
       {this.state.errorNote && <p>{this.state.errorNote}</p>}
+
       <form onSubmit={this.onSubmit}>
       Chapter:
       <input
