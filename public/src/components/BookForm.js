@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 export default class BookForm extends React.Component{
- 
+
   constructor(props){
     super(props);
     this.state={
@@ -48,6 +48,12 @@ export default class BookForm extends React.Component{
         createdAt: this.state.createdAt.valueOf(),
 
       })
+
+      if(!this.state.error){
+        this.state.author_last_name = "";
+        this.state.author_first_name = "";
+        this.state.title = "";
+      }
     }
 
   }
