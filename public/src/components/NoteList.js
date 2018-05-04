@@ -5,7 +5,6 @@ import selectNotes from '../selectors/notes';
 
 export class NoteList extends React.Component{
 
-
   render(){
     return(
       <div>
@@ -20,21 +19,12 @@ export class NoteList extends React.Component{
   }
 }
 
-
-
 const mapStateToProps = (state)=>{
 
-console.log(state.notes);
      return {
-       notes: state.notes
+       notes: selectNotes(state.notes)
      }
 
 }
-
-
-
-
-
-
 
 export default connect(mapStateToProps)(NoteList);

@@ -57,7 +57,6 @@ export const startSetNotes = () => {
      console.log(snapshot.val());
      const notes = [];
 
-
      snapshot.forEach((childSnapshot) => {
        notes.push({
          id: childSnapshot.key,
