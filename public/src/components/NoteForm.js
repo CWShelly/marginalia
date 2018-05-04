@@ -60,6 +60,7 @@ export default class NoteForm extends React.Component{
       <div>
       {this.state.errorNote && <p>{this.state.errorNote}</p>}
       <form onSubmit={this.onSubmit}>
+      Chapter:
       <input
       type="number"
       placeholder="Chapter"
@@ -67,21 +68,25 @@ export default class NoteForm extends React.Component{
       value={this.state.chapter_number}
       onChange={this.onChapterNumberChange}
       />
+      Page:
       <input
       type="number"
       placeholder="Page"
       value={this.state.page_number}
       onChange={this.onPageNumberChange}
       />
+      Paragraph:
       <input
       type="number"
       placeholder="Paragraph"
       value={this.state.paragraph_number}
       onChange={this.onParagraphNumberChange}
       />
+      Note:
       <textarea
       type="text"
       placeholder="note"
+      maxLength="210"
       value={this.state.note}
       onChange={this.onNoteChange}
       />
