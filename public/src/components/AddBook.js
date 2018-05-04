@@ -12,10 +12,14 @@ export class AddBook extends React.Component{
      this.props.startAddBook(book);
      this.props.history.push('/')
   }
+
+
+
   render(){
     return (
       <div>
        <h1>Add a book</h1>
+       
        <BookForm
          onSubmit={this.onSubmit}
        />

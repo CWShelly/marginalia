@@ -4,15 +4,13 @@ import { Link } from 'react-router-dom';
 
 class BookListItem extends React.Component{
 
-  componentDidMount(){
-    console.log('book list item mounted');
-  }
+ 
   onHandleClick=()=>{
-console.log(this.props);
+
     localStorage.setItem('book_id', this.props.id)
   }
   render(){
-      // console.log(this.props);
+
 
     return(
       <div>

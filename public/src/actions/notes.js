@@ -63,7 +63,7 @@ export const startSetNotes = () => {
    return database.ref('notes')
    .once('value')
    .then((snapshot) => {
-     console.log(snapshot.val());
+ 
      const notes = [];
 
      snapshot.forEach((childSnapshot) => {

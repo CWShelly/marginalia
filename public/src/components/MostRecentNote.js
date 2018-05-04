@@ -17,12 +17,12 @@ export  class MostRecentNote extends React.Component{
   }
 
 
+
   onNoteChange = (e) =>{
     e.persist()
-    // e.preventDefault()
+
     const note = e.target.value;
-
-
+   
     this.setState((prevState)=>({
        count: parseInt(prevState.count) + 1,
        remainingCharacters: 210 - parseInt(e.target.value.length),
@@ -31,6 +31,8 @@ export  class MostRecentNote extends React.Component{
 
 
   }
+
+
 
   onSubmit = (e)=>{
     e.preventDefault();
@@ -58,7 +60,15 @@ export  class MostRecentNote extends React.Component{
 
 
 
-   <p>Quick Add -- from chapter: {this.props.last_note.chapter_number},
+<p> Quick Add -- </p>
+   <p>
+   Last note: {this.props.last_note.chapter_number},
+   page: {this.props.last_note.page_number},
+    paragraph {parseInt(this.props.last_note.paragraph_number)}. </p>
+
+    <p>
+
+  Continue from chapter: {this.props.last_note.chapter_number},
    page: {this.props.last_note.page_number},
     paragraph {parseInt(this.props.last_note.paragraph_number) + 1}.   </p>
 
@@ -81,9 +91,7 @@ export  class MostRecentNote extends React.Component{
 
 
 const mapStateToProps = (state)=>{
-  console.log(state);
 
-// console.log(state.notes);
      return {
 
        last_note:pickUpFromLastNote(state.notes)
