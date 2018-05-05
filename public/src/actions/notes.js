@@ -38,7 +38,7 @@ export const startRemoveNote =({ id} = {})=>{
   return(dispatch)=>{
     database.ref(`notes/${ id }`).remove()
     .then(() => {
-      dispatch(removeBook({ id }))
+      dispatch(removeNote({ id }))
     })
 
   }
@@ -73,6 +73,9 @@ export const editNote = (id, updates)=>({
 //   type: 'SET_NOTES',
 //   notes
 // })
+
+
+
 
 export const setNotes = (notes) => {
   console.log('setting the notes from explicit');
