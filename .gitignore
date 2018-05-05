@@ -19,3 +19,5 @@ public/styles.css.map
 
 .env.test
 .env.development
+
+/dist/

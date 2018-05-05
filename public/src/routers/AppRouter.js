@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import Dashboard from '../components/Dashboard';
 import NotFound from '../components/NotFound';
 import AddBook from '../components/AddBook';
-import Header from '../components/Header'
+import Header from '../components/Header';
 import EditBook from '../components/EditBook';
 import AddNote from '../components/AddNote';
 import ViewNotes from '../components/ViewNotes';

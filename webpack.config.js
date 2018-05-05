@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'test') {
 
 module.exports = (env) => {
   const isProduction = env === 'production';
-  // const CSSExtract = new ExtractTextPlugin('styles.css');
+  const CSSExtract = new ExtractTextPlugin('styles.css');
 
   return {
     entry: './public/src/app.js',
@@ -27,26 +27,26 @@ module.exports = (env) => {
         exclude: /node_modules/
       }, {
         test: /\.s?css$/,
-        // use: CSSExtract.extract({
-        //   use: [
-        //     {
-        //       loader: 'css-loader',
-        //       options: {
-        //         sourceMap: true
-        //       }
-        //     },
-        //     {
-        //       loader: 'sass-loader',
-        //       options: {
-        //         sourceMap: true
-        //       }
-        //     }
-        //   ]
-        // })
+        use: CSSExtract.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
+        })
       }]
     },
     plugins: [
-      // CSSExtract,
+      CSSExtract,
       new webpack.DefinePlugin({
         'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
         'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),

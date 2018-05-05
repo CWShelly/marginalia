@@ -18,8 +18,8 @@ export class AddBook extends React.Component{
   render(){
     return (
       <div>
-       <h1>Add a book</h1>
-       
+     
+
        <BookForm
          onSubmit={this.onSubmit}
        />
