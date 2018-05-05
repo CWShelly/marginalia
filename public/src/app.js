@@ -9,7 +9,8 @@ import getVisibleNotes from './selectors/notes'
 import AppRouter from './routers/AppRouter';
 import './firebase/firebase';
 
-
+import 'normalize.css/normalize.css';
+import './styles/styles.scss';
 const store = configureStore();
 
 
@@ -33,4 +34,3 @@ store.dispatch(startSetBooks())
  .then(() => {
      ReactDOM.render(jsx, document.getElementById('app'));
 })
- 

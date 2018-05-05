@@ -41,7 +41,7 @@ export  class MostRecentNote extends React.Component{
       this.props.onSubmit({
         chapter_number: this.props.last_note.chapter_number,
         page_number: this.props.last_note.page_number,
-        paragraph_number: this.props.last_note.chapter_number + this.state.count,
+        paragraph_number: parseInt(this.props.last_note.chapter_number) + parseInt( this.state.count),
         note: this.state.note,
         createdAt: this.state.createdAt.valueOf(),
 
@@ -59,36 +59,39 @@ export  class MostRecentNote extends React.Component{
 
    return(
      <div>
-
+<div className="most-recent-note">
 
      {
-       this.props.book_notes.length > 0 && <div> <p> Quick Add -- </p>
-   <p>
-   Last note: {this.props.last_note.chapter_number},
-   page: {this.props.last_note.page_number},
-    paragraph {parseInt(this.props.last_note.paragraph_number)}. </p>
-     <p>
-      Continue from chapter: {this.props.last_note.chapter_number},
-      page: {this.props.last_note.page_number},
-      paragraph {parseInt(this.props.last_note.paragraph_number) + 1}.
+       this.props.book_notes.length > 0 && <div> <p className="most-recent-note-title"> Quick Add </p>
+   <p className="most-recent-note-text">
+   Last note - Chapter: {this.props.last_note.chapter_number}.
+   Page: {this.props.last_note.page_number}.
+   Paragraph: {parseInt(this.props.last_note.paragraph_number)}. </p>
+     <p className="most-recent-note-text">
+      Continue from Chapter: {this.props.last_note.chapter_number}.
+      Page: {this.props.last_note.page_number}.
+      Paragraph: 2.
+
     </p>
 
         {this.state.errorNote && <p>{this.state.errorNote}</p>}
 
          <form onSubmit={this.onSubmit}>
-         <textarea
+         <p><textarea
+         className="most-recent-note-textarea"
          type="type"
          maxLength="210"
-       
+
          value={this.state.note}
          onChange={this.onNoteChange}
-         />
-         <button> Quick Add</button>
+         /></p>
+         <button className="button-quick-form"> Quick Add</button>
          </form>
     <p>{this.state.remainingCharacters} characters left.</p>
 
      </div>
 }
+</div>
      </div>
 
    )

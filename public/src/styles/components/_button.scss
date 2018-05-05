@@ -1,0 +1,16 @@
+.button-form{
+  background: red;
+  color: white;
+  width: 20rem;
+  border: .3rem solid darken(red, 20%);
+    // padding:$medium;
+    margin-top: $small /5;
+}
+
+.button-quick-form{
+  background: $lightBlue;
+  color: white;
+  width: 20rem;
+  border: .3rem solid darken($lightBlue, 20%);
+   
+}

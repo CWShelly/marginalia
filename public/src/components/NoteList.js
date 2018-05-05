@@ -6,14 +6,18 @@ import pickUpFromLastNote from '../selectors/from_last_note'
 
 
 export class NoteList extends React.Component{
+
   render(){
+      console.log(this.props);
     return(
       <div>
-       <h1>Note List</h1>
+      <div className="container note-item-container">
+
 
        {this.props.notes.map((note, index)=>{
          return <NoteListItem key={note.id} { ...note} index={index}/>
        })}
+       </div>
        </div>
 
     )
@@ -21,16 +25,12 @@ export class NoteList extends React.Component{
 }
 
 const mapStateToProps = (state)=>{
-  // if(state.notes.length > 0){
+
     return {
       notes: selectNotes(state.notes)
-      // last_note:pickUpFromLastNote(state.notes)
+
     }
-    // else{
-    //   notes: selectNotes(state.notes),
-    //   last_note:pickUpFromLastNote(state.notes)
-    // }
-  // }
+
 
 
 

@@ -2,10 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => (
-  <header>
+  <header className="header">
     <h1>Marginalia</h1>
-    <NavLink to="/" activeClassName="is-active" exact={true}>Dashboard</NavLink>
-    <NavLink to="/addbook" activeClassName="is-active">Add a Book</NavLink>
+    <p>for readers</p>
+    <NavLink to="/" activeClassName="is-active" exact={true}>Home</NavLink>
+
 
   </header>
 );

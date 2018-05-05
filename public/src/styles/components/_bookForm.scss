@@ -1,0 +1,31 @@
+.book-form{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.book-form-input{
+  font-size: $large;
+  border: none;
+  border-bottom: .3rem solid darken($lightBlue, 10%);
+  width: 20rem;
+  // text-align:right;
+
+}
+
+.book-form-error{
+
+}
+
+.book-form-title{
+  font-size: $medium;
+  text-align:right;
+
+}
+
+.book-form-container{
+  border: 1px solid $lightBlue;
+  margin: $medium 0;
+ padding: 0 $medium;
+  max-width: 60rem;
+}

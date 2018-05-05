@@ -1,0 +1,13 @@
+.header{
+  background:  $lightBlue;
+  text-align: right;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 $medium;
+}
+
+.header a{
+  color: white;
+  text-decoration: none;
+  // text-align: right;
+}
