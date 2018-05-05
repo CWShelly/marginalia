@@ -18,7 +18,7 @@ class BookListItem extends React.Component{
         to={`/viewNotes/${this.props.title}/${this.props.id}`}>
         {this.props.title}</Link>
           by {this.props.author_first_name} {this.props.author_last_name}.
-         <Link to={`/edit/${this.props.id}`}>Edit</Link></p>
+         <Link onClick={this.onHandleClick} to={`/edit/${this.props.id}`}>Edit</Link></p>
       </div>
 
     )

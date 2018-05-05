@@ -21,11 +21,13 @@
 
 
   render(){
+    console.log(this.props);
     return (
       <div>
        <NoteForm
        note={this.props.note}
        notes={this.props.notes}
+       
        onSubmit={
         this.onSubmit}
        />
