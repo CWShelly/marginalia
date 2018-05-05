@@ -3,21 +3,22 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-
-const NoteListItem = (
-  { id,
-    chapter_number,
-    page_number,
-    paragraph_number,
-    note,
-    createdAt,
-    index
-  }) =>(
+class NoteListItem extends React.Component{
+render(){
+  console.log(this.props);
+  return(
     <div>
-    <p>{index + 1}. {note}</p>
-    <p>chapter:{chapter_number} page:{page_number} paragraph:{paragraph_number}</p>
+    <p> {this.props.note}</p>
+    <p>chapter:{this.props.chapter_number} page:{this.props.page_number} paragraph:{this.props.paragraph_number}</p>
+      <p>
+       <Link to={`/editNote/${this.props.id}`}>Edit</Link></p>
     </div>
   )
+}
+}
+
+
+
 
 
 
