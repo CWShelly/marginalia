@@ -29,31 +29,18 @@ export const startAddBook = (bookData = {}) => {
 
 }
 
+
 export const startRemoveBook =({ id} = {})=>{
   const book_id = id;
 
-  if( database.ref(`books/${id}`) ===   database.ref(`notes/${book_id}`)){
-    console.log('yes');
-    return(dispatch)=>{
-
-      database.ref(`notes/${book_id}`).remove()
-      .then(() => {
-        dispatch(startRemoveNotesAssociatedWithBook({ id }))
-      })
-
-    }
+  return (dispatch)=>{
+    database.ref(`books/${ id }`).remove()
+    .then(() => {
+      dispatch(removeBook({ id }))
+    })
   }
-  else{
-    console.log('no');
-  }
-  // return(dispatch)=>{
-  //
-  //   database.ref(`books/${id}`).remove()
-  //   .then(() => {
-  //     dispatch(removeBook({ id }))
-  //   })
-  //
-  // }
+
+
 }
 
 export const removeBook = ({ id } = {}) =>({

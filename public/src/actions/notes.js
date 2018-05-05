@@ -34,8 +34,9 @@ export const startAddNote = (noteData = {}) => {
 
 
 export const startRemoveNote =({ id} = {})=>{
-  console.log('removing note');
+
   return(dispatch)=>{
+
     database.ref(`notes/${ id }`).remove()
     .then(() => {
       dispatch(removeNote({ id }))
@@ -44,37 +45,42 @@ export const startRemoveNote =({ id} = {})=>{
   }
 }
 
-export const startRemoveNotesAssociatedWithBook =({ id} = {})=>{
-  console.log('removing the notes associated with this book');
-  // return(dispatch)=>{
-  //   database.ref(`notes/${ id }`).remove()
-  //   .then(() => {
-  //     dispatch(removeBook({ id }))
-  //   })
-  //
-  // }
+export const startRemoveNoteByBook =({ book_id} = {})=>{
+
+  return(dispatch)=>{
+
+    database.ref(`notes/${ book_id }`).remove()
+    .then(() => {
+      dispatch(removeNoteByBook({ book_id }))
+    })
+
+  }
 }
 
 
-export const removeNote = ({ id } = {}) =>({
-  type: 'REMOVE_NOTE',
-  id
-})
+
+export const removeNoteByBook = ({ book_id } = {}) =>{
+  console.log({book_id});
+  return{
+    type: 'REMOVE_NOTE',
+    book_id
+  }
+}
+
+export const removeNote = ({ id } = {}) =>{
+ 
+  return{
+    type: 'REMOVE_NOTE',
+    id
+  }
+}
+
 
 export const editNote = (id, updates)=>({
   type:'EDIT_NOTE',
   id,
   updates
 })
-
-
-
-// export const setNotes = (notes) => ({
-//   type: 'SET_NOTES',
-//   notes
-// })
-
-
 
 
 export const setNotes = (notes) => {

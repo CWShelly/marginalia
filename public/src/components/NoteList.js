@@ -5,10 +5,7 @@ import selectNotes from '../selectors/notes';
 import pickUpFromLastNote from '../selectors/from_last_note'
 
 
- 
-
 export class NoteList extends React.Component{
-
   render(){
     return(
       <div>
