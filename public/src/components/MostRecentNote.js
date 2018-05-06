@@ -62,7 +62,7 @@ export  class MostRecentNote extends React.Component{
     if(!this.state.errorNote){
 
         this.state.note = "",
-        this.state.remainingCharacters = 0;
+        this.state.remainingCharacters = 210;
     }
 
   }
@@ -93,7 +93,7 @@ export  class MostRecentNote extends React.Component{
       <p className="most-recent-note-text">
           Continue from Chapter: {this.props.last_note.chapter_number}.
           Page: {this.props.last_note.page_number}.
-          Paragraph: {this.props.last_note.page_number +1}.
+          Paragraph: {this.props.last_note.paragraph_number +1}.
       </p>
 
         { this.state.errorNote && <p>{this.state.errorNote}</p> }
