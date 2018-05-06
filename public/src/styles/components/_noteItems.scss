@@ -5,11 +5,16 @@ font-size: $medium;
 font-size: $small;
 }
 
-.note-item-container{
+.note-list-container{
 border: 1px solid $lightBlue;
+padding-bottom: $medium;
+
 
 }
 
+.note-item-container{
+    border-bottom: .3rem solid darken($lightBlue, 20%);
+}
 .note-item-title{
 
 }

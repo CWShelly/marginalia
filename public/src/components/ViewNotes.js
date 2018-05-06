@@ -8,11 +8,7 @@ import { connect } from 'react-redux';
 
 export class ViewNotes extends React.Component{
 
-  // componentDidMount(){
-  //   console.log('mounted');
-  //   let author_first_name =  localStorage.getItem('author_first');
-  //   let author_name_name =  localStorage.getItem('author_last');
-  // }
+
 
   state = {
     display: false,
@@ -37,7 +33,7 @@ export class ViewNotes extends React.Component{
 
 
   displayAddNote =()=>{
-    console.log(this);
+
     this.setState((prevState)=>({
       display: !prevState.display
     }))
@@ -46,14 +42,15 @@ export class ViewNotes extends React.Component{
   }
 
 render(){
-
+console.log(this.props);
+console.log(this.state);
   return(
     <div>
     <div className="container view-notes-container">
     <p className="view-notes-title">Notes for {this.props.match.params.title} by {this.state.author_first_name} {this.state.author_last_name} </p>
     <MostRecentNote history={this.props.history}  onSubmit={this.onSubmit} />
+ 
 
-        <p className="view-notes-title"> {this.props.match.params.title} by {this.state.author_first_name} {this.state.author_last_name}.</p>
     <NoteList history={this.props.history}  />
 
     <button className="button-quick-form" onClick={this.displayAddNote}>{!this.state.display ? 'Add a Note' : 'Cancel'}</button>
