@@ -5,6 +5,7 @@
   border: .3rem solid darken(red, 20%);
     // padding:$medium;
     margin-top: $small /5;
+      width: 20rem;
 }
 
 .button-quick-form{
@@ -13,6 +14,7 @@
   // width: 20rem;
   border: .3rem solid darken($lightBlue, 20%);
     float: right;
+      width: 20rem;
 
 
 }
@@ -20,12 +22,9 @@
 .button-form{
   background: red;
   color: white;
-  // width: 20rem;
   border: .3rem solid darken(red, 20%);
-    // padding:$medium;
-    margin-top: $small /5;
+  margin-top: $small /5;
 }
-
 
 
 .note-form-button{
@@ -35,7 +34,7 @@
   border: .3rem solid darken($lightBlue, 20%);
   float: right;
 
-
+  width: 20rem;
 }
 
 
@@ -47,5 +46,14 @@
   float: right;
   cursor: auto;
 
+}
 
+.most-recent-note-button{
+  background: $lightBlue;
+  color: white;
+  // width: 20rem;
+  border: .3rem solid darken($lightBlue, 20%);
+  float: right;
+
+  width: 20rem;
 }

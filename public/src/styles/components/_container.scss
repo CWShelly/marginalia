@@ -1,10 +1,55 @@
 .container{
-  // max-width: 50rem;
-  // margin: 0 auto;
   margin-left:auto;
-
-  // padding: 0 $medium;
   background: white;
-  // display: flex;
-  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.container-dashboard-add-book{
+  padding: $large;
+}
+
+.container-dashboard-book-list{
+  padding: $large;
+}
+.container-dashboard-book-list-inner{
+  width: 90%;
+  border: 1px solid white;
+  padding: $large;
+    margin: 0 auto;
+}
+
+@media(min-width: $desktop-bp){
+
+  .container{
+
+    margin-left:auto;
+
+    background: white;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .container-dashboard-add-book{
+   width: 50%;
+    padding: $large;
+
+  }
+
+  .container-dashboard-book-list{
+    width: 50%;
+    padding: $large;
+      background: lighten($lightBlue, 20%);
+    border-top: $large solid white;
+    color: white;
+    font-weight: 300;
+  }
+
+  .container-dashboard-book-list-inner{
+    width: 90%;
+    border: 1px solid white;
+      padding: $large;
+      margin: 0 auto;
+  }
 }

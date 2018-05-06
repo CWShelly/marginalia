@@ -4,7 +4,6 @@ import moment from 'moment';
 import pickUpFromLastNote from '../selectors/from_last_note';
 import selectNotes from '../selectors/notes';
 
-
 export  class MostRecentNote extends React.Component{
   state = {
     chapter_number: 0,
@@ -16,6 +15,15 @@ export  class MostRecentNote extends React.Component{
     count: 1,
     remainingCharacters: 210,
     display: false,
+  }
+
+  componentDidMount(){
+    console.log(this.props);
+    if(this.props.location){
+      this.setState((prevState)=>({
+        display: !prevState.display
+      }))
+    }
   }
 
   displayAddNote =()=>{
@@ -73,13 +81,12 @@ export  class MostRecentNote extends React.Component{
   }
 
  render(){
-
-
+ console.log(this.props);
    return(
 <div>
 
-       { this.props.book_notes.length > 0 &&
 
+       { this.props.book_notes.length > 0 && this.props.location &&
       <button onClick={this.displayAddNote}
          className="most-recent-note-button"> {!this.state.display ? 'Quick Add' : 'Cancel'}
       </button>
@@ -108,7 +115,7 @@ export  class MostRecentNote extends React.Component{
              className="most-recent-note-textarea"
              type="type"
              maxLength="210"
-              
+
              placeholder="Enter your note here."
              value={this.state.note}
              onChange={this.onNoteChange}

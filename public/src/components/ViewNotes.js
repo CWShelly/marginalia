@@ -41,7 +41,7 @@ render(){
 
 
       <p className="view-notes-title">Notes for {this.props.match.params.title} by {this.state.author_first_name} {this.state.author_last_name} </p>
-      <MostRecentNote history={this.props.history}  onSubmit={this.onSubmit} />
+
 
       <NoteList history={this.props.history}  />
 
@@ -51,7 +51,9 @@ render(){
    </div>
 
      <div className="view-notes-container-add-note">
-         <AddNote history={this.props.history} title={this.props.match.params.title}/>
+       <MostRecentNote history={this.props.history}  onSubmit={this.onSubmit} />
+
+       <AddNote history={this.props.history} title={this.props.match.params.title}/>
       </div>
 
      </div>
