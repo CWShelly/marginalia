@@ -2,7 +2,31 @@
   font-size: $large;
   color: red;
 }
+.view-notes-container-container{
+  display: flex;
+}
 
 .view-notes-container{
-  padding-bottom: $large;
+  // padding-bottom: $large;
+  width: 50%;
+  padding: $small;
+
+
+}
+
+
+.view-notes-container-add-note{
+  // border: 1px solid black;
+  // background: red;
+
+  // max-width: 50rem;
+  // margin: 0 auto;
+  // margin-right:auto;
+
+
+  // padding: 0 $medium;
+  // background: white;
+    width: 50%;
+      padding: $small;
+
 }

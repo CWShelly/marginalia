@@ -108,7 +108,7 @@ export default class NoteForm extends React.Component{
       <textarea
       className="note-form-textarea"
       type="text"
-      placeholder="note"
+      placeholder="Enter your note here."
       maxLength="210"
       value={this.state.note}
       onChange={this.onNoteChange}
