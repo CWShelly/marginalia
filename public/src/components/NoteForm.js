@@ -22,7 +22,8 @@ export default class NoteForm extends React.Component{
 
   }
   onParagraphNumberChange = (e) =>{
-    const paragraph_number = e.target.value;
+    const paragraph_number = parseInt( e.target.value);
+    console.log(typeof paragraph_number);
     this.setState(()=>({ paragraph_number }));
 
   }
@@ -60,10 +61,12 @@ export default class NoteForm extends React.Component{
     }
 
     if(!this.state.errorNote){
+      console.log(this.state.errorNote);
       this.state.chapter_number = 0;
       this.state.page_number = 0;
       this.state.paragraph_number =0;
       this.state.note =''
+      this.state.remainingCharacters = 210;
     }
 
 
@@ -72,21 +75,23 @@ export default class NoteForm extends React.Component{
   render(){
     return(
       <div>
-      {this.state.errorNote && <p>{this.state.errorNote}</p>}
+      {this.state.errorNote && <p className="note-error">{this.state.errorNote}</p>}
 
-      <p>{this.state.remainingCharacters} characters left.</p>
 
-      <form onSubmit={this.onSubmit}>
+
+      <form className="note-form" onSubmit={this.onSubmit}>
+
       Chapter:
-      <input
+      <input className="note-form-input"
       type="number"
       placeholder="Chapter"
-      autoFocus
+
       value={this.state.chapter_number}
       onChange={this.onChapterNumberChange}
       />
       Page:
       <input
+      className="note-form-input"
       type="number"
       placeholder="Page"
       value={this.state.page_number}
@@ -94,20 +99,23 @@ export default class NoteForm extends React.Component{
       />
       Paragraph:
       <input
+      className="note-form-input"
       type="number"
       placeholder="Paragraph"
       value={this.state.paragraph_number}
       onChange={this.onParagraphNumberChange}
       />
-      Note:
+      <p>Note: {this.state.remainingCharacters} characters left.</p>
       <textarea
+      className="note-form-textarea"
       type="text"
       placeholder="note"
       maxLength="210"
       value={this.state.note}
       onChange={this.onNoteChange}
       />
-      <button>Add Note</button>
+
+      <button disabled={!this.state.chapter_number || !this.state.page_number || !this.state.paragraph_number || !this.state.note } className="note-form-button">Add Note</button>
       </form>
 
       </div>

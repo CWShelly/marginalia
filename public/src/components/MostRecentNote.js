@@ -14,10 +14,18 @@ export  class MostRecentNote extends React.Component{
     createdAt: moment(),
     errorNote: '',
     count: 1,
-    remainingCharacters: 210
+    remainingCharacters: 210,
+    display: false,
   }
 
+  displayAddNote =()=>{
 
+    this.setState((prevState)=>({
+      display: !prevState.display
+    }))
+
+    console.log(this.state.display);
+  }
 
   onNoteChange = (e) =>{
     e.persist()
@@ -41,7 +49,7 @@ export  class MostRecentNote extends React.Component{
       this.props.onSubmit({
         chapter_number: this.props.last_note.chapter_number,
         page_number: this.props.last_note.page_number,
-        paragraph_number: parseInt(this.props.last_note.chapter_number) + parseInt( this.state.count),
+        paragraph_number:this.props.last_note.paragraph_number + parseInt( this.state.count),
         note: this.state.note,
         createdAt: this.state.createdAt.valueOf(),
 
@@ -50,53 +58,65 @@ export  class MostRecentNote extends React.Component{
 
     if(!this.state.errorNote){
 
-        this.state.note = ""
+        this.state.note = "",
+        this.state.remainingCharacters = 0;
     }
 
   }
 
  render(){
+ 
 
    return(
-     <div>
-<div className="most-recent-note">
+<div>
 
-     {
-       this.props.book_notes.length > 0 && <div> <p className="most-recent-note-title"> Quick Add </p>
-   <p className="most-recent-note-text">
-   Last note - Chapter: {this.props.last_note.chapter_number}.
-   Page: {this.props.last_note.page_number}.
-   Paragraph: {parseInt(this.props.last_note.paragraph_number)}. </p>
-     <p className="most-recent-note-text">
-      Continue from Chapter: {this.props.last_note.chapter_number}.
-      Page: {this.props.last_note.page_number}.
-      Paragraph: 2.
+       { this.props.book_notes.length > 0 &&
 
-    </p>
+      <button onClick={this.displayAddNote}
+         className="most-recent-note-button"> {!this.state.display ? 'Quick Add' : 'Cancel'}
+      </button>
+    }
 
-        {this.state.errorNote && <p>{this.state.errorNote}</p>}
+    {  this.state.display &&
 
-         <form onSubmit={this.onSubmit}>
-         <p><textarea
-         className="most-recent-note-textarea"
-         type="type"
-         maxLength="210"
+     <div className="most-recent-note">
+       <p className="most-recent-note-text">
+           Last note - Chapter: {this.props.last_note.chapter_number}.
+           Page: {this.props.last_note.page_number}.
+           Paragraph: {this.props.last_note.paragraph_number}.
+         </p>
 
-         value={this.state.note}
-         onChange={this.onNoteChange}
-         /></p>
+      <p className="most-recent-note-text">
+          Continue from Chapter: {this.props.last_note.chapter_number}.
+          Page: {this.props.last_note.page_number}.
+          Paragraph: {this.props.last_note.page_number}.
+      </p>
+
+        { this.state.errorNote && <p>{this.state.errorNote}</p> }
+
+      <form onSubmit={this.onSubmit}>
+         <p>
+             <textarea
+             className="most-recent-note-textarea"
+             type="type"
+             maxLength="210"
+
+             value={this.state.note}
+             onChange={this.onNoteChange}
+             />
+         </p>
          <button className="button-quick-form"> Quick Add</button>
-         </form>
+      </form>
     <p>{this.state.remainingCharacters} characters left.</p>
 
-     </div>
-}
-</div>
-     </div>
+  </div>
+  }
 
+  </div>
    )
  }
 }
+
 
 const mapStateToProps = (state)=>{
 
