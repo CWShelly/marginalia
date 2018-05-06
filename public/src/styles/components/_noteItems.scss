@@ -8,12 +8,13 @@ font-size: $small;
 .note-list-container{
 border: 1px solid $lightBlue;
 padding-bottom: $medium;
-    overflow: scroll;
+overflow: scroll;
 
+  flex-direction:column;
 }
 
 .note-item-container{
-    border-bottom: .3rem solid darken($lightBlue, 20%);
+  border-bottom: .3rem solid darken($lightBlue, 20%);
 }
 .note-item-title{
 

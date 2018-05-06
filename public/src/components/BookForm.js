@@ -63,7 +63,7 @@ export default class BookForm extends React.Component{
       <div>
 
       <div className="book-form-container">
-      <h4 className="book-form-title">Add a Book</h4>
+      <h1 className="book-form-title">Add a Book</h1>
       {this.state.error && <p  className="note-error">{this.state.error}</p>}
       <form className="book-form" onSubmit={this.onSubmit}>
       <p>

@@ -79,6 +79,15 @@ export default class NoteForm extends React.Component{
 
 
       <form className="note-form" onSubmit={this.onSubmit}>
+      <p>Add a note: {this.state.remainingCharacters} characters left.</p>
+      <textarea
+      className="note-form-textarea"
+      type="text"
+      placeholder="Enter your note here."
+      maxLength="210"
+      value={this.state.note}
+      onChange={this.onNoteChange}
+      />
 
       Chapter:
       <input className="note-form-input"
@@ -104,15 +113,7 @@ export default class NoteForm extends React.Component{
       value={this.state.paragraph_number}
       onChange={this.onParagraphNumberChange}
       />
-      <p>Note: {this.state.remainingCharacters} characters left.</p>
-      <textarea
-      className="note-form-textarea"
-      type="text"
-      placeholder="Enter your note here."
-      maxLength="210"
-      value={this.state.note}
-      onChange={this.onNoteChange}
-      />
+
 
       <button disabled={!this.state.chapter_number || !this.state.page_number || !this.state.paragraph_number || !this.state.note } className="note-form-button">Add Note</button>
       </form>

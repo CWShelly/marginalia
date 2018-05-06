@@ -6,6 +6,7 @@ body{
 
   font-family: Helvetica, Arial, sans-serif;
     font-size: $medium;
+      font-weight: 300;
     // background: #f2f2f2
     // color: black;
 
@@ -20,4 +21,9 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+h1{
+    font-weight: 300;
+    margin-left: 0 auto;
 }
