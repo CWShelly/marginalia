@@ -10,7 +10,7 @@ render(){
     <div>
     <div className="note-item-container">
 
-    <p className="note-item-reference">chapter:{this.props.chapter_number} page:{this.props.page_number}  </p>
+    <p className="note-item-reference">chapter:{this.props.chapter_number} page:{this.props.page_number}  paragraph: {this.props.paragraph_number} </p>
       <p className="note-item-note">    {this.props.note}</p>
       <p className="note-item-note-edit">
        <Link className="note-item-note-edit" to={`/editNote/${this.props.id}`}>Edit</Link></p>

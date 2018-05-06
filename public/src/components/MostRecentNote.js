@@ -33,7 +33,7 @@ export  class MostRecentNote extends React.Component{
     const note = e.target.value;
 
     this.setState((prevState)=>({
-       count: parseInt(prevState.count) + 1,
+
        remainingCharacters: 210 - parseInt(e.target.value.length),
        note,
       }));
@@ -45,11 +45,14 @@ export  class MostRecentNote extends React.Component{
     if (!this.state.note ){
       this.setState(()=>({errorNote: 'Please enter a note'}));
     } else{
-      this.setState(()=>({errorNote: ''}));
+      this.setState((prevState)=>({
+       count: parseInt(prevState.count) + 1,
+        errorNote: '',
+      }));
       this.props.onSubmit({
         chapter_number: this.props.last_note.chapter_number,
         page_number: this.props.last_note.page_number,
-        paragraph_number:this.props.last_note.paragraph_number + parseInt( this.state.count),
+        paragraph_number:this.props.last_note.paragraph_number + 1,
         note: this.state.note,
         createdAt: this.state.createdAt.valueOf(),
 
@@ -65,7 +68,8 @@ export  class MostRecentNote extends React.Component{
   }
 
  render(){
- 
+   console.log(this.props.last_note.paragraph_number);
+ console.log(typeof this.props.last_note.paragraph_number);
 
    return(
 <div>
@@ -89,7 +93,7 @@ export  class MostRecentNote extends React.Component{
       <p className="most-recent-note-text">
           Continue from Chapter: {this.props.last_note.chapter_number}.
           Page: {this.props.last_note.page_number}.
-          Paragraph: {this.props.last_note.page_number}.
+          Paragraph: {this.props.last_note.page_number +1}.
       </p>
 
         { this.state.errorNote && <p>{this.state.errorNote}</p> }

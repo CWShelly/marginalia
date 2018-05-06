@@ -13,11 +13,11 @@ export default class NoteForm extends React.Component{
   }
 
   onChapterNumberChange = (e) =>{
-   const chapter_number= e.target.value;
+   const chapter_number= parseInt( e.target.value);
    this.setState(()=>({ chapter_number}));
   }
   onPageNumberChange = (e) =>{
-    const page_number = e.target.value;
+    const page_number = parseInt( e.target.value);
     this.setState(()=>({ page_number }));
 
   }
@@ -61,7 +61,6 @@ export default class NoteForm extends React.Component{
     }
 
     if(!this.state.errorNote){
-      console.log(this.state.errorNote);
       this.state.chapter_number = 0;
       this.state.page_number = 0;
       this.state.paragraph_number =0;
