@@ -26,7 +26,7 @@ export class BookList extends React.Component{
 
 
 const mapStateToProps = (state)=>{
-console.log(state.books);
+ 
 
       return {
         books:selectBooks(state.books)

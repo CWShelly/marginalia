@@ -8,7 +8,7 @@ import pickUpFromLastNote from '../selectors/from_last_note'
 export class NoteList extends React.Component{
 
   render(){
-      console.log(this.props);
+ 
     return(
       <div>
 
