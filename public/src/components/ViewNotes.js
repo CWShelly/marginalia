@@ -35,19 +35,27 @@ export class ViewNotes extends React.Component{
 render(){
 
   return(
-    <div>
-    <div className="container view-notes-container">
-    <p className="view-notes-title">Notes for {this.props.match.params.title} by {this.state.author_first_name} {this.state.author_last_name} </p>
-    <MostRecentNote history={this.props.history}  onSubmit={this.onSubmit} />
+    <div className="view-notes-container-container">
+
+    <div className="view-notes-container ">
 
 
-    <NoteList history={this.props.history}  />
+      <p className="view-notes-title">Notes for {this.props.match.params.title} by {this.state.author_first_name} {this.state.author_last_name} </p>
+      <MostRecentNote history={this.props.history}  onSubmit={this.onSubmit} />
 
-    <button className="button-quick-form" onClick={this.displayAddNote}>{!this.state.display ? 'Add a Note' : 'Cancel'}</button>
+      <NoteList history={this.props.history}  />
 
-    {this.state.display &&   <AddNote history={this.props.history} title={this.props.match.params.title}/>}
+      <button className="button-quick-form" onClick={this.displayAddNote}>{!this.state.display ? 'Add a Note' : 'Cancel'}</button>
+
+
    </div>
-    </div>
+
+     <div className="view-notes-container-add-note">
+         <AddNote history={this.props.history} title={this.props.match.params.title}/>
+      </div>
+
+     </div>
+
   )
 }
 }

@@ -35,6 +35,7 @@ export  class MostRecentNote extends React.Component{
     this.setState((prevState)=>({
 
        remainingCharacters: 210 - parseInt(e.target.value.length),
+
        note,
       }));
   }
@@ -47,7 +48,9 @@ export  class MostRecentNote extends React.Component{
     } else{
       this.setState((prevState)=>({
        count: parseInt(prevState.count) + 1,
+         display: !prevState.display,
         errorNote: '',
+
       }));
       this.props.onSubmit({
         chapter_number: this.props.last_note.chapter_number,
@@ -56,6 +59,7 @@ export  class MostRecentNote extends React.Component{
         note: this.state.note,
         createdAt: this.state.createdAt.valueOf(),
 
+
       })
     }
 
@@ -63,13 +67,13 @@ export  class MostRecentNote extends React.Component{
 
         this.state.note = "",
         this.state.remainingCharacters = 210;
+
     }
 
   }
 
  render(){
-   console.log(this.props.last_note.paragraph_number);
- console.log(typeof this.props.last_note.paragraph_number);
+
 
    return(
 <div>
@@ -104,12 +108,13 @@ export  class MostRecentNote extends React.Component{
              className="most-recent-note-textarea"
              type="type"
              maxLength="210"
-
+              
+             placeholder="Enter your note here."
              value={this.state.note}
              onChange={this.onNoteChange}
              />
          </p>
-         <button className="button-quick-form"> Quick Add</button>
+         <button className="button-quick-form"> Add note</button>
       </form>
     <p>{this.state.remainingCharacters} characters left.</p>
 

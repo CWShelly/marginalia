@@ -6,7 +6,7 @@
 
 .most-recent-note{
   border: 1px solid $lightBlue;
-  max-width: 60rem;
+  // max-width: 60rem;
   margin: 0 auto;
   padding: 0 $medium;
   font-size: $small;
@@ -24,9 +24,9 @@
 .most-recent-note-button{
   background: $lightBlue;
   color: white;
-  width: 20rem;
+  // width: 20rem;
   border: .3rem solid darken($lightBlue, 20%);
-  float: right;
+  // float: right;
 }
 
 .most-recent-note-text{
@@ -37,8 +37,8 @@
 
 .most-recent-note-textarea{
   border: 1px solid darken($lightBlue, 10%);
-  width: 100%;;
-  height:20rem;
+  // width: 100%;
+  // height:20rem;
   margin: 0 auto;
 
 }
