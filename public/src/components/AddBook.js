@@ -13,13 +13,9 @@ export class AddBook extends React.Component{
      this.props.history.push('/')
   }
 
-
-
   render(){
     return (
       <div>
-     
-
        <BookForm
          onSubmit={this.onSubmit}
        />
