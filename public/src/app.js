@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { startSetBooks } from './actions/books';
 import { startSetNotes} from './actions/notes';
+import { startSetChapters} from './actions/chapters';
+import { startSetPages} from './actions/pages';
+import { startSetParagraphs} from './actions/paragraphs';
 import configureStore from './store/configureStore';
 import getVisibleBooks from './selectors/books';
-import getVisibleNotes from './selectors/notes'
+// import getVisibleNotes from './selectors/notes'
 import AppRouter from './routers/AppRouter';
 import './firebase/firebase';
 
@@ -28,7 +31,11 @@ const jsx = (
 // ReactDOM.render(jsx, document.getElementById('app'));
 ReactDOM.render(<p>Loading ...</p>, document.getElementById('app'));
 
-store.dispatch(startSetNotes())
+// store.dispatch(startSetNotes())
+
+store.dispatch(startSetChapters())
+store.dispatch(startSetPages())
+store.dispatch(startSetParagraphs())
 
 store.dispatch(startSetBooks())
  .then(() => {
