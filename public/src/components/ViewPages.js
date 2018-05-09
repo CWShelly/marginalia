@@ -8,22 +8,30 @@ import { connect } from 'react-redux';
 
 export class ViewPages extends React.Component{
 
+  state = {
+    display: false,
+    author_first_name: localStorage.getItem('author_first'),
+    author_last_name:localStorage.getItem('author_last'),
+    title: localStorage.getItem('title')
+  }
 
-render(){
-console.log(this.props);
-  return(
-    <div>
-    Page list
-    <AddPage history={this.props.history} />
-    <PageList history={this.props.history} />
-     </div>
-  )
- }
+    render(){
+      return(
+        <div>
+        Page list for {this.state.title}
+        <AddPage history={this.props.history}
+        title={this.state.title}
+       author_last_name={this.state.author_last_name}
+       author_first_name={this.state.author_first_name}
+        />
+        <PageList history={this.props.history} />
+         </div>
+      )
+     }
 }
 
 const mapDispatchToProps = (dispatch)=> ({
      startAddPage: (page)=> dispatch(startAddPage(page)),
-
 })
 
 

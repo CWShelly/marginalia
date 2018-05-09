@@ -8,7 +8,6 @@ export const addPage = (page)=>({
 })
 
 export const startAddPage = (pageData = {}) => {
-  console.log('adding page');
   return (dispatch) => {
   const {
 
@@ -62,7 +61,7 @@ export const setPages = (pages) => ({
 })
 
 export const startSetPages = () => {
-  console.log('start set pages');
+   
  return (dispatch) => {
    return database.ref('pages')
    .once('value')
@@ -70,7 +69,7 @@ export const startSetPages = () => {
      const pages = [];
 
      snapshot.forEach((childSnapshot) => {
-       console.log(childSnapshot.val());
+
        pages.push({
          id: childSnapshot.key,
          ...childSnapshot.val()

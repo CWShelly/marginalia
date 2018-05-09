@@ -68,7 +68,7 @@ export const startSetParagraphs = () => {
      const paragraphs = [];
 
      snapshot.forEach((childSnapshot) => {
-       console.log(childSnapshot.val());
+   
        paragraphs.push({
          id: childSnapshot.key,
          ...childSnapshot.val()
