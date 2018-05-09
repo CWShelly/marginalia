@@ -10,20 +10,20 @@ export class ChapterList extends  React.Component{
 
 
    return(
-     <div>
-      <h1>Chapters List</h1>
 
+<ul>
       {this.props.chapters.map((chapter)=>{
         return <ChapterListItem key={chapter.id} { ...chapter} />
       })}
-      </div>
+
+      </ul>
 
    )
  }
 }
 
 const mapStateToProps = (state)=>{
- 
+
       return {
        chapters: selectChapters(state.chapters)
       }

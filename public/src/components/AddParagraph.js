@@ -16,7 +16,7 @@ export class AddParagraph extends React.Component{
   render(){
     return (
       <div>
-      Adding paragraph for {this.props.title}
+ 
        <ParagraphForm
          onSubmit={this.onSubmit}
        />

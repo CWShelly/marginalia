@@ -6,14 +6,12 @@ class ParagraphListItem extends React.Component{
 
 
   render(){
-
-console.log(this.props);
+ 
     return(
-      <div>
+      <li>
       <p>{this.props.note}</p>
         <p>Paragraph: {this.props.paragraph_number} </p>
-
-      </div>
+      </li>
 
     )
   }

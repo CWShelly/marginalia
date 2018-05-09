@@ -14,14 +14,13 @@ class PageListItem extends React.Component{
 
 console.log(this.props);
     return(
-      <div>
-      <p> <Link onClick={this.onHandleClick}
+
+      <li> <Link onClick={this.onHandleClick}
       to={`/paragraph/${this.props.page_number}/${this.props.id}`}>page
 
-      {this.props.page_number}</Link></p>
+      {this.props.page_number}</Link></li>
 
 
-      </div>
 
     )
   }

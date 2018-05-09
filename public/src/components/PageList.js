@@ -8,14 +8,13 @@ export class PageList extends React.Component{
  render(){
 console.log(this.props);
    return(
-     <div>
+     <ul>
 
-      <h1>Page List</h1>
       {this.props.pages.map((page)=>{
         return <PageListItem key={page.id} {...page} />
       })}
 
-      </div>
+      </ul>
 
    )
  }
@@ -25,7 +24,7 @@ console.log(this.props);
 
 const mapStateToProps = (state)=>{
 console.log(state);
- 
+
 
       return {
         pages: selectPages(state.pages)

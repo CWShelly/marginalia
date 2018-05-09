@@ -45,7 +45,7 @@ export default class ChapterFrom extends React.Component{
   render(){
     return(
       <div>
-      <h1>Add Chapter</h1>
+   
           {this.state.error && <p  className="note-error">{this.state.error}</p>}
         <form
         onSubmit={this.onSubmit}>
