@@ -15,7 +15,7 @@ export class AddChapter extends React.Component{
   }
 
   render(){
-    console.log(this.props);
+   
     return (
       <div>
       Add Chapter for {this.props.title}

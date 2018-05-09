@@ -17,7 +17,7 @@ export class ViewChapters extends React.Component{
   }
 
 render(){
-console.log(this.state.title);
+ 
 
   return(
     <div>
