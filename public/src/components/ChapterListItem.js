@@ -6,12 +6,13 @@ class ChapterListItem extends React.Component{
 
 
   onHandleClick=()=>{
- localStorage.setItem('chapter_id', this.props.id)
+     localStorage.setItem('chapter_id', this.props.id)
+     localStorage.setItem('chapter_number',this.props.chapter_number)
   }
 
   render(){
 
- 
+
     return(
       <div>
 
