@@ -11,10 +11,11 @@ class BookListItem extends React.Component{
     localStorage.setItem('book_id', this.props.id)
     localStorage.setItem('author_first', this.props.author_first_name);
     localStorage.setItem('author_last', this.props.author_last_name);
+    localStorage.setItem('title', this.props.title)
   }
   render(){
 
-console.log(this.props);
+
     return(
       <div>
         <p> <Link onClick={this.onHandleClick}

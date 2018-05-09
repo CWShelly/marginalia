@@ -7,7 +7,7 @@ import selectChapters from '../selectors/chapters';
 export class ChapterList extends  React.Component{
 
  render(){
-   console.log(this.props);
+
 
    return(
      <div>
@@ -23,7 +23,7 @@ export class ChapterList extends  React.Component{
 }
 
 const mapStateToProps = (state)=>{
-  console.log(state);
+ 
       return {
        chapters: selectChapters(state.chapters)
       }

@@ -11,14 +11,14 @@ export class ViewNotes extends React.Component{
   state = {
     display: false,
     author_first_name: localStorage.getItem('author_first'),
-    author_last_name:localStorage.getItem('author_last')
+    author_last_name:localStorage.getItem('author_last'),
+    title: localStorage.getITem('title')
   }
 
 
   onSubmit=(note)=>{
      this.props.startAddNote(note);
      this.props.history.push(`/viewNotes/${this.props.match.params.title}`)
-
   }
 
 

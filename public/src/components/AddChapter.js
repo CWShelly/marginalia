@@ -8,15 +8,17 @@ import ChapterForm from './ChapterForm';
 export class AddChapter extends React.Component{
 
  onSubmit=(chapter)=>{
-   console.log('adding');
+
 
      this.props.startAddChapter(chapter);
      this.props.history.push('/')
   }
 
   render(){
+    console.log(this.props);
     return (
       <div>
+      Add Chapter for {this.props.title}
        <ChapterForm
          onSubmit={this.onSubmit}
        />

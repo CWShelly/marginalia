@@ -8,7 +8,7 @@ import ParagraphForm from './ParagraphForm';
 export class AddParagraph extends React.Component{
 
  onSubmit=(paragraph)=>{
-   console.log('adding paragraph');
+
      this.props.startAddParagraph(paragraph);
      this.props.history.push('/')
   }
@@ -16,6 +16,7 @@ export class AddParagraph extends React.Component{
   render(){
     return (
       <div>
+      Adding paragraph for {this.props.title}
        <ParagraphForm
          onSubmit={this.onSubmit}
        />
