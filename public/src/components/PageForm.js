@@ -48,7 +48,7 @@ export default class  PageForm extends React.Component{
   render(){
     return(
       <div>
-      <h1>Page form</h1>
+
           {this.state.error && <p  className="note-error">{this.state.error}</p>}
         <form
         onSubmit={this.onSubmit}>

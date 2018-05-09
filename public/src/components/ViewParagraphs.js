@@ -16,10 +16,10 @@ export class ViewParagraphs extends React.Component{
   }
 
   render(){
-console.log(this.props);
+
         return(
           <div>
-          Paragraph list for {this.state.title}.
+           {this.state.title}.
           Chapter {this.state.chapter_number}.
           Page {this.state.page_number}
 

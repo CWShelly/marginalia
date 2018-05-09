@@ -15,10 +15,10 @@ export class AddChapter extends React.Component{
   }
 
   render(){
-   
+
     return (
       <div>
-      Add Chapter for {this.props.title}
+ 
        <ChapterForm
          onSubmit={this.onSubmit}
        />

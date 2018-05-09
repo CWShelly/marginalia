@@ -19,7 +19,7 @@ export class ViewPages extends React.Component{
     render(){
       return(
         <div>
-        Page list for {this.state.title}, chapter {this.state.chapter_number}
+        {this.state.title}, chapter {this.state.chapter_number}
         <AddPage history={this.props.history}
         title={this.state.title}
        author_last_name={this.state.author_last_name}

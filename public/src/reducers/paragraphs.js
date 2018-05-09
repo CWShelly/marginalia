@@ -1,5 +1,5 @@
 const paragraphsReducerDefaultState = [];
-console.log('someting');
+ 
 export default (state = paragraphsReducerDefaultState, action)=>{
   switch(action.type){
     case 'ADD_PARAGRAPH':

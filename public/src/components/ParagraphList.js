@@ -9,17 +9,16 @@ import ParagraphListItem from './ParagraphListItem';
 export class ParagraphList extends React.Component{
 
  render(){
-   console.log(this.props);
-
+   
    return(
-     <div>
-      <h1>Paragraphs</h1>
+     <ul>
+
       {this.props.paragraphs.map((paragraph)=>{
         return <ParagraphListItem key={paragraph.id} {...paragraph} />
       })}
- 
 
-      </div>
+
+      </ul>
 
    )
  }

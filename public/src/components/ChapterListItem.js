@@ -14,16 +14,15 @@ class ChapterListItem extends React.Component{
 
 
     return(
-      <div>
+ 
 
-        <p> <Link onClick={this.onHandleClick}
+        <li> <Link onClick={this.onHandleClick}
         to={`/page/${this.props.chapter_number}/${this.props.id}`} title={this.props.title}>
 
-        Chapter {this.props.chapter_number}</Link></p>
+        Chapter {this.props.chapter_number}</Link></li>
 
 
- chapter list item page
-      </div>
+
 
     )
   }
