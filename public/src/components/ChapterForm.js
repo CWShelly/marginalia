@@ -45,16 +45,16 @@ export default class ChapterFrom extends React.Component{
   render(){
     return(
       <div>
-   
-          {this.state.error && <p  className="note-error">{this.state.error}</p>}
+
+          {this.state.error && <p  >{this.state.error}</p>}
         <form
         onSubmit={this.onSubmit}>
-
-        <input type="number"
+        <label>Add chapter number:</label>
+        <input   className="paragraph-input" type="number"
         onChange={this.onChange}
         value={this.state.chapter_number}
         />
-       <button>Add Chapter</button>
+       <button><i className="fa fa-check"></i></button>
         </form>
 
       </div>

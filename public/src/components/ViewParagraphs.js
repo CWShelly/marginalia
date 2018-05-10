@@ -18,10 +18,12 @@ export class ViewParagraphs extends React.Component{
   render(){
 
         return(
-          <div>
-           {this.state.title}.
-          Chapter {this.state.chapter_number}.
-          Page {this.state.page_number}
+          <div  className="container" >
+          <div className="container-view-slug">
+
+          <p> {this.state.title} Chapter {this.state.chapter_number} Page {this.state.page_number}</p>
+
+          </div>
 
           <AddParagraph history={this.props.history}
           title={this.state.title}

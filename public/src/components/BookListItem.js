@@ -18,11 +18,11 @@ class BookListItem extends React.Component{
 
     return(
       <div>
-        <p> <Link onClick={this.onHandleClick}
+
+        <p> <Link   onClick={this.onHandleClick}
         to={`/chapter/${this.props.title}/${this.props.id}`}>
 
-        {this.props.title}</Link>
-          by {this.props.author_first_name} {this.props.author_last_name}
+        {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}</Link>
        </p>
 
       </div>

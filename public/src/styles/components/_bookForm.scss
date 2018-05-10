@@ -1,53 +1,32 @@
-.book-form{
-  display: flex;
-  flex-direction: column;
-}
 
-.book-form-input{
-  width: 20rem;
-  font-size: $large;
-  border: none;
-  border-bottom: .3rem solid darken($lightBlue, 10%);
+.container-book-form{
+  // background: blue;
+  padding:$small;
 
 }
-
-.book-form-title{
-  font-size: $medium;
-  text-align:right;
-
-}
-
-.book-form-container{
-  border: 1px solid $lightBlue;
-  margin: $medium 0;
- padding: 0 $medium;
-
-}
-
-@media(min-width: $desktop-bp){
-  .book-form{
-    display: flex;
-    flex-direction: row;
-
+// .container-book-form input{
+//   display: flex;
+//   flex-direction: column;
+//   padding: $small;
+//   margin-top: $small;
+//   margin: 0 auto;
+//
+//
+// }
+@media(min-width:$desktop-bp){
+  .container-book-form{
+    display: block;
+    margin-left: 0;
   }
 
-  .book-form-input{
-    font-size: $large;
-    border: none;
-    border-bottom: .3rem solid darken($lightBlue, 10%);
+  // .container-book-form input{
+  //   display: flex;
+  //   flex-direction: column;
+  //   max-width: 40rem;
+  //   width: 30rem;
+  //   padding: $small;
+  //   margin-top: $small;
+  //   margin-left: auto;
+  // }
 
-  }
-
-  .book-form-title{
-    font-size: $medium;
-    text-align:right;
-
-  }
-
-  .book-form-container{
-    border: 1px solid $lightBlue;
-    margin: $medium 0;
-   padding: 0 $medium;
-
-  }
 }

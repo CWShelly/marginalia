@@ -20,7 +20,8 @@ render(){
 
 
   return(
-    <div>
+    <div className="container"   >
+
      {this.props.match.params.title}
 
     <AddChapter

@@ -17,8 +17,8 @@ export class AddChapter extends React.Component{
   render(){
 
     return (
-      <div>
- 
+      <div  >
+
        <ChapterForm
          onSubmit={this.onSubmit}
        />

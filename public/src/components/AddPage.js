@@ -16,7 +16,6 @@ export class AddPage extends React.Component{
   render(){
     return (
       <div>
-          Add Page for {this.props.title}
        <PageForm
          onSubmit={this.onSubmit}
        />

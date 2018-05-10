@@ -18,14 +18,15 @@ export class ViewPages extends React.Component{
 
     render(){
       return(
-        <div>
+        <div  className="container"  >
         {this.state.title}, chapter {this.state.chapter_number}
         <AddPage history={this.props.history}
         title={this.state.title}
-       author_last_name={this.state.author_last_name}
-       author_first_name={this.state.author_first_name}
-       chapter_number={this.state.chapter_number}
+        author_last_name={this.state.author_last_name}
+        author_first_name={this.state.author_first_name}
+        chapter_number={this.state.chapter_number}
         />
+        <p className="subcontainer-title">pages</p>
         <PageList history={this.props.history} />
          </div>
       )

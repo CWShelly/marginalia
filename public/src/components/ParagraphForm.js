@@ -8,6 +8,7 @@ export default class ParagraphForm extends React.Component{
       createdAt: props.paragraph_number ? moment(props.page.createdAt): moment(),
       paragraph_number: props.paragraph_number ? props.paragraph.paragraph_number : '',
       note: props.note ? props.paragraph.note : '',
+      remainingCharacters: 140,
       error: ''
 
 
@@ -21,7 +22,7 @@ export default class ParagraphForm extends React.Component{
   }
 
   onChange = (e) =>{
-    const paragraph_number = parseInt( e.target.value);
+    const paragraph_number = parseInt(e.target.value);
     this.setState(()=>({ paragraph_number }));
   }
 
@@ -37,9 +38,10 @@ export default class ParagraphForm extends React.Component{
 
   onSubmit = (e)=>{
     e.preventDefault();
-    if(!this.state.paragraph_number)
+    if(!this.state.paragraph_number || !this.state.note)
     {
-      this.setState(()=>{error:'Please enter a number'})
+      this.setState(()=>({error:'Please enter a paragrap number and a note.'}))
+
     } else{
       this.setState(()=>({error: ''}));
       this.props.onSubmit({
@@ -49,7 +51,8 @@ export default class ParagraphForm extends React.Component{
       if(!this.state.error){
        this.state.page_number = 0;
       this.state.count = 140;
-      this.state.note=''
+      this.state.note='',
+      this.state.remainingCharacters = 140;
       }
     }
 
@@ -58,29 +61,44 @@ export default class ParagraphForm extends React.Component{
 
   render(){
     return(
-      <div>
-   
-          {this.state.error && <p  className="note-error">{this.state.error}</p>}
-          <p>add a paragraph number and note</p>
+      <div className="container-form">
+
+
+        {this.state.error && <p className="form-error">{this.state.error}</p>}
+
         <form
         onSubmit={this.onSubmit}>
 
-        <input type="number"
-        onChange={this.onChange}
+
+        <label>Paragraph Number:</label>
+
+        <input className="paragraph-input"
+         type="number"
+         onChange={this.onChange}
+         value={this.state.paragraph_number}
         />
 
+
+        <p>Note: {this.state.remainingCharacters} characters left.</p>
+        <p className="form-textArea-p">
         <textarea
-        className="note-form-textarea"
+        value={this.state.note}
+        className="form-textArea"
         type="text"
         placeholder="Enter your note here."
         maxLength="140"
 
         onChange={this.onNoteChange}
         />
-<button>submit</button>
+        </p>
+
+
+       <button className="form-button">add note</button>
         </form>
 
-      </div>
+        </div>
+
+
 
     )
   }

@@ -1,54 +1,24 @@
+
 .header{
-  background:  $lightBlue;
+  background: $lightBlue;
+  color: white;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding-right: $small;
   text-align: right;
 
-  margin-left:auto;
-  padding: 0 $medium;
-  font-weight: 300;
+
 }
 
-.header h1{
-    font-weight: 300;
-      color: white;
-}
 
-.header a{
+@media (min-width: $desktop-bp){
+.header{
+  background: $lightBlue;
   color: white;
-  text-decoration: none;
-}
+  padding-right: $small;
+  text-align: right;
 
-.header-icon{
-  color: white;
-  margin-right: auto;
-  text-align: left;
 
 }
-
-
-@media(min-width: $desktop-bp){
-  .header{
-    background:  $lightBlue;
-    text-align: right;
-
-    margin-left:auto;
-    padding: 0 $medium;
-    font-weight: 300;
-  }
-
-  .header h1{
-      font-weight: 300;
-        color: white;
-  }
-
-  .header a{
-    color: white;
-    text-decoration: none;
-  }
-
-  .header-icon{
-   // visibility: hidden;
-
-  }
-
 
 }

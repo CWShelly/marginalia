@@ -1,0 +1,25 @@
+
+.pages{
+  // background: red;
+  display: inline;
+
+}
+
+.list-paragraph-item-reference{
+  text-align: right;
+  color: darken($lightBlue, 20%);
+  font-size: $small;
+}
+@media(min-width: $desktop-bp){
+  .pages{
+    // background: red;
+    display: inline;
+
+  }
+
+  .list-paragraph-item-reference{
+    text-align: right;
+    color: darken($lightBlue, 20%);
+    font-size: $small;
+  }
+}
