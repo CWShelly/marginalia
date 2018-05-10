@@ -6,11 +6,11 @@ class ParagraphListItem extends React.Component{
 
 
   render(){
- 
+
     return(
       <li>
       <p>{this.props.note}</p>
-        <p>Paragraph: {this.props.paragraph_number} </p>
+        <p className="list-paragraph-item-reference">Paragraph: {this.props.paragraph_number} </p>
       </li>
 
     )

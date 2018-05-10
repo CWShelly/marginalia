@@ -47,16 +47,15 @@ export default class  PageForm extends React.Component{
 
   render(){
     return(
-      <div>
-
-          {this.state.error && <p  className="note-error">{this.state.error}</p>}
+      <div >
+          {this.state.error && <p  >{this.state.error}</p>}
         <form
         onSubmit={this.onSubmit}>
-
-        <input type="number"
+<label>Add page number:</label>
+        <input  className="paragraph-input" type="number"
         onChange={this.onChange}
         />
-    <button className="button-form">Add Page</button>
+    <button className="" ><i className="fa fa-check"></i></button>
         </form>
 
       </div>

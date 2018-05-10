@@ -23,7 +23,6 @@ export default class NoteForm extends React.Component{
   }
   onParagraphNumberChange = (e) =>{
     const paragraph_number = parseInt( e.target.value);
-    console.log(typeof paragraph_number);
     this.setState(()=>({ paragraph_number }));
 
   }
@@ -80,7 +79,7 @@ export default class NoteForm extends React.Component{
 
       <form className="note-form" onSubmit={this.onSubmit}>
       <p>Add a note: {this.state.remainingCharacters} characters left.</p>
-      <textarea
+      <textarea  
       className="note-form-textarea"
       type="text"
       placeholder="Enter your note here."
