@@ -22,11 +22,23 @@ export const startAddChapter = (chapterData = {}) => {
 
   database.ref('chapters').push(chapter)
   .then((ref) => {
+    console.log(ref.key);
+    localStorage.setItem('chapter_id', ref.key);
+    localStorage.setItem('chapter_number', chapter.chapter_number);
     dispatch(addChapter({
       id: ref.key,
       ... chapter
-    }));
+    })
+
+  )
+  console.log(ref.key);
+  localStorage.setItem('chapter_id', ref.key);
+  localStorage.setItem('chapter_number', chapter.chapter_number)
   })
+
+
+
+
   }
 
 }
@@ -70,7 +82,7 @@ export const startSetChapters = () => {
      const chapters = [];
 
      snapshot.forEach((childSnapshot) => {
-     
+
        chapters.push({
          id: childSnapshot.key,
          ...childSnapshot.val()

@@ -40,7 +40,7 @@ export default class ParagraphForm extends React.Component{
     e.preventDefault();
     if(!this.state.paragraph_number || !this.state.note)
     {
-      this.setState(()=>({error:'Please enter a paragrap number and a note.'}))
+      this.setState(()=>({error:'Please enter a paragraph number and a note.'}))
 
     } else{
       this.setState(()=>({error: ''}));

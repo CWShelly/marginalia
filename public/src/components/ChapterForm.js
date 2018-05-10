@@ -1,14 +1,17 @@
+
 import React from 'react';
 import moment from 'moment';
 
 export default class ChapterFrom extends React.Component{
   constructor(props){
     super(props);
+    console.log(props);
     this.state={
       createdAt: props.chapter_number ? moment(props.chapter.createdAt): moment(),
       chapter_number: props.chapter_number ? props.book.chapter_number : '',
       error: ''
     }
+
   }
 
   onChange=(e)=>{
@@ -24,6 +27,7 @@ export default class ChapterFrom extends React.Component{
 
 
   onSubmit = (e)=>{
+
     e.preventDefault();
     if(!this.state.chapter_number )
     {
@@ -38,8 +42,6 @@ export default class ChapterFrom extends React.Component{
        this.state.chapter_number = 0;
       }
     }
-
-
   }
 
   render(){

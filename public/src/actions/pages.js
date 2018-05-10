@@ -22,6 +22,10 @@ export const startAddPage = (pageData = {}) => {
 
   database.ref('pages').push(page)
   .then((ref) => {
+    console.log(ref.key);
+    localStorage.setItem('page_id', ref.key);
+    localStorage.setItem('page_number', page.page_number)
+
     dispatch(addPage({
       id: ref.key,
       ... page
@@ -61,7 +65,7 @@ export const setPages = (pages) => ({
 })
 
 export const startSetPages = () => {
-   
+
  return (dispatch) => {
    return database.ref('pages')
    .once('value')

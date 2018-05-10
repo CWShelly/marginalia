@@ -10,13 +10,16 @@ export class AddParagraph extends React.Component{
  onSubmit=(paragraph)=>{
 
      this.props.startAddParagraph(paragraph);
-     this.props.history.push('/')
+     // this.props.history.push('/')
+      // this.props.history.push(`/paragraph/${page.page_number}`)
   }
 
   render(){
+    console.log(this.props);
+    console.log(localStorage.getItem('page_number'));
     return (
       <div>
- 
+
        <ParagraphForm
          onSubmit={this.onSubmit}
        />
