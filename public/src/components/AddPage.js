@@ -10,7 +10,8 @@ export class AddPage extends React.Component{
  onSubmit=(page)=>{
 
      this.props.startAddPage(page);
-     this.props.history.push('/')
+     // this.props.history.push('/')
+          this.props.history.push(`/paragraph/${page.page_number}`)
   }
 
   render(){

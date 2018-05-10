@@ -22,6 +22,9 @@ export const startAddParagraph = (paragraphData = {}) => {
 
   database.ref('paragraphs').push(paragraph)
   .then((ref) => {
+    // console.log(ref.key);
+    // localStorage.setItem('paragraph_id', ref.key);
+    // localStorage.setItem('paragraph_number', page.page_number)
     dispatch(addParagraph({
       id: ref.key,
       ... paragraph
@@ -68,7 +71,7 @@ export const startSetParagraphs = () => {
      const paragraphs = [];
 
      snapshot.forEach((childSnapshot) => {
-   
+
        paragraphs.push({
          id: childSnapshot.key,
          ...childSnapshot.val()

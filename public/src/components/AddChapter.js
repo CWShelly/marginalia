@@ -9,13 +9,18 @@ export class AddChapter extends React.Component{
 
  onSubmit=(chapter)=>{
 
+ console.log(chapter);
+     this.props.startAddChapter(chapter)
 
-     this.props.startAddChapter(chapter);
-     this.props.history.push('/')
+    this.props.history.push(`/page/${chapter.chapter_number}`)
+
+
   }
 
-  render(){
 
+
+  render(){
+console.log(this.props);
     return (
       <div  >
 
@@ -31,5 +36,6 @@ export class AddChapter extends React.Component{
 
 const mapDispatchToProps = (dispatch)=> ({
      startAddChapter: (chapter)=> dispatch(startAddChapter(chapter))
+
 })
 export default connect(undefined, mapDispatchToProps)(AddChapter)

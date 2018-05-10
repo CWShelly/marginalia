@@ -20,7 +20,10 @@
 }
 
 .book-container{
-  // background: red;
+   // background: red;
+ padding: $small;
+ width: 80%;
+ margin: 0 auto;
 }
 
 .subcontainer-title{
@@ -31,6 +34,9 @@
   .book-container{
     // background: blue;
     padding: $small;
+    border: 1px solid $lightBlue;
+        margin-right: 0;
+
   }
     .container{
        max-width: 60rem;

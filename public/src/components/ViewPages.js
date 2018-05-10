@@ -13,13 +13,17 @@ export class ViewPages extends React.Component{
     author_first_name: localStorage.getItem('author_first'),
     author_last_name:localStorage.getItem('author_last'),
     title: localStorage.getItem('title'),
-    chapter_number:localStorage.getItem('chapter_number')
+    chapter_number:localStorage.getItem('chapter_number'),
+    chapter_id:localStorage.getItem('chapter_id')
   }
 
     render(){
+      console.log(this.props);
       return(
         <div  className="container"  >
-        {this.state.title}, chapter {this.state.chapter_number}
+
+        {this.state.title} {this.state.chapter_number && <span>, chapter {this.state.chapter_number}</span>}
+
         <AddPage history={this.props.history}
         title={this.state.title}
         author_last_name={this.state.author_last_name}
