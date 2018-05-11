@@ -11,6 +11,9 @@ export  class ParagraphForm extends React.Component{
       paragraph_number: props.paragraph_number ? props.paragraph.paragraph_number : '',
       note: props.note ? props.paragraph.note : '',
       remainingCharacters: 140,
+
+      redundantError: props.error,
+
       error: ''
     }
   }
@@ -43,12 +46,7 @@ export  class ParagraphForm extends React.Component{
       this.setState(()=>({error:'Please enter a paragraph number and a note.'}))
 
     }
-//       else if(redundantParagraph(this.props.paragraphs, 'page_id', this.state.paragraph_number, 'paragraph_number')){
-//
-// console.log('already here');
-//       }
-
-
+ 
     else{
       this.setState(()=>({error: ''}));
       this.props.onSubmit({
@@ -60,6 +58,9 @@ export  class ParagraphForm extends React.Component{
       this.state.count = 140;
       this.state.note='',
       this.state.remainingCharacters = 140;
+
+      this.state.redundantError = ''
+
       }
     }
 
@@ -73,6 +74,8 @@ export  class ParagraphForm extends React.Component{
 
 
         {this.state.error && <p className="form-error">{this.state.error}</p>}
+                // {this.props.error && <p className="form-error">{this.props.error}</p>}
+                {this.state.redundantError && <p className="form-error">{this.state.redundantError}</p>}
 
         <form
         onSubmit={this.onSubmit}>
