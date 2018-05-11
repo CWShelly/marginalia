@@ -1,7 +1,9 @@
 import React from 'react';
 import moment from 'moment';
+import { connect } from 'react-redux';
 
-export default class ParagraphForm extends React.Component{
+
+export  class ParagraphForm extends React.Component{
   constructor(props){
     super(props);
     this.state={
@@ -10,8 +12,6 @@ export default class ParagraphForm extends React.Component{
       note: props.note ? props.paragraph.note : '',
       remainingCharacters: 140,
       error: ''
-
-
     }
   }
 
@@ -42,7 +42,14 @@ export default class ParagraphForm extends React.Component{
     {
       this.setState(()=>({error:'Please enter a paragraph number and a note.'}))
 
-    } else{
+    }
+//       else if(redundantParagraph(this.props.paragraphs, 'page_id', this.state.paragraph_number, 'paragraph_number')){
+//
+// console.log('already here');
+//       }
+
+
+    else{
       this.setState(()=>({error: ''}));
       this.props.onSubmit({
         paragraph_number: this.state.paragraph_number,
@@ -60,6 +67,7 @@ export default class ParagraphForm extends React.Component{
   }
 
   render(){
+
     return(
       <div className="container-form">
 
@@ -103,3 +111,8 @@ export default class ParagraphForm extends React.Component{
     )
   }
 }
+
+
+
+
+// export default connect(mapStateToProps)(ParagraphForm)
