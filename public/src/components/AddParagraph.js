@@ -13,7 +13,9 @@ export class AddParagraph extends React.Component{
 
   constructor(props){
     super(props);
-
+      this.state={
+       error:''
+      }
   }
 
   render(){
@@ -25,14 +27,15 @@ export class AddParagraph extends React.Component{
 
          onSubmit={(paragraph)=>{
          if(redundantParagraphs(this.props.paragraphs, parseInt(paragraph.paragraph_number), 'paragraph_number' ) ){
+           this.state.error = ''
            this.props.startAddParagraph(paragraph)
          }
          else{
-           console.log('already did this paragraph');
+           
+           this.setState(() => ({error: 'Already picked this number'}))
          }
 
-
-         }}
+       }}  error={this.state.error}
        />
       </div>
     )
