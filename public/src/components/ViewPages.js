@@ -18,11 +18,11 @@ export class ViewPages extends React.Component{
   }
 
     render(){
-      console.log(this.props);
+ 
       return(
         <div  className="container"  >
 
-        {this.state.title} {this.state.chapter_number && <span>, chapter {this.state.chapter_number}</span>}
+        {this.state.title} {this.state.chapter_number && <span>, chapter z {this.state.chapter_number}</span>}
 
         <AddPage history={this.props.history}
         title={this.state.title}

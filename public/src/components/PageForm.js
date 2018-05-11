@@ -48,7 +48,7 @@ export default class  PageForm extends React.Component{
   render(){
     return(
       <div >
-          {this.state.error && <p  >{this.state.error}</p>}
+          {this.state.error && <p className="form-error" >{this.state.error}</p>}
         <form
         onSubmit={this.onSubmit}>
 <label>Add page number:</label>

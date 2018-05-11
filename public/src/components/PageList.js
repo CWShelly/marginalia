@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PageListItem from './PageListItem';
-import selectPages from '../selectors/pages';
+import filterThis from '../selectors/genericSelector';
 
 export class PageList extends React.Component{
 
@@ -25,7 +25,7 @@ const mapStateToProps = (state)=>{
 
 
       return {
-        pages: selectPages(state.pages)
+        pages: filterThis(state.pages, 'chapter_id')
 
       }
 

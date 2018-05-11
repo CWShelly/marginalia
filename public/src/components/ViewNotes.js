@@ -40,7 +40,7 @@ render(){
     <div className="view-notes-container ">
 
 
-      <p className="view-notes-title">Notes for {this.props.match.params.title} by {this.state.author_first_name} {this.state.author_last_name} </p>
+      <p className="view-notes-title">Notes for      {this.props.state.title} by {this.state.author_first_name} {this.state.author_last_name} </p>
 
 
       <NoteList history={this.props.history}  />
