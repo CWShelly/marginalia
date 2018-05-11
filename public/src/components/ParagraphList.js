@@ -9,7 +9,8 @@ import ParagraphListItem from './ParagraphListItem';
 export class ParagraphList extends React.Component{
 
  render(){
-
+//    console.log(this.props);
+// console.log(this.props.paragraphs);
    return(
      <div className="container">
      <ul>
@@ -25,13 +26,11 @@ export class ParagraphList extends React.Component{
 }
 
 
-const mapStateToProps = (state)=>{
-console.log(state);
+    const mapStateToProps = (state)=>{
+      // console.log(state.paragraphs);
 
       return {
-        paragraphs: selectParagraph(state.paragraphs)
-
-
+        paragraphs: selectParagraph(state.paragraphs, 'page_id')
       }
 
 

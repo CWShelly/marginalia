@@ -24,14 +24,14 @@ export class ViewParagraphs extends React.Component{
           <p> {this.state.title} Chapter {this.state.chapter_number}  {this.state.page_number && <span>, Page {this.state.page_number}</span>}</p>
 
           </div>
-
+         <ParagraphList history={this.props.history} />
           <AddParagraph history={this.props.history}
           title={this.state.title}
           author_last_name={this.state.author_last_name}
           author_first_name={this.state.author_first_name}
 
           />
-          <ParagraphList history={this.props.history} />
+
            </div>
 
       )

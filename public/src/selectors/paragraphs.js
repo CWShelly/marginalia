@@ -1,15 +1,17 @@
 
-export default (paragraphs) =>{
 
-  const page_id = localStorage.getItem('page_id');
+export default (collection, collection_id ) =>{
 
-   const hasPageId= (paragraph)=>{
-     return paragraph.page_id === page_id;
-   }
+    // item, number
+    const _collection_id = localStorage.getItem(collection_id);
+    const hasCollectionId = (collection)=>{
 
-  const paragraphs_of_this_book = paragraphs.filter(hasPageId)
+      return collection[collection_id] === _collection_id;
+    }
 
- return paragraphs_of_this_book;
+    const in_this_book = collection.filter(hasCollectionId);
 
+    return in_this_book;
+ 
 
 }

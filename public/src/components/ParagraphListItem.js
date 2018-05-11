@@ -6,7 +6,7 @@ class ParagraphListItem extends React.Component{
 
 
   render(){
-console.log(this.props);
+ 
     return(
       <li>
       <p>{this.props.note}</p>
