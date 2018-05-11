@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { connect } from 'react-redux';
+ // TODO: make ParagraphForm default again everywhere applicable
 
 
 export  class ParagraphForm extends React.Component{
@@ -11,9 +11,6 @@ export  class ParagraphForm extends React.Component{
       paragraph_number: props.paragraph_number ? props.paragraph.paragraph_number : '',
       note: props.note ? props.paragraph.note : '',
       remainingCharacters: 140,
-
-      redundantError: props.error,
-
       error: ''
     }
   }
@@ -46,7 +43,7 @@ export  class ParagraphForm extends React.Component{
       this.setState(()=>({error:'Please enter a paragraph number and a note.'}))
 
     }
- 
+
     else{
       this.setState(()=>({error: ''}));
       this.props.onSubmit({
@@ -58,8 +55,6 @@ export  class ParagraphForm extends React.Component{
       this.state.count = 140;
       this.state.note='',
       this.state.remainingCharacters = 140;
-
-      this.state.redundantError = ''
 
       }
     }
@@ -74,8 +69,6 @@ export  class ParagraphForm extends React.Component{
 
 
         {this.state.error && <p className="form-error">{this.state.error}</p>}
-                // {this.props.error && <p className="form-error">{this.props.error}</p>}
-                {this.state.redundantError && <p className="form-error">{this.state.redundantError}</p>}
 
         <form
         onSubmit={this.onSubmit}>
@@ -103,19 +96,10 @@ export  class ParagraphForm extends React.Component{
         />
         </p>
 
-
-       <button className="form-button">add note</button>
+        <button className="form-button">add note</button>
         </form>
-
         </div>
-
-
 
     )
   }
 }
-
-
-
-
-// export default connect(mapStateToProps)(ParagraphForm)

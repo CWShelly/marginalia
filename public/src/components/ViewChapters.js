@@ -18,11 +18,10 @@ export class ViewChapters extends React.Component{
 
 render(){
 
-
   return(
     <div className="container"   >
 
-     {this.props.match.params.title}
+     {this.state.title}
 
     <AddChapter
      history={this.props.history} title={this.state.title}

@@ -4,8 +4,9 @@ import moment from 'moment';
 
 export default class ChapterFrom extends React.Component{
   constructor(props){
+
     super(props);
-    console.log(props);
+
     this.state={
       createdAt: props.chapter_number ? moment(props.chapter.createdAt): moment(),
       chapter_number: props.chapter_number ? props.book.chapter_number : '',
@@ -15,6 +16,7 @@ export default class ChapterFrom extends React.Component{
   }
 
   onChange=(e)=>{
+
     const chapter_number = parseInt( e.target.value);
     this.setState(()=>({ chapter_number }));
   }
@@ -45,18 +47,23 @@ export default class ChapterFrom extends React.Component{
   }
 
   render(){
+
     return(
       <div>
 
-          {this.state.error && <p  >{this.state.error}</p>}
+      {this.state.error && <p className="form-error" >{this.state.error}</p>}
+
         <form
         onSubmit={this.onSubmit}>
         <label>Add chapter number:</label>
         <input   className="paragraph-input" type="number"
+
+
         onChange={this.onChange}
         value={this.state.chapter_number}
+
         />
-       <button><i className="fa fa-check"></i></button>
+       <button  ><i className="fa fa-check"></i></button>
         </form>
 
       </div>

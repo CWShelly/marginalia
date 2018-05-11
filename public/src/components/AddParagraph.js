@@ -3,13 +3,10 @@ import { connect } from 'react-redux';
 import { startAddParagraph } from '../actions/paragraphs';
 
 import { ParagraphForm }  from './ParagraphForm';
-import selectParagraphs from '../selectors/paragraphs';
+import filterThis from '../selectors/genericSelector';
 import redundantParagraphs from '../selectors/redundant';
 
-
-
 export class AddParagraph extends React.Component{
-
 
   constructor(props){
     super(props);
@@ -22,7 +19,7 @@ export class AddParagraph extends React.Component{
 
     return (
       <div>
-
+        {this.state.error && <p className="form-error"> {this.state.error}</p>}
        <ParagraphForm
 
          onSubmit={(paragraph)=>{
@@ -31,11 +28,11 @@ export class AddParagraph extends React.Component{
            this.props.startAddParagraph(paragraph)
          }
          else{
-           
+
            this.setState(() => ({error: 'Already picked this number'}))
          }
 
-       }}  error={this.state.error}
+       }}
        />
       </div>
     )
@@ -45,12 +42,8 @@ export class AddParagraph extends React.Component{
 
 const mapStateToProps = (state)=>{
 
-
       return {
-
-        _paragraphs: selectParagraphs(state.paragraphs, 'page_id'),
-        paragraphs: selectParagraphs(state.paragraphs, 'page_id')
-        // redundant:redundantParagraph(state.paragraphs, 'page_id', this.props.paragraph_number, 'paragraph_number')
+        paragraphs: filterThis(state.paragraphs, 'page_id')
 
       }
 }
