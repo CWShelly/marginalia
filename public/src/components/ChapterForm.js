@@ -8,8 +8,8 @@ export default class ChapterFrom extends React.Component{
     super(props);
 
     this.state={
-      createdAt: props.chapter_number ? moment(props.chapter.createdAt): moment(),
-      chapter_number: props.chapter_number ? props.book.chapter_number : '',
+      createdAt: props.chapter ? moment(props.chapter.createdAt): moment(),
+      chapter_number: props.chapter ? props.chapter.chapter_number : '',
       error: ''
     }
 

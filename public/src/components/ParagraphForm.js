@@ -7,9 +7,9 @@ export  default class ParagraphForm extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      createdAt: props.paragraph_number ? moment(props.page.createdAt): moment(),
-      paragraph_number: props.paragraph_number ? props.paragraph.paragraph_number : '',
-      note: props.note ? props.paragraph.note : '',
+      createdAt: props.paragraph ? moment(props.paragraph.createdAt): moment(),
+      paragraph_number: props.paragraph ? props.paragraph.paragraph_number : '',
+      note: props.paragraph ? props.paragraph.note : '',
       remainingCharacters: 140,
       error: ''
     }
@@ -91,7 +91,7 @@ export  default class ParagraphForm extends React.Component{
         type="text"
         placeholder="Enter your note here."
         maxLength="140"
-
+         value={this.state.note}
         onChange={this.onNoteChange}
         />
         </p>
