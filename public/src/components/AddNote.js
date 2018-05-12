@@ -8,7 +8,7 @@ import pickUpFromLastNote from '../selectors/from_last_note'
 export class AddNote extends React.Component{
 
  onSubmit=(note)=>{
-   console.log(this.props);
+   
      this.props.startAddNote(note);
 
      this.props.history.push(`/viewNotes/${this.props.title}`)
@@ -18,7 +18,7 @@ export class AddNote extends React.Component{
 
     return (
       <div>
- 
+
        <NoteForm
          onSubmit={this.onSubmit}
        />
