@@ -2,15 +2,7 @@
 
 .DS_Store
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-**/**/*bundle.js
-**/**/*bundle.js.map
-
-**/**/*style.css
-**/**/*style.css.map
 
 public/bundle.js
 public/bundle.js.map
@@ -24,3 +16,13 @@ public/styles.css.map
 
 public/dist/styles.css
 public/dist/styles.css.map
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+**/**/*bundle.js
+**/**/*bundle.js.map
+
+**/**/*style.css
+**/**/*style.css.map
