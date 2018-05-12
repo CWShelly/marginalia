@@ -41,7 +41,7 @@ export const startRemovePage =({ id} = {})=>{
   return (dispatch)=>{
     database.ref(`pages/${ id }`).remove()
     .then(() => {
-      dispatch(removePages({ id }))
+      dispatch(removePage({ id }))
     })
   }
 
