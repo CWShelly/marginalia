@@ -6,15 +6,15 @@ class ParagraphListItem extends React.Component{
 
 
   render(){
-
+console.log(this.props);
     return(
       <div>
 
 
       <li>
       <p>{this.props.note}</p>
-        <p className="list-paragraph-item-reference">Paragraph: {this.props.paragraph_number}      <Link to={`/editParagraph/${this.props.id}`}>
-              <span>Edit</span>
+        <p className="list-paragraph-item-reference">Paragraph: {this.props.paragraph_number}      <Link     to={`/editParagraph/${this.props.id}`}>
+      <span className="list-paragraph-item-reference" >Edit<i className="fa fa-wrench"></i></span>
                 </Link></p>
 
       </li>

@@ -13,6 +13,14 @@
 
 
  export class EditBook extends React.Component{
+   constructor(props){
+     super(props);
+     this.state={
+       buttonText: 'Edit Book'
+
+     }
+   }
+
    onSubmit=(book)=>{
    this.props.startEditBook(this.props.book.id, book);
    this.props.history.push('/');
@@ -45,17 +53,20 @@ for(let i = 0; i< this.props.filteredPages.length; i++){
 }
 
   render(){
+
+
     return (
       <div>
        <BookForm
        book={this.props.book}
        books={this.props.books}
-
+       buttonText={this.state.buttonText}
+       history={this.props.history}
        onSubmit={
         this.onSubmit}
        />
 
-       <button onClick={this.onRemove}>Delete Book</button>
+  <button className="form-button-book" onClick={this.onRemove}>Delete<i className="fa fa-trash-o"></i></button>
 
 
       </div>

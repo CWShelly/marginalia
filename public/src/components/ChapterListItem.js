@@ -16,12 +16,12 @@ class ChapterListItem extends React.Component{
     return(
 
       <div>
-   
+
         <li> <Link   onClick={this.onHandleClick}
         to={`/page/${this.props.chapter_number}/${this.props.id}`} title={this.props.title}>
 
-        Chapter {this.props.chapter_number}</Link>    <Link to={`/editChapter/${this.props.id}`}>
-              <span>Edit</span>
+        Chapter {this.props.chapter_number}</Link>    <Link    onClick={this.onHandleClick} to={`/editChapter/${this.props.id}`}>
+            <span className="list-paragraph-item-reference" >Edit<i className="fa fa-wrench"></i></span>
                 </Link></li>
 
 </div>

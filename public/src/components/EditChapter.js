@@ -35,8 +35,10 @@ console.log('edit  chapter');
         this.props.history.push('/')
    }
 
+
+
    render(){
-console.log('rendering edit chapter');
+  
      return(
        <div>
        <div>
@@ -45,13 +47,13 @@ console.log('rendering edit chapter');
        </div>
 
               <ChapterForm
-
+             history={this.props.history}
                chapter={this.props.chapter}
                onSubmit={
                 this.onSubmit}
                />
 
-      <button onClick={this.onRemove}>Delete Chapter</button>
+         <button className="form-button-book" onClick={this.onRemove}>Delete<i className="fa fa-trash-o"></i></button>
      </div>
      )
    }

@@ -1,10 +1,9 @@
 
 
 export default (collection, number , collection_id ) =>{
-
-
+ 
     const hasCollectionId = (collection)=>{
-   
+
       return collection[number] === collection_id;
     }
 

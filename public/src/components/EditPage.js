@@ -8,7 +8,7 @@
  import filterThis from "../selectors/genericSelector";
  import filterMore from "../selectors/genericIdFinder";
 
- 
+
  export class EditPage extends React.Component{
    onSubmit=(page)=>{
 
@@ -38,13 +38,13 @@
        </div>
 
               <PageForm
-
+ history={this.props.history}
                page={this.props.page}
                onSubmit={
                 this.onSubmit}
                />
 
-      <button onClick={this.onRemove}>Delete Page</button>
+      <button className="form-button-book" onClick={this.onRemove}>Delete<i className="fa fa-trash-o"></i></button>
      </div>
      )
    }

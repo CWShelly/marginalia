@@ -21,7 +21,8 @@ export class ViewParagraphs extends React.Component{
           <div  className="container" >
           <div className="container-view-slug">
 
-          <p> {this.state.title} Chapter {this.state.chapter_number}  {this.state.page_number && <span>, Page {this.state.page_number}</span>}</p>
+
+          <p>Notes for {this.state.title} Chapter {this.state.chapter_number}  {this.state.page_number && <span>, Page {this.state.page_number}</span>}</p>
 
           </div>
          <ParagraphList history={this.props.history} />

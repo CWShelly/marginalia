@@ -15,11 +15,13 @@ export class AddChapter extends React.Component{
       }
   }
   render(){
- 
+
     return (
       <div  >
        {this.state.error && <p className="form-error" >{this.state.error}</p>}
        <ChapterForm
+
+       history={this.props.history}
        onSubmit={(chapter)=>{
        if(rP(this.props.filteredCollection, parseInt(chapter.chapter_number), 'chapter_number' ) ){
          this.setState(() => ({error: ''}))
