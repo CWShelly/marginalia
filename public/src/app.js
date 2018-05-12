@@ -5,12 +5,13 @@ import { startSetBooks } from './actions/books';
 import { startSetNotes} from './actions/notes';
 import { startSetChapters} from './actions/chapters';
 import { startSetPages} from './actions/pages';
+import { login, logout } from './actions/auth';
 import { startSetParagraphs} from './actions/paragraphs';
 import configureStore from './store/configureStore';
 import getVisibleBooks from './selectors/books';
 // import getVisibleNotes from './selectors/notes'
-import AppRouter from './routers/AppRouter';
-import './firebase/firebase';
+import AppRouter, { history } from './routers/AppRouter';
+import { firebase } from './firebase/firebase';
 
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -28,16 +29,55 @@ const jsx = (
     <AppRouter />
   </Provider>
 )
+
+let hasRendered = false;
+const renderApp = () => {
+  if(!hasRendered){
+        ReactDOM.render(jsx, document.getElementById('app'));
+        hasRendered = true;
+  }
+
+}
 // ReactDOM.render(jsx, document.getElementById('app'));
 ReactDOM.render(<p>Loading ...</p>, document.getElementById('app'));
 
-// store.dispatch(startSetNotes())
 
-store.dispatch(startSetChapters())
-store.dispatch(startSetPages())
-store.dispatch(startSetParagraphs())
+//
+// store.dispatch(startSetChapters())
+// store.dispatch(startSetPages())
+// store.dispatch(startSetParagraphs())
+//
+// store.dispatch(startSetBooks())
+//  .then(() => {
+//      ReactDOM.render(jsx, document.getElementById('app'));
+// })
 
-store.dispatch(startSetBooks())
- .then(() => {
-     ReactDOM.render(jsx, document.getElementById('app'));
+
+firebase.auth().onAuthStateChanged((user) => {
+if(user){
+
+  store.dispatch(login(user.uid));
+
+    console.log('log in');
+    console.log('uid = ', user.uid);
+    store.dispatch(startSetChapters())
+    store.dispatch(startSetPages())
+    store.dispatch(startSetParagraphs())
+
+    store.dispatch(startSetBooks())
+     .then(() => {
+       renderApp();
+       if(history.location.pathname === '/'){
+         history.push('/dashboard')
+       }
+    })
+
+
+}else{
+  store.dispatch(logout())
+    console.log('log out');
+    renderApp();
+    history.push('/')
+
+}
 })

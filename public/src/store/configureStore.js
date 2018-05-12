@@ -1,10 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import booksReducer from '../reducers/books';
 import notesReducer from '../reducers/notes';
 import chaptersReducer from '../reducers/chapters';
 import pagesReducer from '../reducers/pages';
 import paragraphsReducer from '../reducers/paragraphs';
-import thunk from 'redux-thunk';
+import authReducer from '../reducers/auth'
+
 const composeEnhanchers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
 
 
@@ -15,7 +17,8 @@ export default () => {
       notes: notesReducer,
       chapters: chaptersReducer,
       pages: pagesReducer,
-      paragraphs: paragraphsReducer
+      paragraphs: paragraphsReducer,
+      auth: authReducer
 
     }),
     composeEnhanchers(applyMiddleware(thunk))
