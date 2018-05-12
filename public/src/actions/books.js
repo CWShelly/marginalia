@@ -39,8 +39,6 @@ export const startRemoveBook =({ id} = {})=>{
       dispatch(removeBook({ id }))
     })
   }
-
-
 }
 
 export const removeBook = ({ id } = {}) =>({
@@ -54,6 +52,16 @@ export const editBook = (id, updates)=>({
   updates
 })
 
+export const startEditBook = (id, updates) => {
+
+  return (dispatch) => {
+    return database.ref(`books/${id}`).update(updates)
+   .then(() => {
+     dispatch(editBook(id, updates))
+   })
+  }
+
+}
 export const setBooks = (books) => ({
   type: 'SET_BOOKS',
   books
