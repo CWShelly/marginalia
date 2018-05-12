@@ -28,13 +28,13 @@ console.log('edit paragraph page');
        </div>
 
               <ParagraphForm
-
+              history={this.props.history}
                paragraph={this.props.paragraph}
                onSubmit={
                 this.onSubmit}
                />
 
-      <button onClick={this.onRemove}> <i className="fa fa-eraser"></i></button>
+  <button className="form-button-book" onClick={this.onRemove}>Delete<i className="fa fa-trash-o"></i></button>
      </div>
      )
    }

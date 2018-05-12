@@ -71,6 +71,7 @@ export  default class ParagraphForm extends React.Component{
         {this.state.error && <p className="form-error">{this.state.error}</p>}
 
         <form
+        history={this.props.history}
         onSubmit={this.onSubmit}>
 
 
@@ -96,7 +97,7 @@ export  default class ParagraphForm extends React.Component{
         />
         </p>
 
-        <button className="form-button">add note</button>
+        <button className="form-button">{this.props.history.location.pathname.slice(1,5) === 'edit' ? 'Edit' : 'Add'} note</button>
         </form>
         </div>
 

@@ -19,8 +19,8 @@ class PageListItem extends React.Component{
       <li className="pages"> <Link onClick={this.onHandleClick}
       to={`/paragraph/${this.props.page_number}/${this.props.id}`}>
 
-      {this.props.page_number}</Link>      <Link to={`/editPage/${this.props.id}`}>
-            <span>Edit</span>
+      Page {this.props.page_number}</Link>      <Link  onClick={this.onHandleClick}  to={`/editPage/${this.props.id}`}>
+          <span className="list-paragraph-item-reference" >Edit<i className="fa fa-wrench"></i></span>
               </Link>
 
       </li>

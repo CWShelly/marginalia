@@ -21,7 +21,7 @@ export class AddParagraph extends React.Component{
       <div>
         {this.state.error && <p className="form-error"> {this.state.error}</p>}
        <ParagraphForm
-
+       history={this.props.history}
          onSubmit={(paragraph)=>{
          if(redundantParagraphs(this.props.paragraphs, parseInt(paragraph.paragraph_number), 'paragraph_number' ) ){
            this.state.error = ''

@@ -22,8 +22,8 @@ class BookListItem extends React.Component{
         <p> <Link   onClick={this.onHandleClick}
         to={`/chapter/${this.props.title}/${this.props.id}`}>
 
-        {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}</Link>       <Link to={`/edit/${this.props.id}`}>
-                  <span>Edit</span>
+        {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}</Link>       <Link   onClick={this.onHandleClick} to={`/edit/${this.props.id}`}>
+                      <span className="list-paragraph-item-reference" >Edit<i className="fa fa-wrench"></i></span>
                   </Link>
 
 

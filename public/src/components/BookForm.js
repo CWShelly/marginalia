@@ -10,7 +10,9 @@ export default class BookForm extends React.Component{
       author_first_name:props.book ? props.book.author_first_name : '',
       title:  props.book ? props.book.title : '',
       createdAt: props.book ? moment(props.book.createdAt): moment(),
-      error: ''
+      error: '',
+
+
     }
   }
 
@@ -61,6 +63,7 @@ export default class BookForm extends React.Component{
 
 
   render(){
+       
     return(
       <div className="container-book-form">
 
@@ -90,7 +93,9 @@ export default class BookForm extends React.Component{
       value={this.state.title}
       onChange={this.onTitleChange}
       />
-      <button className="form-button-book">Add Book</button>
+
+
+      <button className="form-button-book">  {this.props.history.location.pathname === '/' ? 'Add' : 'Edit'} Book</button>
 
       </form>
 
