@@ -49,7 +49,7 @@ export const startRemoveChapter =({ id} = {})=>{
   return (dispatch)=>{
     database.ref(`chapters/${ id }`).remove()
     .then(() => {
-      dispatch(removeChapters({ id }))
+      dispatch(removeChapter({ id }))
     })
   }
 

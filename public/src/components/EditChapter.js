@@ -2,7 +2,12 @@
  import React from 'react';
  import { connect } from 'react-redux';
  import ChapterForm from './ChapterForm';
- import { startEditChapter, removeChapter} from '../actions/chapters';
+ import { startEditChapter, startRemoveChapter} from '../actions/chapters';
+ import { startRemovePage } from '../actions/pages'
+ import { startRemoveParagraph } from '../actions/paragraphs';
+ import getSubIds from "../selectors/genericRemove";
+ import filterThis from "../selectors/genericSelector";
+ import filterSubLevel from "../selectors/genericIdFinder";
 
 console.log('edit  chapter');
  export class EditChapter extends React.Component{
@@ -13,11 +18,25 @@ console.log('edit  chapter');
    }
 
    onRemove=()=>{
-     this.props.removeChapter({id: this.props.chapter.id})
+ 
+
+     this.props.startRemoveChapter({id: this.props.chapter.id})
+
+     for(let i = 0;i<this.props.filterSub.length; i++){
+       console.log(this.props.filterSub[i].id);
+         this.props.startRemoveParagraph({id: this.props.filterSub[i].id})
+     }
+
+     for(let i = 0; i<this.props.filtered.length; i++){
+        this.props.startRemovePage({id: this.props.filtered[i].id})
+     }
+
+
+        this.props.history.push('/')
    }
 
    render(){
-console.log(this.props);
+console.log('rendering edit chapter');
      return(
        <div>
        <div>
@@ -42,6 +61,8 @@ console.log(this.props);
 
   return {
     chapter: state.chapters.find((chapter)=>chapter.id === props.match.params.id),
+    filtered: filterThis(state.pages, 'chapter_id'),
+    filterSub: filterSubLevel(state.paragraphs, 'page_id', filterThis(state.pages, 'chapter_id')[0].id)
   }
 }
 
@@ -49,8 +70,9 @@ const mapDispatchToProps = (dispatch, props) => {
 
   return{
     startEditChapter:(id, chapter)=> dispatch(startEditChapter(id, chapter)),
-    removeChapter: (data)=> dispatch(removeChapter(data)),
-    // startRemovePageh: (data)=> dispatch(startRemoveParagraph(data)),
+    startRemoveChapter: (data)=> dispatch(startRemoveChapter(data)),
+    startRemovePage:(data)=> dispatch(startRemovePage(data)),
+    startRemoveParagraph: (data)=>dispatch(startRemoveParagraph(data))
 
   }
 
