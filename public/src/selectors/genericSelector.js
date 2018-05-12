@@ -1,7 +1,7 @@
 
 
 export default (collection, collection_id ) =>{
- 
+
     const _collection_id = localStorage.getItem(collection_id);
     const hasCollectionId = (collection)=>{
 

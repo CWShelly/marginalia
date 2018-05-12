@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// TODO: add editChapter
+ 
 class ChapterListItem extends React.Component{
 
 

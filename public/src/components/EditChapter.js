@@ -18,7 +18,7 @@ console.log('edit  chapter');
    }
 
    onRemove=()=>{
- 
+
 
      this.props.startRemoveChapter({id: this.props.chapter.id})
 

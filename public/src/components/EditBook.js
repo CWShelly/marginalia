@@ -2,52 +2,60 @@
  import React from 'react';
  import { connect } from 'react-redux';
  import BookForm from './BookForm';
- import { editBook, startRemoveBook } from '../actions/books';
- import removeNotesAssociatedWithBook from '../selectors/removeNotesAssociatedWithBook';
-import { startRemoveNote, startRemoveNoteByBook } from '../actions/notes';
+ import { startEditBook, startRemoveBook } from '../actions/books';
+ import { startRemovePage } from '../actions/pages'
+ import { startRemoveParagraph } from '../actions/paragraphs';
+ import { startRemoveChapter } from '../actions/chapters'
+
+ import filterThis from "../selectors/genericSelector";
+ import filterSubLevel from "../selectors/genericIdFinder";
 
 
 
  export class EditBook extends React.Component{
    onSubmit=(book)=>{
-   this.props.editBook(this.props.book.id, book);
+   this.props.startEditBook(this.props.book.id, book);
    this.props.history.push('/');
 }
 
 
-    onTest = ()=>{
+onRemove=() => {
+  this.props.startRemoveBook({id: this.props.book.id})
 
-
-    this.props.removeAssociatedNotes.forEach((a)=>{
-
-
-      this.props.removeAssociated({ id: a})
+  for(let i = 0; i< this.props.filteredChapters.length; i++){
+    this.props.startRemoveChapter({id:
+    this.props.filteredChapters[i].id
     })
+}
 
-    this.props.startRemoveBook({id: this.props.book.id})
+for(let i = 0; i< this.props.filteredPages.length; i++){
+  this.props.startRemovePage({id:
+  this.props.filteredPages[i].id
+  })
+  }
 
-    const notBooks = (book)=>{
-      return book.id !== this.props.book.id
+
+  for(let i = 0; i< this.props.filteredParagraphs.length; i++){
+    this.props.startRemoveParagraph({id:
+    this.props.filteredParagraphs[i].id
+    })
     }
 
-    this.props.history.push('/');
-    }
-
+     this.props.history.push('/')
+}
 
   render(){
-
-
     return (
       <div>
        <BookForm
        book={this.props.book}
        books={this.props.books}
-       removeAssociatedNotes={this.props.removeAssociatedNotes}
+
        onSubmit={
         this.onSubmit}
        />
 
-       <button onClick={this.onTest}>Delete Book</button>
+       <button onClick={this.onRemove}>Delete Book</button>
 
 
       </div>
@@ -61,7 +69,11 @@ import { startRemoveNote, startRemoveNoteByBook } from '../actions/notes';
   return {
     book: state.books.find((book)=>book.id === props.match.params.id),
     books: state.books.filter((book)=> book.id !== book),
-    removeAssociatedNotes: removeNotesAssociatedWithBook(state.notes)
+    filteredChapters: filterThis(state.chapters, 'book_id'),
+    filteredPages:filterThis(state.pages, 'book_id'),
+    filteredParagraphs: filterThis(state.paragraphs, 'book_id'),
+
+
 
   }
 }
@@ -69,9 +81,12 @@ import { startRemoveNote, startRemoveNoteByBook } from '../actions/notes';
 const mapDispatchToProps = (dispatch, props) => {
 
   return{
-    editBook:(id, book)=> dispatch(editBook(id, book)),
+    startEditBook:(id, book)=> dispatch(startEditBook(id, book)),
     startRemoveBook: (data)=> dispatch(startRemoveBook(data)),
-    removeAssociated: (data)=> dispatch(startRemoveNote(data))
+    startRemoveChapter: (data)=> dispatch(startRemoveChapter(data)),
+    startRemovePage:(data)=> dispatch(startRemovePage(data)),
+    startRemoveParagraph: (data)=>dispatch(startRemoveParagraph(data))
+
 
   }
 

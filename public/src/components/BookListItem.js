@@ -18,7 +18,9 @@ class BookListItem extends React.Component{
 
     return(
       <div>
-
+      <Link to={`/edit/${this.props.id}`}>
+          <p>Edit</p>
+            </Link>
         <p> <Link   onClick={this.onHandleClick}
         to={`/chapter/${this.props.title}/${this.props.id}`}>
 

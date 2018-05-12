@@ -12,13 +12,14 @@ export const startAddParagraph = (paragraphData = {}) => {
   const {
 
   page_id = localStorage.getItem('page_id'),
+    book_id=localStorage.getItem('book_id'),
   paragraph_number = 0,
   note = '',
     createdAt = 0
 
   } = paragraphData;
 
-  const paragraph = { page_id, paragraph_number, note, createdAt}
+  const paragraph = { page_id, book_id, paragraph_number, note, createdAt}
 
   database.ref('paragraphs').push(paragraph)
   .then((ref) => {
