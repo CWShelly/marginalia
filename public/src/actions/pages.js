@@ -59,6 +59,19 @@ export const editPage = (id, updates)=>({
   updates
 })
 
+
+
+export const startEditPage= (id, updates) => {
+
+  return (dispatch) => {
+    return database.ref(`pages/${id}`).update(updates)
+   .then(() => {
+     dispatch(editPage(id, updates))
+   })
+  }
+
+}
+
 export const setPages = (pages) => ({
   type: 'SET_PAGES',
   pages

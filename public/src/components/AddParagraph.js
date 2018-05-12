@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startAddParagraph } from '../actions/paragraphs';
 
-import { ParagraphForm }  from './ParagraphForm';
+import ParagraphForm   from './ParagraphForm';
 import filterThis from '../selectors/genericSelector';
 import redundantParagraphs from '../selectors/redundant';
 

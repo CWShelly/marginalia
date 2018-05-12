@@ -66,7 +66,16 @@ export const editChapter = (id, updates)=>({
   id,
   updates
 })
+export const startEditChapter= (id, updates) => {
 
+  return (dispatch) => {
+    return database.ref(`chapters/${id}`).update(updates)
+   .then(() => {
+     dispatch(editChapter(id, updates))
+   })
+  }
+
+}
 export const setChapters = (chapters) => ({
   type: 'SET_CHAPTERS',
   chapters

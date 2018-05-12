@@ -12,6 +12,9 @@ import EditNote from '../components/EditNote';
 import ViewChapters from '../components/ViewChapters';
 import ViewParagraphs from '../components/ViewParagraphs';
 import ViewPages from '../components/ViewPages';
+import EditParagraph  from '../components/EditParagraph';
+import EditPage from '../components/EditPage';
+import EditChapter from '../components/EditChapter';
 
 
 const AppRouter = ()=>(
@@ -31,6 +34,9 @@ const AppRouter = ()=>(
   <Route path="/chapter/:title" component={ViewChapters} />
   <Route path="/page/:chapter_number" component={ViewPages} />
   <Route path="/paragraph/:paragraph_number" component={ViewParagraphs} />
+  <Route path="/editParagraph/:id" component={EditParagraph} />
+  <Route path="/editPage/:id" component={EditPage} />
+    <Route path="/editChapter/:id" component={EditChapter} />
 
   <Route component={NotFound} />
   </Switch>

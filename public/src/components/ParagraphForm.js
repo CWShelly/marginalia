@@ -3,7 +3,7 @@ import moment from 'moment';
  // TODO: make ParagraphForm default again everywhere applicable
 
 
-export  class ParagraphForm extends React.Component{
+export  default class ParagraphForm extends React.Component{
   constructor(props){
     super(props);
     this.state={
