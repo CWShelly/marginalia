@@ -22,9 +22,7 @@ export const startAddParagraph = (paragraphData = {}) => {
 
   database.ref('paragraphs').push(paragraph)
   .then((ref) => {
-    // console.log(ref.key);
-    // localStorage.setItem('paragraph_id', ref.key);
-    // localStorage.setItem('paragraph_number', page.page_number)
+
     dispatch(addParagraph({
       id: ref.key,
       ... paragraph
@@ -40,7 +38,7 @@ export const startRemoveParagraph =({ id} = {})=>{
   return (dispatch)=>{
     database.ref(`paragraphs/${ id }`).remove()
     .then(() => {
-      dispatch(removeParagraphs({ id }))
+      dispatch(removeParagraph({ id }))
     })
   }
 
@@ -52,12 +50,27 @@ export const removeParagraph= ({ id } = {}) =>({
   id
 })
 
+
+
 export const editParagraph = (id, updates)=>({
   type:'EDIT_PARAGRAPH',
   id,
   updates
 })
 
+
+export const startEditParagraph= (id, updates) => {
+
+  return (dispatch) => {
+    return database.ref(`paragraphs/${id}`).update(updates)
+   .then(() => {
+     dispatch(editParagraph(id, updates))
+   })
+  }
+
+
+
+}
 export const setParagraphs = (paragraphs) => ({
   type: 'SET_PARAGRAPHS',
   paragraphs

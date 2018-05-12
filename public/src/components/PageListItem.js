@@ -13,12 +13,16 @@ class PageListItem extends React.Component{
   render(){
 
     return(
+<div>
+      <Link to={`/editPage/${this.props.id}`}>
+          <p>Edit</p>
+            </Link>
 
       <li className="pages"> <Link onClick={this.onHandleClick}
       to={`/paragraph/${this.props.page_number}/${this.props.id}`}>
 
       {this.props.page_number}</Link></li>
-
+</div>
 
 
     )
