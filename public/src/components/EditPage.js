@@ -8,8 +8,7 @@
  import filterThis from "../selectors/genericSelector";
  import filterMore from "../selectors/genericIdFinder";
 
-
-console.log('edit  page');
+ 
  export class EditPage extends React.Component{
    onSubmit=(page)=>{
 
@@ -18,8 +17,7 @@ console.log('edit  page');
    }
 
    onRemove=()=>{
-     console.log('removing');
-     console.log(this.props);
+
      this.props.startRemovePage({id: this.props.page.id})
          for(let i = 0; i<this.props.filtered.length; i++){
 

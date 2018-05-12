@@ -21,3 +21,6 @@ public/styles.css.map
 .env.development
 
 /dist/
+
+public/dist/styles.css
+public/dist/styles.css.map

@@ -5,8 +5,8 @@ export default class  PageForm extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      createdAt: props.page_number ? moment(props.page.createdAt): moment(),
-      page_number: props.page_number ? props.page.page_number : '',
+      createdAt: props.page ? moment(props.page.createdAt): moment(),
+      page_number: props.page ? props.page.page_number : '',
       error: ''
     }
   }
@@ -54,6 +54,7 @@ export default class  PageForm extends React.Component{
 <label>Add page number:</label>
         <input  className="paragraph-input" type="number"
         onChange={this.onChange}
+          value={this.state.page_number}
         />
     <button className="" ><i className="fa fa-check"></i></button>
         </form>
