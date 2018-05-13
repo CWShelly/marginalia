@@ -6,8 +6,11 @@ import { startLogin } from '../actions/auth';
 
 
    <div className="login-image">
+
+
+      <p>Marginalia Geek</p>
       <button onClick={startLogin}>Sign in.</button>
-      <h1>Marginalia Geek</h1>
+
    </div>
 
 
