@@ -64,7 +64,7 @@ export default class ChapterFrom extends React.Component{
         value={this.state.chapter_number}
 
         />
-       <button  ><i className="fa fa-check"></i></button>
+       <button className="form-button-check"  ><i className="fa fa-check"></i></button>
         </form>
 
       </div>

@@ -19,7 +19,7 @@ class BookListItem extends React.Component{
     return(
       <div>
 
-        <p> <Link   onClick={this.onHandleClick}
+        <p> <Link className="number-list-item"  onClick={this.onHandleClick}
         to={`/chapter/${this.props.title}/${this.props.id}`}>
 
         {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}</Link>       <Link   onClick={this.onHandleClick} to={`/edit/${this.props.id}`}>

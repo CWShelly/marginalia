@@ -1,4 +1,6 @@
-
+.number-list-item-container{
+  padding-bottom: $medium;
+}
 .container{
    color: grey;
    max-width: 60rem;
@@ -20,7 +22,6 @@
 }
 
 .book-container{
-   // background: red;
  padding: $small;
  width: 80%;
  margin: 0 auto;
@@ -31,6 +32,10 @@
 }
 
 @media (min-width: $desktop-bp){
+
+  .number-list-item-container{
+    padding-bottom: $medium;
+  }
   .book-container{
     // background: blue;
     padding: $small;

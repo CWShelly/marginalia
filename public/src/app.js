@@ -59,7 +59,7 @@ if(user){
   store.dispatch(login(user.uid));
 
     console.log('log in');
-    console.log('uid = ', user.uid);
+    // console.log('uid = ', user.uid);
     store.dispatch(startSetChapters())
     store.dispatch(startSetPages())
     store.dispatch(startSetParagraphs())
