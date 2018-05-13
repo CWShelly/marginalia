@@ -9,17 +9,62 @@
   text-align: right;
   color: darken($lightBlue, 20%);
   font-size: $small;
+
+}
+
+.number-list-item{
+  color: grey;
+  font-size: $medium;
+
+    font-weight: 300;
+}
+.list-paragraph-item-reference-paragraph{
+  text-align: right;
+  color: darken($lightBlue, 20%);
+  font-size: $small;
+  padding-bottom: 50px;
+  border-bottom:1px solid $lightBlue;
+}
+
+.number-list-item:hover{
+  color:$lightBlue;
+  font-size: $medium;
+
+  font-weight: 300;
 }
 @media(min-width: $desktop-bp){
+
+  .number-list-item{
+    color: grey;
+    font-size: $medium;
+
+    font-weight: 300;
+  }
+  .number-list-item:hover{
+    color: $lightBlue;
+    font-size: $medium;
+
+    font-weight: 300;
+  }
+
+
   .pages{
     // background: red;
     display: inline;
 
+  }
+  .list-paragraph-item-reference-paragraph{
+    text-align: right;
+    color: darken($lightBlue, 20%);
+    font-size: $small;
+    padding-bottom: 50px;
+    border-bottom:1px solid $lightBlue;
   }
 
   .list-paragraph-item-reference{
     text-align: right;
     color: darken($lightBlue, 20%);
     font-size: $small;
+
   }
 }

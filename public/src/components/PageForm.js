@@ -58,7 +58,7 @@ export default class  PageForm extends React.Component{
         onChange={this.onChange}
           value={this.state.page_number}
         />
-    <button className="" ><i className="fa fa-check"></i></button>
+    <button className="form-button-check" ><i className="fa fa-check"></i></button>
         </form>
 
       </div>

@@ -1,7 +1,12 @@
 
 .header{
   background: $lightBlue;
-  color: white;
+  // background-image: url("/images/reading.jpeg");
+  // background-repeat: no-repeat;
+  // color: white;
+  color:white;
+  // background: black;
+  // opacity: 0.5;
   max-width: 60rem;
   margin: 0 auto;
   padding-right: $small;
@@ -10,15 +15,56 @@
 
 }
 
+.header h1{
+    color: white;
+}
+
+.header p {
+    color: white;
+    // font-weight: bold;
+}
+.header-nav{
+  color: white;
+}
+
+.header-nav:visited{
+    color: white;
+    font-style: italic;
+}
+
+.header button {
+ background: transparent;
+ border: none;
+ color: white;
+}
 
 @media (min-width: $desktop-bp){
 .header{
   background: $lightBlue;
+
+  color:white;
+  // background: black;
+  // opacity: 0.5;
   color: white;
   padding-right: $small;
   text-align: right;
 
 
 }
+
+.header p {
+    color: white;
+    // font-weight: bold;
+}
+.header-nav{
+  color: white;
+}
+
+.header button {
+ background: transparent;
+ border: none;
+ color: white;
+}
+
 
 }

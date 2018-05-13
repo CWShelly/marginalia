@@ -30,7 +30,7 @@ export class ViewPages extends React.Component{
         author_first_name={this.state.author_first_name}
         chapter_number={this.state.chapter_number}
         />
-        <p className="subcontainer-title">pages</p>
+      
         <PageList history={this.props.history} />
          </div>
       )

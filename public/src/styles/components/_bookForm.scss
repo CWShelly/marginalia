@@ -1,32 +1,15 @@
 
 .container-book-form{
-  // background: blue;
+ 
   padding:$small;
 
 }
-// .container-book-form input{
-//   display: flex;
-//   flex-direction: column;
-//   padding: $small;
-//   margin-top: $small;
-//   margin: 0 auto;
-//
-//
-// }
+
 @media(min-width:$desktop-bp){
   .container-book-form{
     display: block;
     margin-left: 0;
   }
 
-  // .container-book-form input{
-  //   display: flex;
-  //   flex-direction: column;
-  //   max-width: 40rem;
-  //   width: 30rem;
-  //   padding: $small;
-  //   margin-top: $small;
-  //   margin-left: auto;
-  // }
 
 }

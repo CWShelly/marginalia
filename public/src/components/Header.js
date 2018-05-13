@@ -9,7 +9,7 @@ export const Header = ({ startLogout }) => (
   <header className="header">
     <h1>Marginalia</h1>
     <p>for readers</p>
-    <NavLink to="/dashboard" activeClassName="is-active"  >Home</NavLink>
+    <NavLink className="header-nav" to="/dashboard" activeClassName="is-active"  >Home</NavLink>
 
     <button onClick={startLogout}>Logout</button>
 

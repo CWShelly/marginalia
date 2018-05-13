@@ -13,13 +13,13 @@ class PageListItem extends React.Component{
   render(){
 
     return(
-<div>
+<div className="number-list-item-container">
 
 
-      <li className="pages"> <Link onClick={this.onHandleClick}
+      <li className="pages"> <Link className="number-list-item"  onClick={this.onHandleClick}
       to={`/paragraph/${this.props.page_number}/${this.props.id}`}>
 
-      Page {this.props.page_number}</Link>      <Link  onClick={this.onHandleClick}  to={`/editPage/${this.props.id}`}>
+      Page {this.props.page_number}</Link>      <Link   onClick={this.onHandleClick}  to={`/editPage/${this.props.id}`}>
           <span className="list-paragraph-item-reference" >Edit<i className="fa fa-wrench"></i></span>
               </Link>
 
