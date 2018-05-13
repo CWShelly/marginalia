@@ -11,6 +11,7 @@ public/styles.css.map
 
 .env.test
 .env.development
+.env.old
 
 /dist/
 
