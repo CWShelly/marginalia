@@ -8,8 +8,8 @@ export const addChapter = (chapter)=>({
 })
 
 export const startAddChapter = (chapterData = {}) => {
-
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
   const {
 
     chapter_number = 0,
@@ -20,9 +20,9 @@ export const startAddChapter = (chapterData = {}) => {
 
   const chapter = { chapter_number, book_id , createdAt}
 
-  database.ref('chapters').push(chapter)
+  database.ref(`users/${uid}/chapters`).push(chapter)
   .then((ref) => {
-    console.log(ref.key);
+
     localStorage.setItem('chapter_id', ref.key);
     localStorage.setItem('chapter_number', chapter.chapter_number);
     dispatch(addChapter({
@@ -31,23 +31,20 @@ export const startAddChapter = (chapterData = {}) => {
     })
 
   )
-  console.log(ref.key);
+
   localStorage.setItem('chapter_id', ref.key);
   localStorage.setItem('chapter_number', chapter.chapter_number)
   })
-
-
-
 
   }
 
 }
 
-
 export const startRemoveChapter =({ id} = {})=>{
 
-  return (dispatch)=>{
-    database.ref(`chapters/${ id }`).remove()
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    database.ref(`users/${uid}/chapters/${ id }`).remove()
     .then(() => {
       dispatch(removeChapter({ id }))
     })
@@ -68,8 +65,9 @@ export const editChapter = (id, updates)=>({
 })
 export const startEditChapter= (id, updates) => {
 
-  return (dispatch) => {
-    return database.ref(`chapters/${id}`).update(updates)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/chapters/${id}`).update(updates)
    .then(() => {
      dispatch(editChapter(id, updates))
    })
@@ -83,8 +81,9 @@ export const setChapters = (chapters) => ({
 
 export const startSetChapters = () => {
 
- return (dispatch) => {
-   return database.ref('chapters')
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+   return database.ref(`users/${uid}/chapters`)
    .once('value')
    .then((snapshot) => {
 
