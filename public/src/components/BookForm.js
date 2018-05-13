@@ -95,7 +95,7 @@ export default class BookForm extends React.Component{
       />
 
 
-      <button className="form-button-book">  {this.props.history.location.pathname === '/dashboard' ? 'Add' : 'Edit'} Book</button>
+      <button className="form-button-book">  {this.props.history.location.pathname === '/dashboard' ? 'Add' : 'Update'} Book</button>
 
       </form>
 

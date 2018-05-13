@@ -1,0 +1,59 @@
+
+
+.login-image{
+
+ background-image: url("/images/reading.jpeg");
+ background-repeat: no-repeat;
+ border: 1px solid $lightBlue;
+ width: 60rem;
+ height: 30rem;
+   max-width: 60rem;
+     margin: 20rem auto;
+}
+
+.login-image h1{
+  color:white;
+  background: black;
+  opacity: 0.5;
+}
+
+.login-image button{
+ display: block;
+ background: transparent;
+
+ margin-left: auto;
+ border: none;
+ font-size: $xlarge;
+ font-weight: 300;
+ color: white;
+ // border-radius: 5px;
+ // border-bottom: 1px solid darken($lightBlue, 60%);
+}
+
+@media (min-width: $desktop-bp){
+
+.login-image{
+
+  background-image: url("/images/reading.jpeg");
+  background-repeat: no-repeat;
+  border: 1px solid $lightBlue;
+  width: 60rem;
+  height: 20rem;
+    max-width: 60rem;
+      margin: 20rem auto;
+}
+
+.login-image button{
+  display: block;
+  background: transparent;
+
+  margin-left: auto;
+  border: none;
+  font-size: $large;
+  font-weight: 300;
+  color: white;
+  // border-radius: 5px;
+  // border-bottom: 1px solid darken($lightBlue, 60%);
+}
+
+}

@@ -3,9 +3,14 @@ import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 
  export const LogIn =({ startLogin })=>(
-   <div>
-   <button onClick={startLogin}>LogIn</button>
+
+
+   <div className="login-image">
+      <button onClick={startLogin}>Sign in.</button>
+      <h1>Marginalia Geek</h1>
    </div>
+
+
  );
 
  const mapDispatchToProps = (dispatch) =>({
