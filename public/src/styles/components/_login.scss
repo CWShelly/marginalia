@@ -9,25 +9,46 @@
  height: 30rem;
  max-width: 60rem;
  margin: 20rem auto;
+ display: flex;
+justify-content: space-between;
 }
 
-.login-image h1{
+
+.login-image p{
+
+  font-size: $large;
   color:white;
   background: black;
   opacity: 0.5;
+  margin-top: $xlarge * 2;
+  height: $large + $large * .20;
 }
 
 .login-image button{
- display: block;
- background: transparent;
+ // display: block;
+ background: black;
+ opacity: 0.5;
 
  margin-left: auto;
  border: none;
- font-size: $xlarge;
+ font-size: $large;
  font-weight: 300;
  color: white;
- // border-radius: 5px;
- // border-bottom: 1px solid darken($lightBlue, 60%);
+height: $large + $large * .20;
+}
+
+.login-image button:hover{
+
+    background: black;
+    opacity: 1;
+
+    margin-left: auto;
+    border: none;
+    font-size: $large;
+    font-weight: 300;
+    color: $lightBlue;
+    height: $large + $large * .20;
+
 }
 
 @media (min-width: $desktop-bp){
@@ -41,19 +62,45 @@
   height: 20rem;
   max-width: 60rem;
   margin: 20rem auto;
+  display: flex;
+ justify-content: space-between;
 }
 
 .login-image button{
-  display: block;
-  background: transparent;
+
+  background: black;
+  opacity: 0.5;
 
   margin-left: auto;
   border: none;
   font-size: $large;
   font-weight: 300;
-  color: white;
-  // border-radius: 5px;
-  // border-bottom: 1px solid darken($lightBlue, 60%);
+  color: $lightBlue;
+  height: $large + $large * .20;
 }
+
+.login-image button:hover{
+
+    background: brown;
+    opacity: 1;
+
+    margin-left: auto;
+    border: none;
+    font-size: $large;
+    font-weight: 300;
+    color: white;
+    height: $large + $large * .20;
+
+}
+
+.login-image p{
+  margin-top: $xlarge * 2;
+  font-size: $large;
+  color:white;
+  background: black;
+  opacity: 0.5;
+  height: $large + $large * .20;
+}
+
 
 }
