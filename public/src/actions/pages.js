@@ -8,7 +8,8 @@ export const addPage = (page)=>({
 })
 
 export const startAddPage = (pageData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
   const {
 
    page_number = 0,
@@ -20,9 +21,9 @@ export const startAddPage = (pageData = {}) => {
 
   const page = { page_number, book_id, chapter_id, createdAt}
 
-  database.ref('pages').push(page)
+  database.ref(`users/${uid}/pages`).push(page)
   .then((ref) => {
-    console.log(ref.key);
+
     localStorage.setItem('page_id', ref.key);
     localStorage.setItem('page_number', page.page_number)
 
@@ -38,8 +39,9 @@ export const startAddPage = (pageData = {}) => {
 
 export const startRemovePage =({ id} = {})=>{
 
-  return (dispatch)=>{
-    database.ref(`pages/${ id }`).remove()
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    database.ref(`users/${uid}/pages/${ id }`).remove()
     .then(() => {
       dispatch(removePage({ id }))
     })
@@ -63,8 +65,9 @@ export const editPage = (id, updates)=>({
 
 export const startEditPage= (id, updates) => {
 
-  return (dispatch) => {
-    return database.ref(`pages/${id}`).update(updates)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/pages/${id}`).update(updates)
    .then(() => {
      dispatch(editPage(id, updates))
    })
@@ -79,8 +82,9 @@ export const setPages = (pages) => ({
 
 export const startSetPages = () => {
 
- return (dispatch) => {
-   return database.ref('pages')
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+   return database.ref(`users/${uid}/pages`)
    .once('value')
    .then((snapshot) => {
      const pages = [];

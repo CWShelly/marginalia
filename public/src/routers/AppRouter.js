@@ -17,7 +17,8 @@ import EditParagraph  from '../components/EditParagraph';
 import EditPage from '../components/EditPage';
 import EditChapter from '../components/EditChapter';
 import LogIn  from '../components/LogIn';
-import PrivateRoute from './PrivateRoute'
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
 
@@ -28,7 +29,7 @@ const AppRouter = ()=>(
 
 
   <Switch>
-  <Route path="/" component={LogIn} exact={true} />
+  <PublicRoute path="/" component={LogIn} exact={true} />
     <PrivateRoute path="/dashboard" component={Dashboard} />
   <PrivateRoute path="/addbook" component={AddBook} />
   <PrivateRoute path="/addnote" component={AddNote} />

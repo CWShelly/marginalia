@@ -8,7 +8,9 @@ export const addBook = (book)=>({
 })
 
 export const startAddBook = (bookData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    
   const {
     author_last_name = '',
     author_first_name = '',
@@ -18,7 +20,7 @@ export const startAddBook = (bookData = {}) => {
   } = bookData;
   const book = { author_last_name, author_first_name, title, createdAt}
 
-  database.ref('books').push(book)
+  database.ref(`users/${uid}/books`).push(book)
   .then((ref) => {
     dispatch(addBook({
       id: ref.key,
@@ -33,8 +35,9 @@ export const startAddBook = (bookData = {}) => {
 export const startRemoveBook =({ id} = {})=>{
   const book_id = id;
 
-  return (dispatch)=>{
-    database.ref(`books/${ id }`).remove()
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    database.ref(`users/${uid}/books/${ id }`).remove()
     .then(() => {
       dispatch(removeBook({ id }))
     })
@@ -54,8 +57,9 @@ export const editBook = (id, updates)=>({
 
 export const startEditBook = (id, updates) => {
 
-  return (dispatch) => {
-    return database.ref(`books/${id}`).update(updates)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/books/${id}`).update(updates)
    .then(() => {
      dispatch(editBook(id, updates))
    })
@@ -68,8 +72,9 @@ export const setBooks = (books) => ({
 })
 
 export const startSetBooks = () => {
- return (dispatch) => {
-   return database.ref('books')
+ return (dispatch, getState) => {
+   const uid = getState().auth.uid
+   return database.ref(`users/${uid}/books`)
    .once('value')
    .then((snapshot) => {
      const books = [];

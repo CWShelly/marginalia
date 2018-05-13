@@ -8,7 +8,8 @@ export const addParagraph = (paragraph)=>({
 })
 
 export const startAddParagraph = (paragraphData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
   const {
 
   page_id = localStorage.getItem('page_id'),
@@ -21,7 +22,7 @@ export const startAddParagraph = (paragraphData = {}) => {
 
   const paragraph = { page_id, book_id, paragraph_number, note, createdAt}
 
-  database.ref('paragraphs').push(paragraph)
+  database.ref(`users/${uid}/paragraphs`).push(paragraph)
   .then((ref) => {
 
     dispatch(addParagraph({
@@ -36,8 +37,9 @@ export const startAddParagraph = (paragraphData = {}) => {
 
 export const startRemoveParagraph =({ id} = {})=>{
 
-  return (dispatch)=>{
-    database.ref(`paragraphs/${ id }`).remove()
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    database.ref(`users/${uid}/paragraphs/${ id }`).remove()
     .then(() => {
       dispatch(removeParagraph({ id }))
     })
@@ -62,8 +64,9 @@ export const editParagraph = (id, updates)=>({
 
 export const startEditParagraph= (id, updates) => {
 
-  return (dispatch) => {
-    return database.ref(`paragraphs/${id}`).update(updates)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/paragraphs/${id}`).update(updates)
    .then(() => {
      dispatch(editParagraph(id, updates))
    })
@@ -78,8 +81,9 @@ export const setParagraphs = (paragraphs) => ({
 })
 
 export const startSetParagraphs = () => {
- return (dispatch) => {
-   return database.ref('paragraphs')
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+   return database.ref(`users/${uid}/paragraphs`)
    .once('value')
    .then((snapshot) => {
      const paragraphs = [];
