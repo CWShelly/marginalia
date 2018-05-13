@@ -7,7 +7,7 @@ import { startLogout } from '../actions/auth';
 
 export const Header = ({ startLogout }) => (
   <header className="header">
-    <h1>Marginalia</h1>
+    <h1>Marginalia Geek</h1>
     <p>for readers</p>
     <NavLink className="header-nav" to="/dashboard" activeClassName="is-active"  >Home</NavLink>
 
