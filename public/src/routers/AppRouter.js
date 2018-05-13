@@ -4,7 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 import Dashboard from '../components/Dashboard';
 import NotFound from '../components/NotFound';
 import AddBook from '../components/AddBook';
-import Header from '../components/Header';
+
 import EditBook from '../components/EditBook';
 import AddNote from '../components/AddNote';
 import MostRecentNote from '../components/MostRecentNote';
@@ -17,6 +17,7 @@ import EditParagraph  from '../components/EditParagraph';
 import EditPage from '../components/EditPage';
 import EditChapter from '../components/EditChapter';
 import LogIn  from '../components/LogIn';
+import PrivateRoute from './PrivateRoute'
 
 export const history = createHistory();
 
@@ -24,23 +25,23 @@ const AppRouter = ()=>(
   <Router history={history}>
 
   <div>
-   <Header />
+
 
   <Switch>
   <Route path="/" component={LogIn} exact={true} />
-    <Route path="/dashboard" component={Dashboard} />
-  <Route path="/addbook" component={AddBook} />
-  <Route path="/addnote" component={AddNote} />
-  <Route path="/quickNote" component={MostRecentNote} />
-  <Route path="/edit/:id" component={EditBook} />
-  <Route path="/editNote/:id" component={EditNote} />
-  <Route path="/viewNotes/:title" component={ViewNotes} />
-  <Route path="/chapter/:title" component={ViewChapters} />
-  <Route path="/page/:chapter_number" component={ViewPages} />
-  <Route path="/paragraph/:paragraph_number" component={ViewParagraphs} />
-  <Route path="/editParagraph/:id" component={EditParagraph} />
-  <Route path="/editPage/:id" component={EditPage} />
-    <Route path="/editChapter/:id" component={EditChapter} />
+    <PrivateRoute path="/dashboard" component={Dashboard} />
+  <PrivateRoute path="/addbook" component={AddBook} />
+  <PrivateRoute path="/addnote" component={AddNote} />
+  <PrivateRoute path="/quickNote" component={MostRecentNote} />
+  <PrivateRoute path="/edit/:id" component={EditBook} />
+  <PrivateRoute path="/editNote/:id" component={EditNote} />
+  <PrivateRoute path="/viewNotes/:title" component={ViewNotes} />
+  <PrivateRoute path="/chapter/:title" component={ViewChapters} />
+  <PrivateRoute path="/page/:chapter_number" component={ViewPages} />
+  <PrivateRoute path="/paragraph/:paragraph_number" component={ViewParagraphs} />
+  <PrivateRoute path="/editParagraph/:id" component={EditParagraph} />
+  <PrivateRoute path="/editPage/:id" component={EditPage} />
+    <PrivateRoute path="/editChapter/:id" component={EditChapter} />
 
   <Route component={NotFound} />
   </Switch>
