@@ -5,15 +5,16 @@ import { Link } from 'react-router-dom';
 
 class NoteListItem extends React.Component{
 render(){
-
+console.log(this.props);
   return(
     <div>
     <div className="note-item-container">
+    <li>
+    <p className="number-list-item" >    {this.props.note}</p>
+    <p className="list-paragraph-item-reference-paragraph">chapter:{this.props.chapter_number} page:{this.props.page_number}  paragraph: {this.props.paragraph_number} </p>
 
-    <p className="note-item-reference">chapter:{this.props.chapter_number} page:{this.props.page_number}  paragraph: {this.props.paragraph_number} </p>
-      <p className="note-item-note">    {this.props.note}</p>
-      <p className="note-item-note-edit">
-       <Link className="note-item-note-edit" to={`/editNote/${this.props.id}`}>Edit</Link></p>
+    </li>
+
     </div>
     </div>
   )

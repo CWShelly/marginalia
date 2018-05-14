@@ -1,6 +1,6 @@
 // import uuid from 'uuid';
 import database from '../firebase/firebase'
- 
+
 
 export const addParagraph = (paragraph)=>({
   type: 'ADD_PARAGRAPH',
@@ -13,14 +13,16 @@ export const startAddParagraph = (paragraphData = {}) => {
   const {
 
   page_id = localStorage.getItem('page_id'),
-    book_id=localStorage.getItem('book_id'),
+  book_id=localStorage.getItem('book_id'),
+  page_number=localStorage.getItem('page_number'),
+  chapter_number=localStorage.getItem('chapter_number'),
   paragraph_number = 0,
   note = '',
     createdAt = 0
 
   } = paragraphData;
 
-  const paragraph = { page_id, book_id, paragraph_number, note, createdAt}
+  const paragraph = { page_id, book_id, chapter_number, page_number,paragraph_number, note, createdAt}
 
   database.ref(`users/${uid}/paragraphs`).push(paragraph)
   .then((ref) => {

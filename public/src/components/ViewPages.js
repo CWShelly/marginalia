@@ -30,9 +30,14 @@ export class ViewPages extends React.Component{
 
 
 
+
           <p className="slug">
 
-   <span>  {this.state.title} {this.state.chapter_number && <span> chapter {this.state.chapter_number}</span>}</span>
+   <span>  <Link className="number-list-item"
+       to={`/viewNotes/${this.state.title}/${localStorage.getItem('book_id')}`}>
+
+   {this.state.title}
+   </Link> {this.state.chapter_number && <span> chapter {this.state.chapter_number}</span>}</span>
           </p>
         <AddPage
          history={this.props.history}
