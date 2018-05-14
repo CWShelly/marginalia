@@ -31,12 +31,13 @@ label{
 
 .form-button-check{
   background: white;
-  background:linear-gradient(to bottom, $lightBlue, black);
-
-  font-size: $large;
+  color: $lightBlue;
+  // font-size: $large;
+    font-size: $medium;
   padding: $small/2;
   border: none;
-  border-bottom: 1px solid $lightBlue;
+  // border: 1px solid $lightBlue;
+  // border-bottom: 1px solid $lightBlue;
 }
 
 .form-error{
@@ -59,10 +60,11 @@ label{
 .form-button-check:hover{
   background: white;
   color:darken($lightBlue, 20%);
-  font-size: $large;
+  // font-size: $large;
+    font-size: $medium;
   border: none;
   // padding: $small/2;
-    border-bottom: 1px solid darken($lightBlue, 10%);
+    // border-bottom: 1px solid darken($lightBlue, 10%);
 }
 @media (min-width: $desktop-bp){
 
@@ -71,8 +73,9 @@ label{
     color: $lightBlue;
     font-size: $medium;
     border: none;
+      // border: 1px solid $lightBlue;
     // padding: $small/2;
-      border-bottom: 1px solid $lightBlue;
+      // border-bottom: 1px solid $lightBlue;
   }
 
   .form-button-check:hover{
@@ -81,7 +84,7 @@ label{
     font-size: $medium;
     border: none;
     // padding: $small/2;
-      border-bottom:1px solid $lightBlue;
+      // border-bottom:1px solid $lightBlue;
   }
 .form-textArea{
   display: block;

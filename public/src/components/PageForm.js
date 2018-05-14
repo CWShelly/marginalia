@@ -31,7 +31,7 @@ export default class  PageForm extends React.Component{
     e.preventDefault();
     if(!this.state.page_number )
     {
-      this.setState(()=>{error:'Please enter a number'})
+        this.setState(()=>({error:'Please enter a number'}))
     } else{
       this.setState(()=>({error: ''}));
       this.props.onSubmit({
@@ -46,7 +46,7 @@ export default class  PageForm extends React.Component{
   }
 
   render(){
- 
+
     return(
       <div >
           {this.state.error && <p className="form-error" >{this.state.error}</p>}
@@ -58,7 +58,7 @@ export default class  PageForm extends React.Component{
         onChange={this.onChange}
           value={this.state.page_number}
         />
-    <button className="form-button-check" ><i className="fa fa-check"></i></button>
+    <button className="form-button-check" ><i className="fa fa-plus"></i></button>
         </form>
 
       </div>
