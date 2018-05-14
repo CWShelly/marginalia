@@ -33,7 +33,7 @@ export default class ChapterFrom extends React.Component{
     e.preventDefault();
     if(!this.state.chapter_number )
     {
-      this.setState(()=>{error:'Please enter a number'})
+      this.setState(()=>({error:'Please enter a number'}))
     } else{
       this.setState(()=>({error: ''}));
       this.props.onSubmit({
@@ -47,8 +47,8 @@ export default class ChapterFrom extends React.Component{
   }
 
   render(){
- console.log(this.props);
- 
+console.log(this.state.chapter_number);
+
     return(
       <div>
 
@@ -64,7 +64,7 @@ export default class ChapterFrom extends React.Component{
         value={this.state.chapter_number}
 
         />
-       <button className="form-button-check"  ><i className="fa fa-check"></i></button>
+       <button className="form-button-check"  ><i className="fa fa-plus"></i></button>
         </form>
 
       </div>
