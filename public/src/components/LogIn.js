@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
+import { Link } from 'react-router-dom';
 
  export const LogIn =({ startLogin })=>(
 
@@ -8,8 +9,12 @@ import { startLogin } from '../actions/auth';
    <div className="login-image">
 
 
-      <p>Marginalia Geek</p>
+   <p> <Link className="login-link"
+   to={`/about`}>Marginalia Geek</Link></p>
+
+
       <button onClick={startLogin}>Sign in.</button>
+
 
    </div>
 

@@ -20,6 +20,8 @@ import LogIn  from '../components/LogIn';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
+import Explainer from '../components/Explainer';
+
 export const history = createHistory();
 
 const AppRouter = ()=>(
@@ -30,6 +32,7 @@ const AppRouter = ()=>(
 
   <Switch>
   <PublicRoute path="/" component={LogIn} exact={true} />
+  <PublicRoute path="/about" component={Explainer} />
     <PrivateRoute path="/dashboard" component={Dashboard} />
   <PrivateRoute path="/addbook" component={AddBook} />
   <PrivateRoute path="/addnote" component={AddNote} />

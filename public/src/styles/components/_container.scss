@@ -2,11 +2,23 @@
   padding-bottom: $medium;
 
 }
+
+.explainer-subcontainer{
+  margin: 0 auto;
+}
 .container{
    color: grey;
    max-width: 60rem;
    margin: 0 auto;
    padding: $medium;
+   border: 1px solid red;
+}
+
+.container img{
+  max-width: 30rem;
+  width: 30rem;
+  display: block;
+  margin: 0 auto;
 }
 
 
@@ -34,6 +46,18 @@
 
 @media (min-width: $desktop-bp){
 
+  .explainer-subcontainer{
+    margin: 0 auto;
+  }
+
+  .container img{
+    display: block;
+    margin: 0 auto;
+    max-width: 60rem;
+    width: 60rem;
+  }
+
+
   .number-list-item-container{
     padding-bottom: $medium;
   }
@@ -49,6 +73,7 @@
        color: grey;
        margin: 0 auto;
        padding: $medium;
+          border: 1px solid red;
     }
 
     .container-form{
