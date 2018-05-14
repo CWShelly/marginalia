@@ -13,6 +13,7 @@ export class ParagraphList extends React.Component{
 
    return(
      <div className="container">
+     {this.props.paragraphs.length === 0 && <p>You have not added any paragraphs for this page, yet.</p>}
      <ul>
       {this.props.paragraphs.map((paragraph)=>{
         return <ParagraphListItem key={paragraph.id} {...paragraph} />
@@ -27,7 +28,7 @@ export class ParagraphList extends React.Component{
 
 
     const mapStateToProps = (state)=>{
-     
+
 
       return {
         paragraphs: filterThis(state.paragraphs, 'page_id')

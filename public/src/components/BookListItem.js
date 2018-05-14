@@ -14,7 +14,7 @@ class BookListItem extends React.Component{
     localStorage.setItem('title', this.props.title)
   }
   render(){
-console.log(this.props);
+
 
     return(
       <div>
@@ -22,12 +22,15 @@ console.log(this.props);
         <p> <Link className="number-list-item"  onClick={this.onHandleClick}
         to={`/chapter/${this.props.title}/${this.props.id}`}>
 
-        {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}</Link>       <Link   onClick={this.onHandleClick} to={`/edit/${this.props.id}`}>
-                      <span className="list-paragraph-item-reference" ><i className="fa fa-wrench"></i></span>
-                  </Link>
+        {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}</Link>
+
+
 
 
        </p>
+       <p className="list-paragraph-item-reference-paragraph">       <Link   className="list-paragraph-item-reference"   onClick={this.onHandleClick} to={`/edit/${this.props.id}`}>
+             <i className="fa fa-wrench"></i> Edit
+                   </Link></p>
 
       </div>
 

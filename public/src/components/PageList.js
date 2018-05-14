@@ -8,13 +8,15 @@ export class PageList extends React.Component{
  render(){
 
    return(
+     <div>
+     {this.props.pages.length === 0 && <p>You have not added any pages for this chapter, yet.</p>}
      <ul>
       {this.props.pages.map((page)=>{
         return <PageListItem key={page.id} {...page} />
       })}
 
       </ul>
-
+     </div>
    )
  }
 

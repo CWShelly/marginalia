@@ -15,10 +15,6 @@ export class ViewParagraphs extends React.Component{
     page_number:localStorage.getItem('page_number')
   }
 
-  onHandleClick = () => {
-    this.props.history.goBack();
-
-  }
 
 
   render(){
@@ -29,9 +25,9 @@ export class ViewParagraphs extends React.Component{
 
 
         <p className="slug">
-        <a onClick={this.onHandleClick}><i className="fa fa-arrow-left"></i></a>
 
-        <span>Notes for {this.state.title} Chapter {this.state.chapter_number}  {this.state.page_number && <span>, Page {this.state.page_number}</span>}
+
+        <span>Notes for {this.state.title} Chapter {this.state.chapter_number}  {this.state.page_number && <span> Page {this.state.page_number}</span>}
         </span>
         </p>
 
@@ -41,6 +37,7 @@ export class ViewParagraphs extends React.Component{
 
          <ParagraphList  />
           <AddParagraph
+           history={this.props.history}
           title={this.state.title}
           author_last_name={this.state.author_last_name}
           author_first_name={this.state.author_first_name}
