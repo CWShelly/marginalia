@@ -2,7 +2,7 @@ import React from 'react';
 import AddParagraph from './AddParagraph';
 import ParagraphList from './ParagraphList';
 import { startAddParagraph } from '../actions/paragraphs';
-
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 export class ViewParagraphs extends React.Component{
@@ -18,7 +18,7 @@ export class ViewParagraphs extends React.Component{
 
 
   render(){
-
+console.log(this.props);
         return(
           <div  className="container" >
           <div className="container-view-slug">
@@ -27,7 +27,11 @@ export class ViewParagraphs extends React.Component{
         <p className="slug">
 
 
-        <span>Notes for {this.state.title} Chapter {this.state.chapter_number}  {this.state.page_number && <span> Page {this.state.page_number}</span>}
+        <span>Notes for  <Link className="number-list-item"
+        to={`/viewNotes/${this.state.title}/${localStorage.getItem('book_id')}`}>
+
+        {this.state.title}
+        </Link>  Chapter {this.state.chapter_number}  {this.state.page_number && <span> Page {this.state.page_number}</span>}
         </span>
         </p>
 

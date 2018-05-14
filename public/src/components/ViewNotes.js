@@ -12,7 +12,7 @@ export class ViewNotes extends React.Component{
     display: false,
     author_first_name: localStorage.getItem('author_first'),
     author_last_name:localStorage.getItem('author_last'),
-    title: localStorage.getITem('title')
+    title: localStorage.getItem('title')
   }
 
 
@@ -35,27 +35,9 @@ export class ViewNotes extends React.Component{
 render(){
 
   return(
-    <div className="view-notes-container-container">
-
-    <div className="view-notes-container ">
-
-
-      <p className="view-notes-title">Notes for      {this.props.state.title} by {this.state.author_first_name} {this.state.author_last_name} </p>
-
-
-      <NoteList history={this.props.history}  />
-
-      <button className="button-quick-form" onClick={this.displayAddNote}>{!this.state.display ? 'Add a Note' : 'Cancel'}</button>
-
-
-   </div>
-
-     <div className="view-notes-container-add-note">
-       <MostRecentNote history={this.props.history}  onSubmit={this.onSubmit} />
-
-       <AddNote history={this.props.history} title={this.props.match.params.title}/>
-      </div>
-
+    <div className="container">
+    <h1 >Your Notes for {this.state.title}</h1>
+    <NoteList />
      </div>
 
   )
