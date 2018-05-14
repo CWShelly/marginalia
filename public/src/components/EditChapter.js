@@ -38,7 +38,7 @@ console.log('edit  chapter');
 
 
    render(){
-  
+
      return(
        <div>
        <div>
@@ -47,7 +47,7 @@ console.log('edit  chapter');
        </div>
 
               <ChapterForm
-             history={this.props.history}
+           
                chapter={this.props.chapter}
                onSubmit={
                 this.onSubmit}

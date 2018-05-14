@@ -28,7 +28,7 @@ console.log('edit paragraph page');
        </div>
 
               <ParagraphForm
-              history={this.props.history}
+               
                paragraph={this.props.paragraph}
                onSubmit={
                 this.onSubmit}

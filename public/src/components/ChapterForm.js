@@ -48,7 +48,7 @@ export default class ChapterFrom extends React.Component{
 
   render(){
  console.log(this.props);
-   console.log(this.props.history.location.pathname.slice(1,5));
+ 
     return(
       <div>
 
@@ -56,7 +56,7 @@ export default class ChapterFrom extends React.Component{
 
         <form
         onSubmit={this.onSubmit}>
-        <label>{this.props.history.location.pathname.slice(1,5) === 'edit' ? 'Edit' : 'Add'} chapter number:</label>
+        <label>Add chapter number:</label>
         <input   className="paragraph-input" type="number"
 
 

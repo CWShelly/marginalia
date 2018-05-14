@@ -24,7 +24,7 @@ render(){
      {this.state.title}
 
     <AddChapter
-     history={this.props.history} title={this.state.title}
+     title={this.state.title}
     author_last_name={this.state.author_last_name}
     author_first_name={this.state.author_first_name}
     />

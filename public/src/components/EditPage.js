@@ -38,7 +38,7 @@
        </div>
 
               <PageForm
- history={this.props.history}
+ 
                page={this.props.page}
                onSubmit={
                 this.onSubmit}
