@@ -13,6 +13,7 @@ export class BookList extends React.Component{
    return(
      <div className="book-container" >
       <h1 >Your Books</h1>
+      {this.props.books.length === 0 && <p>Add a book to get started</p>}
       {this.props.books.map((book)=>{
         return <BookListItem key={book.id} { ...book} />
       })}

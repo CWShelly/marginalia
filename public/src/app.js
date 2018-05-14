@@ -39,7 +39,14 @@ const renderApp = () => {
 
 }
 // ReactDOM.render(jsx, document.getElementById('app'));
-ReactDOM.render(<p>Loading ...</p>, document.getElementById('app'));
+ReactDOM.render(
+
+     <div className="login-image">
+
+        <p>Marginalia Geek</p>
+        <p>Loading...</p>
+
+     </div>, document.getElementById('app'));
 
 
 //

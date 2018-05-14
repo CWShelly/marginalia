@@ -10,14 +10,15 @@ export class ChapterList extends  React.Component{
 
 
    return(
-
+<div>
+{this.props.chapters.length === 0 && <p>You have not added any chapters, yet.</p>}
 <ul>
       {this.props.chapters.map((chapter)=>{
         return <ChapterListItem key={chapter.id} { ...chapter} />
       })}
 
       </ul>
-
+</div>
    )
  }
 }

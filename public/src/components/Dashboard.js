@@ -12,7 +12,7 @@ console.log(this.props);
       <div className="container" >
           <div  >
 
-            <AddBook  />
+            <AddBook  history={this.props.history} />
 
         </div>
 
