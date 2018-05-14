@@ -18,7 +18,7 @@ label{
 }
 
 .form-button{
-  background: $lightBlue;
+  background:linear-gradient(to bottom right, $lightBlue, black);
   color: white;
   font-size: $small;
   padding: $small;
@@ -31,7 +31,8 @@ label{
 
 .form-button-check{
   background: white;
-  color: $lightBlue;
+  background:linear-gradient(to bottom, $lightBlue, black);
+
   font-size: $large;
   padding: $small/2;
   border: none;
@@ -43,7 +44,8 @@ label{
 }
 
 .form-button-book{
-  background: $lightBlue;
+  background:linear-gradient(to bottom, $lightBlue, black);
+  border-radius: 5px;
   color: white;
   font-size: $small;
   padding: $small;
@@ -93,7 +95,8 @@ label{
 }
 
 .form-button{
-  background: $lightBlue;
+  background:linear-gradient(to bottom, $lightBlue, black);
+  border-radius: 5px;
   color: white;
   font-size: $small;
   padding: $small;
@@ -104,7 +107,8 @@ label{
 }
 
 .form-button-book{
-  background: $lightBlue;
+  background:linear-gradient(to bottom, $lightBlue, black);
+    border-radius: 5px;
   color: white;
   font-size: $small;
   padding: $small;
