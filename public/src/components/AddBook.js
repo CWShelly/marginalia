@@ -14,11 +14,11 @@ export class AddBook extends React.Component{
   }
 
   render(){
-   
+
     return (
       <div>
        <BookForm
-         onSubmit={this.onSubmit} history={this.props.history}
+         onSubmit={this.onSubmit}
        />
       </div>
     )

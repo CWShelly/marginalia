@@ -7,19 +7,19 @@ class Dashboard extends React.Component{
 
 
   render(){
-
+console.log(this.props);
     return(
       <div className="container" >
           <div  >
 
-            <AddBook  history={this.props.history}/>
+            <AddBook  />
 
         </div>
 
     <div  >
 
     <div  >
-      <BookList history={this.props.history} />
+      <BookList   />
     </div>
 
     </div>

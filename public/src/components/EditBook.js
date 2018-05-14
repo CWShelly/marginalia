@@ -61,7 +61,7 @@ for(let i = 0; i< this.props.filteredPages.length; i++){
        book={this.props.book}
        books={this.props.books}
        buttonText={this.state.buttonText}
-       history={this.props.history}
+     
        onSubmit={
         this.onSubmit}
        />

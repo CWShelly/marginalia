@@ -97,7 +97,7 @@ export  default class ParagraphForm extends React.Component{
         />
         </p>
 
-        <button className="form-button">{this.props.history.location.pathname.slice(1,5) === 'edit' ? 'Edit' : 'Add'} note</button>
+        <button className="form-button">Add note</button>
         </form>
         </div>
 

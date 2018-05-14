@@ -1,6 +1,7 @@
 import React from 'react';
 import AddPage from './AddPage';
 import PageList from './PageList';
+import { Link } from 'react-router-dom';
 import { startAddPage } from '../actions/pages';
 
 import { connect } from 'react-redux';
@@ -17,21 +18,30 @@ export class ViewPages extends React.Component{
     chapter_id:localStorage.getItem('chapter_id')
   }
 
+  onHandleClick = () => {
+    this.props.history.goBack();
+
+  }
+
     render(){
 
       return(
         <div  className="container"  >
 
-        {this.state.title} {this.state.chapter_number && <span>, chapter {this.state.chapter_number}</span>}
 
-        <AddPage history={this.props.history}
+
+          <p className="slug"><a onClick={this.onHandleClick}><i className="fa fa-arrow-left"></i></a>
+
+   <span>  {this.state.title} {this.state.chapter_number && <span>, chapter {this.state.chapter_number}</span>}</span>
+          </p>
+        <AddPage
         title={this.state.title}
         author_last_name={this.state.author_last_name}
         author_first_name={this.state.author_first_name}
         chapter_number={this.state.chapter_number}
         />
-      
-        <PageList history={this.props.history} />
+
+        <PageList  />
          </div>
       )
      }

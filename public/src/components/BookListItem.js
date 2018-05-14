@@ -14,7 +14,7 @@ class BookListItem extends React.Component{
     localStorage.setItem('title', this.props.title)
   }
   render(){
-
+console.log(this.props);
 
     return(
       <div>
