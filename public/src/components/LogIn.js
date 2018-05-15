@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
    to={`/about`}>Marginalia Geek</Link></p>
 
 
-      <button onClick={startLogin}>Sign in.</button>
+      <button onClick={startLogin}>Enter</button>
 
 
    </div>
