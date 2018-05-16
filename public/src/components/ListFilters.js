@@ -15,7 +15,7 @@ export class ListFilters extends React.Component{
 
     return(
       <div>
-    <label>Search this Book:</label>  <input type="text" value={this.props.filters.text} onChange={
+    <label>Search {this.props.history.location.pathname.slice(1,10) === 'viewNotes' ? 'this book' : 'your notes'}:</label>  <input type="text" value={this.props.filters.text} onChange={
             this.onTextChange
           }/>
 

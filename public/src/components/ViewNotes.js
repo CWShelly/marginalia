@@ -38,7 +38,7 @@ console.log(this.props);
   return(
     <div className="container">
     <div> <h1 >Your Notes for {this.state.title}</h1>
-        <ListFilters />
+        <ListFilters history={this.props.history}/>
 
     <p className="add-note-view-notes">
 
@@ -50,7 +50,7 @@ console.log(this.props);
     </p>
 
     </div>
-    <NoteList />
+    <NoteList history={this.props.history} />
      </div>
 
   )

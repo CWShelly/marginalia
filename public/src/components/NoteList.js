@@ -15,28 +15,28 @@ export class NoteList extends React.Component{
     title: localStorage.getItem('title')
   }
   render(){
-
+console.log(this.props);
 
     return(
       <div  className="container">
 
- {this.props.notes.length === 0 && <div className="container">
-   <p>You have not entered any notes for {this.state.title}, yet. </p>
-   <p> <Link className="number-list-item"
-   to={`/chapter/${this.state.title}/${localStorage.getItem('book_id')}`}>
+       {this.props.notes.length === 0 && <div className="container">
+         <p>You have not entered any notes for {this.state.title}, yet. </p>
+         <p> <Link className="number-list-item"
+         to={`/chapter/${this.state.title}/${localStorage.getItem('book_id')}`}>
 
-   Get Started
-   </Link>
+         Get Started
+         </Link>
 
-  </p>
-  </div>
+       </p>
+      </div>
 
 
  }
       {this.props.notes.length >0 &&
       <div >
-
-         {this.props.filtered.map((note, index)=>{
+            <h1> {this.props.history.location.pathname.slice(1,10) === 'viewNotes' ? 'This Book\'s' : 'All of Your'} Notes</h1>
+         {this.props.notes.map((note, index)=>{
            return <NoteListItem key={note.id} { ...note} index={index}/>
          })}
 
@@ -49,14 +49,22 @@ export class NoteList extends React.Component{
   }
 }
 
-const mapStateToProps = (state)=>{
+const mapStateToProps = (state, props)=>{
+
 console.log(state);
-    return {
-      notes: selectNotes(state.paragraphs),
-      filtered: filters(state.paragraphs, state.filters)
+console.log(props.history.location.pathname.slice(1,10));
 
+if(props.history.location.pathname.slice(1,10) === "viewNotes"){
+  return{
+    notes: filters(selectNotes(state.paragraphs), state.filters)
+  }
+}
+else{
+  return{
+    notes: filters(state.paragraphs, state.filters)
+  }
+}
 
-    }
 
 
 
