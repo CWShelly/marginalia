@@ -1,7 +1,8 @@
 import React from 'react';
 import AddBook from './AddBook'
 import BookList from './BookList';
-
+import NoteList from './NoteList';
+import ListFilters from './ListFilters'
 
 class Dashboard extends React.Component{
 
@@ -21,6 +22,10 @@ class Dashboard extends React.Component{
       <BookList   />
     </div>
 
+        <div className="book-container">
+         <ListFilters history={this.props.history} />
+           <NoteList history={this.props.history} />
+        </div>
     </div>
 
       </div>
