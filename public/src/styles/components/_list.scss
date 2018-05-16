@@ -16,14 +16,23 @@
   color: grey;
   font-size: $medium;
 
-    font-weight: 300;
+  font-weight: 300;
 }
 .list-paragraph-item-reference-paragraph{
   text-align: right;
   color: darken($lightBlue, 20%);
   font-size: $small;
-  padding-bottom: 50px;
+  padding-bottom: $large;
+
   border-bottom:1px solid $lightBlue;
+}
+
+.add-note-view-notes-link{
+  text-align: right;
+
+  color: darken($lightBlue, 20%);
+  font-size: $small;
+
 }
 
 .number-list-item:hover{
@@ -31,6 +40,12 @@
   font-size: $medium;
 
   font-weight: 300;
+}
+
+.add-note-view-notes{
+  padding-right: $small;
+  padding-left: $small;
+
 }
 @media(min-width: $desktop-bp){
 
@@ -57,9 +72,26 @@
     text-align: right;
     color: darken($lightBlue, 20%);
     font-size: $small;
-    padding-bottom: 50px;
+    padding-bottom: $large;
+ 
     border-bottom:1px solid $lightBlue;
   }
+  .add-note-view-notes{
+  padding-right: $small;
+  padding-left: none;
+  }
+  .add-note-view-notes-link{
+
+    text-align: right;
+    display: block;
+    margin-right:0;
+    color: darken($lightBlue, 20%);
+    font-size: $small;
+
+
+
+  }
+
 
   .list-paragraph-item-reference{
     text-align: right;
