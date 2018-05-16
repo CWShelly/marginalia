@@ -31,12 +31,12 @@ export class NoteList extends React.Component{
 
  }
       {this.props.notes.length >0 &&
-      <div className="container note-list-container">
-        <ol>
+      <div >
+
          {this.props.notes.map((note, index)=>{
            return <NoteListItem key={note.id} { ...note} index={index}/>
          })}
-         </ol>
+     
       </div>
      }
 

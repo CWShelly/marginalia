@@ -67,6 +67,9 @@ if(user){
 
     console.log('log in');
     // console.log('uid = ', user.uid);
+    // localStorage.setItem('user_id', user.uid)
+
+
     store.dispatch(startSetChapters())
     store.dispatch(startSetPages())
     store.dispatch(startSetParagraphs())
@@ -83,6 +86,7 @@ if(user){
 }else{
   store.dispatch(logout())
     console.log('log out');
+
     renderApp();
     history.push('/')
 

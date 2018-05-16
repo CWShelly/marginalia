@@ -1,17 +1,26 @@
-.number-list-item-container{
-  padding-bottom: $medium;
 
+.book-container{
+ padding: $small;
+ width: 80%;
+ margin: 0 auto;
 }
 
-.explainer-subcontainer{
-  margin: 0 auto;
-}
+
 .container{
    color: grey;
    max-width: 60rem;
    margin: 0 auto;
    padding: $medium;
    // border: 1px solid red;
+}
+
+
+.container form{
+  text-align:right;
+}
+
+.container-form{
+ max-width: 60rem;
 }
 
 .container-img{
@@ -22,23 +31,21 @@
 }
 
 
-.container-form{
- max-width: 60rem;
-}
-
-.container form{
-  text-align:right;
-}
-
 .container-view-slug{
   text-align:right;
 }
 
-.book-container{
- padding: $small;
- width: 80%;
- margin: 0 auto;
+.explainer-subcontainer{
+  margin: 0 auto;
 }
+
+
+.number-list-item-container{
+  padding-bottom: $medium;
+
+}
+
+
 
 .subcontainer-title{
   // color:red;
