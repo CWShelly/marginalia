@@ -5,7 +5,7 @@ import MostRecentNote from './MostRecentNote';
 import { startAddNote } from '../actions/notes';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import ListFilters from './ListFilters'
 
 export class ViewNotes extends React.Component{
 
@@ -38,8 +38,10 @@ console.log(this.props);
   return(
     <div className="container">
     <div> <h1 >Your Notes for {this.state.title}</h1>
+        <ListFilters />
 
     <p className="add-note-view-notes">
+
     <Link className="add-note-view-notes-link"
     to={`/chapter/${this.state.title}/${localStorage.getItem('book_id')}`}>
     Add a note <i className="fa fa-plus"></i>

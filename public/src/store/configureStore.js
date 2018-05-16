@@ -5,7 +5,8 @@ import notesReducer from '../reducers/notes';
 import chaptersReducer from '../reducers/chapters';
 import pagesReducer from '../reducers/pages';
 import paragraphsReducer from '../reducers/paragraphs';
-import authReducer from '../reducers/auth'
+import authReducer from '../reducers/auth';
+import filtersReducer from '../reducers/filters';
 
 const composeEnhanchers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
 
@@ -18,7 +19,8 @@ export default () => {
       chapters: chaptersReducer,
       pages: pagesReducer,
       paragraphs: paragraphsReducer,
-      auth: authReducer
+      auth: authReducer,
+      filters: filtersReducer
 
     }),
     composeEnhanchers(applyMiddleware(thunk))
