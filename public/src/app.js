@@ -49,16 +49,7 @@ ReactDOM.render(
      </div>, document.getElementById('app'));
 
 
-//
-// store.dispatch(startSetChapters())
-// store.dispatch(startSetPages())
-// store.dispatch(startSetParagraphs())
-//
-// store.dispatch(startSetBooks())
-//  .then(() => {
-//      ReactDOM.render(jsx, document.getElementById('app'));
-// })
-
+ 
 
 firebase.auth().onAuthStateChanged((user) => {
 if(user){
