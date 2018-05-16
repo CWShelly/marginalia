@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ChapterListItem from './ChapterListItem';
 import { Link } from 'react-router-dom';
 import filterThis from '../selectors/genericSelector';
+import filter from '../selectors/filter';
 
 export class ChapterList extends  React.Component{
 
@@ -24,9 +25,10 @@ export class ChapterList extends  React.Component{
 }
 
 const mapStateToProps = (state)=>{
-
+console.log(state.paragraphs);
       return {
-       chapters: filterThis(state.chapters, 'book_id')
+       chapters: filterThis(state.chapters, 'book_id'),
+       filteredChapters: filter(state.paragraphs, 'x')
       }
 }
 

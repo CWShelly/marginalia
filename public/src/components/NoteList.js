@@ -4,6 +4,9 @@ import NoteListItem from './NoteListItem';
 import selectNotes from '../selectors/notes';
 import bookNotes from '../selectors/bookNotes'
 import { Link } from 'react-router-dom';
+
+import filters from '../selectors/filter';
+
 export class NoteList extends React.Component{
   state = {
     display: false,
@@ -33,10 +36,10 @@ export class NoteList extends React.Component{
       {this.props.notes.length >0 &&
       <div >
 
-         {this.props.notes.map((note, index)=>{
+         {this.props.filtered.map((note, index)=>{
            return <NoteListItem key={note.id} { ...note} index={index}/>
          })}
-     
+
       </div>
      }
 
@@ -47,9 +50,10 @@ export class NoteList extends React.Component{
 }
 
 const mapStateToProps = (state)=>{
-console.log(state.paragraphs);
+console.log(state);
     return {
       notes: selectNotes(state.paragraphs),
+      filtered: filters(state.paragraphs, state.filters)
 
 
     }
