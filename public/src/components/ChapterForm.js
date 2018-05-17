@@ -16,9 +16,14 @@ export default class ChapterFrom extends React.Component{
   }
 
   onChange=(e)=>{
+   if(e.target.value > 0){
+     const chapter_number = parseInt( e.target.value);
+     this.setState(()=>({ chapter_number }));
+   }
+   else{
+     this.setState(()=>({error: ''}))
+   }
 
-    const chapter_number = parseInt( e.target.value);
-    this.setState(()=>({ chapter_number }));
   }
 
   onDateChange = (createdAt) =>{
@@ -47,7 +52,7 @@ export default class ChapterFrom extends React.Component{
   }
 
   render(){
-console.log(this.state.chapter_number);
+ 
 
     return(
       <div>

@@ -40,7 +40,7 @@ export default class BookForm extends React.Component{
     e.preventDefault();
 
     if( !this.state.author_last_name || !this.state.title){
-      this.setState(()=>({error: 'Please enter at least an author last name and title'}));
+      this.setState(()=>({error: 'Please enter author\'s first and last name, and book title'}));
     } else{
       this.setState(()=>({error: ''}));
       this.props.onSubmit({
@@ -68,7 +68,7 @@ export default class BookForm extends React.Component{
       <div className="container-book-form">
 
 
-      {this.state.error && <p  >{this.state.error}</p>}
+      {this.state.error && <p className="form-error" >{this.state.error}</p>}
       <form   onSubmit={this.onSubmit}>
 
       <input className="book-input"

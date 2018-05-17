@@ -22,8 +22,16 @@ export  default class ParagraphForm extends React.Component{
   }
 
   onChange = (e) =>{
-    const paragraph_number = parseInt(e.target.value);
-    this.setState(()=>({ paragraph_number }));
+
+    if(e.target.value > 0){
+      const paragraph_number = parseInt( e.target.value);
+      this.setState(()=>({ paragraph_number }));
+    }
+    else{
+      this.setState(()=>({error: ''}))
+    }
+
+
   }
 
   onNoteChange = (e) =>{
