@@ -1,7 +1,6 @@
 import React from 'react';
 import AddNote from './AddNote';
 import NoteList from './NoteList';
-import MostRecentNote from './MostRecentNote';
 import { startAddNote } from '../actions/notes';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';

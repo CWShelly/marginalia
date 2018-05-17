@@ -21,14 +21,17 @@ export class Header extends React.Component{
 
         <p>{this.state.user_info.displayName ? this.state.user_info.displayName : 'for readers'}</p>
 
-        <p><NavLink className="header-nav" to="/dashboard" activeClassName="is-active"  >Home</NavLink>
+        <p><NavLink className="header-nav" to="/dashboard" activeClassName="is-active"  >Home |</NavLink>
+        &nbsp;
+        <NavLink className="header-nav" to="/viewAllNotes" activeClassName="is-active">View All Notes |</NavLink>
+
          <button onClick={this.props.startLogout}>Logout</button></p>
 
       </header>
     )
   }
 }
- 
+
 const mapDispatchToProps  = (dispatch)=>({
 startLogout: ()=> dispatch(startLogout())
 })
