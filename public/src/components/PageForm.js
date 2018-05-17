@@ -13,13 +13,13 @@ export default class  PageForm extends React.Component{
 
   onChange=(e)=>{
 
-    if(e.target.value > 0){
+    // if(e.target.value > 0){
       const page_number = parseInt( e.target.value);
       this.setState(()=>({ page_number }));
-    }
-    else{
-      this.setState(()=>({error: ''}))
-    }
+    // }
+    // else{
+    //   this.setState(()=>({error: ''}))
+    // }
   }
 
   onDateChange = (createdAt) =>{

@@ -16,13 +16,13 @@ export default class ChapterFrom extends React.Component{
   }
 
   onChange=(e)=>{
-   if(e.target.value > 0){
+   // if(e.target.value >= 1){
      const chapter_number = parseInt( e.target.value);
      this.setState(()=>({ chapter_number }));
-   }
-   else{
-     this.setState(()=>({error: ''}))
-   }
+   // }
+   // else{
+   //   this.setState(()=>({error: ''}))
+   // }
 
   }
 
@@ -52,7 +52,7 @@ export default class ChapterFrom extends React.Component{
   }
 
   render(){
- 
+
 
     return(
       <div>
