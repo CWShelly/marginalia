@@ -13,7 +13,7 @@ export class ParagraphList extends React.Component{
 
    return(
      <div>
-     {this.props.paragraphs.length === 0 && <p>You have not added any paragraphs for this page, yet.</p>}
+     {this.props.paragraphs.length === 0 && <p>No notes for this page, yet.</p>}
      <ul>
       {this.props.paragraphs.map((paragraph)=>{
         return <ParagraphListItem key={paragraph.id} {...paragraph} />

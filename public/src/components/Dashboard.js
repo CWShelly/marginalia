@@ -10,22 +10,17 @@ class Dashboard extends React.Component{
   render(){
     return(
       <div className="container" >
-          <div  >
-
+          <div>
             <AddBook  history={this.props.history} />
-
         </div>
 
-    <div  >
+    <div>
 
-    <div  >
+    <div>
       <BookList   />
     </div>
 
-        <div className="book-container">
-         <ListFilters history={this.props.history} />
-           <NoteList history={this.props.history} />
-        </div>
+
     </div>
 
       </div>

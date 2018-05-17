@@ -16,12 +16,16 @@ export class NoteList extends React.Component{
   }
   render(){
 console.log(this.props);
-
+console.log(this.props.history.location.pathname.slice(1,10));
     return(
       <div  className="container">
 
-       {this.props.notes.length === 0 && <div className="container">
-         <p>You have not entered any notes for {this.state.title}, yet. </p>
+      { this.props.history.location.pathname.slice(1,10) === 'viewAllNo' && this.props.notes.length === 0 && <p>You have not entered any notes</p>}
+
+       {this.props.history.location.pathname.slice(1,10) === 'viewNotes'
+
+        && this.props.notes.length === 0 && <div className="container">
+         <p>No notes for {this.state.title}, yet. </p>
          <p> <Link className="number-list-item"
          to={`/chapter/${this.state.title}/${localStorage.getItem('book_id')}`}>
 
@@ -55,11 +59,13 @@ console.log(state);
 console.log(props.history.location.pathname.slice(1,10));
 
 if(props.history.location.pathname.slice(1,10) === "viewNotes"){
+  console.log('if');
   return{
     notes: filters(selectNotes(state.paragraphs), state.filters)
   }
 }
 else{
+  console.log('else');
   return{
     notes: filters(state.paragraphs, state.filters)
   }

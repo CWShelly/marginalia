@@ -42,6 +42,11 @@
   font-weight: 300;
 }
 
+.number-list-item-no-hover{
+  color: grey;
+  font-size: $medium;
+  font-weight: 300;
+}
 .add-note-view-notes{
   padding-right: $small;
   padding-left: $small;
@@ -52,9 +57,16 @@
   .number-list-item{
     color: grey;
     font-size: $medium;
-
     font-weight: 300;
   }
+
+  .number-list-item-no-hover{
+    color: grey;
+    font-size: $medium;
+    font-weight: 300;
+  }
+
+
   .number-list-item:hover{
     color: $lightBlue;
     font-size: $medium;
@@ -73,7 +85,7 @@
     color: darken($lightBlue, 20%);
     font-size: $small;
     padding-bottom: $large;
- 
+
     border-bottom:1px solid $lightBlue;
   }
   .add-note-view-notes{
