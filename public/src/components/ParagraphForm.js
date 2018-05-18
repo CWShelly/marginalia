@@ -23,16 +23,8 @@ export  default class ParagraphForm extends React.Component{
   }
 
   onChange = (e) =>{
-
-    // if(e.target.value > 0){
       const paragraph_number = parseInt( e.target.value);
       this.setState(()=>({ paragraph_number }));
-    // }
-    // else{
-    //   this.setState(()=>({error: ''}))
-    // }
-
-
   }
 
   onNoteChange = (e) =>{
@@ -42,24 +34,27 @@ export  default class ParagraphForm extends React.Component{
        remainingCharacters: 140 - parseInt(e.target.value.length),
        note,
       }));
-
   }
+
 
   onSubmit = (e)=>{
     e.preventDefault();
-    if(!this.state.paragraph_number || !this.state.note)
+    if(!this.state.paragraph_number || !this.state.note )
     {
       this.setState(()=>({error:'Please enter a paragraph number and a note.'}))
-
     }
 
     else{
       this.setState(()=>({error: ''}));
+
       this.props.onSubmit({
         paragraph_number: this.state.paragraph_number,
         note: this.state.note,
-        
+
+
       })
+
+
       if(!this.state.error){
        this.state.page_number = 0;
       this.state.count = 140;
@@ -92,6 +87,7 @@ export  default class ParagraphForm extends React.Component{
          onChange={this.onChange}
          value={this.state.paragraph_number}
         />
+
 
 
         <p>Note: {this.state.remainingCharacters} characters left.</p>

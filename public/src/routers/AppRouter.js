@@ -20,6 +20,7 @@ import LogIn  from '../components/LogIn';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import ViewAllNotes from '../components/ViewAllNotes'
+import ViewTags from '../components/ViewTags'
 
 import Explainer from '../components/Explainer';
 
@@ -48,6 +49,7 @@ const AppRouter = ()=>(
   <PrivateRoute path="/editParagraph/:id" component={EditParagraph} />
   <PrivateRoute path="/editPage/:id" component={EditPage} />
   <PrivateRoute path="/editChapter/:id" component={EditChapter} />
+    <PrivateRoute path="/viewTags/" component={ViewTags} />
 
 
   <Route component={NotFound} />

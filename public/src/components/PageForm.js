@@ -12,7 +12,7 @@ export default class  PageForm extends React.Component{
   }
 
   onChange=(e)=>{
- 
+
       const page_number = parseInt( e.target.value);
       this.setState(()=>({ page_number }));
 
