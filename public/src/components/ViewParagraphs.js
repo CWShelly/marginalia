@@ -5,8 +5,7 @@ import { startAddParagraph } from '../actions/paragraphs';
 import { startAddPage, testPages } from '../actions/pages';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import NextPage from './NextPage';
-// import AddPage from './AddPage'
+
 
 export class ViewParagraphs extends React.Component{
   state = {
@@ -25,24 +24,22 @@ hasSet = (x)=>{
         page_number: parseInt(prevState.page_number) + 1,
         createdAt : 0
       }
-
     })
-
     resolve(x)
-
-    reject('a')
+    reject('failure')
   })
 }
 
 advancePage=()=>{
   const a = this.hasSet();
   a.then(()=>{
-    console.log('hello');
+
     console.log(this.state.page_number);
     this.props.startAddPage({page_number:this.state.page_number})
   })
   .catch((error)=>{
     console.log(error);
+    console.log('error');
 
   })
 }
@@ -61,7 +58,7 @@ advancePage=()=>{
         </span>
 
         </p>
-             <button onClick={this.advancePage}>Advance Page</button>
+             <button className="advance-button" onClick={this.advancePage}>Turn Page</button>
 
           </div>
 

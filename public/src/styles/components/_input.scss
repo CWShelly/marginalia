@@ -1,3 +1,7 @@
+.tag-input{
+  width: 20rem;
+  // background: red;
+}
 .chapter-page-input{
 
 }
@@ -17,6 +21,11 @@
 }
 
 @media(min-width: $desktop-bp){
+
+  .tag-input{
+    width: 20rem;
+    // background: red;
+  }
   .chapter-page-input{
     width: 3rem;
 

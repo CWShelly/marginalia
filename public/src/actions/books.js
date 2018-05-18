@@ -1,6 +1,5 @@
-import uuid from 'uuid';
 import database from '../firebase/firebase'
-import { startRemoveNotesAssociatedWithBook } from './notes'
+ 
 
 export const addBook = (book)=>({
   type: 'ADD_BOOK',
@@ -10,7 +9,7 @@ export const addBook = (book)=>({
 export const startAddBook = (bookData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    
+
   const {
     author_last_name = '',
     author_first_name = '',

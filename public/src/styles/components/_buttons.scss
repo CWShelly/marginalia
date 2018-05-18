@@ -1,0 +1,29 @@
+
+.advance-button{
+ background:linear-gradient(to bottom right, $lightBlue, black);
+ color:white;
+ border-radius: 5px;
+ font-size: $medium;
+ font-weight: 300;
+ padding: $small;
+ display: block;
+  margin: 0 auto;
+    margin-top: $small;
+    width: 30rem;
+}
+
+@media (min-width: $desktop-bp){
+
+.advance-button{
+ background:linear-gradient(to bottom right, $lightBlue, black);
+ color:white;
+ border-radius: 5px;
+ font-size: $medium;
+ padding: $small;
+ width: 20rem;
+ font-weight: 300;
+ margin-right: 0;
+ margin-top: $small;
+}
+
+}

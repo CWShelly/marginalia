@@ -19,16 +19,18 @@ export const startAddParagraph = (paragraphData = {}) => {
   chapter_number=localStorage.getItem('chapter_number'),
   paragraph_number = 0,
   note = '',
+  tag = '',
   title= localStorage.getItem('title'),
     createdAt = 0
 
   } = paragraphData;
+  
   console.log(paragraphData);
-  const paragraph = { page_id, book_id, chapter_number, page_number,paragraph_number, title, note, createdAt}
+  const paragraph = { tag, page_id, book_id, chapter_number, page_number,paragraph_number, title, note, createdAt}
 
   database.ref(`users/${uid}/paragraphs`).push(paragraph)
   .then((ref) => {
-console.log(ref.key);
+  localStorage.setItem('paragraph_id', ref.key);
     dispatch(addParagraph({
       id: ref.key,
       ... paragraph
