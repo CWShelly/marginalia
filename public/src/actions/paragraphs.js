@@ -8,6 +8,7 @@ export const addParagraph = (paragraph)=>({
 })
 
 export const startAddParagraph = (paragraphData = {}) => {
+  console.log(paragraphData);
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
   const {
@@ -22,12 +23,12 @@ export const startAddParagraph = (paragraphData = {}) => {
     createdAt = 0
 
   } = paragraphData;
-
+  console.log(paragraphData);
   const paragraph = { page_id, book_id, chapter_number, page_number,paragraph_number, title, note, createdAt}
 
   database.ref(`users/${uid}/paragraphs`).push(paragraph)
   .then((ref) => {
-
+console.log(ref.key);
     dispatch(addParagraph({
       id: ref.key,
       ... paragraph

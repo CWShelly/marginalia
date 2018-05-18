@@ -8,8 +8,7 @@
  import getSubIds from "../selectors/genericRemove";
  import filterThis from "../selectors/genericSelector";
  import filterSubLevel from "../selectors/genericIdFinder";
-
-console.log('edit  chapter');
+ 
  export class EditChapter extends React.Component{
    onSubmit=(chapter)=>{
 
@@ -47,7 +46,7 @@ console.log('edit  chapter');
        </div>
 
               <ChapterForm
-           
+
                chapter={this.props.chapter}
                onSubmit={
                 this.onSubmit}

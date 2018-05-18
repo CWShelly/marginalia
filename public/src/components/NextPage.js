@@ -24,13 +24,15 @@ export class NextPage extends React.Component{
 
 nextPage=()=>{
 
-    console.log('next page');
-    // this.setState(()=>({page_number: this.state.page_number+1}))
-    console.log(this.state.page_number);
 
+  console.log('turning page');
+    // this.setState(()=>({page_number: this.state.page_number+1}))
+    // console.log(this.state.page_number);
+    //
     this.props.startAddPage({page_number: this.state.page_number + 1})
     this.setState(()=>({page_number: this.state.page_number+1}))
    this.props.history.push(`/paragraph/${this.state.page_number + 1}/${localStorage.getItem('page_id')}`)
+
   }
 
 

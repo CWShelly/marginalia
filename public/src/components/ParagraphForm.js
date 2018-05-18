@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
- 
+
 
 
 export  default class ParagraphForm extends React.Component{
@@ -11,7 +11,8 @@ export  default class ParagraphForm extends React.Component{
       paragraph_number: props.paragraph ? props.paragraph.paragraph_number : '',
       note: props.paragraph ? props.paragraph.note : '',
       remainingCharacters: 140,
-      error: ''
+      error: '',
+
     }
   }
 
@@ -56,7 +57,8 @@ export  default class ParagraphForm extends React.Component{
       this.setState(()=>({error: ''}));
       this.props.onSubmit({
         paragraph_number: this.state.paragraph_number,
-        note: this.state.note
+        note: this.state.note,
+        
       })
       if(!this.state.error){
        this.state.page_number = 0;
