@@ -4,6 +4,8 @@ import ParagraphList from './ParagraphList';
 import { startAddParagraph } from '../actions/paragraphs';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import NextPage from './NextPage';
+// import AddPage from './AddPage'
 
 export class ViewParagraphs extends React.Component{
   state = {
@@ -18,24 +20,20 @@ export class ViewParagraphs extends React.Component{
 
 
   render(){
- 
+
         return(
-          <div  className="container" >
-          <div className="container-view-slug">
-
-
+        <div  className="container" >
+        <div className="container-view-slug">
         <p className="slug">
-
-
         <span>Notes for  <Link className="number-list-item"
         to={`/viewNotes/${this.state.title}/${localStorage.getItem('book_id')}`}>
 
         {this.state.title}
         </Link>  Chapter {this.state.chapter_number}  {this.state.page_number && <span> Page {this.state.page_number}</span>}
         </span>
+
         </p>
-
-
+          <NextPage  history={this.props.history} />
           </div>
 
 

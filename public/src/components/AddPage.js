@@ -20,8 +20,9 @@ export class AddPage extends React.Component{
       <div>
           {this.state.error && <p className="form-error"> {this.state.error}</p>}
        <PageForm
-     
+
        onSubmit={(page)=>{
+         console.log(page);
        if(rP(this.props.filteredCollection, parseInt(page.page_number), 'page_number' ) ){
          this.setState(() => ({error: ''}))
           this.props.startAddPage(page)
