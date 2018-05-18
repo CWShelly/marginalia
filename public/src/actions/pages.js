@@ -25,6 +25,8 @@ export const startAddPage = (pageData = {}) => {
   .then((ref) => {
 
     localStorage.setItem('page_id', ref.key);
+    console.log('set');
+    console.log(ref.key);
     localStorage.setItem('page_number', page.page_number)
 
     dispatch(addPage({

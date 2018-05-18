@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
- // TODO: make ParagraphForm default again everywhere applicable
+ 
 
 
 export  default class ParagraphForm extends React.Component{
