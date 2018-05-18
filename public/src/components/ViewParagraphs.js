@@ -2,9 +2,10 @@ import React from 'react';
 import AddParagraph from './AddParagraph';
 import ParagraphList from './ParagraphList';
 import { startAddParagraph } from '../actions/paragraphs';
+import { startAddPage, testPages } from '../actions/pages';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import NextPage from './NextPage';
+// import NextPage from './NextPage';
 // import AddPage from './AddPage'
 
 export class ViewParagraphs extends React.Component{
@@ -17,7 +18,34 @@ export class ViewParagraphs extends React.Component{
     page_number:localStorage.getItem('page_number')
   }
 
+hasSet = (x)=>{
+  return new Promise((resolve, reject)=>{
+    this.setState((prevState)=>{
+      return{
+        page_number: parseInt(prevState.page_number) + 1,
+        createdAt : 0
+      }
 
+    })
+
+    resolve(x)
+
+    reject('a')
+  })
+}
+
+advancePage=()=>{
+  const a = this.hasSet();
+  a.then(()=>{
+    console.log('hello');
+    console.log(this.state.page_number);
+    this.props.startAddPage({page_number:this.state.page_number})
+  })
+  .catch((error)=>{
+    console.log(error);
+
+  })
+}
 
   render(){
 
@@ -33,7 +61,8 @@ export class ViewParagraphs extends React.Component{
         </span>
 
         </p>
-          <NextPage  history={this.props.history} />
+             <button onClick={this.advancePage}>Advance Page</button>
+
           </div>
 
 
@@ -55,6 +84,7 @@ export class ViewParagraphs extends React.Component{
 
 const mapDispatchToProps = (dispatch)=> ({
      startAddPargraph: (paragraph)=> dispatch(startAddPargraph(paragraph)),
+     startAddPage: (page)=> dispatch(startAddPage(page)),
 
 })
 

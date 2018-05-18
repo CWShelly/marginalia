@@ -22,7 +22,7 @@ export class AddPage extends React.Component{
        <PageForm
 
        onSubmit={(page)=>{
-         console.log(page);
+     
        if(rP(this.props.filteredCollection, parseInt(page.page_number), 'page_number' ) ){
          this.setState(() => ({error: ''}))
           this.props.startAddPage(page)
@@ -40,12 +40,8 @@ export class AddPage extends React.Component{
   }
 }
 const mapStateToProps = (state)=>{
-
-console.log(state);
       return {
-
         filteredCollection: filterThis(state.pages, 'chapter_id')
-
       }
 }
 

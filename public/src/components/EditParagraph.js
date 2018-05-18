@@ -4,7 +4,7 @@
  import ParagraphForm from './ParagraphForm';
  import { startEditParagraph, startRemoveParagraph } from '../actions/paragraphs';
 
-console.log('edit paragraph page');
+ 
  export class EditParagraph extends React.Component{
    onSubmit=(paragraph)=>{
 
@@ -28,7 +28,7 @@ console.log('edit paragraph page');
        </div>
 
               <ParagraphForm
-               
+
                paragraph={this.props.paragraph}
                onSubmit={
                 this.onSubmit}
