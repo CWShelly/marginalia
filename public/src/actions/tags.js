@@ -2,7 +2,7 @@ import database from '../firebase/firebase'
 
 
 export const addTag = (tag)=>({
-  type: 'ADD_tag',
+  type: 'ADD_TAG',
   tag
 })
 
@@ -20,7 +20,7 @@ export const startAddTag = (tagData = {}) => {
 
   database.ref(`users/${uid}/tags`).push(_tag)
   .then((ref) => {
-    dispatch(addtag({
+    dispatch(addTag({
       id: ref.key,
       ... _tag
     }));

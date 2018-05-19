@@ -71,7 +71,11 @@ advancePage=()=>{
           author_first_name={this.state.author_first_name}
 
           />
+          <Link className="number-list-item"
+          to={`/viewTags`}>
 
+          Add Tags
+          </Link>
            </div>
 
       )

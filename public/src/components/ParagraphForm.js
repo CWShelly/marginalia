@@ -50,8 +50,6 @@ export  default class ParagraphForm extends React.Component{
       this.props.onSubmit({
         paragraph_number: this.state.paragraph_number,
         note: this.state.note,
-
-
       })
 
 
