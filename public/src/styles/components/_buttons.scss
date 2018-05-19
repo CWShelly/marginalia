@@ -7,13 +7,31 @@
  font-weight: 300;
  padding: $small;
  display: block;
-  margin: 0 auto;
-    margin-top: $small;
+  margin: $small auto;
+    // margin-top: $small;
     width: 30rem;
 }
 
+.display-tag-button{
+  margin-top: $small;
+  background: $lightBlue;
+  border-radius: 2px;
+  font-size:$small;
+   font-weight: 300;
+   color: white;
+   border:1px solid $lightBlue;
+}
 @media (min-width: $desktop-bp){
 
+  .display-tag-button{
+    background:$lightBlue;
+    border-radius: 2px;
+    font-size:$small;
+     font-weight: 300;
+     color: white;
+     border:1px solid $lightBlue;
+       margin-top: $small;
+  }
 .advance-button{
  background:linear-gradient(to bottom right, $lightBlue, black);
  color:white;

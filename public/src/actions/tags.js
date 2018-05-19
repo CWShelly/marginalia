@@ -12,7 +12,7 @@ export const startAddTag = (tagData = {}) => {
 
   const {
     paragraph_id= localStorage.getItem('paragraph_id'),
-    tag = [],
+    tag = {},
     createdAt = 0
 
   } = tagData;
