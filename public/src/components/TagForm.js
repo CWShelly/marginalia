@@ -6,19 +6,54 @@ export default class  TagForm extends React.Component{
     super(props);
     this.state={
       createdAt: props.page ? moment(props.page.createdAt): moment(),
-      tag:[],
-      error: ''
+      tagArr:[],
+      error: '',
+      tag:{}
     }
   }
 
-  onChange=(e)=>{
+
+hasSet=(x)=>{
+  return new Promise((resolve,reject)=>{
+
+    let arr = this.state.tagArr.reduce((collection, item)=>{
+      collection[item]=true
+      return collection
+    },{});
+   this.setState((prevState)=>({
+     tag: arr
+
+   }))
+   resolve(x)
+   reject('failure')
+
+  })
+}
 
 
-      // const _tag= e.target.value;
+sendToDB=(e)=>{
+  const a = this.hasSet();
+  a.then(()=>{
+    console.log('testing');
 
-      // this.setState((prevState)=>({ tag:prevState.tag.concat[_tag] }));
+    e.persist()
+    if(!this.state.tag )
+    {
+        this.setState(()=>({error:'Please enter a tag'}))
+    } else{
+      this.setState(()=>({error: ''}));
+      this.props.onSubmit({
+      tag: this.state.tag
+      })
+      if(!this.state.error){
+      this.state.tag = {}
 
-  }
+      }
+    }
+  })
+
+}
+
 
   onDateChange = (createdAt) =>{
    if(createdAt){
@@ -34,29 +69,13 @@ export default class  TagForm extends React.Component{
     const _tag= e.target.elements.tag.value.trim();
 
       this.setState((prevState)=>(
-        {tag: prevState.tag.concat(_tag)})
+        {tagArr: prevState.tagArr.concat(_tag)})
       )
   }
 
-test =(e)=>{
-   console.log(this.state.tags);
-  console.log('testing');
 
-  e.preventDefault();
-  if(!this.state.tag )
-  {
-      this.setState(()=>({error:'Please enter a tag'}))
-  } else{
-    this.setState(()=>({error: ''}));
-    this.props.onSubmit({
-    tag: this.state.tag
-    })
-    if(!this.state.error){
-    this.state.tag = []
 
-    }
-  }
-}
+
   render(){
     console.log(this.state.tag);
 
@@ -66,12 +85,13 @@ test =(e)=>{
           <form onSubmit={this.onSubmit}>
          <label>add tag:</label>
           <input  className="tag-input" type="text" name="tag"
-          onChange={this.onChange}
+
           />
           <button type="submit" className="form-button-check" >
           submit</button>
         </form>
-       <button onClick={this.test}>Finish</button>
+
+       {this.state.tagArr.length > 0 && <button onClick={this.sendToDB}>Finish</button>}
       </div>
 
     )

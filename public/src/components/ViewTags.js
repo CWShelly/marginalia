@@ -17,8 +17,6 @@ export class ViewTags extends React.Component{
 
 
 
-
-
   render(){
 
     return(

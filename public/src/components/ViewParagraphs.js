@@ -2,9 +2,13 @@ import React from 'react';
 import AddParagraph from './AddParagraph';
 import ParagraphList from './ParagraphList';
 import { startAddParagraph } from '../actions/paragraphs';
-import { startAddPage, testPages } from '../actions/pages';
+import { startAddTag} from '../actions/tags';
+import { startAddPage} from '../actions/pages';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import ViewTagModal from './ViewTagModal';
+import AddTag from './AddTag';
+
 
 
 export class ViewParagraphs extends React.Component{
@@ -14,7 +18,8 @@ export class ViewParagraphs extends React.Component{
     author_last_name:localStorage.getItem('author_last'),
     title: localStorage.getItem('title'),
     chapter_number:localStorage.getItem('chapter_number'),
-    page_number:localStorage.getItem('page_number')
+    page_number:localStorage.getItem('page_number'),
+    open:false
   }
 
 hasSet = (x)=>{
@@ -43,7 +48,17 @@ advancePage=()=>{
 
   })
 }
+openModal = ()=>{
+  console.log('opening modal');
+  this.setState(()=>({open: true}))
 
+}
+
+
+closeModal=()=>{
+  console.log('okay modal');
+     this.setState(() =>  ({open: false}))
+}
   render(){
 
         return(
@@ -71,11 +86,8 @@ advancePage=()=>{
           author_first_name={this.state.author_first_name}
 
           />
-          <Link className="number-list-item"
-          to={`/viewTags`}>
 
-          Add Tags
-          </Link>
+
            </div>
 
       )
@@ -86,6 +98,7 @@ advancePage=()=>{
 const mapDispatchToProps = (dispatch)=> ({
      startAddPargraph: (paragraph)=> dispatch(startAddPargraph(paragraph)),
      startAddPage: (page)=> dispatch(startAddPage(page)),
+
 
 })
 
