@@ -22,7 +22,7 @@ export class AddTag extends React.Component{
        <TagForm
 
        onSubmit={(tag)=>{
-
+         console.log(tag);
          this.setState(() => ({error: ''}))
           this.props.startAddTag(tag)
 
@@ -42,6 +42,6 @@ const mapStateToProps = (state)=>{
 
 
 const mapDispatchToProps = (dispatch)=> ({
-     startAddTags: (tag)=> dispatch(startAddTag(tag))
+     startAddTag: (tag)=> dispatch(startAddTag(tag))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AddTag)
