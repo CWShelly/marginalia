@@ -7,9 +7,14 @@ export default class NoteForm extends React.Component{
     page_number:0,
     paragraph_number:0,
     note: '',
+    title: localStorage.getItem('title'),
     createdAt: moment(),
+    tags:{},
+    book_id: localStorage.getItem('book_id'),
     errorNote: '',
-    remainingCharacters: 210
+    remainingCharacters: 140,
+
+
   }
 
   onChapterNumberChange = (e) =>{
@@ -31,7 +36,7 @@ export default class NoteForm extends React.Component{
     const note = e.target.value;
     this.setState((prevState)=>({
        count: parseInt(prevState.count) + 1,
-       remainingCharacters: 210 - parseInt(e.target.value.length),
+       remainingCharacters: 140 - parseInt(e.target.value.length),
        note,
       }));
 
@@ -55,6 +60,9 @@ export default class NoteForm extends React.Component{
         paragraph_number: this.state.paragraph_number,
         note: this.state.note,
         createdAt: this.state.createdAt.valueOf(),
+        title: this.state.title,
+        book_id:this.state.book_id,
+        tags: {x:'yes'}
 
       })
     }
@@ -64,10 +72,8 @@ export default class NoteForm extends React.Component{
       this.state.page_number = 0;
       this.state.paragraph_number =0;
       this.state.note =''
-      this.state.remainingCharacters = 210;
+      this.state.remainingCharacters = 140;
     }
-
-
   }
 
   render(){
@@ -79,11 +85,11 @@ export default class NoteForm extends React.Component{
 
       <form className="note-form" onSubmit={this.onSubmit}>
       <p>Add a note: {this.state.remainingCharacters} characters left.</p>
-      <textarea  
+      <textarea
       className="note-form-textarea"
       type="text"
       placeholder="Enter your note here."
-      maxLength="210"
+      maxLength="140"
       value={this.state.note}
       onChange={this.onNoteChange}
       />
@@ -92,10 +98,10 @@ export default class NoteForm extends React.Component{
       <input className="note-form-input"
       type="number"
       placeholder="Chapter"
-
       value={this.state.chapter_number}
       onChange={this.onChapterNumberChange}
       />
+
       Page:
       <input
       className="note-form-input"
@@ -104,6 +110,7 @@ export default class NoteForm extends React.Component{
       value={this.state.page_number}
       onChange={this.onPageNumberChange}
       />
+
       Paragraph:
       <input
       className="note-form-input"
@@ -112,9 +119,16 @@ export default class NoteForm extends React.Component{
       value={this.state.paragraph_number}
       onChange={this.onParagraphNumberChange}
       />
+      <input
+      type="text"
+      placeholder="tag"
 
+      />
 
-      <button disabled={!this.state.chapter_number || !this.state.page_number || !this.state.paragraph_number || !this.state.note } className="note-form-button">Add Note</button>
+      <button disabled={!this.state.chapter_number ||
+         !this.state.page_number ||
+         !this.state.paragraph_number ||
+         !this.state.note } className="note-form-button">Add Note</button>
       </form>
 
       </div>

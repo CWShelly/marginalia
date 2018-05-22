@@ -37,16 +37,12 @@ console.log(this.props);
   return(
     <div className="container">
     <div> <h1 >Your Notes for {this.state.title}</h1>
-        <ListFilters history={this.props.history}/>
 
-    <p className="add-note-view-notes">
 
-    <Link className="add-note-view-notes-link"
-    to={`/chapter/${this.state.title}/${localStorage.getItem('book_id')}`}>
-    Add a note <i className="fa fa-plus"></i>
-    </Link>
+    <div className="add-note-view-notes">
 
-    </p>
+   <AddNote history={this.props.history}/>
+    </div>
 
     </div>
     <NoteList history={this.props.history} />

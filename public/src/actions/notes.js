@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+
 import database from '../firebase/firebase'
 
 
@@ -9,20 +9,28 @@ export const addNote = (note)=>({
 
 
 export const startAddNote = (noteData = {}) => {
-  return (dispatch) => {
+  console.log(noteData);
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
   const {
 
     chapter_number= 0,
     page_number = 0,
     paragraph_number=0,
     note= '',
+    title='',
     createdAt = 0,
-    book_id = localStorage.getItem('book_id'),
-
-
+    book_id = '',
+    tags = {}
   } = noteData;
-  const _note = { chapter_number, page_number, paragraph_number, note, createdAt, book_id}
-  return database.ref('notes').push(_note)
+
+    console.log(noteData);
+
+  const _note = { chapter_number, page_number,
+    paragraph_number, note, title,  createdAt, book_id, tags}
+    console.log(_note);
+
+  database.ref(`users/${uid}/notes`).push(_note)
   .then((ref) => {
     dispatch(addNote({
       id: ref.key,
@@ -35,9 +43,9 @@ export const startAddNote = (noteData = {}) => {
 
 export const startRemoveNote =({ id} = {})=>{
 
-  return(dispatch)=>{
-
-    database.ref(`notes/${ id }`).remove()
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    database.ref(`users/${uid}/notes/${ id }`).remove()
     .then(() => {
       dispatch(removeNote({ id }))
     })
@@ -45,35 +53,9 @@ export const startRemoveNote =({ id} = {})=>{
   }
 }
 
-export const startRemoveNoteByBook =({ book_id} = {})=>{
-
-  return(dispatch)=>{
-
-    database.ref(`notes/${ book_id }`).remove()
-    .then(() => {
-      dispatch(removeNoteByBook({ book_id }))
-    })
-
-  }
-}
 
 
 
-export const removeNoteByBook = ({ book_id } = {}) =>{
-  console.log({book_id});
-  return{
-    type: 'REMOVE_NOTE',
-    book_id
-  }
-}
-
-export const removeNote = ({ id } = {}) =>{
- 
-  return{
-    type: 'REMOVE_NOTE',
-    id
-  }
-}
 
 
 export const editNote = (id, updates)=>({
@@ -85,7 +67,8 @@ export const editNote = (id, updates)=>({
 
 export const setNotes = (notes) => {
   console.log('setting the notes from explicit');
-  return{   type: 'SET_NOTES',
+  return{
+    type: 'SET_NOTES',
     notes
 
   }
@@ -93,8 +76,9 @@ export const setNotes = (notes) => {
 
 export const startSetNotes = () => {
   console.log('starting set notes');
- return (dispatch) => {
-   return database.ref('notes')
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    return database.ref(`users/${uid}/notes`)
    .once('value')
    .then((snapshot) => {
 

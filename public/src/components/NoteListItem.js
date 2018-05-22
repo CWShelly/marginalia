@@ -11,7 +11,9 @@ console.log(this.props);
 
     <div>
     <p className="number-list-item-no-hover" >    {this.props.note}</p>
-    <p className="list-paragraph-item-reference-paragraph">  {this.props.title} chapter:{this.props.chapter_number} page:{this.props.page_number}  paragraph: {this.props.paragraph_number} </p>
+    <p className="list-paragraph-item-reference-paragraph">
+    {this.props.title} chapter:{this.props.chapter_number}
+     page:{this.props.page_number}  paragraph: {this.props.paragraph_number} </p>
 
     </div>
 
