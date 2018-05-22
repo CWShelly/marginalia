@@ -49,7 +49,7 @@ ReactDOM.render(
      </div>, document.getElementById('app'));
 
 
- 
+
 
 firebase.auth().onAuthStateChanged((user) => {
 if(user){
@@ -60,10 +60,12 @@ if(user){
     // console.log('uid = ', user.uid);
     // localStorage.setItem('user_id', user.uid)
 
+    // 
+    // store.dispatch(startSetChapters())
+    // store.dispatch(startSetPages())
+    // store.dispatch(startSetParagraphs())
 
-    store.dispatch(startSetChapters())
-    store.dispatch(startSetPages())
-    store.dispatch(startSetParagraphs())
+    store.dispatch(startSetNotes());
 
     store.dispatch(startSetBooks())
      .then(() => {

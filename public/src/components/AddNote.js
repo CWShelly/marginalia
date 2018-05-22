@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startAddNote } from '../actions/notes';
 import NoteForm from './NoteForm';
-import pickUpFromLastNote from '../selectors/from_last_note'
+// import pickUpFromLastNote from '../selectors/from_last_note'
 
 
 export class AddNote extends React.Component{
 
  onSubmit=(note)=>{
-   
+console.log(note);
      this.props.startAddNote(note);
 
-     this.props.history.push(`/viewNotes/${this.props.title}`)
+     // this.props.history.push(`/viewNotes/${this.props.title}`)
 
   }
   render(){
@@ -27,10 +27,7 @@ export class AddNote extends React.Component{
   }
 }
 
-const mapStateToProps = (state)=>{
-  console.log(state);
 
-}
 
 
 const mapDispatchToProps = (dispatch)=> ({

@@ -2,12 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import booksReducer from '../reducers/books';
 import notesReducer from '../reducers/notes';
-import chaptersReducer from '../reducers/chapters';
-import pagesReducer from '../reducers/pages';
-import paragraphsReducer from '../reducers/paragraphs';
+// import chaptersReducer from '../reducers/chapters';
+// import pagesReducer from '../reducers/pages';
+// import paragraphsReducer from '../reducers/paragraphs';
 import authReducer from '../reducers/auth';
 import filtersReducer from '../reducers/filters';
-import tagsReducer from '../reducers/tags';
+// import tagsReducer from '../reducers/tags';
 const composeEnhanchers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
 
 
@@ -16,12 +16,12 @@ export default () => {
     combineReducers({
       books: booksReducer,
       notes: notesReducer,
-      chapters: chaptersReducer,
-      pages: pagesReducer,
-      paragraphs: paragraphsReducer,
+      // chapters: chaptersReducer,
+      // pages: pagesReducer,
+      // paragraphs: paragraphsReducer,
       auth: authReducer,
       filters: filtersReducer,
-      tags: tagsReducer
+      // tags: tagsReducer
 
     }),
     composeEnhanchers(applyMiddleware(thunk))
