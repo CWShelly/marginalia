@@ -4,6 +4,7 @@ import NoteListItem from './NoteListItem';
 // import selectNotes from '../selectors/notes';
 // import bookNotes from '../selectors/bookNotes'
 import { Link } from 'react-router-dom';
+import filterThis from '../selectors/genericSelector';
 
 // import filters from '../selectors/filter';
 
@@ -17,10 +18,15 @@ export class NoteList extends React.Component{
 
   render(){
 
-    console.log(this.props);
 
       return(
         <div className="container">
+        <ul>
+        {this.props.notes.map((note)=>{
+          return <NoteListItem key={note.id} {...note} />
+        })}
+
+        </ul>
 
         </div>
       )
@@ -30,8 +36,9 @@ export class NoteList extends React.Component{
 const mapStateToProps = (state, props)=>{
 
 console.log(state);
+console.log(filterThis(state.notes, 'book_id'));
   return{
-   x: state.notes
+   notes: filterThis(state.notes, 'book_id')
   }
 
 }
