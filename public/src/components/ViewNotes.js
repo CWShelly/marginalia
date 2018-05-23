@@ -36,7 +36,7 @@ render(){
 console.log(this.props);
   return(
     <div className="container">
-    <div> <h1 >Your Notes for {this.state.title}</h1>
+    <div> <h1 >My Notes for {this.state.title}</h1>
 
 
     <div className="add-note-view-notes">
