@@ -9,7 +9,7 @@ export const addNote = (note)=>({
 
 
 export const startAddNote = (noteData = {}) => {
-  console.log(noteData);
+
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
   const {
@@ -24,11 +24,11 @@ export const startAddNote = (noteData = {}) => {
     tags = {}
   } = noteData;
 
-    console.log(noteData);
+
 
   const _note = { chapter_number, page_number,
     paragraph_number, note, title,  createdAt, book_id, tags}
-    console.log(_note);
+
 
   database.ref(`users/${uid}/notes`).push(_note)
   .then((ref) => {
@@ -75,7 +75,7 @@ export const setNotes = (notes) => {
 }
 
 export const startSetNotes = () => {
-  console.log('starting set notes');
+ 
   return (dispatch, getState) => {
     const uid = getState().auth.uid
     return database.ref(`users/${uid}/notes`)
