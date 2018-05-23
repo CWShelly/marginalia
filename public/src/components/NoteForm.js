@@ -195,20 +195,22 @@ handleRemoveItem=(itemToRemove, key)=>{
 
 
   <div>
-        <ul>
+        <ul className="tag-list">
         {this.state.tagArr.map((item, x)=>{
-          return <li key={x}
+          return <li className="tag-list"  key={x}
         >
-          {item}
-          <a onClick={(e)=>{
+          <button className="display-tag-button">{item}</button>
+          <button  className="form-button-check"   onClick={(e)=>{
             this.handleRemoveItem(item, x)
-          }}> -- remove</a>
+          }}>x</button>
           </li>
         })}
-        <label>enter tags</label><input
+        <p>
+        <label>add tags:</label><input
         value={this.state.input}
         onChange={this.handleInputChange}
         onKeyDown={this.handleInputKeyDown} />
+        </p>
         </ul>
   </div>
 
