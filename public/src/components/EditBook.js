@@ -3,11 +3,11 @@
  import { connect } from 'react-redux';
  import BookForm from './BookForm';
  import { startEditBook, startRemoveBook } from '../actions/books';
- import { startRemovePage } from '../actions/pages'
- import { startRemoveParagraph } from '../actions/paragraphs';
- import { startRemoveChapter } from '../actions/chapters'
+ import { startRemoveNote} from '../actions/notes'
+ // import { startRemoveParagraph } from '../actions/paragraphs';
+ // import { startRemoveChapter } from '../actions/chapters'
 
- // import filterThis from "../selectors/genericSelector";
+ import filterThis from "../selectors/genericSelector";
  // import filterSubLevel from "../selectors/genericIdFinder";
 
 
@@ -29,12 +29,12 @@
 
 onRemove=() => {
   this.props.startRemoveBook({id: this.props.book.id})
-//
-//   for(let i = 0; i< this.props.filteredChapters.length; i++){
-//     this.props.startRemoveChapter({id:
-//     this.props.filteredChapters[i].id
-//     })
-// }
+
+  for(let i = 0; i< this.props.relatedNotes.length; i++){
+    this.props.startRemoveNote({id:
+    this.props.relatedNotes[i].id
+    })
+}
 //
 // for(let i = 0; i< this.props.filteredPages.length; i++){
 //   this.props.startRemovePage({id:
@@ -83,6 +83,7 @@ onRemove=() => {
     // filteredChapters: filterThis(state.chapters, 'book_id'),
     // filteredPages:filterThis(state.pages, 'book_id'),
     // filteredParagraphs: filterThis(state.paragraphs, 'book_id'),
+    relatedNotes: filterThis(state.notes, 'book_id')
 
 
 
@@ -96,7 +97,8 @@ const mapDispatchToProps = (dispatch, props) => {
     startRemoveBook: (data)=> dispatch(startRemoveBook(data)),
     startRemoveChapter: (data)=> dispatch(startRemoveChapter(data)),
     startRemovePage:(data)=> dispatch(startRemovePage(data)),
-    startRemoveParagraph: (data)=>dispatch(startRemoveParagraph(data))
+    startRemoveParagraph: (data)=>dispatch(startRemoveParagraph(data)),
+    startRemoveNote: (data)=>dispatch(startRemoveNote(data))
 
 
   }
