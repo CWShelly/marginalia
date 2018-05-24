@@ -11,14 +11,14 @@ export default class NoteForm extends React.Component{
       chapter_number: localStorage.getItem('note_state') ? JSON.parse(localStorage.getItem('note_state')).chapter_number : 0,
       page_number:localStorage.getItem('note_state') ? JSON.parse(localStorage.getItem('note_state')).page_number : 0,
       paragraph_number:localStorage.getItem('note_state') ? JSON.parse(localStorage.getItem('note_state')).paragraph_number : 0,
-      note: '',
+      note: props.note ? props.note.note :  '',
       title: localStorage.getItem('title'),
       createdAt: moment(),
       book_id: localStorage.getItem('book_id'),
       errorNote: '',
       remainingCharacters: 210,
-      tagArr:[],
-      tags:{},
+      tagArr:props.note? Object.keys(props.note.tags) : [],
+      tags: props.note ? props.note.tags : {},
       input: ''
     }
 
@@ -29,6 +29,8 @@ componentDidMount(){
   const last_state=JSON.parse(localStorage.getItem('note_state'))
 
 
+
+console.log(this.props);
 }
   hasSet=(x)=>{
     return new Promise((resolve,reject)=>{
@@ -193,6 +195,8 @@ handleRemoveItem=(itemToRemove, key)=>{
         onKeyDown={this.handleInputKeyDown} />
         </p>
         </ul>
+
+
   </div>
 
 <form className="note-form" onSubmit={this.sendToDB}>

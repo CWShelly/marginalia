@@ -32,24 +32,23 @@ const AppRouter = ()=>(
 
 
   <Switch>
-  <PublicRoute path="/" component={LogIn} exact={true} />
-  <PublicRoute path="/about" component={Explainer} />
+    <PublicRoute path="/" component={LogIn} exact={true} />
+    <PublicRoute path="/about" component={Explainer} />
     <PrivateRoute path="/dashboard" component={Dashboard} />
-  <PrivateRoute path="/addbook" component={AddBook} />
-  <PrivateRoute path="/addnote" component={AddNote} />
-  <PrivateRoute path="/quickNote" component={MostRecentNote} />
-  <PrivateRoute path="/edit/:id" component={EditBook} />
-  <PrivateRoute path="/editNote/:id" component={EditNote} />
-  <PrivateRoute path="/viewNotes/:title" component={ViewNotes} />
+    <PrivateRoute path="/addbook" component={AddBook} />
+    <PrivateRoute path="/addnote" component={AddNote} />
+    <PrivateRoute path="/quickNote" component={MostRecentNote} />
+    <PrivateRoute path="/viewNotes/:title" component={ViewNotes} />
     <PrivateRoute path="/viewAllNotes/" component={ViewAllNotes} />
-  <PrivateRoute path="/chapter/:title" component={ViewChapters} />
-  <PrivateRoute path="/page/:chapter_number" component={ViewPages} />
-  <PrivateRoute path="/paragraph/:paragraph_number" component={ViewParagraphs} />
-  <PrivateRoute path="/editParagraph/:id" component={EditParagraph} />
-  <PrivateRoute path="/editPage/:id" component={EditPage} />
-  <PrivateRoute path="/editChapter/:id" component={EditChapter} />
+    <PrivateRoute path="/chapter/:title" component={ViewChapters} />
+    <PrivateRoute path="/page/:chapter_number" component={ViewPages} />
+    <PrivateRoute path="/paragraph/:paragraph_number" component={ViewParagraphs} />
+    <PrivateRoute path="/editParagraph/:id" component={EditParagraph} />
+    <PrivateRoute path="/editPage/:id" component={EditPage} />
+    <PrivateRoute path="/editChapter/:id" component={EditChapter} />
     <PrivateRoute path="/viewTags/" component={ViewTags} />
-
+    <PrivateRoute path="/edit/:id" component={EditBook} />
+      <PrivateRoute path="/editNote/:id" component={EditNote} />
 
   <Route component={NotFound} />
   </Switch>

@@ -5,9 +5,7 @@ import uuidv4 from 'uuid/v4';
 
  class NoteListItem extends React.Component{
 render(){
-console.log(this.props.tags);
-console.log(Array.isArray(this.props.tags));
-console.log(Object.keys(this.props.tags));
+ console.log(this.props.id);
 
 
   return(
@@ -22,7 +20,11 @@ console.log(Object.keys(this.props.tags));
   return  <button className="display-tag-button" key={uuidv4()}>{item}</button>
 })}
    </ul>
+      <Link to={`/editNote/${this.props.id}`}>Edit</Link>
    </div>
+
+
+
     </div>
 
 

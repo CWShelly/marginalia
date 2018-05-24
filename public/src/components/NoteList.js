@@ -42,7 +42,7 @@ console.log(state);
   const y = x.map((c)=>{
     return Object.keys(c)
   })
-     console.log(y);
+ 
 
 if(props.history.location.pathname.slice(1,10) === "viewNotes"){
   return{
