@@ -18,7 +18,7 @@ export class NoteList extends React.Component{
 
   render(){
 
-
+console.log(this.props.history.location.pathname);
       return(
         <div className="container">
         <ul className="reverse-list">
@@ -34,10 +34,19 @@ export class NoteList extends React.Component{
 }
 
 const mapStateToProps = (state, props)=>{
-
+if(props.history.location.pathname.slice(1,10) === "viewNotes"){
   return{
-   notes: filterThis(state.notes, 'book_id')
+   notes: filterThis(state.notes, 'book_id'),
   }
+
+}
+
+else {
+  return{
+   notes: state.notes
+  }
+
+}
 
 }
 
