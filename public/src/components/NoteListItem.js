@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
  class NoteListItem extends React.Component{
 render(){
- 
+
   return(
 
     <div>
@@ -13,7 +13,7 @@ render(){
     <p className="list-paragraph-item-reference-paragraph">
     {this.props.title} chapter:{this.props.chapter_number}
      page:{this.props.page_number}  paragraph: {this.props.paragraph_number} </p>
-
+ 
     </div>
 
 
