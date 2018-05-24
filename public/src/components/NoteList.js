@@ -34,6 +34,16 @@ console.log(this.props.history.location.pathname);
 }
 
 const mapStateToProps = (state, props)=>{
+console.log(state);
+  const x = state.notes.map((m)=>{
+    return m.tags
+  })
+
+  const y = x.map((c)=>{
+    return Object.keys(c)
+  })
+     console.log(y);
+
 if(props.history.location.pathname.slice(1,10) === "viewNotes"){
   return{
    notes: filterThis(state.notes, 'book_id'),
