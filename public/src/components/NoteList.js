@@ -21,7 +21,7 @@ export class NoteList extends React.Component{
 
       return(
         <div className="container">
-        <ul>
+        <ul className="reverse-list">
         {this.props.notes.map((note)=>{
           return <NoteListItem key={note.id} {...note} />
         })}
@@ -35,8 +35,6 @@ export class NoteList extends React.Component{
 
 const mapStateToProps = (state, props)=>{
 
-console.log(state);
-console.log(filterThis(state.notes, 'book_id'));
   return{
    notes: filterThis(state.notes, 'book_id')
   }

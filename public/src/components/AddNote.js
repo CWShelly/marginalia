@@ -21,6 +21,7 @@ export class AddNote extends React.Component{
       <div>
 
        <NoteForm
+
          onSubmit={this.onSubmit}
        />
       </div>
@@ -28,7 +29,12 @@ export class AddNote extends React.Component{
   }
 }
 
-
+const mapStateToProps =(state, props)=>{
+ 
+  return{
+    note: 'x'
+  }
+}
 
 
 const mapDispatchToProps = (dispatch)=> ({
@@ -36,4 +42,4 @@ const mapDispatchToProps = (dispatch)=> ({
 })
 
 
-export default connect(undefined, mapDispatchToProps)(AddNote)
+export default connect(mapStateToProps, mapDispatchToProps)(AddNote)
