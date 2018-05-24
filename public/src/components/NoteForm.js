@@ -4,7 +4,7 @@ import moment from 'moment';
 export default class NoteForm extends React.Component{
 
   constructor(props){
-    console.log(props);
+
 
     super(props);
     this.state = {
@@ -24,12 +24,11 @@ export default class NoteForm extends React.Component{
 
   }
 componentDidMount(){
-  console.log('mounted');
+
 
   const last_state=JSON.parse(localStorage.getItem('note_state'))
-  ;
-  console.log(last_state);
-  console.log(typeof last_state.chapter_number);
+
+
 }
   hasSet=(x)=>{
     return new Promise((resolve,reject)=>{
@@ -100,21 +99,21 @@ componentDidMount(){
   }
 
   onChapterNumberChange = (e) =>{
-    console.log(e.target.value);
+
    const chapter_number= parseInt( e.target.value);
    this.setState(()=>({ chapter_number}));
   }
 
   onPageNumberChange = (e) =>{
-        console.log(e.target.value);
+
     const page_number = parseInt( e.target.value);
-    console.log(page_number);
+
     this.setState(()=>({ page_number }));
 
   }
 
   onParagraphNumberChange = (e) =>{
-        console.log(e.target.value);
+
     const paragraph_number = parseInt( e.target.value);
     this.setState(()=>({ paragraph_number }));
 
@@ -234,17 +233,12 @@ handleRemoveItem=(itemToRemove, key)=>{
   onChange={this.onParagraphNumberChange}
   />
   </p>
-
-
+  
   <button disabled={!this.state.chapter_number ||
      !this.state.page_number ||
      !this.state.paragraph_number ||
      !this.state.note } className="note-form-button">Add Note</button>
   </form>
-
-
-
-
 
       </div>
     )
