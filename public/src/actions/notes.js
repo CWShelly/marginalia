@@ -53,6 +53,11 @@ export const startRemoveNote =({ id} = {})=>{
   }
 }
 
+export const removeNote = ({ id } = {}) =>({
+  type: 'REMOVE_NOTE',
+  id
+})
+
 
 
 export const startEditNote = (id, updates)=>{
