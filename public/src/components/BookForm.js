@@ -4,6 +4,7 @@ import moment from 'moment';
 export default class BookForm extends React.Component{
 
   constructor(props){
+    console.log(props);
     super(props);
     this.state={
       author_last_name: props.book ? props.book.author_last_name : '',

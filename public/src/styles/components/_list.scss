@@ -1,6 +1,11 @@
-
+.reverse-list{
+display: flex;
+flex-direction: column-reverse;
+}
 .tag-list{
   display: inline;
+  // word-break: keep-all;
+  // white-space: nowrap;
 }
 .pages{
   // background: red;

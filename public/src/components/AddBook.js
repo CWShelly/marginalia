@@ -17,6 +17,7 @@ export class AddBook extends React.Component{
     return (
       <div>
        <BookForm
+
          onSubmit={this.onSubmit}
        />
       </div>
