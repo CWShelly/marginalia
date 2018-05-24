@@ -12,6 +12,7 @@ export default (state=filtersReducerDefaultState, action) => {
        ...state,
        text: action.text
      };
+
      case 'SORT_BY_CHAPTER':
      return{
        ...state,

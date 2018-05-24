@@ -6,7 +6,7 @@ import NoteListItem from './NoteListItem';
 import { Link } from 'react-router-dom';
 import filterThis from '../selectors/genericSelector';
 
-// import filters from '../selectors/filter';
+import filters from '../selectors/filter';
 
 export class NoteList extends React.Component{
   state = {
@@ -18,8 +18,7 @@ export class NoteList extends React.Component{
 
   render(){
 
-console.log(this.props.history.location.pathname);
-      return(
+       return(
         <div className="container">
         <ul className="reverse-list">
         {this.props.notes.map((note)=>{
@@ -34,7 +33,8 @@ console.log(this.props.history.location.pathname);
 }
 
 const mapStateToProps = (state, props)=>{
-console.log(state);
+  console.log(state);
+
   const x = state.notes.map((m)=>{
     return m.tags
   })
@@ -42,9 +42,10 @@ console.log(state);
   const y = x.map((c)=>{
     return Object.keys(c)
   })
- 
+
 
 if(props.history.location.pathname.slice(1,10) === "viewNotes"){
+
   return{
    notes: filterThis(state.notes, 'book_id'),
   }
@@ -53,7 +54,7 @@ if(props.history.location.pathname.slice(1,10) === "viewNotes"){
 
 else {
   return{
-   notes: state.notes
+   notes: filters(state.notes, state.filters)
   }
 
 }
