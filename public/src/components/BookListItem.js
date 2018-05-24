@@ -24,9 +24,9 @@ console.log(this.props);
         <Link
         to={`/viewNotes/${this.props.title}`} onClick={this.onHandleClick}
         >
-        {this.props.title} by {this.props.author_first_name}
+        {this.props.title} by {this.props.author_first_name}       {this.props.author_last_name}
 
-         {this.props.author_last_name}
+
 
         </Link>
        </p>
