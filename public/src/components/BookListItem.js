@@ -26,10 +26,12 @@ console.log(this.props);
         >
         {this.props.title} by {this.props.author_first_name}       {this.props.author_last_name}
 
-
-
         </Link>
+
+
        </p>
+
+    <Link to={`/edit/${this.props.id}`}>Edit this book</Link>
 
       </div>
 

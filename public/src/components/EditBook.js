@@ -7,8 +7,8 @@
  import { startRemoveParagraph } from '../actions/paragraphs';
  import { startRemoveChapter } from '../actions/chapters'
 
- import filterThis from "../selectors/genericSelector";
- import filterSubLevel from "../selectors/genericIdFinder";
+ // import filterThis from "../selectors/genericSelector";
+ // import filterSubLevel from "../selectors/genericIdFinder";
 
 
 
@@ -29,26 +29,26 @@
 
 onRemove=() => {
   this.props.startRemoveBook({id: this.props.book.id})
-
-  for(let i = 0; i< this.props.filteredChapters.length; i++){
-    this.props.startRemoveChapter({id:
-    this.props.filteredChapters[i].id
-    })
-}
-
-for(let i = 0; i< this.props.filteredPages.length; i++){
-  this.props.startRemovePage({id:
-  this.props.filteredPages[i].id
-  })
-  }
-
-
-  for(let i = 0; i< this.props.filteredParagraphs.length; i++){
-    this.props.startRemoveParagraph({id:
-    this.props.filteredParagraphs[i].id
-    })
-    }
-
+//
+//   for(let i = 0; i< this.props.filteredChapters.length; i++){
+//     this.props.startRemoveChapter({id:
+//     this.props.filteredChapters[i].id
+//     })
+// }
+//
+// for(let i = 0; i< this.props.filteredPages.length; i++){
+//   this.props.startRemovePage({id:
+//   this.props.filteredPages[i].id
+//   })
+//   }
+//
+//
+//   for(let i = 0; i< this.props.filteredParagraphs.length; i++){
+//     this.props.startRemoveParagraph({id:
+//     this.props.filteredParagraphs[i].id
+//     })
+//     }
+//
      this.props.history.push('/')
 }
 
@@ -61,7 +61,7 @@ for(let i = 0; i< this.props.filteredPages.length; i++){
        book={this.props.book}
        books={this.props.books}
        buttonText={this.state.buttonText}
-     
+
        onSubmit={
         this.onSubmit}
        />
@@ -80,9 +80,9 @@ for(let i = 0; i< this.props.filteredPages.length; i++){
   return {
     book: state.books.find((book)=>book.id === props.match.params.id),
     books: state.books.filter((book)=> book.id !== book),
-    filteredChapters: filterThis(state.chapters, 'book_id'),
-    filteredPages:filterThis(state.pages, 'book_id'),
-    filteredParagraphs: filterThis(state.paragraphs, 'book_id'),
+    // filteredChapters: filterThis(state.chapters, 'book_id'),
+    // filteredPages:filterThis(state.pages, 'book_id'),
+    // filteredParagraphs: filterThis(state.paragraphs, 'book_id'),
 
 
 

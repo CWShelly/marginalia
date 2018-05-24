@@ -55,7 +55,15 @@ export const startRemoveNote =({ id} = {})=>{
 
 
 
-
+export const startEditNote = (id, updates)=>{
+  return(dispatch, getState)=>{
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/notes/${id}`).update(updates)
+    .then(()=>{
+      dispatch(editNote(id, updates))
+    })
+  }
+}
 
 
 export const editNote = (id, updates)=>({
@@ -75,7 +83,7 @@ export const setNotes = (notes) => {
 }
 
 export const startSetNotes = () => {
- 
+
   return (dispatch, getState) => {
     const uid = getState().auth.uid
     return database.ref(`users/${uid}/notes`)
