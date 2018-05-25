@@ -24,7 +24,7 @@ export class AddNote extends React.Component{
 
     return (
       <div>
-<button onClick={this.findTag}>find tag</button>
+ 
        <NoteForm
 
          onSubmit={this.onSubmit}
