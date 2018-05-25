@@ -13,7 +13,7 @@
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build:prod"
   },
-  "engines": {"node": ">=8.4.0"},
+  "engines": {"node": "8.4.0"},
   "dependencies": {
     "babel-core": "6.25.0",
     "babel-loader": "^7.1.1",
