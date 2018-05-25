@@ -1,45 +1,26 @@
 
 import database from '../firebase/firebase'
-
+ // database = firebase.database();
 export const findTag=(note)=>{
   console.log('finding tag: actions');
 return(dispatch, getState)=>{
 
   // console.log(database.ref(`users/${uid}/notes`));
-console.log(database);
+console.log(database.ref());
 
   const uid = getState().auth.uid;
   const notesRef =  database.ref(`users/${uid}/notes`)
-  .orderByChild('page_number').equalTo(194)
+  // .orderByChild('page_number').equalTo(194)
+  .orderByChild("tags")
 .on('value', (snapshot)=>{
-  // console.log(snapshot.val());
+  console.log(snapshot.val());
 snapshot.forEach((snapshot)=>{
   console.log( snapshot.val().tags);
 })
+
 })
-
-
-
-    //
-    // .get()
-    // .then((snapshot)=>{
-    //   snapshot.forEach((childSnapshot)=>{
-    //     console.log(childSnapshot.val());
-    //   })
-    // })
-
-    // database.ref(`users/${uid}/notes`)
-    // .equalTo('tags.Obama', '==',true)
-    // .get()
-    // .then((snapshot)=>{
-    //
-    //  snapshot.forEach((childSnapshot)=>{
-    //    console.log(childSnapshot.val());
-    //  })
-    // })
 }
 }
-
 
 export const addNote = (note)=>({
   type: 'ADD_NOTE',

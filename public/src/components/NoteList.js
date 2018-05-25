@@ -5,9 +5,11 @@ import NoteListItem from './NoteListItem';
 // import bookNotes from '../selectors/bookNotes'
 import { Link } from 'react-router-dom';
 import filterThis from '../selectors/genericSelector';
+// import tagKeys from '../selectors/tagKeys';
 
 
 import filters from '../selectors/filter';
+import tagFilter from '../selectors/tagFilter'
 
 export class NoteList extends React.Component{
   state = {
@@ -17,6 +19,9 @@ export class NoteList extends React.Component{
     title: localStorage.getItem('title')
   }
 
+componentDidMount(){
+  console.log(this.props.notes);
+}
   render(){
 
        return(
@@ -34,7 +39,6 @@ export class NoteList extends React.Component{
 }
 
 const mapStateToProps = (state, props)=>{
-  console.log(state);
 
   const x = state.notes.map((m)=>{
     return m.tags
@@ -45,17 +49,27 @@ const mapStateToProps = (state, props)=>{
   })
 
 
-if(props.history.location.pathname.slice(1,10) === "viewNotes"){
+if(props.history.location.pathname.slice(1,10)
+ === "viewNotes"){
 
   return{
    notes: filterThis(state.notes, 'book_id'),
+
   }
 
 }
 
 else {
+  for(let i = 0; i<state.notes.length; i++){
+    state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
+  }
+
+  // console.log(state.notes);
+
+  console.log(filters(state.notes, state.filters));
   return{
-   notes: filters(state.notes, state.filters)
+   notes: filters(state.notes, state.filters),
+   // tags: tagFilter(state.notes, state.filters)
   }
 
 }
