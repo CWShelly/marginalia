@@ -1,12 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NoteListItem from './NoteListItem';
-// import selectNotes from '../selectors/notes';
-// import bookNotes from '../selectors/bookNotes'
+
 import { Link } from 'react-router-dom';
 import filterThis from '../selectors/genericSelector';
-// import tagKeys from '../selectors/tagKeys';
-
 
 import filters from '../selectors/filter';
 import tagFilter from '../selectors/tagFilter'
@@ -19,9 +16,7 @@ export class NoteList extends React.Component{
     title: localStorage.getItem('title')
   }
 
-componentDidMount(){
-  console.log(this.props.notes);
-}
+ 
   render(){
 
        return(
@@ -64,12 +59,9 @@ else {
     state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
   }
 
-  // console.log(state.notes);
 
-  console.log(filters(state.notes, state.filters));
   return{
    notes: filters(state.notes, state.filters),
-   // tags: tagFilter(state.notes, state.filters)
   }
 
 }

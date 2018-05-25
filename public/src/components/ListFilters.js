@@ -13,16 +13,12 @@ export class ListFilters extends React.Component{
 
  onTagChange=(e)=>{
 
-   console.log(e.target.value);
   this.props.setTagFilter(e.target.value);
 }
 
-componentDidMount(){
-  // console.log(this.props.setTagFilter("McRaven"));
-    // console.log(this.props.setTextFilter('BO'));
-}
+
   render(){
-// console.log(this.props.setTagFilter({Obama:true}));
+ 
     return(
       <div>
 
@@ -49,7 +45,7 @@ componentDidMount(){
 
 
 const mapStateToProps = (state)=>{
-  console.log(state);
+
   return{
     filters: state.filters
   }

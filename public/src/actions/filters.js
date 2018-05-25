@@ -11,7 +11,7 @@ export const setTextFilter = (text ='')=>({
 // });
 
 export const setTagFilter=(tag='')=>{
-  console.log(tag);
+ 
   return{
     type: 'SET_TAG_FILTER',
     tag
