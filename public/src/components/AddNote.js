@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startAddNote } from '../actions/notes';
+import { startAddNote, findTag } from '../actions/notes';
 import NoteForm from './NoteForm';
 // import pickUpFromLastNote from '../selectors/from_last_note'
 
@@ -15,11 +15,16 @@ export class AddNote extends React.Component{
      // this.props.history.push(`/viewNotes/${this.props.title}`)
 
   }
+
+  findTag=()=>{
+    console.log('finding tag');
+    this.props.findTag()
+  }
   render(){
 
     return (
       <div>
-
+<button onClick={this.findTag}>find tag</button>
        <NoteForm
 
          onSubmit={this.onSubmit}
@@ -30,7 +35,7 @@ export class AddNote extends React.Component{
 }
 
 const mapStateToProps =(state, props)=>{
- 
+
   return{
     note: 'x'
   }
@@ -38,7 +43,8 @@ const mapStateToProps =(state, props)=>{
 
 
 const mapDispatchToProps = (dispatch)=> ({
-     startAddNote: (note)=> dispatch(startAddNote(note))
+     startAddNote: (note)=> dispatch(startAddNote(note)),
+     findTag: (note)=>dispatch(findTag(note))
 })
 
 
