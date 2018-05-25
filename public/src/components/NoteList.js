@@ -6,6 +6,7 @@ import NoteListItem from './NoteListItem';
 import { Link } from 'react-router-dom';
 import filterThis from '../selectors/genericSelector';
 
+
 import filters from '../selectors/filter';
 
 export class NoteList extends React.Component{
