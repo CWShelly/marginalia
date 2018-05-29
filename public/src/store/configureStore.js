@@ -7,6 +7,7 @@ import notesReducer from '../reducers/notes';
 // import paragraphsReducer from '../reducers/paragraphs';
 import authReducer from '../reducers/auth';
 import filtersReducer from '../reducers/filters';
+import summaryReducer from '../reducers/chapterSummary'
 // import tagsReducer from '../reducers/tags';
 const composeEnhanchers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
 
@@ -16,6 +17,7 @@ export default () => {
     combineReducers({
       books: booksReducer,
       notes: notesReducer,
+      summaries: summaryReducer,
       // chapters: chaptersReducer,
       // pages: pagesReducer,
       // paragraphs: paragraphsReducer,

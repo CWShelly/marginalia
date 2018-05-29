@@ -5,6 +5,7 @@ import { startSetBooks } from './actions/books';
 import { startSetNotes} from './actions/notes';
 import { startSetChapters} from './actions/chapters';
 import { startSetPages} from './actions/pages';
+import { startSetSummaries } from './actions/chapterSummary'
 import { login, logout } from './actions/auth';
 import { startSetParagraphs} from './actions/paragraphs';
 import configureStore from './store/configureStore';
@@ -60,12 +61,13 @@ if(user){
     // console.log('uid = ', user.uid);
     // localStorage.setItem('user_id', user.uid)
 
-    // 
+    //
     // store.dispatch(startSetChapters())
     // store.dispatch(startSetPages())
     // store.dispatch(startSetParagraphs())
 
     store.dispatch(startSetNotes());
+    store.dispatch(startSetSummaries())
 
     store.dispatch(startSetBooks())
      .then(() => {

@@ -18,8 +18,9 @@ import EditChapter from '../components/EditChapter';
 import LogIn  from '../components/LogIn';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import ViewAllNotes from '../components/ViewAllNotes'
-import ViewTags from '../components/ViewTags'
+import ViewAllNotes from '../components/ViewAllNotes';
+import ViewTags from '../components/ViewTags';
+import ViewChapterSummaryPage from '../components/ViewChapterSummaryPage';
 
 import Explainer from '../components/Explainer';
 
@@ -41,6 +42,7 @@ const AppRouter = ()=>(
     <PrivateRoute path="/viewNotes/:title" component={ViewNotes} />
     <PrivateRoute path="/viewAllNotes/" component={ViewAllNotes} />
     <PrivateRoute path="/chapter/:title" component={ViewChapters} />
+     <PrivateRoute path="/viewSummaries/:title" component={ViewChapterSummaryPage} />
     <PrivateRoute path="/page/:chapter_number" component={ViewPages} />
     <PrivateRoute path="/paragraph/:paragraph_number" component={ViewParagraphs} />
     <PrivateRoute path="/editParagraph/:id" component={EditParagraph} />
@@ -48,7 +50,7 @@ const AppRouter = ()=>(
     <PrivateRoute path="/editChapter/:id" component={EditChapter} />
     <PrivateRoute path="/viewTags/" component={ViewTags} />
     <PrivateRoute path="/edit/:id" component={EditBook} />
-      <PrivateRoute path="/editNote/:id" component={EditNote} />
+    <PrivateRoute path="/editNote/:id" component={EditNote} />
 
   <Route component={NotFound} />
   </Switch>
