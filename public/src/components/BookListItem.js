@@ -22,12 +22,11 @@ class BookListItem extends React.Component{
         <Link
         to={`/viewNotes/${this.props.title}`} onClick={this.onHandleClick}
         >
-        {this.props.title} by {this.props.author_first_name}       {this.props.author_last_name}
+        {this.props.title} by {this.props.author_first_name}{this.props.author_last_name}
         </Link>
 
-
        </p>
-
+     <Link to={`/viewSummaries/${this.props.title}`} onClick={this.onHandleClick}>Chapter Summaries</Link>
 
     <Link to={`/edit/${this.props.id}`}>Edit</Link>
       </div>

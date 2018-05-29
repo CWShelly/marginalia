@@ -24,7 +24,7 @@ export class AddNote extends React.Component{
 
     return (
       <div>
- 
+
        <NoteForm
 
          onSubmit={this.onSubmit}
