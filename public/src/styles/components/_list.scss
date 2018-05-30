@@ -1,6 +1,20 @@
+
+.red{
+  color: red;
+}
+
+.blue{
+  color:blue;
+}
+
 .reverse-list{
-// display: flex;
-// flex-direction: column-reverse;
+display: flex;
+flex-direction: column-reverse;
+}
+
+.normal-list{
+  display: flex;
+  flex-direction: column;
 }
 .tag-list{
   display: inline;

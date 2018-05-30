@@ -241,7 +241,7 @@ handleRemoveItem=(itemToRemove, key)=>{
   <button disabled={!this.state.chapter_number ||
      !this.state.page_number ||
      !this.state.paragraph_number ||
-     !this.state.note } className="note-form-button">Add Note</button>
+     !this.state.note } className="form-button-book">Add Note</button>
   </form>
 
       </div>
