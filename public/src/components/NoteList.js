@@ -13,15 +13,28 @@ export class NoteList extends React.Component{
     display: false,
     author_first_name: localStorage.getItem('author_first'),
     author_last_name:localStorage.getItem('author_last'),
-    title: localStorage.getItem('title')
+    title: localStorage.getItem('title'),
+    order: true
+
   }
 
- 
+onClick = ()=>{
+  // this.setState=(prevState)=>({prevState.order:"blue"});
+
+  this.setState((prevState)=>({
+    order: !prevState.order
+  }))
+
+      // this.setState(()=>({ title }));
+  console.log(this.state.order);
+}
+
   render(){
 
        return(
         <div className="container">
-        <ul className="reverse-list">
+        <button className="form-button-book" onClick={this.onClick}>{this.state.order ? "view first to most recent" : "view most recent first"  }</button>
+        <ul className={this.state.order ? "reverse-list" : "normal-list"}>
         {this.props.notes.map((note)=>{
           return <NoteListItem key={note.id} {...note} />
         })}

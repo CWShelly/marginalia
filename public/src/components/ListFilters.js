@@ -18,12 +18,12 @@ export class ListFilters extends React.Component{
 
 
   render(){
- 
+
     return(
       <div>
 
     <label>Search {this.props.history.location.pathname.slice(1,10) ===
-      'viewNotes' ? 'this book' : 'your text notes'}:</label>
+      'viewNotes' ? 'this book' : 'your text '}:</label>
         <input type="text" value={this.props.filters.text} onChange={
             this.onTextChange
           }/>

@@ -107,7 +107,7 @@ onSubmit=(e)=>{
 
   <button disabled={!this.state.chapter_number ||
 
-     !this.state.summary } className="note-form-button">Add Chapter Summary</button>
+     !this.state.summary } className="form-button-book">Add Chapter Summary</button>
   </form>
 
       </div>
