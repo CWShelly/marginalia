@@ -1,4 +1,10 @@
 
+
+.edit{
+  display: block;
+  color: darken($lightBlue, 20%);
+  margin-top: $small;
+}
 .advance-button{
  background:linear-gradient(to bottom right, $lightBlue, black);
  color:white;
@@ -13,24 +19,38 @@
 }
 
 .display-tag-button{
-  margin-top: $small;
-  background: $lightBlue;
-  border-radius: 2px;
+  display:inline-block;
+  margin-top: $small/2;
+  margin-right: $small/2;
+  color: darken($lightBlue, 20%);
+  // border:1px solid  darken($lightBlue, 20%);
+  // border-radius: 2px;
   font-size:$small;
    font-weight: 300;
-   color: white;
-   border:1px solid $lightBlue;
+   // color: white;
+
 }
 @media (min-width: $desktop-bp){
 
+  .edit{
+    display: block;
+    color: darken($lightBlue, 20%);
+    margin-top: $small;
+  }
+
   .display-tag-button{
-    background:$lightBlue;
+
     border-radius: 2px;
     font-size:$small;
      font-weight: 300;
-     color: white;
-     border:1px solid $lightBlue;
-       margin-top: $small;
+     // color: white;
+     display:inline-block;
+     margin-top: $small/2;
+     margin-right: $small/2;
+     color: darken($lightBlue, 20%);
+     // border:1px solid  darken($lightBlue, 20%);
+     // border-radius: 2px;
+
   }
 .advance-button{
  background:linear-gradient(to bottom right, $lightBlue, black);
