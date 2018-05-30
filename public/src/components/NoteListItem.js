@@ -13,14 +13,14 @@ render(){
     <div>
     <p className="number-list-item-no-hover" >    {this.props.note}</p>
     <div className="list-paragraph-item-reference-paragraph">
-    {this.props.title} chapter:{this.props.chapter_number}
-     page:{this.props.page_number}  paragraph: {this.props.paragraph_number}
-   <ul>
+    {this.props.title + ''} chapter:{this.props.chapter_number + ' '}
+       page:{this.props.page_number}   paragraph:{this.props.paragraph_number}
+   <ul> tags: {' '}
 {Object.keys(this.props.tags).map((item)=>{
-  return  <button className="display-tag-button" key={uuidv4()}>{item}</button>
+  return  <a className="display-tag-button" key={uuidv4()}>{item + '  '}</a>
 })}
    </ul>
-      <Link to={`/editNote/${this.props.id}`}>Edit</Link>
+      <Link className="edit" to={`/editNote/${this.props.id}`}>Edit</Link>
    </div>
 
 
