@@ -1,6 +1,5 @@
 .tag-input{
   width: 20rem;
-  // background: red;
 }
 .chapter-page-input{
 
@@ -17,14 +16,12 @@
   margin: 0 auto;
   width: 80%;
   max-width: 60rem;
-
 }
 
 @media(min-width: $desktop-bp){
 
   .tag-input{
     width: 20rem;
-    // background: red;
   }
   .chapter-page-input{
     width: 3rem;
@@ -40,7 +37,7 @@
     padding: $small;
     margin-top: $small;
     margin-right: 0;
-      width: 80%;
+    width: 80%;
   }
 
 

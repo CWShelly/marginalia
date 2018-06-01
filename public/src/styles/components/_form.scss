@@ -2,7 +2,7 @@
 label{
   padding-right: $small;
 }
- 
+
 .form-textArea{
    max-width: 40rem;
    width: 30rem;
@@ -48,8 +48,7 @@ label{
   font-size: $small;
   padding: $small;
   width: 80%;
-  // margin-right: 0;
-    display: block;
+  display: block;
   margin: 0 auto;
   margin-top: $large;
 }
@@ -57,12 +56,12 @@ label{
 .form-button-check:hover{
   background: white;
   color:darken($lightBlue, 20%);
-  // font-size: $large;
-    font-size: $medium;
+  font-size: $medium;
   border: none;
-  // padding: $small/2;
-    // border-bottom: 1px solid darken($lightBlue, 10%);
 }
+
+
+
 @media (min-width: $desktop-bp){
 
   .form-button-check{
