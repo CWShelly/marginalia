@@ -13,8 +13,7 @@ export class Header extends React.Component{
 
 
   render(){
-// console.log(this.state.user_info);
-// console.log(this.state.user_info.displayName);
+
     return(
       <header className="header">
         <h1>Marginalia Geek</h1>

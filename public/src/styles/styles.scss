@@ -1,12 +1,12 @@
 @import './base/settings/';
 @import './base/base/';
-// @import './components/header/';
+@import './components/all.scss';
+@import './components/header/';
 // @import './components/container';
 // @import './components/form';
 // @import './components/view';
 // @import './components/list';
 // @import './components/bookForm';
 // @import './components/input';
-// @import './components/login';
+@import './components/login';
 // @import './components/buttons';
-@import './components/all.scss';

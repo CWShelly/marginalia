@@ -32,7 +32,9 @@
 
 @media (min-width: $desktop-bp){
 .header{
-  background:linear-gradient(to bottom right, $lightBlue, black);
+  // background:linear-gradient(to bottom right, $lightBlue, black);
+  background-image: url("/images/reading.jpeg");
+  background-repeat: no-repeat;
 
   color:white;
   // background: black;
