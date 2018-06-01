@@ -1,19 +1,16 @@
 
 .book-container{
- padding: $small;
- width: 80%;
- margin: 0 auto;
+   padding: $small;
+   width: 80%;
+   margin: 0 auto;
 }
-
 
 .container{
-   color: grey;
-   max-width: 60rem;
-   margin: 0 auto;
-   padding: $medium;
-   // border: 1px solid red;
+ color: grey;
+ max-width: 60rem;
+ margin: 0 auto;
+ padding: $medium;
 }
-
 
 .container form{
   text-align:right;
@@ -29,7 +26,6 @@
   display: block;
   margin: 0 auto;
 }
-
 
 .container-view-slug{
   text-align:right;
