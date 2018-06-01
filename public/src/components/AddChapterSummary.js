@@ -12,17 +12,13 @@ export class AddChapterSummary extends React.Component{
 
      this.props.startAddChapterSummary(note);
 
-
   }
-
 
   render(){
 
     return (
       <div>
-
        <ChapterSummaryForm
-
          onSubmit={this.onSubmit}
        />
       </div>

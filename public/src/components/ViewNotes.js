@@ -38,7 +38,7 @@ render(){
     <div className="container">
     <div> <h1 >My Notes for {this.state.title}</h1>
 
-    <div className="add-note-view-notes">
+    <div className="view">
 
    <AddNote history={this.props.history}/>
     </div>
