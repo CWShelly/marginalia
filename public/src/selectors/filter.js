@@ -1,5 +1,5 @@
 export default (collection,  {text, tag}) =>{
- 
+
 let hasTags = (tag_keys, obj)=>obj.tag_keys.includes(tag);
 
 
