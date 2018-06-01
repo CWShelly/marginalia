@@ -178,7 +178,7 @@ handleRemoveItem=(itemToRemove, key)=>{
         {this.state.tagArr.map((item, x)=>{
           return <li className="tag-list"  key={x}
         >
-          <span><button className="tag">{item}</button>
+          <span><button className="add-tag">{item}</button>
           <button  className="form-button-check"   onClick={(e)=>{
             this.handleRemoveItem(item, x)
           }}>x</button></span>

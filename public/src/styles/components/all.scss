@@ -23,6 +23,21 @@
   font-weight: 300;
 }
 
+.add-tag{
+  display:inline-block;
+  margin-top: $small/2;
+  margin-right: $small/2;
+  // background: darken($lightBlue, 20%);
+  background: $lightBlue;
+  border: 1px solid $lightBlue;
+  color:white;
+  border-radius: 5px;
+
+  font-size:$small;
+  font-weight: 300;
+}
+
+
 // from container.scss
 
 .book-container{
@@ -292,6 +307,19 @@ label{
    color: darken($lightBlue, 20%);
 }
 
+.add-tag{
+  display:inline-block;
+  margin-top: $small/2;
+  margin-right: $small/2;
+  // background: darken($lightBlue, 20%);
+  background: $lightBlue;
+  border: 1px solid $lightBlue;
+  color:white;
+  border-radius: 5px;
+
+  font-size:$small;
+  font-weight: 300;
+}
 // from container.scss
 
   .explainer-subcontainer{
