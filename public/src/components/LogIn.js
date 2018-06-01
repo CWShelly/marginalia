@@ -8,10 +8,9 @@ import { Link } from 'react-router-dom';
 
    <div className="login-image">
 
-
-   <p> <Link className="login-link"
-   to={`/about`}>Marginalia Geek</Link></p>
-
+       <p> <Link className="login-link"
+       to={`/about`}>Marginalia Geek</Link>
+       </p>
 
       <button onClick={startLogin}>Enter</button>
 

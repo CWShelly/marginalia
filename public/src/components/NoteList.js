@@ -19,13 +19,10 @@ export class NoteList extends React.Component{
   }
 
 onClick = ()=>{
-  // this.setState=(prevState)=>({prevState.order:"blue"});
-
   this.setState((prevState)=>({
     order: !prevState.order
   }))
 
-      // this.setState(()=>({ title }));
   console.log(this.state.order);
 }
 

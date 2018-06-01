@@ -18,17 +18,21 @@ class BookListItem extends React.Component{
     return(
 
       <div>
-        <p>
+        <div className="book-list-item-subcontainer">
+
         <Link className="edit"
         to={`/viewNotes/${this.props.title}`} onClick={this.onHandleClick}
         >
         {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}
-        </Link>  <Link className="edit" to={`/edit/${this.props.id}`}>Edit</Link>
+        </Link>
 
-       </p>
-      <Link className="edit" to={`/viewSummaries/${this.props.title}`}
+         <Link className="edit" to={`/edit/${this.props.id}`}>
+           <span className="book-item-edit">Edit{' '}</span><i className="fa fa-wrench"></i>
+         </Link>
+         
+       </div>
+      <Link className="summary-link" to={`/viewSummaries/${this.props.title}`}
      onClick={this.onHandleClick}>Chapter Summaries</Link>
-
 
       </div>
 

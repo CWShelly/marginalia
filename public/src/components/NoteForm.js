@@ -88,10 +88,6 @@ console.log(this.props);
       }
 
       if(!this.state.errorNote){
-        console.log('no errror');
-        // this.state.chapter_number = 0;
-        // this.state.page_number = 0;
-        // this.state.paragraph_number =0;
         this.state.note ='',
         this.state.remainingCharacters = 210;
         this.state.tags= {},
@@ -182,7 +178,7 @@ handleRemoveItem=(itemToRemove, key)=>{
         {this.state.tagArr.map((item, x)=>{
           return <li className="tag-list"  key={x}
         >
-          <span><button className="display-tag-button">{item}</button>
+          <span><button className="tag">{item}</button>
           <button  className="form-button-check"   onClick={(e)=>{
             this.handleRemoveItem(item, x)
           }}>x</button></span>
