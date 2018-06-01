@@ -196,7 +196,6 @@ handleRemoveItem=(itemToRemove, key)=>{
   </div>
 
 <form className="note-form" onSubmit={this.sendToDB}>
-  <p>Add a note: {this.state.remainingCharacters} characters left.</p>
   <textarea
   className="form-textArea"
   type="text"
@@ -205,7 +204,7 @@ handleRemoveItem=(itemToRemove, key)=>{
   value={this.state.note}
   onChange={this.onNoteChange}
   />
-
+  <p>{this.state.remainingCharacters} characters left.</p>
   <p>Chapter Number:
   <input className="note-form-input"
   type="number"
