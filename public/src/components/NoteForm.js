@@ -141,9 +141,9 @@ handleInputChange=(e)=>{
 handleInputKeyDown=(e)=>{
   // console.log(e.target.value);
   // console.log(e.keyCode);
- let key = e.key || e.keyCode;
+ // let key = e.key || e.keyCode;
  console.log(e.keyCode);
-  if(key === 13){
+  if(e.keyCode === 13){
     const value = e.target.value.trim();
     this.setState(()=>({
     tagArr: [...this.state.tagArr, value],
