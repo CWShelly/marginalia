@@ -44,19 +44,32 @@ export const startAddNote = (noteData = {}) => {
     tags = {}
   } = noteData;
 
-
-
   const _note = { chapter_number, page_number,
     paragraph_number, note, title,  createdAt, book_id, tags}
 
-
-  database.ref(`users/${uid}/notes`).push(_note)
+try{
+  database.ref(`users/${uid}/notes`)
+  .push(_note)
   .then((ref) => {
-    dispatch(addNote({
-      id: ref.key,
-      ... _note
-    }));
+      dispatch(
+        addNote({
+        id: ref.key,
+        ... _note
+      })
+    );
   })
+}
+catch(err){
+
+  console.log(err);
+  console.log(" can't contain ., #, $, /");
+}
+
+
+
+
+
+
   }
 }
 

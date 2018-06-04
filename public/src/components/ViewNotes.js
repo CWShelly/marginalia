@@ -44,6 +44,10 @@ render(){
     </div>
 
     </div>
+
+    <div>
+        <ListFilters history={this.props.history}/>
+    </div>
     <NoteList history={this.props.history} />
      </div>
 

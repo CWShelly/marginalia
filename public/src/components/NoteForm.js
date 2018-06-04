@@ -28,9 +28,6 @@ componentDidMount(){
 
   const last_state=JSON.parse(localStorage.getItem('note_state'))
 
-
-
-console.log(this.props);
 }
   hasSet=(x)=>{
     return new Promise((resolve,reject)=>{
@@ -137,17 +134,24 @@ console.log(this.props);
 handleInputChange=(e)=>{
   e.persist();
 
+// if(e.keyCode === 190 || e.keyCode === )
   this.setState(()=>({ input:e.target.value }))
 }
 
 handleInputKeyDown=(e)=>{
-
-  if(e.keyCode === 13){
+  // console.log(e.target.value);
+  // console.log(e.keyCode);
+ let key = e.key || e.keyCode;
+ console.log(e.keyCode);
+  if(key === 13){
     const value = e.target.value.trim();
     this.setState(()=>({
     tagArr: [...this.state.tagArr, value],
     input: ''}))
   }
+  // else if(e.keyCode === 190 || e.keyCode == 219 || e.keyCode === 221 || e.keyCode === 191){
+  //   console.log("can't enter " + e.keyCode);
+  // }
 
   if(this.state.tagArr.length && e.keyCode === 8 && !this.state.input.length){
     this.setState(()=>({

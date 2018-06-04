@@ -15,15 +15,12 @@ export class NoteList extends React.Component{
     author_last_name:localStorage.getItem('author_last'),
     title: localStorage.getItem('title'),
     order: true
-
   }
 
 onClick = ()=>{
   this.setState((prevState)=>({
     order: !prevState.order
   }))
-
-  console.log(this.state.order);
 }
 
   render(){
@@ -66,6 +63,7 @@ if(props.history.location.pathname.slice(1,10)
 
 else {
   for(let i = 0; i<state.notes.length; i++){
+    // console.log(state.notes[i].tags);
     state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
   }
 
