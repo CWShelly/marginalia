@@ -53,7 +53,7 @@ onRemove=() => {
 }
 
   render(){
-
+ 
 
     return (
       <div>
@@ -76,7 +76,7 @@ onRemove=() => {
 
 
  const mapStateToProps = (state, props)=>{
-
+console.log(state);
   return {
     book: state.books.find((book)=>book.id === props.match.params.id),
     books: state.books.filter((book)=> book.id !== book),

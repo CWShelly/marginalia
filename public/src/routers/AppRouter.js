@@ -14,6 +14,7 @@ import PublicRoute from './PublicRoute';
 import ViewAllNotes from '../components/ViewAllNotes';
 import ViewChapterSummaryPage from '../components/ViewChapterSummaryPage';
 import Explainer from '../components/Explainer';
+import Profile from '../components/Profile'
 
 export const history = createHistory();
 
@@ -31,6 +32,7 @@ const AppRouter = ()=>(
     <PrivateRoute path="/addnote" component={AddNote} />
     <PrivateRoute path="/viewNotes/:title" component={ViewNotes} />
     <PrivateRoute path="/viewAllNotes/" component={ViewAllNotes} />
+    
 
     <PrivateRoute path="/viewSummaries/:title" component={ViewChapterSummaryPage} />
     <PrivateRoute path="/edit/:id" component={EditBook} />
