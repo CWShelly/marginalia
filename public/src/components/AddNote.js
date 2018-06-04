@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startAddNote, findTag } from '../actions/notes';
 import NoteForm from './NoteForm';
+ 
 // import pickUpFromLastNote from '../selectors/from_last_note'
 
 
@@ -9,12 +10,13 @@ export class AddNote extends React.Component{
 
  onSubmit=(note)=>{
    console.log(note);
+          this.props.startAddNote(note);
 
-     this.props.startAddNote(note);
 
      // this.props.history.push(`/viewNotes/${this.props.title}`)
-
   }
+
+
 
   findTag=()=>{
     console.log('finding tag');
@@ -29,6 +31,7 @@ export class AddNote extends React.Component{
 
          onSubmit={this.onSubmit}
        />
+
       </div>
     )
   }

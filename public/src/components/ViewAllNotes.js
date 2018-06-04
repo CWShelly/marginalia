@@ -4,7 +4,7 @@ import ListFilters from './ListFilters'
 
  export default class ViewAllNotes extends React.Component{
    render(){
-     console.log(this.props);
+ 
      return(
        <div className="container">
        <div>

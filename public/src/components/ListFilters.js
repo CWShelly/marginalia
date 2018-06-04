@@ -23,7 +23,7 @@ export class ListFilters extends React.Component{
       <div>
 
     <label><i className="fa fa-search"></i>{" "}<span className="search">Search</span> {this.props.history.location.pathname.slice(1,10) ===
-      'viewNotes' ? 'this book' : ' text '}:</label>
+      'viewNotes' ? 'text ' : ' text '}:</label>
         <input type="text" value={this.props.filters.text} onChange={
             this.onTextChange
           }/>
@@ -31,7 +31,7 @@ export class ListFilters extends React.Component{
 
       <div>
       <label> <i className="fa fa-search"></i>{" "} <span className="search">Search</span> {this.props.history.location.pathname.slice(1,10) ===
-      'viewNotes' ? 'this book' : ' tags'}:</label>
+      'viewNotes' ? 'tags' : ' tags'}:</label>
         <input type="text" value={this.props.filters.tag} onChange={
             this.onTagChange
           }/>
