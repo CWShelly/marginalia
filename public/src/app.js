@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { startSetBooks } from './actions/books';
 import { startSetNotes} from './actions/notes';
-import { startSetSummaries } from './actions/chapterSummary'
+import { startSetSummaries } from './actions/chapterSummary';
+import { startSetProfiles } from './actions/profiles';
 import { login, logout } from './actions/auth';
 import configureStore from './store/configureStore';
 import getVisibleBooks from './selectors/books';
@@ -54,7 +55,8 @@ if(user){
 
 
     store.dispatch(startSetNotes());
-    store.dispatch(startSetSummaries())
+    store.dispatch(startSetSummaries());
+    store.dispatch(startSetProfiles());
 
     store.dispatch(startSetBooks())
      .then(() => {

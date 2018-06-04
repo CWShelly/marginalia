@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth';
+import  { Profile }  from '../components/Profile'
+
 
 
 export class Header extends React.Component{
@@ -13,8 +15,9 @@ export class Header extends React.Component{
 
 
   render(){
-
+console.log(this.props);
     return(
+      <div>
       <header className="header">
         <h1>Marginalia Geek</h1>
 
@@ -27,6 +30,8 @@ export class Header extends React.Component{
          <button onClick={this.props.startLogout}>Logout</button></p>
 
       </header>
+    
+      </div>
     )
   }
 }
