@@ -6,7 +6,7 @@ export const setUsers = (user) => ({
 })
 
 export const getUsers = () => {
-  console.log('getting users');
+ 
  return (dispatch, getState) => {
    const uid = getState().auth.uid
 
@@ -15,7 +15,7 @@ export const getUsers = () => {
     // return database.ref()
    .once('value')
    .then((snapshot) => {
-     console.log(snapshot.val());
+
 
      // const profiles = [];
      const _users =[]

@@ -2,14 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import BookListItem from './BookListItem';
 import selectBooks from '../selectors/books';
+import { startSetBooks } from '../actions/books';
 
 
 
 export class BookList extends React.Component{
+ componentDidMount(){
+   console.log('booklist mount');
+this.props.startSetBooks()
+ }
 
 
  render(){
-
+console.log("bookList");
+console.log(this.props);
    return(
      <div className="book-container" >
       <h1 >Your Books</h1>
@@ -27,7 +33,7 @@ export class BookList extends React.Component{
 
 
 const mapStateToProps = (state)=>{
-
+console.log(state.books);
 
       return {
         books:selectBooks(state.books)
@@ -37,6 +43,14 @@ const mapStateToProps = (state)=>{
 
 }
 
+const mapDispatchToProps = (dispatch, props)=>{
+  return{
+    startSetBooks: ()=>{dispatch(startSetBooks())}
+    // startSetBooks: startSetBooks()
+
+  }
+}
 
 
-export default connect(mapStateToProps)(BookList);
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);

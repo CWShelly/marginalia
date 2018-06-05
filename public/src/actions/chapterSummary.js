@@ -78,7 +78,7 @@ export const startSetSummaries = () => {
    return database.ref(`users/${uid}/summaries`)
    .once('value')
    .then((snapshot) => {
-     console.log('setting summariesReducerDefaultState');
+   
      const summaries = [];
 
      snapshot.forEach((childSnapshot) => {

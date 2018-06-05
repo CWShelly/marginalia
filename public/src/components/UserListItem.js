@@ -4,17 +4,22 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class UserListItem extends React.Component{
- 
+
+ onHandleClick = ()=>{
+   console.log('clicked');
+   console.log(this.props.user_id);
+   localStorage.setItem('browse_id', this.props.user_id)
+ }
 
   render(){
 
     return(
 
 
-        <div className="book-list-item-subcontainer">
+      <div className="book-list-item-subcontainer">
 
 
-  <li>{this.props.user_name}</li>
+        <li><Link to={`/browseOtherLibraries`} onClick={this.onHandleClick}>{this.props.user_name}</Link></li>
 
 
        </div>

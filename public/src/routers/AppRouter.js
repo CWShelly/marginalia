@@ -15,6 +15,7 @@ import ViewAllNotes from '../components/ViewAllNotes';
 import ViewChapterSummaryPage from '../components/ViewChapterSummaryPage';
 import Explainer from '../components/Explainer';
 import Profile from '../components/Profile';
+import ViewOtherLibraries from '../components/ViewOtherLibraries';
 
 import ViewUsers from '../components/ViewUsers'
 
@@ -29,6 +30,7 @@ const AppRouter = ()=>(
   <Switch>
     <PublicRoute path="/" component={LogIn} exact={true} />
     <PrivateRoute path="/browse" component={ViewUsers} />
+    <PrivateRoute path="/browseOtherLibraries" component={ViewOtherLibraries} />
     <PublicRoute path="/about" component={Explainer} />
     <PrivateRoute path="/dashboard" component={Dashboard} />
     <PrivateRoute path="/addbook" component={AddBook} />

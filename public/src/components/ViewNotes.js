@@ -12,7 +12,8 @@ export class ViewNotes extends React.Component{
     display: false,
     author_first_name: localStorage.getItem('author_first'),
     author_last_name:localStorage.getItem('author_last'),
-    title: localStorage.getItem('title')
+    title: localStorage.getItem('title'),
+    auth_id:localStorage.getItem('auth_id')
   }
 
 
@@ -33,14 +34,15 @@ export class ViewNotes extends React.Component{
   }
 
 render(){
-
+console.log(this.state.auth_id);
+console.log(localStorage.getItem('browse_id'));
   return(
     <div className="container">
     <div> <h1 >My Notes for {this.state.title}</h1>
 
     <div className="view">
 
-   <AddNote history={this.props.history}/>
+   {this.state.auth_id === localStorage.getItem('browse_id') && <AddNote history={this.props.history}/>}
     </div>
 
     </div>
