@@ -15,7 +15,7 @@ export class Header extends React.Component{
 
 
   render(){
-console.log(this.props);
+ 
     return(
       <div>
       <header className="header">
@@ -30,7 +30,7 @@ console.log(this.props);
          <button onClick={this.props.startLogout}>Logout</button></p>
 
       </header>
-    
+
       </div>
     )
   }

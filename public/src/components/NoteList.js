@@ -41,7 +41,7 @@ onClick = ()=>{
 }
 
 const mapStateToProps = (state, props)=>{
-
+console.log(props);
   const x = state.notes.map((m)=>{
     return m.tags
   })
@@ -60,14 +60,14 @@ if(props.history.location.pathname.slice(1,10)
   }
 
 }
+else if(props.history.location.pathname.slice(1,6) === "browse"){
+
+}
 
 else {
   for(let i = 0; i<state.notes.length; i++){
-    // console.log(state.notes[i].tags);
     state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
   }
-
-
   return{
    notes: filters(state.notes, state.filters),
   }

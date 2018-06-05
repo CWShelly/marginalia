@@ -5,6 +5,7 @@ import { startSetBooks } from './actions/books';
 import { startSetNotes} from './actions/notes';
 import { startSetSummaries } from './actions/chapterSummary';
 import { startSetProfiles } from './actions/profiles';
+import { getUsers } from './actions/users';
 import { login, logout } from './actions/auth';
 import configureStore from './store/configureStore';
 import getVisibleBooks from './selectors/books';
@@ -57,6 +58,8 @@ if(user){
     store.dispatch(startSetNotes());
     store.dispatch(startSetSummaries());
     store.dispatch(startSetProfiles());
+
+    store.dispatch(getUsers())
 
     store.dispatch(startSetBooks())
      .then(() => {

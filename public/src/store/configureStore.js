@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import booksReducer from '../reducers/books';
 import notesReducer from '../reducers/notes';
+import userReducer from '../reducers/users';
 
 import authReducer from '../reducers/auth';
 import filtersReducer from '../reducers/filters';
@@ -16,9 +17,10 @@ export default () => {
       books: booksReducer,
       notes: notesReducer,
       summaries: summaryReducer,
-      profiles: profilesReducer, 
+      profiles: profilesReducer,
       auth: authReducer,
       filters: filtersReducer,
+      _users: userReducer
 
 
     }),
