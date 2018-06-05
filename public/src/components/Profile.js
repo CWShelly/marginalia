@@ -31,13 +31,14 @@ constructor(props){
   }
 
 componentDidMount(){
- // getUsers();
- // console.log(getUser[0]);
+
+ // console.log(this.props.profile.user_id);
+ localStorage.setItem('browse_id', this.props.profile.user_id)
 }
 
 
 render(){
-console.log(this.props);
+
   return(
     <div className="container">
     <div> <h1 >My Profile</h1>
@@ -70,7 +71,7 @@ console.log(this.props);
 
 const mapStateToProps = (state)=>{
 
- console.log(state._users);
+ 
       return {
        profile: state.profiles[0],
        others: state._users

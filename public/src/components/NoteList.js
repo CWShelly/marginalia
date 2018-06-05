@@ -41,7 +41,7 @@ onClick = ()=>{
 }
 
 const mapStateToProps = (state, props)=>{
-console.log(props);
+ 
   const x = state.notes.map((m)=>{
     return m.tags
   })

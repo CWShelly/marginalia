@@ -7,12 +7,12 @@ export const addProfile = (profile)=>({
 })
 
 export const startAddProfile = (profileData = {}) => {
-  console.log('setting');
+
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
   const {
- //user id, user name, bio, location
+
     user_id = uid,
     user_name = '',
     user_bio = '',
@@ -85,7 +85,7 @@ export const startSetProfiles = () => {
  return (dispatch, getState) => {
    console.log(getState().auth);
    const uid = getState().auth.uid
-   console.log(uid);
+    
 
       return database.ref(`users/${uid}/profiles`)
    .once('value')
