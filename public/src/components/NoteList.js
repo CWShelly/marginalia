@@ -9,18 +9,22 @@ import filters from '../selectors/filter';
 import tagFilter from '../selectors/tagFilter'
 
 export class NoteList extends React.Component{
-  state = {
+constructor(props){
+  super(props);
+  this.state = {
     display: false,
     author_first_name: localStorage.getItem('author_first'),
     author_last_name:localStorage.getItem('author_last'),
     title: localStorage.getItem('title'),
     order: true
   }
+}
 
 onClick = ()=>{
   this.setState((prevState)=>({
     order: !prevState.order
   }))
+  console.log(this.state.order);
 }
 
   render(){
@@ -41,7 +45,7 @@ onClick = ()=>{
 }
 
 const mapStateToProps = (state, props)=>{
- 
+
   const x = state.notes.map((m)=>{
     return m.tags
   })

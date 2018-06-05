@@ -15,7 +15,7 @@ export class Header extends React.Component{
 
 
   render(){
- 
+
     return(
       <div>
       <header className="header">
@@ -25,8 +25,9 @@ export class Header extends React.Component{
 
         <p><NavLink className="header-nav" to="/dashboard" activeClassName="is-active"  >Home |</NavLink>
         &nbsp;
-        <NavLink className="header-nav" to="/viewAllNotes" activeClassName="is-active">View All Notes |</NavLink>
+        <NavLink className="header-nav" to="/viewAllNotes" activeClassName="is-active">View Notes |</NavLink>
 
+    <NavLink className="header-nav" to="/browse" activeClassName="is-active">Browse Other Libraries |</NavLink>
          <button onClick={this.props.startLogout}>Logout</button></p>
 
       </header>

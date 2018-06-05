@@ -31,6 +31,7 @@ export class ViewChapterSummaryPage extends React.Component{
 
 
   }
+ 
 
 render(){
 
@@ -40,7 +41,9 @@ render(){
 
     <div className="view">
 
-   <AddChapterSummary history={this.props.history}/>
+
+
+        {localStorage.getItem('auth_id') === localStorage.getItem('browse_id') && <AddChapterSummary history={this.props.history}/>}
     </div>
 
     </div>

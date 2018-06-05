@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import BookListItem from './BookListItem';
 import selectBooks from '../selectors/books';
 import { startSetBooks } from '../actions/books';
+import viewingOtherBooks from '../selectors/viewingOtherBooks';
 
 
 
@@ -35,11 +36,19 @@ console.log(this.props);
 const mapStateToProps = (state)=>{
 console.log(state.books);
 
-      return {
-        books:selectBooks(state.books)
+if(localStorage.getItem('auth_id') === localStorage.getItem('browse_id')){
+console.log("viewing your library");
+  return {
+    books:selectBooks(state.books)
+  }
+}
 
-      }
-
+else{
+  console.log("viewing other library");
+  return {
+    books:viewingOtherBooks(state.books)
+  }
+}
 
 }
 

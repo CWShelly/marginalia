@@ -13,7 +13,7 @@ class Dashboard extends React.Component{
     return(
       <div className="container" >
            <Profile history={this.props.history} />
-           <Link to={`/browse`}>Explore Other Libraries</Link>
+       
           <div>
             <AddBook  history={this.props.history} />
         </div>

@@ -10,6 +10,7 @@ export default class BookForm extends React.Component{
       author_first_name:props.book ? props.book.author_first_name : '',
       title:  props.book ? props.book.title : '',
       createdAt: props.book ? moment(props.book.createdAt): moment(),
+      show_book: true,
       error: '',
     }
   }
@@ -46,6 +47,7 @@ export default class BookForm extends React.Component{
         author_first_name: this.state.author_first_name,
         title: this.state.title,
         createdAt: this.state.createdAt.valueOf(),
+        show_book: this.state.show_book
 
       })
 
@@ -53,11 +55,19 @@ export default class BookForm extends React.Component{
         this.state.author_last_name = "";
         this.state.author_first_name = "";
         this.state.title = "";
+        this.show_book = true;
       }
     }
 
   }
 
+  onClick = ()=>{
+        console.log(this.state.show_book);
+    this.setState((prevState)=>({
+      show_book: !prevState.show_book
+    }))
+    console.log(this.state.show_book);
+  }
 
 
   render(){
@@ -65,7 +75,7 @@ export default class BookForm extends React.Component{
     return(
       <div className="container-book-form">
 
-
+  <button onClick={this.onClick}>Hide this book</button>
       {this.state.error && <p className="form-error" >{this.state.error}</p>}
       <form   onSubmit={this.onSubmit}>
 
