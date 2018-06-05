@@ -29,6 +29,7 @@ export const startAddProfile = (profileData = {}) => {
     }
 console.log(profile);
   database.ref(`users/${uid}/profiles`).push(profile)
+  // database.ref(`${uid}/users/profiles`)
   .then((ref) => {
     dispatch(addProfile({
       id: ref.key,
@@ -82,8 +83,11 @@ export const setProfiles = (profiles) => ({
 export const startSetProfiles = () => {
   console.log('setting profiles');
  return (dispatch, getState) => {
+   console.log(getState().auth);
    const uid = getState().auth.uid
-   return database.ref(`users/${uid}/profiles`)
+   console.log(uid);
+
+      return database.ref(`users/${uid}/profiles`)
    .once('value')
    .then((snapshot) => {
      const profiles = [];

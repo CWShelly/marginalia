@@ -4,8 +4,8 @@ import React from 'react';
 import AddProfile from './AddProfile';
 
 import { startAddProfile } from '../actions/profiles';
+import { getUsers } from '../actions/users';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 
 
 export class Profile extends React.Component{
@@ -25,22 +25,33 @@ constructor(props){
 
 
   displayAddNote =()=>{
-
     this.setState((prevState)=>({
       display: !prevState.display
     }))
-
-
   }
 
-render(){
+componentDidMount(){
+ // getUsers();
+ // console.log(getUser[0]);
+}
 
+
+render(){
+console.log(this.props);
   return(
     <div className="container">
     <div> <h1 >My Profile</h1>
-    <p>{this.props.profile.user_name}</p>
-     <p>{this.props.profile.user_bio}</p>
-      <p>{this.props.profile.user_location}</p>
+
+    {this.props.profile &&
+    <div><p>{this.props.profile.user_name}</p>
+    <p>{this.props.profile.user_bio}</p>
+     <p>{this.props.profile.user_location}</p>
+    </div>}
+
+
+
+
+
     <div className="view">
 
    <AddProfile history={this.props.history}/>
@@ -58,11 +69,11 @@ render(){
 
 
 const mapStateToProps = (state)=>{
-  
 
-console.log(state.profiles[0]);
+ console.log(state._users);
       return {
-       profile: state.profiles[0]
+       profile: state.profiles[0],
+       others: state._users
 
       }
 
@@ -70,7 +81,8 @@ console.log(state.profiles[0]);
 }
 
 const mapDispatchToProps = (dispatch)=> ({
-     startAddProfile: (profile)=> dispatch(startAddProfile(profile))
+     startAddProfile: (profile)=> dispatch(startAddProfile(profile)),
+     // getUsers: dispatch(getUsers())
 })
 
 

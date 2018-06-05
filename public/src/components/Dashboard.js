@@ -4,6 +4,7 @@ import BookList from './BookList';
 import NoteList from './NoteList';
 import ListFilters from './ListFilters'
 import   Profile  from '../components/Profile';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends React.Component{
 
@@ -12,6 +13,7 @@ class Dashboard extends React.Component{
     return(
       <div className="container" >
            <Profile history={this.props.history} />
+           <Link to={`/browse`}>Explore Other Libraries</Link>
           <div>
             <AddBook  history={this.props.history} />
         </div>
