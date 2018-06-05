@@ -9,14 +9,14 @@ export class ViewOtherLibraries extends React.Component{
   state = {
 
   }
- 
+
 
 
 render(){
-console.log(this.props);
+
   return(
     <div className="container">
- <BookList />
+    <BookList />
 
      </div>
 

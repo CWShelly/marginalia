@@ -45,8 +45,8 @@ render(){
 
     {this.props.profile &&
     <div><p>{this.props.profile.user_name}</p>
-    <p>{this.props.profile.user_bio}</p>
-     <p>{this.props.profile.user_location}</p>
+    <p>Bio: {this.props.profile.user_bio}</p>
+     <p>Location: {this.props.profile.user_location}</p>
     </div>}
 
 
@@ -55,7 +55,7 @@ render(){
 
     <div className="view">
 
-   <AddProfile history={this.props.history}/>
+   {!this.props.profile && <AddProfile history={this.props.history}/>}
     </div>
 
     </div>
@@ -71,7 +71,7 @@ render(){
 
 const mapStateToProps = (state)=>{
 
- 
+
       return {
        profile: state.profiles[0],
        others: state._users
