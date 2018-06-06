@@ -13,10 +13,10 @@ export class ViewUsers extends React.Component{
 
 
 render(){
-console.log(this.props);
+ 
   return(
     <div className="container">
-    THE USER LIST
+
   <UserList history={this.props.history} />
      </div>
 

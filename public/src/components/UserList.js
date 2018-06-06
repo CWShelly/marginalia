@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserListItem from './UserListItem';
- 
+
 
 
 
@@ -12,8 +12,7 @@ export class UserList extends React.Component{
 
    return(
      <div className="book-container" >
-      <h1 >The Users</h1>
-
+   
       {this.props._users.map((_user)=>{
         return <UserListItem key={_user.user_id} { ..._user} />
       })}

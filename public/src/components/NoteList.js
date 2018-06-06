@@ -8,6 +8,8 @@ import filterThis from '../selectors/genericSelector';
 import filters from '../selectors/filter';
 import tagFilter from '../selectors/tagFilter'
 
+import { startSetNotes } from '../actions/notes';
+
 export class NoteList extends React.Component{
 constructor(props){
   super(props);
@@ -25,6 +27,11 @@ onClick = ()=>{
     order: !prevState.order
   }))
   console.log(this.state.order);
+}
+
+componentDidMount(){
+
+this.props.startSetNotes()
 }
 
   render(){
@@ -80,4 +87,11 @@ else {
 
 }
 
-export default connect(mapStateToProps)(NoteList);
+const mapDispatchToProps=(dispatch, props)=>{
+  console.log('dispatching notes');
+  return{
+    startSetNotes: ()=>{dispatch(startSetNotes())}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteList);

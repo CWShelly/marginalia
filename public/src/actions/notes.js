@@ -123,7 +123,20 @@ export const setNotes = (notes) => {
 export const startSetNotes = () => {
 
   return (dispatch, getState) => {
-    const uid = getState().auth.uid
+    console.log('setting notes');
+    // const uid = getState().auth.uid
+
+    let auth_id = getState().auth.uid
+
+
+    const browse_id = localStorage.getItem('browse_id') || auth_id;
+
+    console.log('browse_id === auth_id? ', browse_id === auth_id);
+
+    let uid = browse_id;
+
+
+
     return database.ref(`users/${uid}/notes`)
    .once('value')
    .then((snapshot) => {

@@ -44,6 +44,11 @@ render(){
 
   return(
     <div className="container">
+
+    <div className="view">
+       {!this.props.profile &&
+         <AddProfile history={this.props.history}/>}
+    </div>
     {this.props.profile &&
     <div>
 
@@ -61,10 +66,7 @@ render(){
          <img className="profile-image" src={this.props.profile.profile_image}  />}
     </div>
 
-    <div className="view">
-       {!this.props.profile &&
-         <AddProfile history={this.props.history}/>}
-    </div>
+
 
     </div>
     {this.state.user_name}
