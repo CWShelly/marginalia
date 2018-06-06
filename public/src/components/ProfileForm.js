@@ -1,5 +1,7 @@
 import React from 'react';
 import moment from 'moment';
+import { storage } from '../firebase/firebase';
+
 
 export default class ProfileForm extends React.Component{
 
@@ -11,7 +13,39 @@ export default class ProfileForm extends React.Component{
       user_location:  props.profile ? props.profile.user_location : '',
       createdAt: props.book ? moment(props.book.createdAt): moment(),
       error: '',
+      profile_image: ''
     }
+  }
+
+
+  sendToStorage = (e, x)=>{
+    console.log(e, x);
+    return new Promise((resolve, reject)=>{
+      let file = e.target.files[0];
+      let storageRef = storage.ref('images/' + file.name)
+      storageRef.put(file);
+
+      resolve(x);
+      reject('fail')
+    })
+  }
+
+  inputChange = (e)=>{
+
+    let file = e.target.files[0];
+    const a = this.sendToStorage(e);
+    a.then(()=>{
+
+       let storageChild = `images/${file.name}`;
+       let storageRef = storage.ref()
+       let tangRef = storageRef.child(storageChild);
+       tangRef.getDownloadURL().then((url)=>{
+         this.setState(()=>({
+           profile_image:url
+         }))
+       })
+    })
+
   }
 
   onUserNameChange = (e) =>{
@@ -49,6 +83,7 @@ export default class ProfileForm extends React.Component{
         user_bio: this.state.user_bio,
         user_location: this.state.user_location,
         createdAt: this.state.createdAt.valueOf(),
+        profile_image: this.state.profile_image
 
       })
 
@@ -68,6 +103,10 @@ export default class ProfileForm extends React.Component{
     return(
       <div className="container-book-form">
 
+      <input type="file"
+      id="fileButton" onChange={this.inputChange}/>
+
+  
 
       {this.state.error && <p className="form-error" >{this.state.error}</p>}
       <form   onSubmit={this.onSubmit}>
