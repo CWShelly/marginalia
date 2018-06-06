@@ -7,8 +7,9 @@ class UserListItem extends React.Component{
 
  onHandleClick = ()=>{
    console.log('clicked');
-   console.log(this.props.user_id);
+   // console.log(this.props.user_id);
    localStorage.setItem('browse_id', this.props.user_id)
+
  }
 
   render(){

@@ -10,7 +10,7 @@ import { storage } from '../firebase/firebase';
 class Dashboard extends React.Component{
 constructor(props){
   super(props);
-   
+
 }
 
 
@@ -21,7 +21,7 @@ constructor(props){
 
 
 componentDidMount(){
-  console.log(this.props);
+  // console.log(this.props);
 let storageRef = storage.ref()
 let tangRef = storageRef.child('images/schlesinger.jpg');
 tangRef.getDownloadURL().then((url)=>{

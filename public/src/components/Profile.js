@@ -31,7 +31,7 @@ constructor(props){
   }
 
 componentDidMount(){
-console.log(this.props);
+// console.log(this.props);
  // console.log(this.props.profile.user_id);
  if(this.props.profile){
     localStorage.setItem('browse_id', this.props.profile.user_id)
@@ -79,7 +79,7 @@ render(){
 
 const mapStateToProps = (state)=>{
       console.log('yes')
-    console.log(state);
+    // console.log(state);
 
     if(state.profiles){
           return {

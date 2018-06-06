@@ -15,7 +15,7 @@ export class Header extends React.Component{
 
 
   render(){
-console.log(this.props);
+// console.log(this.props);
     return(
       <div>
       <header className="header">
