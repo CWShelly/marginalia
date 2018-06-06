@@ -75,7 +75,7 @@ export default class BookForm extends React.Component{
     return(
       <div className="container-book-form">
 
-  <button onClick={this.onClick}>Hide this book</button>
+  <button className="toggle-show-book" onClick={this.onClick}> Make this book{this.state.show_book ? " private" : " public" }</button>
       {this.state.error && <p className="form-error" >{this.state.error}</p>}
       <form   onSubmit={this.onSubmit}>
 
