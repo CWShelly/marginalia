@@ -32,8 +32,11 @@ constructor(props){
 
 componentDidMount(){
 console.log(this.props);
- console.log(this.props.profile.user_id);
- localStorage.setItem('browse_id', this.props.profile.user_id)
+ // console.log(this.props.profile.user_id);
+ if(this.props.profile){
+    localStorage.setItem('browse_id', this.props.profile.user_id)
+ }
+
 }
 
 
@@ -41,8 +44,9 @@ render(){
 
   return(
     <div className="container">
-    <div> <h1 >My Profile</h1>
+    <div>
 
+<div>
     {this.props.profile &&
     <div><p>{this.props.profile.user_name}</p>
     <p>Bio: {this.props.profile.user_bio}</p>
@@ -50,8 +54,8 @@ render(){
     </div>}
 
 
-
-
+  {this.props.profile.profile_image && <img src={this.props.profile.profile_image} height="50" width="42" />}
+<div>
 
     <div className="view">
 

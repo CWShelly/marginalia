@@ -15,23 +15,39 @@ constructor(props){
   }
 }
 
+sendToStorage = (e, x)=>{
+  console.log(e, x);
+  return new Promise((resolve, reject)=>{
+    let file = e.target.files[0];
+    let storageRef = storage.ref('images/' + file.name)
+    storageRef.put(file);
+
+    resolve(x);
+    reject('fail')
+  })
+}
+
+
 
 inputChange = (e)=>{
+
   let file = e.target.files[0];
+  const a = this.sendToStorage(e);
+  a.then(()=>{
 
-  let storageRef = storage.ref('images/' + file.name)
-  storageRef.put(file)
-  let imageRef = storageRef.child('images/' + file.name)
+     let storageChild = `images/${file.name}`;
+     let storageRef = storage.ref()
+     let tangRef = storageRef.child(storageChild);
+     tangRef.getDownloadURL().then((url)=>{
+       this.setState(()=>({
+         profile_image:url
+       }))
+     })
+  })
 
-  this.setState(()=>({
-    profile_image:imageRef
-  }))
 }
 
 componentDidUpdate(){
-
-  console.log('updated');
-  console.log(this.state);
 }
 
 componentDidMount(){
@@ -48,10 +64,7 @@ tangRef.getDownloadURL().then((url)=>{
       <div className="container" >
 
            <Profile history={this.props.history} />
-       <input type="file"
-       id="fileButton" onChange={this.inputChange}/>
-
-<img src={this.state.profile_image} height="42" width="42" />
+       
           <div>
             <AddBook  history={this.props.history} />
         </div>
