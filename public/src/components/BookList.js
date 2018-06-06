@@ -34,6 +34,7 @@ console.log(this.props);
 
 
 const mapStateToProps = (state)=>{
+  console.log(state);
 console.log(state.books);
 
 if(localStorage.getItem('auth_id') === localStorage.getItem('browse_id')){

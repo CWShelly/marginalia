@@ -26,10 +26,10 @@ class BookListItem extends React.Component{
         {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}
         </Link>
 
-         <Link className="edit" to={`/edit/${this.props.id}`}>
+         {localStorage.getItem('auth_id') === localStorage.getItem('browse_id') && <Link className="edit" to={`/edit/${this.props.id}`}>
            <span className="book-item-edit">Edit{' '}</span><i className="fa fa-wrench"></i>
-         </Link>
-         
+         </Link>}
+
        </div>
       <Link className="summary-link" to={`/viewSummaries/${this.props.title}`}
      onClick={this.onHandleClick}>Chapter Summaries</Link>
