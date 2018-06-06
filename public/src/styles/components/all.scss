@@ -1,4 +1,28 @@
 
+
+// new
+
+.toggle-show-book{
+  background: darken($lightBlue, 20%);
+  color: white;
+  display: block;
+  // margin-left: auto;
+  margin: $small auto;
+  font-weight: 300;
+  font-size: $medium;
+
+}
+.profile-container{
+  display: flex;
+ justify-content: space-between;
+ border: 1px solid black;
+ padding: $small;
+}
+
+.profile-image{
+  height: 20vh;
+  width: auto;
+}
 // from bookForm.scss
 .container-book-form{
   padding:$small;

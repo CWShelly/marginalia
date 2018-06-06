@@ -46,7 +46,7 @@ render(){
     <div className="container">
     <div>
 
-<div>
+<div className="profile-container">
     {this.props.profile &&
     <div><p>{this.props.profile.user_name}</p>
     <p>Bio: {this.props.profile.user_bio}</p>
@@ -54,8 +54,8 @@ render(){
     </div>}
 
 
-  {this.props.profile.profile_image && <img src={this.props.profile.profile_image} height="50" width="42" />}
-<div>
+  {this.props.profile.profile_image && <img className="profile-image" src={this.props.profile.profile_image}  />}
+</div>
 
     <div className="view">
 
@@ -74,14 +74,19 @@ render(){
 
 
 const mapStateToProps = (state)=>{
-console.log(state);
+      console.log('yes')
+    console.log(state);
 
-      return {
-       profile: state.profiles[0],
-
-
+    if(state.profiles){
+          return {
+           profile: state.profiles[0],
+          }
+    }
+    else{
+      return{
+        profile: []
       }
-
+    }
 
 }
 
