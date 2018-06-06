@@ -36,6 +36,7 @@ export class ViewNotes extends React.Component{
 render(){
 console.log(this.state.auth_id);
 console.log(localStorage.getItem('browse_id'));
+console.log(this.state.auth_id === localStorage.getItem('browse_id'));
   return(
     <div className="container">
     <div> <h1 >My Notes for {this.state.title}</h1>
