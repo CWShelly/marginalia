@@ -44,28 +44,32 @@ render(){
 
   return(
     <div className="container">
+    {this.props.profile &&
     <div>
 
-<div className="profile-container">
-    {this.props.profile &&
-    <div><p>{this.props.profile.user_name}</p>
-    <p>Bio: {this.props.profile.user_bio}</p>
-     <p>Location: {this.props.profile.user_location}</p>
-    </div>}
+    <div>
+
+   <div className="profile-container">
+          {this.props.profile &&
+          <div><p>{this.props.profile.user_name}</p>
+          <p>Bio: {this.props.profile.user_bio}</p>
+           <p>Location: {this.props.profile.user_location}</p>
+        </div>}
 
 
-  {this.props.profile.profile_image && <img className="profile-image" src={this.props.profile.profile_image}  />}
-</div>
+      {this.props.profile.profile_image &&
+         <img className="profile-image" src={this.props.profile.profile_image}  />}
+    </div>
 
     <div className="view">
-
-   {!this.props.profile && <AddProfile history={this.props.history}/>}
+       {!this.props.profile &&
+         <AddProfile history={this.props.history}/>}
     </div>
 
     </div>
     {this.state.user_name}
-
-
+</div>
+}
      </div>
 
   )
