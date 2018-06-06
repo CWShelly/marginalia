@@ -22,13 +22,13 @@ constructor(props){
 
 componentDidMount(){
   // console.log(this.props);
-let storageRef = storage.ref()
-let tangRef = storageRef.child('images/schlesinger.jpg');
-tangRef.getDownloadURL().then((url)=>{
-  this.setState(()=>({
-    profile_image:url
-  }))
-})
+// let storageRef = storage.ref()
+// let tangRef = storageRef.child('images/schlesinger.jpg');
+// tangRef.getDownloadURL().then((url)=>{
+//   this.setState(()=>({
+//     profile_image:url
+//   }))
+// })
 }
   render(){
     return(
