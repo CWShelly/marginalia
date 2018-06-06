@@ -31,7 +31,7 @@ constructor(props){
   }
 
 componentDidMount(){
-
+console.log(this.props);
  // console.log(this.props.profile.user_id);
  localStorage.setItem('browse_id', this.props.profile.user_id)
 }

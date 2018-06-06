@@ -21,7 +21,7 @@ render(){
           })}
          </ul>
 
-          <Link className="edit" to={`/editNote/${this.props.id}`}>Edit</Link>
+           {localStorage.getItem('auth_id') === localStorage.getItem('browse_id') &&  <Link className="edit" to={`/editNote/${this.props.id}`}>Edit</Link>}
        </div>
 
     </div>

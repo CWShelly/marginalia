@@ -51,7 +51,9 @@ if(user){
 
     console.log('log in');
     // console.log('uid = ', user.uid);
-    // localStorage.setItem('user_id', user.uid)
+    localStorage.setItem('browse_id', user.uid)
+
+    console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
 
 
 
