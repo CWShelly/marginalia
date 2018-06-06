@@ -32,7 +32,7 @@ constructor(props){
 
 componentDidMount(){
 console.log(this.props);
- // console.log(this.props.profile.user_id);
+ console.log(this.props.profile.user_id);
  localStorage.setItem('browse_id', this.props.profile.user_id)
 }
 
@@ -70,11 +70,11 @@ render(){
 
 
 const mapStateToProps = (state)=>{
-
+console.log(state);
 
       return {
        profile: state.profiles[0],
-       others: state._users
+
 
       }
 
