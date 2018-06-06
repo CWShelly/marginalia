@@ -77,6 +77,7 @@ export const startSetBooks = () => {
  return (dispatch, getState) => {
      console.log('setting books');
    let auth_id = getState().auth.uid
+  
 
    // localStorage.setItem('auth_id', auth_id)
    // if(localStorage.getItem('browse_id')){

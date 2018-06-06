@@ -51,12 +51,13 @@ if(user){
 
     console.log('log in');
     // console.log('uid = ', user.uid);
+    localStorage.setItem('auth_id', user.uid)
     localStorage.setItem('browse_id', user.uid)
 
     console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
 
 
-
+console.log('auth_id', localStorage.getItem('auth_id'));
     store.dispatch(startSetNotes());
     store.dispatch(startSetSummaries());
     store.dispatch(startSetProfiles());

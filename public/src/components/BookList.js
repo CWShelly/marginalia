@@ -9,14 +9,14 @@ import viewingOtherBooks from '../selectors/viewingOtherBooks';
 
 export class BookList extends React.Component{
  componentDidMount(){
-   console.log('booklist mount');
+   // console.log('booklist mount');
 this.props.startSetBooks()
  }
 
 
  render(){
-console.log("bookList");
-console.log(this.props);
+// console.log("bookList");
+// console.log(this.props);
    return(
      <div className="book-container" >
       <h1 >Your Books</h1>
@@ -34,8 +34,10 @@ console.log(this.props);
 
 
 const mapStateToProps = (state)=>{
-  console.log(state);
-console.log(state.books);
+  // console.log(state);
+// console.log(state.books);
+console.log('auth_id', localStorage.getItem('auth_id'));
+console.log('browse_id', localStorage.getItem('browse_id'));
 
 if(localStorage.getItem('auth_id') === localStorage.getItem('browse_id')){
 console.log("viewing your library");
