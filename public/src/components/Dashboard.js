@@ -10,25 +10,17 @@ import { storage } from '../firebase/firebase';
 class Dashboard extends React.Component{
 constructor(props){
   super(props);
+  this.state={
+    display: false
+  }
 
 }
 
 
-
-
-
-
-
-
-componentDidMount(){
-  // console.log(this.props);
-// let storageRef = storage.ref()
-// let tangRef = storageRef.child('images/schlesinger.jpg');
-// tangRef.getDownloadURL().then((url)=>{
-//   this.setState(()=>({
-//     profile_image:url
-//   }))
-// })
+onClick = ()=>{
+  this.setState((prevState)=>({
+    display:!prevState.display
+  }))
 }
   render(){
     return(
@@ -36,9 +28,10 @@ componentDidMount(){
 
            <Profile history={this.props.history} />
 
-          <div>
+<button onClick={this.onClick}> Add a book</button>
+        {this.state.display &&   <div>
             <AddBook  history={this.props.history} />
-        </div>
+        </div>}
 
     <div>
     <div>

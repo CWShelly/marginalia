@@ -18,7 +18,8 @@ export const startAddProfile = (profileData = {}) => {
     user_bio = '',
     user_location ='',
     profile_image='',
-    createdAt = 0
+    createdAt = 0,
+    interests = {}
 
   } = profileData;
   const profile = {
@@ -27,6 +28,7 @@ export const startAddProfile = (profileData = {}) => {
      user_bio,
      user_location,
      profile_image,
+     interests,
      createdAt
     }
 console.log(profile);
