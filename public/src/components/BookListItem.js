@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import uuidv4 from 'uuid/v4';
 class BookListItem extends React.Component{
 
 
@@ -14,7 +14,7 @@ class BookListItem extends React.Component{
     localStorage.setItem('title', this.props.title)
   }
   render(){
-
+console.log(this.props);
     return(
 
       <div>
@@ -33,6 +33,17 @@ class BookListItem extends React.Component{
        </div>
       <Link className="summary-link" to={`/viewSummaries/${this.props.title}`}
      onClick={this.onHandleClick}>Chapter Summaries</Link>
+
+     <div>
+     {this.props.bookTags &&
+     <ul> tags: {' '}
+       {Object.keys(this.props.bookTags).map((item)=>{
+        return  <a className="tag"
+        key={uuidv4()}>{item + '  '}</a>
+      })}
+     </ul>
+}
+     </div>
 
       </div>
 

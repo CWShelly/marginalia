@@ -55,7 +55,7 @@ componentDidMount(){
       } else{
         this.setState(()=>({error: ''}));
         if(!this.state.error){
-        this.state.tag = {}
+        // this.state.tag = {}
         }
       }
     })
