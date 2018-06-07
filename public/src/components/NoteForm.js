@@ -60,7 +60,6 @@ componentDidMount(){
       }
     })
     .then(()=>{
-
       if (!this.state.chapter_number || !this.state.page_number || !this.state.paragraph_number ){
         this.setState(()=>({errorNote: 'Please enter stuff'}));
       }
@@ -80,10 +79,8 @@ componentDidMount(){
           title: this.state.title,
           book_id:this.state.book_id,
           tags: this.state.tags
-
         })
       }
-
       if(!this.state.errorNote){
         this.state.note ='',
         this.state.remainingCharacters = 210;
@@ -134,14 +131,12 @@ componentDidMount(){
 handleInputChange=(e)=>{
   e.persist();
 
-// if(e.keyCode === 190 || e.keyCode === )
+
   this.setState(()=>({ input:e.target.value }))
 }
 
 handleInputKeyDown=(e)=>{
-  // console.log(e.target.value);
-  // console.log(e.keyCode);
- // let key = e.key || e.keyCode;
+
  console.log(e.keyCode);
   if(e.keyCode === 13){
     const value = e.target.value.trim();
@@ -149,9 +144,7 @@ handleInputKeyDown=(e)=>{
     tagArr: [...this.state.tagArr, value],
     input: ''}))
   }
-  // else if(e.keyCode === 190 || e.keyCode == 219 || e.keyCode === 221 || e.keyCode === 191){
-  //   console.log("can't enter " + e.keyCode);
-  // }
+
 
   if(this.state.tagArr.length && e.keyCode === 8 && !this.state.input.length){
     this.setState(()=>({

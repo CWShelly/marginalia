@@ -31,8 +31,7 @@ constructor(props){
   }
 
 componentDidMount(){
-// console.log(this.props);
- // console.log(this.props.profile.user_id);
+
  if(this.props.profile){
     localStorage.setItem('browse_id', this.props.profile.user_id)
  }
@@ -41,13 +40,15 @@ componentDidMount(){
 
 
 render(){
-
+ 
   return(
     <div className="container">
 
     <div className="view">
-       {!this.props.profile &&
-         <AddProfile history={this.props.history}/>}
+
+
+         {!this.props.profile &&
+           <AddProfile history={this.props.history}/>}
     </div>
     {this.props.profile &&
     <div>
@@ -80,8 +81,7 @@ render(){
 
 
 const mapStateToProps = (state)=>{
-      console.log('yes')
-    // console.log(state);
+
 
     if(state.profiles){
           return {
