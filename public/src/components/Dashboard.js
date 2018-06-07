@@ -28,7 +28,7 @@ onClick = ()=>{
 
            <Profile history={this.props.history} />
 
-<button onClick={this.onClick}> Add a book</button>
+     <button onClick={this.onClick}> Add a book</button>
         {this.state.display &&   <div>
             <AddBook  history={this.props.history} />
         </div>}

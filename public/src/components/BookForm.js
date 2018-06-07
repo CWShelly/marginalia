@@ -12,6 +12,9 @@ export default class BookForm extends React.Component{
       createdAt: props.book ? moment(props.book.createdAt): moment(),
       show_book: true,
       error: '',
+      bookTagArr:props.note? Object.keys(props.note.bookTags) : [],
+      bookTags: props.note ? props.note.bookTags : {},
+      input: ''
     }
   }
 
@@ -35,29 +38,67 @@ export default class BookForm extends React.Component{
    }
   }
 
+
+  hasSet=(x)=>{
+    return new Promise((resolve,reject)=>{
+      let arr = this.state.bookTagArr.reduce((collection, item)=>{
+        collection[item]=true
+        return collection
+      },{});
+     this.setState((prevState)=>({
+       bookTags: arr
+     }))
+     resolve(x)
+     reject('failure')
+
+    })
+  }
+
+
   onSubmit = (e)=>{
     e.preventDefault();
 
-    if( !this.state.author_last_name || !this.state.title){
-      this.setState(()=>({error: 'Please enter author\'s first and last name, and book title'}));
-    } else{
-      this.setState(()=>({error: ''}));
-      this.props.onSubmit({
-        author_last_name: this.state.author_last_name,
-        author_first_name: this.state.author_first_name,
-        title: this.state.title,
-        createdAt: this.state.createdAt.valueOf(),
-        show_book: this.state.show_book
+      const a = this.hasSet();
 
+      a.then(()=>{
+        if(!this.state.bookTags)
+        {
+            this.setState(()=>({error:'Please enter a tag'}))
+        } else{
+          this.setState(()=>({error: ''}));
+          if(!this.state.error){
+          // this.state.tag = {}
+          }
+        }
       })
 
-      if(!this.state.error){
-        this.state.author_last_name = "";
-        this.state.author_first_name = "";
-        this.state.title = "";
-        this.show_book = true;
-      }
-    }
+      .then(()=>{
+        if( !this.state.author_last_name || !this.state.title){
+          this.setState(()=>({error: 'Please enter author\'s first and last name, and book title'}));
+        } else{
+          this.setState(()=>({error: ''}));
+          this.props.onSubmit({
+            author_last_name: this.state.author_last_name,
+            author_first_name: this.state.author_first_name,
+            title: this.state.title,
+            createdAt: this.state.createdAt.valueOf(),
+            show_book: this.state.show_book,
+            bookTags: this.state.bookTags
+
+          })
+
+          if(!this.state.error){
+            this.state.author_last_name = "";
+            this.state.author_first_name = "";
+            this.state.title = "";
+            this.show_book = true;
+          }
+        }
+      })
+
+
+
+
 
   }
 
@@ -69,6 +110,41 @@ export default class BookForm extends React.Component{
     console.log(this.state.show_book);
   }
 
+  handleInputChange=(e)=>{
+    e.persist();
+
+
+    this.setState(()=>({ input:e.target.value }))
+  }
+  handleInputKeyDown=(e)=>{
+
+   // console.log(e.keyCode);
+    if(e.keyCode === 13){
+      const value = e.target.value.trim();
+      this.setState(()=>({
+      bookTagArr: [...this.state.bookTagArr, value],
+      input: ''}))
+    }
+
+
+    if(this.state.bookTagArr.length && e.keyCode === 8 && !this.state.input.length){
+      this.setState(()=>({
+        bookTagArr: this.state.bookTagArr.slice(0, this.state.bookTagArr.length -1)
+      }))
+    }
+  }
+
+
+  handleRemoveItem=(itemToRemove, key)=>{
+   this.setState((prevState)=>{
+     return{
+       bookTagArr:this.state.bookTagArr.filter((x)=>{
+         return x !== itemToRemove;
+       })
+     }
+  })
+  }
+
 
   render(){
 
@@ -77,6 +153,28 @@ export default class BookForm extends React.Component{
 
   <button className="toggle-show-book" onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public" }</button>
       {this.state.error && <p className="form-error" >{this.state.error}</p>}
+
+      <div>
+            <ul className="tag-list">
+            {this.state.bookTagArr.map((item, x)=>{
+              return <li className="tag-list"  key={x}
+            >
+              <span><button className="add-tag">{item}</button>
+              <button  className="form-button-check"   onClick={(e)=>{
+                this.handleRemoveItem(item, x)
+              }}>x</button></span>
+              </li>
+            })}
+            <p>
+            <label>add tags:</label><input
+            value={this.state.input}
+            onChange={this.handleInputChange}
+            onKeyDown={this.handleInputKeyDown} />
+            </p>
+            </ul>
+
+
+      </div>
       <form   onSubmit={this.onSubmit}>
 
       <input className="book-input"
