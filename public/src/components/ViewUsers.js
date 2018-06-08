@@ -3,7 +3,8 @@ import UserList from './UserList';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
+import ListFilters from './ListFilters'
+import filters from '../selectors/filter';
 export class ViewUsers extends React.Component{
 
   state = {
@@ -13,17 +14,16 @@ export class ViewUsers extends React.Component{
 
 
 render(){
- 
+
   return(
     <div className="container">
-
+    <ListFilters history={this.props.history}/>
   <UserList history={this.props.history} />
      </div>
 
   )
 }
 }
-
 
 
 const mapDispatchToProps = (dispatch)=> ({

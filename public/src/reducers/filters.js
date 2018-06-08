@@ -2,7 +2,9 @@
 const filtersReducerDefaultState = {
   text: '',
   tag: '',
+  interest:'',
   sortBy: 'chapter',
+
 
 
 }
@@ -20,6 +22,12 @@ export default (state=filtersReducerDefaultState, action) => {
         tag: action.tag
 
       };
+      case 'SET_INTEREST_FILTER':
+       return{
+         ...state,
+         interest: action.interest
+
+       };
 
 
      case 'SORT_BY_CHAPTER':
