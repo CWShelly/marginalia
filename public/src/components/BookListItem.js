@@ -42,7 +42,7 @@ console.log(this.props);
         key={uuidv4()}>{item + '  '}</a>
       })}
      </ul>
-}
+           }
      </div>
 
       </div>

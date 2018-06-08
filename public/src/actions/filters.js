@@ -4,14 +4,13 @@ export const setTextFilter = (text ='')=>({
   text
 });
 
-
-// export const setTagFilter = (tag={})=>({
-//   type: 'SET_TAG_FILTER',
-//   tag
-// });
+export const setInterestFilter = (interest ='')=>({
+  type: 'SET_INTEREST_FILTER',
+  interest
+});
 
 export const setTagFilter=(tag='')=>{
- 
+
   return{
     type: 'SET_TAG_FILTER',
     tag

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import filterThis from '../selectors/genericSelector';
 
 import filters from '../selectors/filter';
-import tagFilter from '../selectors/tagFilter'
+
 
 import { startSetNotes } from '../actions/notes';
 
@@ -64,18 +64,24 @@ const mapStateToProps = (state, props)=>{
 
 if(props.history.location.pathname.slice(1,10)
  === "viewNotes"){
-
+// let book_specific = filterThis(state.notes, 'book_id');
+//
+// console.log(book_specific[0]);
+// console.log(state.notes[0]);
+// console.log(filters(book_specific, state.filters));
   return{
-   notes: filterThis(state.notes, 'book_id'),
+   notes: filterThis(state.notes, 'book_id')
 
   }
 
 }
-else if(props.history.location.pathname.slice(1,6) === "browse"){
-
-}
+// else if(props.history.location.pathname.slice(1,6) === "browse"){
+//
+//
+// }
 
 else {
+  console.log('else');
   for(let i = 0; i<state.notes.length; i++){
     state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
   }
