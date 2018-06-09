@@ -25,9 +25,9 @@ console.log(this.props.profile_image);
         <div><Link to={`/browseOtherLibraries`} onClick={this.onHandleClick}>{this.props.user_name}</Link>
 
 
-        {this.props.interests &&
+        {this.props.tags &&
         <div> interests: {' '}
-          {Object.keys(this.props.interests).map((item)=>{
+          {Object.keys(this.props.tags).map((item)=>{
            return  <a className="tag"
            key={uuidv4()}>{item + '  '}</a>
          })}

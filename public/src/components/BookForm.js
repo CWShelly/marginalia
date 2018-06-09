@@ -12,8 +12,9 @@ export default class BookForm extends React.Component{
       createdAt: props.book ? moment(props.book.createdAt): moment(),
       show_book: true,
       error: '',
-      bookTagArr:props.book ? Object.keys(props.book.bookTags) : [],
+      bookTagArr:props.book ? Object.keys(props.book.tags) : [],
       bookTags: props.book ? props.book.bookTags : {},
+      tags: props.book ? props.book.tags : {},
       input: ''
     }
   }
@@ -46,7 +47,8 @@ export default class BookForm extends React.Component{
         return collection
       },{});
      this.setState((prevState)=>({
-       bookTags: arr
+       bookTags: arr,
+       tags: arr
      }))
      resolve(x)
      reject('failure')
@@ -61,8 +63,9 @@ export default class BookForm extends React.Component{
       const a = this.hasSet();
 
       a.then(()=>{
-        if(!this.state.bookTags)
+        if(!this.state.tags)
         {
+          console.log('no tags');
             this.setState(()=>({error:'Please enter a tag'}))
         } else{
           this.setState(()=>({error: ''}));
@@ -83,7 +86,7 @@ export default class BookForm extends React.Component{
             title: this.state.title,
             createdAt: this.state.createdAt.valueOf(),
             show_book: this.state.show_book,
-            bookTags: this.state.bookTags
+            tags: this.state.tags
 
           })
 

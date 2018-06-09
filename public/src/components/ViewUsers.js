@@ -12,7 +12,7 @@ export class ViewUsers extends React.Component{
 
   }
   // <UserList history={this.props.history} />
-
+  // <BookList history={this.props.history} />
 
 render(){
 
@@ -20,7 +20,7 @@ render(){
     <div className="container">
     <ListFilters history={this.props.history}/>
   <UserList history={this.props.history} />
-  <BookList history={this.props.history} />
+
      </div>
 
   )

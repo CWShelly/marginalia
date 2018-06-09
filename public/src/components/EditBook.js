@@ -23,6 +23,8 @@
 
    onSubmit=(book)=>{
      console.log(book);
+     console.log('this book!');
+  // console.log(book);
    this.props.startEditBook(this.props.book.id, book);
    this.props.history.push('/');
 }

@@ -6,7 +6,7 @@ import AddProfile from './AddProfile';
 import { startAddProfile } from '../actions/profiles';
 import { getUsers } from '../actions/users';
 import { connect } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 
 export class Profile extends React.Component{
 
@@ -40,7 +40,7 @@ componentDidMount(){
 
 
 render(){
-
+ 
   return(
     <div className="container">
 
@@ -70,7 +70,9 @@ render(){
 
 
     </div>
-    {this.state.user_name}
+    <Link className="edit" to={`/editProfile/${this.props.profile.id}`}>
+     <span className="book-item-edit">Edit{' '}</span><i className="fa fa-wrench"></i>
+    </Link>
 </div>
 }
      </div>

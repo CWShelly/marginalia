@@ -15,6 +15,7 @@ import ViewAllNotes from '../components/ViewAllNotes';
 import ViewChapterSummaryPage from '../components/ViewChapterSummaryPage';
 import Explainer from '../components/Explainer';
 import Profile from '../components/Profile';
+import EditProfile from '../components/EditProfile';
 import ViewOtherLibraries from '../components/ViewOtherLibraries';
 
 import ViewUsers from '../components/ViewUsers'
@@ -41,6 +42,7 @@ const AppRouter = ()=>(
 
     <PrivateRoute path="/viewSummaries/:title" component={ViewChapterSummaryPage} />
     <PrivateRoute path="/edit/:id" component={EditBook} />
+      <PrivateRoute path="/editProfile/:id" component={EditProfile} />
     <PrivateRoute path="/editNote/:id" component={EditNote} />
 
   <Route component={NotFound} />
