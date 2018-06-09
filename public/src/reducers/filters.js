@@ -3,6 +3,7 @@ const filtersReducerDefaultState = {
   text: '',
   tag: '',
   interest:'',
+  bookTag: '',
   sortBy: 'chapter',
 
 
@@ -29,6 +30,12 @@ export default (state=filtersReducerDefaultState, action) => {
 
        };
 
+       case 'SET_BOOKTAG_FILTER':
+        return{
+          ...state,
+          bookTag: action.bookTag
+
+        };
 
      case 'SORT_BY_CHAPTER':
      return{

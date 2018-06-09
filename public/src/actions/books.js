@@ -58,7 +58,7 @@ export const editBook = (id, updates)=>({
 })
 
 export const startEditBook = (id, updates) => {
-
+console.log(updates);
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     return database.ref(`users/${uid}/books/${id}`).update(updates)

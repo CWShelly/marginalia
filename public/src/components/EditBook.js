@@ -22,6 +22,7 @@
    }
 
    onSubmit=(book)=>{
+     console.log(book);
    this.props.startEditBook(this.props.book.id, book);
    this.props.history.push('/');
 }
@@ -53,7 +54,7 @@ onRemove=() => {
 }
 
   render(){
- 
+
 
     return (
       <div>

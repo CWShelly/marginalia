@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-import { setTextFilter, setTagFilter, setInterestFilter} from "../actions/filters";
+import { setTextFilter, setTagFilter, setInterestFilter, setBookTagtFilter} from "../actions/filters";
 
 export class ListFilters extends React.Component{
 
@@ -14,6 +14,12 @@ export class ListFilters extends React.Component{
  onTagChange=(e)=>{
 
   this.props.setTagFilter(e.target.value);
+}
+
+onBookTagChange=(e)=>{
+  console.log(e.target.value);
+
+ this.props.setBookTagFilter(e.target.value);
 }
 
 onInterestChange=(e)=>{
@@ -43,6 +49,11 @@ console.log(this.props.history.location.pathname.slice(1,7));
             this.onTagChange
           }/>
       </div>
+
+      <label>Search book tags</label>
+      <input type="text" value={this.props.filters.bookTag} onChange={
+          this.onBookTagChange
+        }/>
       </div>
 }
 
@@ -71,6 +82,7 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps=(dispatch)=>({
   setTextFilter: (text)=>dispatch(setTextFilter(text)),
   setTagFilter: (tags)=>dispatch(setTagFilter(tags)),
+    setBookTagFilter: (bookTags)=>dispatch(setBookTagFilter(bookTags)),
   setInterestFilter: (interest)=> dispatch(setInterestFilter(interest))
 })
 

@@ -2,6 +2,7 @@ import React from 'react';
 import UserList from './UserList';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import BookList from './BookList'
 
 import ListFilters from './ListFilters'
 import filters from '../selectors/filter';
@@ -19,6 +20,7 @@ render(){
     <div className="container">
     <ListFilters history={this.props.history}/>
   <UserList history={this.props.history} />
+  <BookList history={this.props.history} />
      </div>
 
   )

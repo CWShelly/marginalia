@@ -36,7 +36,7 @@ let y = x.map((b)=>{
   return Object.keys(b)
 })
 
-
+console.log(y);
  let z = x.map((b,i)=>{
 
    return b[y[i]]
