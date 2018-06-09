@@ -11,12 +11,13 @@ export default class ProfileForm extends React.Component{
       user_name: props.profile ? props.profile.user_name : '',
       user_bio:props.profile ? props.profile.user_bio : '',
       user_location:  props.profile ? props.profile.user_location : '',
-      createdAt: props.book ? moment(props.book.createdAt): moment(),
+      createdAt: props.profile ? moment(): moment(),
       error: '',
-      profile_image: '',
+      profile_image: props.profile ? props.profile.profile_image : '',
       input: '',
-      interestsArr: props.profile ? Object.keys(props.profile.interests) : [],
+      interestsArr: props.profile ? Object.keys(props.profile.tags) : [],
       interests: props.profile ? props.profile.interests : {},
+      tags: props.profile ? props.profile.tags : {},
       progress: 0,
       file: ''
 
@@ -32,10 +33,12 @@ export default class ProfileForm extends React.Component{
         return collection
       },{});
      this.setState((prevState)=>({
-       interests: arr
+       interests: arr,
+       tags: arr
      }))
-     console.log(arr);
-     console.log(this.state.interests);
+     // console.log(arr);
+     // console.log(this.state.interests);
+     // console.log(this.state.tags);
      resolve(x)
      reject('failure')
 
@@ -98,15 +101,7 @@ setPic =(e,x)=>{
     })
   }
 
-  // inputChange = (e)=>{
-  //
-  //   let file = e.target.files[0];
-  //
-  //   const a = this.sendToStorage(e);
-  //
-  //
-  //
-  // }
+
 
   onUserNameChange = (e) =>{
    const user_name = e.target.value;
@@ -136,9 +131,10 @@ setPic =(e,x)=>{
 
     a.then(()=>{
 console.log(this.state.interests);
-      if(!this.state.interests )
+      if(!this.state.tags )
       {
-          this.setState(()=>({error:'Please enter some interests.'}))
+        console.log('no profile tags');
+          this.setState(()=>({error:'Please enter some interests/tags.'}))
       } else{
         this.setState(()=>({error: ''}));
         if(!this.state.error){
@@ -162,7 +158,7 @@ console.log(this.state.interests);
           user_location: this.state.user_location,
           createdAt: this.state.createdAt.valueOf(),
           profile_image: this.state.profile_image,
-          interests: this.state.interests,
+          tags: this.state.tags,
 
 
         })
@@ -218,7 +214,7 @@ console.log(this.state.interests);
 
   render(){
 
-
+console.log(this.props);
     return(
       <div className="container-book-form">
 

@@ -19,7 +19,7 @@ export const startAddProfile = (profileData = {}) => {
     user_location ='',
     profile_image='',
     createdAt = 0,
-    interests = {}
+    tags = {}
 
   } = profileData;
   const profile = {
@@ -28,7 +28,7 @@ export const startAddProfile = (profileData = {}) => {
      user_bio,
      user_location,
      profile_image,
-     interests,
+     tags,
      createdAt
     }
 console.log(profile);

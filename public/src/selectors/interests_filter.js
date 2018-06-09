@@ -1,12 +1,10 @@
-export default (collection,  {interest, bookTag}) =>{
-console.log('interest', {interest});
-
-console.log('booktag', {bookTag});
+export default (collection,  {tag}) =>{
+ console.log({tag});
 
  return collection.filter((_collection)=>{
+console.log(_collection);
 
-
-   let lowerCaseInterests = _collection.interest_keys.map((a)=>{
+   let lowerCaseInterests = _collection.tag_keys.map((a)=>{
      return a.toLowerCase();
    })
    //
@@ -15,9 +13,9 @@ console.log('booktag', {bookTag});
    // })
 
 
-   const interestMatch = interest ? lowerCaseInterests.includes(interest.toLowerCase()) : 'no';
-  const bookTagMatch = bookTag ? lowerCaseBookTags.includes(booktag.toLowerCase()) : 'no';
-   return   interestMatch && bookTagMatch
+   // const interestMatch = interest ? lowerCaseInterests.includes(tag.toLowerCase()) : 'no';
+  const bookTagMatch = tag ? lowerCaseInterests.includes(tag.toLowerCase()) : 'no';
+   return  bookTagMatch
 
 
  })

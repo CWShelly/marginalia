@@ -16,7 +16,7 @@ console.log('tag', 'tag');
 //   return a.toLowerCase()
 // })
 
-
+ 
    const textMatch = _collection.note
    .toLowerCase().includes(text.toLowerCase())
 

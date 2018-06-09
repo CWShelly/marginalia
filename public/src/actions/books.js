@@ -16,10 +16,10 @@ export const startAddBook = (bookData = {}) => {
     title = '',
     createdAt = 0,
     show_book= true,
-        bookTags = {}
+        tags = {}
 
   } = bookData;
-  const book = { bookTags, author_last_name, author_first_name, title, createdAt, show_book}
+  const book = { tags, author_last_name, author_first_name, title, createdAt, show_book}
   console.log(book);
 
   database.ref(`users/${uid}/books`).push(book)

@@ -14,12 +14,7 @@ constructor(props){
   }
 }
 componentDidMount(){
-  // if(this.props.history.location.pathname.slice(1,7)){
-  //   console.log(this.props.history.location.pathname.slice(1,7))
-  //   this.setState(()=>({
-  //     path: this.props.history.location.pathname
-  //   }))
-  // }
+
   if(this.props.history){
     console.log('history');
   }
@@ -38,7 +33,7 @@ componentDidMount(){
 
     // && this.props.history.location.pathname.slice(1,7) !== "browse"
   render(){
-console.log(this.props);
+ 
     return(
 
       <div>
@@ -51,19 +46,20 @@ console.log(this.props);
         </Link>
 
          {localStorage.getItem('auth_id') === localStorage.getItem('browse_id')
-         && !this.props.history && 
+         && !this.props.history &&
           <Link className="edit" to={`/edit/${this.props.id}`}>
            <span className="book-item-edit">Edit{' '}</span><i className="fa fa-wrench"></i>
-         </Link>}
+         </Link>
+       }
 
        </div>
       <Link className="summary-link" to={`/viewSummaries/${this.props.title}`}
      onClick={this.onHandleClick}>Chapter Summaries</Link>
 
      <div>
-     {this.props.bookTags &&
+     {this.props.tags &&
      <ul> tags: {' '}
-       {Object.keys(this.props.bookTags).map((item)=>{
+       {Object.keys(this.props.tags).map((item)=>{
         return  <a className="tag"
         key={uuidv4()}>{item + '  '}</a>
       })}

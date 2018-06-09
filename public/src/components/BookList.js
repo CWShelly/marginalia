@@ -14,7 +14,7 @@ this.props.startSetBooks()
 
 
  render(){
-console.log(this.props);
+console.log(this.props.books);
    return(
      <div className="book-container" >
 
@@ -48,44 +48,39 @@ console.log("viewing your library");
 }
 else if(localStorage.getItem('auth_id') === localStorage.getItem('browse_id')
   && props.history.location.pathname.slice(1,7) === "browse"){
-// books: state.books
+
 console.log(state);
 
-let x = state._users.map((a)=>{
-
+let xUsers = state._users.map((a)=>{
   return a.books
 })
 
-
 let foo = ()=>{
   let fooArr =[]
-for(let i =0 ; i<x.length; i++){
-  fooArr.push(Object.values(x[i]))
+for(let i =0 ; i<xUsers.length; i++){
+  fooArr.push(Object.values(xUsers[i]))
 }
-
   let xReduce = fooArr.reduce((ac, cv)=>{
     return ac.concat(cv)
   },[])
   return xReduce;
-
 }
+  for(let i = 0; i<foo().length; i++){
+    foo()[i].tag_keys = Object.keys(foo()[i].tags)
+  }
 
 console.log(foo());
-
-
 return{
+      // books:(viewingOtherBooks(addTagKeyArr()))
     books:(viewingOtherBooks(foo()))
     // books:foo()
 }
 }
 
 else{
-  // console.log(state);
-  // for(let i = 0; i<state.books.length; i++){
-  //   state.books[i].bookTag_keys = Object.keys(state.books[i].bookTags)
-  // }
+
   console.log("viewing other library");
-  // console.log(state);
+
   return {
     // books:interestsFilters(viewingOtherBooks(state.books), state.filters);
     books:(viewingOtherBooks(state.books))
@@ -99,7 +94,6 @@ const mapDispatchToProps = (dispatch, props)=>{
 
   return{
     startSetBooks: ()=>{dispatch(startSetBooks())}
-    // startSetBooks: startSetBooks()
 
   }
 }
