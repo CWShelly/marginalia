@@ -9,6 +9,12 @@ export const setInterestFilter = (interest ='')=>({
   interest
 });
 
+
+export const setBookTagtFilter = (bookTag ='')=>({
+  type: 'SET_BOOKTAG_FILTER',
+  bookTag
+});
+
 export const setTagFilter=(tag='')=>{
 
   return{
@@ -17,6 +23,8 @@ export const setTagFilter=(tag='')=>{
 
   }
 }
+
+
 export const sortByChapter = ()=>({
   type: 'SORT_BY_AMOUNT'
 });;

@@ -12,8 +12,8 @@ export default class BookForm extends React.Component{
       createdAt: props.book ? moment(props.book.createdAt): moment(),
       show_book: true,
       error: '',
-      bookTagArr:props.note? Object.keys(props.note.bookTags) : [],
-      bookTags: props.note ? props.note.bookTags : {},
+      bookTagArr:props.book ? Object.keys(props.book.bookTags) : [],
+      bookTags: props.book ? props.book.bookTags : {},
       input: ''
     }
   }
