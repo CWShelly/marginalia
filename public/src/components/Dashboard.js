@@ -34,6 +34,7 @@ onClick = ()=>{
             <AddBook  history={this.props.history} />
         </div>}
 
+<p><Link to="/viewAllNotes" >View Notes</Link></p>
     <div>
     <div>
       <BookList />
