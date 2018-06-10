@@ -8,13 +8,27 @@ import interestsFilter from '../selectors/interests_filter';
 import uuidv4 from 'uuid/v4';
 
 export class BookList extends React.Component{
+
+
+  onUnload(e) {
+    console.log('unload');
+     e.returnValue = 'unloading'
+ }
  componentDidMount(){
+   console.log('loaded!!!');
+
+      console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
+  // window.addEventListener("beforeunload", this.onUnload)
 this.props.startSetBooks()
  }
 
+ // componentWillUnmount() {
+ //       window.removeEventListener("beforeunload", this.onUnload)
+ //   }
+
 
  render(){
-console.log(this.props.books);
+
    return(
      <div className="book-container" >
 
@@ -32,9 +46,9 @@ console.log(this.props.books);
 
 
 const mapStateToProps = (state, props)=>{
-
-console.log('auth_id', localStorage.getItem('auth_id'));
-console.log('browse_id', localStorage.getItem('browse_id'));
+  console.log('auth id', localStorage.getItem('auth_id'));
+  console.log('browse id', localStorage.getItem('browse_id'));
+console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
 
 
 if(localStorage.getItem('auth_id') === localStorage.getItem('browse_id')
@@ -49,7 +63,7 @@ console.log("viewing your library");
 else if(localStorage.getItem('auth_id') === localStorage.getItem('browse_id')
   && props.history.location.pathname.slice(1,7) === "browse"){
 
-console.log(state);
+// console.log(state);
 
 let xUsers = state._users.map((a)=>{
   return a.books

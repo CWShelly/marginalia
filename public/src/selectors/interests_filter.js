@@ -1,8 +1,8 @@
 export default (collection,  {tag}) =>{
- console.log({tag});
+ // console.log({tag});
 
  return collection.filter((_collection)=>{
-console.log(_collection);
+// console.log(_collection);
 
    let lowerCaseInterests = _collection.tag_keys.map((a)=>{
      return a.toLowerCase();

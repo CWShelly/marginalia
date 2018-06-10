@@ -73,12 +73,22 @@ export const setSummaries = (summaries) => ({
 })
 
 export const startSetSummaries = () => {
+  console.log('getting summaries');
+
+
  return (dispatch, getState) => {
-   const uid = getState().auth.uid
+
+   let auth_id = getState().auth.uid
+   const browse_id = localStorage.getItem('browse_id') || auth_id;
+
+   console.log('browse_id === auth_id? ', browse_id === auth_id);
+
+   let uid = browse_id;
+   // const uid = getState().auth.uid
    return database.ref(`users/${uid}/summaries`)
    .once('value')
    .then((snapshot) => {
-   
+
      const summaries = [];
 
      snapshot.forEach((childSnapshot) => {
@@ -88,6 +98,7 @@ export const startSetSummaries = () => {
        })
 
      })
+     console.log(summaries);
     dispatch(setSummaries(summaries))
    })
 

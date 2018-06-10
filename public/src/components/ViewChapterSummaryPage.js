@@ -21,7 +21,17 @@ export class ViewChapterSummaryPage extends React.Component{
      this.props.history.push(`/viewSummaries/${this.props.match.params.title}`)
   }
 
+  componentDidMount(){
+    console.log(this.props.location.pathname.slice(1,14));
+    if(this.props.location.pathname.slice(1,14) === "viewSummaries" && localStorage.getItem('auth_id') === localStorage.getItem('browse_id') ){
+      console.log('going to dashboard');
+           this.props.history.push('/')
 
+    }
+    console.log('auth id', localStorage.getItem('auth_id'));
+    console.log('browse_id', localStorage.getItem('browse_id'));
+  console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
+  }
 
   displayAddNote =()=>{
 
@@ -31,10 +41,15 @@ export class ViewChapterSummaryPage extends React.Component{
 
 
   }
- 
+
 
 render(){
-
+  // console.log(this.props);
+  console.log(this.props.location.pathname);
+    console.log(this.props.location.pathname.slice(1,14));
+  console.log(localStorage.getItem('auth_id'));
+  console.log(localStorage.getItem('browse_id'));
+console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
   return(
     <div className="container">
     <div> <h1>My Summaries for {this.state.title}</h1>

@@ -16,10 +16,11 @@ export const startAddBook = (bookData = {}) => {
     title = '',
     createdAt = 0,
     show_book= true,
-        tags = {}
+        tags = {},
+        owner_id
 
   } = bookData;
-  const book = { tags, author_last_name, author_first_name, title, createdAt, show_book}
+  const book = {owner_id, tags, author_last_name, author_first_name, title, createdAt, show_book}
   console.log(book);
 
   database.ref(`users/${uid}/books`).push(book)
@@ -78,15 +79,12 @@ export const startSetBooks = () => {
  return (dispatch, getState) => {
      console.log('setting books');
    let auth_id = getState().auth.uid
-
-
    const browse_id = localStorage.getItem('browse_id') || auth_id;
 
    console.log('browse_id === auth_id? ', browse_id === auth_id);
 
    let uid = browse_id;
 
-   // const uid = getState().auth.uid
    return database.ref(`users/${uid}/books`)
    .once('value')
    .then((snapshot) => {

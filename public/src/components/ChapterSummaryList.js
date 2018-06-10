@@ -4,7 +4,7 @@ import ChapterSummaryListItem from './ChapterSummaryListItem';
 
 import { Link } from 'react-router-dom';
 import filterThis from '../selectors/genericSelector';
-
+import { startSetSummaries } from '../actions/chapterSummary';
 
 
 export class ChapterSummaryList extends React.Component{
@@ -14,14 +14,18 @@ export class ChapterSummaryList extends React.Component{
     title: localStorage.getItem('title')
   }
 
+  componentDidMount(){
+    console.log(this.props);
+ this.props.startSetSummaries()
+  }
 
   render(){
-
+console.log(this.props.summaries);
        return(
         <div className="container">
         <ul className="reverse-list">
         {this.props.summaries.map((summary)=>{
-          return <ChapterSummaryListItem key={summary.id} {...summary} />
+          return <ChapterSummaryListItem key={summary.id} history={this.props.history} {...summary} />
         })}
 
         </ul>
@@ -41,6 +45,11 @@ console.log(state);
 
 }
 
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    startSetSummaries: ()=>{dispatch(startSetSummaries())}
+  }
+}
 
 
-export default connect(mapStateToProps)(ChapterSummaryList);
+export default connect(mapStateToProps, mapDispatchToProps)(ChapterSummaryList);
