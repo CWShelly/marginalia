@@ -24,16 +24,17 @@ componentDidMount(){
 }
 
   onHandleClick=()=>{
-
+console.log(this.props);
     localStorage.setItem('book_id', this.props.id)
     localStorage.setItem('author_first', this.props.author_first_name);
     localStorage.setItem('author_last', this.props.author_last_name);
-    localStorage.setItem('title', this.props.title)
+    localStorage.setItem('title', this.props.title);
+       localStorage.setItem('browse_id', this.props.owner_id)
   }
 
     // && this.props.history.location.pathname.slice(1,7) !== "browse"
   render(){
- 
+// console.log(this.props);
     return(
 
       <div>
@@ -53,6 +54,8 @@ componentDidMount(){
        }
 
        </div>
+
+
       <Link className="summary-link" to={`/viewSummaries/${this.props.title}`}
      onClick={this.onHandleClick}>Chapter Summaries</Link>
 

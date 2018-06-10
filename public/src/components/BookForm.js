@@ -10,12 +10,13 @@ export default class BookForm extends React.Component{
       author_first_name:props.book ? props.book.author_first_name : '',
       title:  props.book ? props.book.title : '',
       createdAt: props.book ? moment(props.book.createdAt): moment(),
-      show_book: true,
+      show_book: props.book ? props.book.show_book : true,
       error: '',
       bookTagArr:props.book ? Object.keys(props.book.tags) : [],
       bookTags: props.book ? props.book.bookTags : {},
       tags: props.book ? props.book.tags : {},
-      input: ''
+      input: '',
+      owner_id: localStorage.getItem("auth_id")
     }
   }
 
@@ -86,7 +87,8 @@ export default class BookForm extends React.Component{
             title: this.state.title,
             createdAt: this.state.createdAt.valueOf(),
             show_book: this.state.show_book,
-            tags: this.state.tags
+            tags: this.state.tags,
+          owner_id:  this.state.owner_id
 
           })
 

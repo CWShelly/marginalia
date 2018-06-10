@@ -7,6 +7,7 @@ import uuidv4 from 'uuid/v4';
 class UserListItem extends React.Component{
 
  onHandleClick = ()=>{
+   console.log(this.props);
    console.log('clicked');
    // console.log(this.props.user_id);
    localStorage.setItem('browse_id', this.props.user_id)
@@ -14,8 +15,7 @@ class UserListItem extends React.Component{
  }
 
   render(){
-console.log(this.props);
-console.log(this.props.profile_image);
+
     return(
 
 
@@ -46,7 +46,7 @@ console.log(this.props.profile_image);
 
 const mapStateToProps = (state)=>{
 
-console.log(state);
+
       return {
         _users:state._users.profiles
 

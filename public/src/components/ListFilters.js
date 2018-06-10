@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-import { setTextFilter, setTagFilter, setInterestFilter, setBookTagtFilter} from "../actions/filters";
+import { setTextFilter, setTagFilter} from "../actions/filters";
 
 export class ListFilters extends React.Component{
 
@@ -12,35 +12,27 @@ export class ListFilters extends React.Component{
  }
 
  onTagChange=(e)=>{
- 
+
   this.props.setTagFilter(e.target.value);
 }
 
-onBookTagChange=(e)=>{
 
 
- this.props.setBookTagFilter(e.target.value);
-}
-
-onInterestChange=(e)=>{
-  console.log(e.target.value);
-
- this.props.setInterestFilter(e.target.value);
-}
 
   render(){
-console.log(this.props.history.location.pathname.slice(1,7));
+// console.log(this.props.history.location.pathname.slice(1,7));
     return(
       <div>
 
   <div>
+  {this.props.history.location.pathname.slice(1,7) !== "browse" &&
+  <div>
     <label><i className="fa fa-search"></i>{" "}<span className="search">Search</span>
-     {this.props.history.location.pathname.slice(1,10) ===
-      'viewNotes' ? 'text ' : ' text '}:</label>
+      </label>
         <input type="text" value={this.props.filters.text} onChange={
             this.onTextChange
           }/>
-
+</div>}
 
       <div>
       <label> <i className="fa fa-search"></i>{" "} <span className="search">Search</span>

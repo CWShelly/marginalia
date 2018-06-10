@@ -16,14 +16,15 @@ export class UserList extends React.Component{
 console.log(this.props);
    return(
      <div className="book-container" >
-
+     Users
       {this.props._users.map((_user)=>{
+
         return <UserListItem key={_user.user_id} { ..._user} />
       })}
 
-
-      {this.props.books.map((book)=>{
-        return <BookListItem key={uuidv4()} history={this.props.history} { ...book} />
+      Books
+      {this.props.books.map((book, x)=>{
+        return <BookListItem key={uuidv4()} history={this.props.history}  { ...book}   />
       })}
       </div>
 
@@ -34,11 +35,11 @@ console.log(this.props);
 
 
 const mapStateToProps = (state)=>{
-console.log(state);
+// console.log(state);
 let x = state._users.map((a)=>{
   return a.profiles
 })
-// console.log(state._users);
+
 
 let y = x.map((b)=>{
   return Object.keys(b)
@@ -57,29 +58,53 @@ let y = x.map((b)=>{
    return a.books
  })
 
-
- // console.log(state._users);
+console.log(xUsers);
 
  let foo = ()=>{
    let fooArr =[]
+   let fooKeys = [];
  for(let i =0 ; i<xUsers.length; i++){
+   // console.log(Object.keys(xUsers[i]));
+   fooKeys.push(Object.keys(xUsers[i]))
    fooArr.push(Object.values(xUsers[i]))
  }
+
+ // console.log(fooArr.length);
+ console.log(fooArr);
+
+
    let xReduce = fooArr.reduce((ac, cv)=>{
      return ac.concat(cv)
    },[])
-   return xReduce;
- }
-   for(let i = 0; i<foo().length; i++){
-     foo()[i].tag_keys = Object.keys(foo()[i].tags)
-   }
 
-   // console.log(foo());
+   let yReduce = fooKeys.reduce((ac, cv)=>{
+     return ac.concat(cv)
+   },[])
+
+
+      for(let i = 0; i<xReduce.length; i++){
+      xReduce[i].tag_keys = Object.keys(xReduce[i].tags);
+      xReduce[i].id = yReduce[i];
+
+      }
+
+   return xReduce ;
+
+
+ }
+
+
+   // for(let i = 0; i<foo().length; i++){
+   //   foo()[i].tag_keys = Object.keys(foo()[i].tags);
+   //
+   // }
+
+console.log(foo());
 let fooBooks = viewingOtherBooks(foo())
       return {
-        // _users:z
+
         _users: interestFilters(z, state.filters),
-          // books:viewingOtherBooks(foo()),
+
           books:interestFilters(fooBooks, state.filters)
 
       }
