@@ -16,7 +16,7 @@ export default class NoteForm extends React.Component{
       createdAt: moment(),
       book_id: localStorage.getItem('book_id'),
       errorNote: '',
-      remainingCharacters: 210,
+      remainingCharacters: 300,
       tagArr:props.note? Object.keys(props.note.tags) : [],
       tags: props.note ? props.note.tags : {},
       input: ''
@@ -83,7 +83,7 @@ componentDidMount(){
       }
       if(!this.state.errorNote){
         this.state.note ='',
-        this.state.remainingCharacters = 210;
+        this.state.remainingCharacters = 300;
         this.state.tags= {},
         this.state.tagArr=[]
       }
@@ -116,7 +116,7 @@ componentDidMount(){
     const note = e.target.value;
     this.setState((prevState)=>({
        count: parseInt(prevState.count) + 1,
-       remainingCharacters: 210 - parseInt(e.target.value.length),
+       remainingCharacters: 300 - parseInt(e.target.value.length),
        note,
       }));
 
@@ -197,7 +197,7 @@ handleRemoveItem=(itemToRemove, key)=>{
   className="form-textArea"
   type="text"
   placeholder="Enter your note here."
-  maxLength="210"
+  maxLength="300"
   value={this.state.note}
   onChange={this.onNoteChange}
   />
