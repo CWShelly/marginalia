@@ -6,6 +6,7 @@ import ListFilters from './ListFilters'
 import   Profile  from '../components/Profile';
 import { Link } from 'react-router-dom';
 import { storage } from '../firebase/firebase';
+import { Button } from 'reactstrap';
 
 class Dashboard extends React.Component{
 constructor(props){
@@ -29,20 +30,20 @@ onClick = ()=>{
 
            <Profile history={this.props.history} />
 
-     <button onClick={this.onClick}> Add a book</button>
-        {this.state.display &&   <div>
+           <button onClick={this.onClick}> Add a book</button>
+
+         {this.state.display &&
+           <div>
             <AddBook  history={this.props.history} />
-        </div>}
+           </div>}
 
-<p><Link to="/viewAllNotes" >View Notes</Link></p>
-    <div>
-    <div>
-      <BookList />
-    </div>
-
-
-    </div>
-
+          <Button className="btn-danger">Test Button Bootstrap</Button>
+            <p><Link to="/viewAllNotes" >View Notes</Link></p>
+           <div>
+              <div>
+                <BookList />
+              </div>
+           </div>
       </div>
     )
   }

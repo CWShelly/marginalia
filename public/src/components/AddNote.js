@@ -2,33 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startAddNote, findTag } from '../actions/notes';
 import NoteForm from './NoteForm';
- 
-// import pickUpFromLastNote from '../selectors/from_last_note'
+
+
 
 
 export class AddNote extends React.Component{
 
  onSubmit=(note)=>{
-   console.log(note);
+
           this.props.startAddNote(note);
 
-
+//necessary?
      // this.props.history.push(`/viewNotes/${this.props.title}`)
   }
 
 
-
-  findTag=()=>{
-    console.log('finding tag');
-    this.props.findTag()
-  }
   render(){
 
     return (
       <div>
-
+//see how it works without div
        <NoteForm
-
          onSubmit={this.onSubmit}
        />
 
@@ -38,7 +32,7 @@ export class AddNote extends React.Component{
 }
 
 const mapStateToProps =(state, props)=>{
-
+// fix
   return{
     note: 'x'
   }
@@ -47,7 +41,7 @@ const mapStateToProps =(state, props)=>{
 
 const mapDispatchToProps = (dispatch)=> ({
      startAddNote: (note)=> dispatch(startAddNote(note)),
-     findTag: (note)=>dispatch(findTag(note))
+
 })
 
 

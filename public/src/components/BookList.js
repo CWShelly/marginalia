@@ -9,22 +9,25 @@ import uuidv4 from 'uuid/v4';
 
 export class BookList extends React.Component{
 
+constructor(props){
+  super(props);
+  this.state={
+    same: true
+  }
+}
 
-  onUnload(e) {
-    console.log('unload');
-     e.returnValue = 'unloading'
- }
  componentDidMount(){
-   console.log('loaded!!!');
 
-      console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
-  // window.addEventListener("beforeunload", this.onUnload)
-this.props.startSetBooks()
+
+  console.log(localStorage.getItem('auth_id')
+   === localStorage.getItem('browse_id'));
+if(localStorage.getItem('auth_id') !== localStorage.getItem('browse_id')){
+  this.setState(()=>{
+    same: false
+  })
+}
+  this.props.startSetBooks()
  }
-
- // componentWillUnmount() {
- //       window.removeEventListener("beforeunload", this.onUnload)
- //   }
 
 
  render(){
@@ -32,7 +35,8 @@ this.props.startSetBooks()
    return(
      <div className="book-container" >
 
-      {this.props.books.length === 0 && <p>Add a book to get started</p>}
+      {this.props.books.length === 0 && this.state.same && <p>Add a book to get started</p>}
+          {this.props.books.length === 0 && !this.state.same && <p> No books added yet.</p>}
       {this.props.books.map((book)=>{
         return <BookListItem key={uuidv4()} history={this.props.history} { ...book} />
       })}
@@ -46,8 +50,7 @@ this.props.startSetBooks()
 
 
 const mapStateToProps = (state, props)=>{
-  console.log('auth id', localStorage.getItem('auth_id'));
-  console.log('browse id', localStorage.getItem('browse_id'));
+
 console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
 
 
@@ -63,7 +66,6 @@ console.log("viewing your library");
 else if(localStorage.getItem('auth_id') === localStorage.getItem('browse_id')
   && props.history.location.pathname.slice(1,7) === "browse"){
 
-// console.log(state);
 
 let xUsers = state._users.map((a)=>{
   return a.books
@@ -83,11 +85,10 @@ for(let i =0 ; i<xUsers.length; i++){
     foo()[i].tag_keys = Object.keys(foo()[i].tags)
   }
 
-console.log(foo());
 return{
-      // books:(viewingOtherBooks(addTagKeyArr()))
+
     books:(viewingOtherBooks(foo()))
-    // books:foo()
+
 }
 }
 
@@ -96,7 +97,6 @@ else{
   console.log("viewing other library");
 
   return {
-    // books:interestsFilters(viewingOtherBooks(state.books), state.filters);
     books:(viewingOtherBooks(state.books))
   }
 }

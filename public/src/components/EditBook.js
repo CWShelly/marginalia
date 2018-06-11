@@ -4,27 +4,17 @@
  import BookForm from './BookForm';
  import { startEditBook, startRemoveBook } from '../actions/books';
  import { startRemoveNote} from '../actions/notes'
- // import { startRemoveParagraph } from '../actions/paragraphs';
- // import { startRemoveChapter } from '../actions/chapters'
+
 
  import filterThis from "../selectors/genericSelector";
- // import filterSubLevel from "../selectors/genericIdFinder";
+ // TODO: fix removal of notes when book is deleted.
 
 
 
  export class EditBook extends React.Component{
-   constructor(props){
-     super(props);
-     this.state={
-       buttonText: 'Edit Book'
-
-     }
-   }
+ 
 
    onSubmit=(book)=>{
-     console.log(book);
-     console.log('this book!');
-  // console.log(book);
    this.props.startEditBook(this.props.book.id, book);
    this.props.history.push('/');
 }

@@ -15,12 +15,11 @@ export class ChapterSummaryList extends React.Component{
   }
 
   componentDidMount(){
-    console.log(this.props);
  this.props.startSetSummaries()
   }
 
   render(){
-console.log(this.props.summaries);
+
        return(
         <div className="container">
         <ul className="reverse-list">
@@ -36,7 +35,6 @@ console.log(this.props.summaries);
 }
 
 const mapStateToProps = (state, props)=>{
-console.log(state);
 
   return{
    summaries: filterThis(state.summaries, 'book_id'),
