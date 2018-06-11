@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+// TODO: fix edit link visibility
 
  class ChapterSummaryListItem extends React.Component{
       render(){
@@ -10,6 +11,7 @@ import { Link } from 'react-router-dom';
               <p className="number-list-item-no-hover" >{this.props.summary}</p>
               <div className="list-paragraph-item-reference-paragraph">
               {this.props.title} chapter:{this.props.chapter_number}
+
                 <Link to={`/editSummary/${this.props.id}`}>Edit</Link>
               </div>
               </div>

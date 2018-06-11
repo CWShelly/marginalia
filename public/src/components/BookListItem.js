@@ -7,36 +7,17 @@ import uuidv4 from 'uuid/v4';
 
 class BookListItem extends React.Component{
 
-constructor(props){
-  super(props);
-  this.state={
-    path:''
-  }
-}
-componentDidMount(){
-
-  if(this.props.history){
-    console.log('history');
-  }
-  else{
-    console.log('no history');
-  }
-}
-
   onHandleClick=()=>{
-console.log(this.props);
+
     localStorage.setItem('book_id', this.props.id)
     localStorage.setItem('author_first', this.props.author_first_name);
     localStorage.setItem('author_last', this.props.author_last_name);
     localStorage.setItem('title', this.props.title);
-       localStorage.setItem('browse_id', this.props.owner_id)
+    localStorage.setItem('browse_id', this.props.owner_id)
   }
 
-    // && this.props.history.location.pathname.slice(1,7) !== "browse"
   render(){
-// console.log(this.props);
     return(
-
       <div>
         <div className="book-list-item-subcontainer">
 

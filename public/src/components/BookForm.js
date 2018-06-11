@@ -66,7 +66,6 @@ export default class BookForm extends React.Component{
       a.then(()=>{
         if(!this.state.tags)
         {
-          console.log('no tags');
             this.setState(()=>({error:'Please enter a tag'}))
         } else{
           this.setState(()=>({error: ''}));
@@ -108,11 +107,11 @@ export default class BookForm extends React.Component{
   }
 
   onClick = ()=>{
-        console.log(this.state.show_book);
+
     this.setState((prevState)=>({
       show_book: !prevState.show_book
     }))
-    console.log(this.state.show_book);
+
   }
 
   handleInputChange=(e)=>{
@@ -156,59 +155,60 @@ export default class BookForm extends React.Component{
     return(
       <div className="container-book-form">
 
-  <button className="toggle-show-book" onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public" }</button>
+        <button className="toggle-show-book"
+        onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public" }
+       </button>
       {this.state.error && <p className="form-error" >{this.state.error}</p>}
 
       <div>
             <ul className="tag-list">
-            {this.state.bookTagArr.map((item, x)=>{
-              return <li className="tag-list"  key={x}
-            >
-              <span><button className="add-tag">{item}</button>
-              <button  className="form-button-check"   onClick={(e)=>{
-                this.handleRemoveItem(item, x)
-              }}>x</button></span>
-              </li>
-            })}
-            <p>
-            <label>add tags:</label><input
-            value={this.state.input}
-            onChange={this.handleInputChange}
-            onKeyDown={this.handleInputKeyDown} />
-            </p>
+                {this.state.bookTagArr.map((item, x)=>{
+                  return <li className="tag-list"  key={x}
+                >
+                  <span><button className="add-tag">{item}</button>
+                  <button  className="form-button-check"   onClick={(e)=>{
+                    this.handleRemoveItem(item, x)
+                  }}>x</button></span>
+                  </li>
+                })}
+
+              <p>
+                <label>add tags:</label><input
+                value={this.state.input}
+                onChange={this.handleInputChange}
+                onKeyDown={this.handleInputKeyDown} />
+              </p>
             </ul>
-
-
       </div>
-      <form   onSubmit={this.onSubmit}>
 
-      <input className="book-input"
-      type="text"
-      placeholder="Author Last Name"
-      value={this.state.author_last_name}
-      onChange={this.onAuthorLastNameChange}
-      />
+          <form onSubmit={this.onSubmit}>
 
-
-      <input  className="book-input"
-
-      type="text"
-      placeholder="Author First Name"
-      value={this.state.author_first_name}
-      onChange={this.onAuthorFirstNameChange}
-      />
-
-      <input  className="book-input"
-      type="text"
-      placeholder="Title"
-      value={this.state.title}
-      onChange={this.onTitleChange}
-      />
+            <input className="book-input"
+            type="text"
+            placeholder="Author Last Name"
+            value={this.state.author_last_name}
+            onChange={this.onAuthorLastNameChange}
+            />
 
 
-      <button className="form-button-book">  Add Book</button>
+            <input  className="book-input"
+            type="text"
+            placeholder="Author First Name"
+            value={this.state.author_first_name}
+            onChange={this.onAuthorFirstNameChange}
+            />
 
-      </form>
+            <input  className="book-input"
+            type="text"
+            placeholder="Title"
+            value={this.state.title}
+            onChange={this.onTitleChange}
+            />
+
+
+            <button className="form-button-book"> Add Book</button>
+
+          </form>
 
       </div>
     )

@@ -8,8 +8,6 @@ import ChapterSummaryForm from './ChapterSummaryForm';
 export class AddChapterSummary extends React.Component{
 
  onSubmit=(note)=>{
-   console.log(note);
-
      this.props.startAddChapterSummary(note);
 
   }
@@ -18,16 +16,16 @@ export class AddChapterSummary extends React.Component{
 
     return (
       <div>
-       <ChapterSummaryForm
-         onSubmit={this.onSubmit}
-       />
+         <ChapterSummaryForm
+           onSubmit={this.onSubmit}
+         />
       </div>
     )
   }
 }
 
 const mapStateToProps =(state, props)=>{
-
+// TODO: fix
   return{
     note: 'x'
   }

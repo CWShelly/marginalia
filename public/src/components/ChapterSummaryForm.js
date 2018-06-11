@@ -14,7 +14,6 @@ export default class ChapterSummaryForm extends React.Component{
       createdAt: moment(),
       book_id: localStorage.getItem('book_id'),
       errorNote: '',
-
     }
 
   }
@@ -41,7 +40,6 @@ onSubmit=(e)=>{
       }
 
       if(!this.state.errorNote){
-        console.log('no errror');
         this.state.summary =''
       }
 
@@ -59,7 +57,6 @@ onSubmit=(e)=>{
 
     const summary = e.target.value;
     this.setState((prevState)=>({
-
        summary,
       }));
 
@@ -70,10 +67,6 @@ onSubmit=(e)=>{
      this.setState(()=>({ createdAt }))
    }
   }
-
-
-
-
 
   render(){
 
@@ -101,8 +94,6 @@ onSubmit=(e)=>{
   value={this.state.chapter_number}
   onChange={this.onChapterNumberChange}
   /></p>
-
-
 
 
   <button disabled={!this.state.chapter_number ||
