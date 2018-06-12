@@ -14,7 +14,7 @@ import { firebase } from './firebase/firebase';
 
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 import { Button } from 'reactstrap';
 const store = configureStore();
