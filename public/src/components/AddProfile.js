@@ -15,12 +15,11 @@ export class AddProfile extends React.Component{
   render(){
 
     return (
-      <div>
-      //see how it works w/o div
+
        <ProfileForm
          onSubmit={this.onSubmit}
        />
-      </div>
+   
     )
   }
 }

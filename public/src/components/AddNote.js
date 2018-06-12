@@ -20,13 +20,12 @@ export class AddNote extends React.Component{
   render(){
 
     return (
-      <div>
-//see how it works without div
+ 
        <NoteForm
          onSubmit={this.onSubmit}
        />
 
-      </div>
+
     )
   }
 }

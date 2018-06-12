@@ -23,6 +23,8 @@ onClick = ()=>{
     display:!prevState.display
   }))
 }
+
+  // <Button className="btn-danger">Test Button Bootstrap</Button>
   render(){
 
     return(
@@ -37,7 +39,7 @@ onClick = ()=>{
             <AddBook  history={this.props.history} />
            </div>}
 
-          <Button className="btn-danger">Test Button Bootstrap</Button>
+
             <p><Link to="/viewAllNotes" >View Notes</Link></p>
            <div>
               <div>
