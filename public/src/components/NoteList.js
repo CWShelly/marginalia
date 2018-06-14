@@ -64,27 +64,25 @@ const mapStateToProps = (state, props)=>{
 
 if(props.history.location.pathname.slice(1,10)
  === "viewNotes"){
-// let book_specific = filterThis(state.notes, 'book_id');
-//
-// console.log(book_specific[0]);
-// console.log(state.notes[0]);
-// console.log(filters(book_specific, state.filters));
+   for(let i = 0; i<state.notes.length; i++){
+     state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
+   }
+
+   const this_books_notes = filterThis(state.notes, 'book_id')
+
   return{
-   notes: filterThis(state.notes, 'book_id')
+       notes: filters(this_books_notes, state.filters),
 
   }
 
 }
-// else if(props.history.location.pathname.slice(1,6) === "browse"){
-//
-//
-// }
+
 
 else {
 
-  for(let i = 0; i<state.notes.length; i++){
-    state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
-  }
+  // for(let i = 0; i<state.notes.length; i++){
+  //   state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
+  // }
   return{
    notes: filters(state.notes, state.filters),
   }
