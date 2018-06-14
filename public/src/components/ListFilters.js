@@ -8,11 +8,12 @@ export class ListFilters extends React.Component{
 
 
   onTextChange=(e)=>{
+    console.log(e.target.value);
    this.props.setTextFilter(e.target.value);
  }
 
  onTagChange=(e)=>{
-
+  console.log(e.target.value);
   this.props.setTagFilter(e.target.value);
 }
 
