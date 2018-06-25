@@ -28,19 +28,25 @@ onClick = ()=>{
   render(){
 
     return(
-      <div className="container" >
+      <div className="container-fluid" >
 
            <Profile history={this.props.history} />
 
-           <button onClick={this.onClick}> Add a book</button>
+    <div className="row mt-4 mb-4 bg-primary">
+        <div className="col">
 
-         {this.state.display &&
-           <div>
-            <AddBook  history={this.props.history} />
-           </div>}
+           <button  className="btn btn-primary" onClick={this.onClick}> Add a book</button>
 
+               {this.state.display &&
+                 <div>
+                  <AddBook  history={this.props.history} />
+                 </div>}
+        </div>
 
-            <p><Link to="/viewAllNotes" >View Notes</Link></p>
+            <div className="col">
+               <Link  className="btn btn-primary" to="/viewAllNotes" role="button">View Your Notes</Link>
+            </div>
+      </div>
            <div>
               <div>
                 <BookList />

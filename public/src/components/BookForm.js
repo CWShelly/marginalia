@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import moment from 'moment';
 
 export default class BookForm extends React.Component{
@@ -153,20 +153,22 @@ export default class BookForm extends React.Component{
   render(){
 
     return(
-      <div className="container-book-form">
+      <Fragment  >
 
-        <button className="toggle-show-book"
-        onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public" }
-       </button>
-      {this.state.error && <p className="form-error" >{this.state.error}</p>}
 
-      <div>
-            <ul className="tag-list">
+
+<div className="row">
+<button className="btn btn-primary btn-lg"
+onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public" }
+</button>
+{this.state.error && <p   >{this.state.error}</p>}
+      <div className="col-sm-12">
+            <ul >
                 {this.state.bookTagArr.map((item, x)=>{
-                  return <li className="tag-list"  key={x}
+                  return <li    key={x}
                 >
-                  <span><button className="add-tag">{item}</button>
-                  <button  className="form-button-check"   onClick={(e)=>{
+                  <span><button  >{item}</button>
+                  <button    onClick={(e)=>{
                     this.handleRemoveItem(item, x)
                   }}>x</button></span>
                   </li>
@@ -180,37 +182,47 @@ export default class BookForm extends React.Component{
               </p>
             </ul>
       </div>
-
+  <div className="col-sm-12">
           <form onSubmit={this.onSubmit}>
-
-            <input className="book-input"
+          <div className="form-group">
+          <label>Author Last Name</label>
+            <input
             type="text"
+            className="form-control"
             placeholder="Author Last Name"
             value={this.state.author_last_name}
             onChange={this.onAuthorLastNameChange}
             />
+            </div>
 
-
-            <input  className="book-input"
+            <div className="form-group">
+            <label>Author First Name</label>
+            <input
             type="text"
+            className="form-control"
             placeholder="Author First Name"
             value={this.state.author_first_name}
             onChange={this.onAuthorFirstNameChange}
             />
+           </div>
 
-            <input  className="book-input"
+           <div className="form-group">
+           <label>Title</label>
+            <input
             type="text"
             placeholder="Title"
+            className="form-control"
             value={this.state.title}
             onChange={this.onTitleChange}
             />
+            </div>
 
-
-            <button className="form-button-book"> Add Book</button>
+            <button className="btn btn-primary btn-lg"> Add Book</button>
 
           </form>
-
-      </div>
+</div>
+</div>
+      </Fragment>
     )
   }
 

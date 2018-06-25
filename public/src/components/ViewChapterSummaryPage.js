@@ -51,10 +51,10 @@ render(){
   console.log(localStorage.getItem('browse_id'));
 console.log(localStorage.getItem('auth_id') === localStorage.getItem('browse_id'));
   return(
-    <div className="container">
+    <div  >
     <div> <h1>My Summaries for {this.state.title}</h1>
 
-    <div className="view">
+    <div  >
 
 
 

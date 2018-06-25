@@ -13,9 +13,9 @@ export class UserList extends React.Component{
 
 
  render(){
-console.log(this.props);
+ 
    return(
-     <div className="book-container" >
+     <div  >
      Users
       {this.props._users.map((_user)=>{
 

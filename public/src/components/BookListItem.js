@@ -18,38 +18,44 @@ class BookListItem extends React.Component{
 
   render(){
     return(
-      <div>
-        <div className="book-list-item-subcontainer">
+      <div className="row">
+          <div className="col-md-4 col-sm-12">
 
-        <Link className="edit"
-        to={`/viewNotes/${this.props.title}`} onClick={this.onHandleClick}
-        >
-        {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}
-        </Link>
+              <Link className="mb-4"
+              to={`/viewNotes/${this.props.title}`} onClick={this.onHandleClick}
+              >
+              {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}
+              </Link>
+              <div  >
+                 {localStorage.getItem('auth_id') === localStorage.getItem('browse_id')
+                 && !this.props.history &&
+                  <Link  to={`/edit/${this.props.id}`}>
+                   <span >Edit{' '}</span><i className="fa fa-wrench"></i>
+                 </Link>
+               }
+              </div>
 
-         {localStorage.getItem('auth_id') === localStorage.getItem('browse_id')
-         && !this.props.history &&
-          <Link className="edit" to={`/edit/${this.props.id}`}>
-           <span className="book-item-edit">Edit{' '}</span><i className="fa fa-wrench"></i>
-         </Link>
-       }
-
-       </div>
+         </div>
 
 
-      <Link className="summary-link" to={`/viewSummaries/${this.props.title}`}
-     onClick={this.onHandleClick}>Chapter Summaries</Link>
+         <div className="col-md-4 col-sm-12">
 
-     <div>
-     {this.props.tags &&
-     <ul> tags: {' '}
-       {Object.keys(this.props.tags).map((item)=>{
-        return  <a className="tag"
-        key={uuidv4()}>{item + '  '}</a>
-      })}
-     </ul>
-           }
-     </div>
+            <Link to={`/viewSummaries/${this.props.title}`}
+             onClick={this.onHandleClick}>Chapter Summaries</Link>
+          </div>
+
+
+         <div className="col-md-4 col-sm-12">
+
+           {this.props.tags &&
+           <ul><strong> topics:</strong> {' '}
+             {Object.keys(this.props.tags).map((item)=>{
+              return  <a
+              key={uuidv4()}>{item + '  '}</a>
+            })}
+           </ul>
+                 }
+         </div>
 
       </div>
 

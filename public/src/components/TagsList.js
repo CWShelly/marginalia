@@ -18,13 +18,13 @@ export class TagsList extends React.Component{
 
 
 const mapStateToProps = (state)=>{
-console.log(state);
+ 
 
 const x = state.notes.map((m)=>{
   return m.tags
 
 })
- 
+
 
       return {
 

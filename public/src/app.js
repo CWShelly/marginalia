@@ -12,9 +12,9 @@ import getVisibleBooks from './selectors/books';
 import AppRouter, { history } from './routers/AppRouter';
 import { firebase } from './firebase/firebase';
 
-import 'normalize.css/normalize.css';
+// import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import { Button } from 'reactstrap';
 const store = configureStore();
@@ -64,6 +64,7 @@ console.log('auth_id', localStorage.getItem('auth_id'));
     store.dispatch(startSetNotes());
     store.dispatch(startSetSummaries());
     store.dispatch(startSetProfiles());
+   
 
     store.dispatch(getUsers())
 

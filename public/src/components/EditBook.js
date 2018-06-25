@@ -12,7 +12,7 @@
 
 
  export class EditBook extends React.Component{
- 
+
 
    onSubmit=(book)=>{
    this.props.startEditBook(this.props.book.id, book);
@@ -45,6 +45,8 @@ onRemove=() => {
      this.props.history.push('/')
 }
 
+  // <button  onClick={this.onRemove}>Delete<i className="fa fa-trash-o"></i></button>
+
   render(){
 
 
@@ -59,7 +61,7 @@ onRemove=() => {
         this.onSubmit}
        />
 
-  <button className="form-button-book" onClick={this.onRemove}>Delete<i className="fa fa-trash-o"></i></button>
+
 
 
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import AddNote from './AddNote';
 import NoteList from './NoteList';
 import { startAddNote } from '../actions/notes';
@@ -34,24 +34,34 @@ export class ViewNotes extends React.Component{
   }
 
 render(){
- 
+
 console.log(this.state.auth_id === localStorage.getItem('browse_id'));
   return(
-    <div className="container">
-    <div> <h1 >My Notes for {this.state.title}</h1>
+    <div className="row">
 
-    <div className="view">
 
-   {this.state.auth_id === localStorage.getItem('browse_id') && <AddNote history={this.props.history}/>}
-    </div>
 
-    </div>
+                <div className="col-sm-12 col-md-4 ml-4">
+                    <h1>My Notes for {this.state.title}</h1>
+                 {
+                   this.state.auth_id === localStorage.getItem('browse_id')
+                   && <AddNote history={this.props.history}/>
+                }
+               </div>
 
-    <div>
-        <ListFilters history={this.props.history}/>
-    </div>
-    <NoteList history={this.props.history} />
-     </div>
+
+       <div className="col-sm-12 col-md-6">
+              <div className="mb-4">
+                  <ListFilters history={this.props.history}/>
+              </div>
+
+              <div>
+            <NoteList history={this.props.history} />
+            </div>
+
+             </div>
+
+  </div>
 
   )
 }

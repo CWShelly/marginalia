@@ -19,22 +19,14 @@ button{
   cursor: pointer;
 }
 
-h1{
-    font-weight: 300;
-    margin-left: 0 auto;
-}
 
-input{
-  border: 1px solid $lightBlue;
-}
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+// $theme-colors: (
+// "$primary":red
+// );
 
-  margin: 0;
-}
-
-
-li{
-   list-style:square;
-}
+// input[type=number]::-webkit-inner-spin-button,
+// input[type=number]::-webkit-outer-spin-button {
+//   -webkit-appearance: none;
+//
+//
+// }

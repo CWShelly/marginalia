@@ -21,8 +21,8 @@ export class ChapterSummaryList extends React.Component{
   render(){
 
        return(
-        <div className="container">
-        <ul className="reverse-list">
+        <div  >
+        <ul >
         {this.props.summaries.map((summary)=>{
           return <ChapterSummaryListItem key={summary.id} history={this.props.history} {...summary} />
         })}
