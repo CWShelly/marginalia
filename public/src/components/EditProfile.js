@@ -39,7 +39,7 @@
       <div>
 
       {this.props.profile.profile_image &&
-         <img className="profile-image" src={this.props.profile.profile_image}  />}
+         <img  src={this.props.profile.profile_image}  />}
        <ProfileForm
        profile={this.props.profile}
 

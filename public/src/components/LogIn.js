@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
  export const LogIn =({ startLogin })=>(
 
 
-   <div className="login-image">
+   <div  >
 
-       <p> <Link className="login-link"
+       <p> <Link
        to={`/about`}>Marginalia Geek</Link>
        </p>
 
-      <button onClick={startLogin}>Enter</button>
+      <button className="btn btn-primary btn-xl" onClick={startLogin}>Enter</button>
 
 
    </div>

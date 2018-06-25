@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
       render(){
             return(
               <div>
-              <p className="number-list-item-no-hover" >{this.props.summary}</p>
-              <div className="list-paragraph-item-reference-paragraph">
+              <p   >{this.props.summary}</p>
+              <div  >
               {this.props.title} chapter:{this.props.chapter_number}
 
                 <Link to={`/editSummary/${this.props.id}`}>Edit</Link>

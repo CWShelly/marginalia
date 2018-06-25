@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { connect } from 'react-redux';
 import NoteListItem from './NoteListItem';
 
@@ -18,7 +18,11 @@ constructor(props){
     author_first_name: localStorage.getItem('author_first'),
     author_last_name:localStorage.getItem('author_last'),
     title: localStorage.getItem('title'),
-    order: true
+    order: true,
+    _style:{
+      background:'black'
+    }
+
   }
 }
 
@@ -33,20 +37,22 @@ componentDidMount(){
 
 this.props.startSetNotes()
 }
-
+    // <ul style={{display: "flex", display: this.state.order ? "column-reverse" : "column"}}>
   render(){
 
        return(
-        <div className="container">
-        <button className="form-button-book" onClick={this.onClick}>{this.state.order ? "view first to most recent" : "view most recent first"  }</button>
-        <ul className={this.state.order ? "reverse-list" : "normal-list"}>
+        <Fragment>
+
+        <button className="btn btn-primary btn-lg mb-4"  onClick={this.onClick}>{this.state.order
+          ? "view first to most recent" : "view most recent first"  }</button>
+    <ul className={this.state.order ? "normal-list" : "reverse-list"}>
         {this.props.notes.map((note)=>{
           return <NoteListItem key={note.id} {...note} />
         })}
 
         </ul>
 
-        </div>
+        </Fragment>
       )
   }
 }
@@ -80,9 +86,7 @@ if(props.history.location.pathname.slice(1,10)
 
 else {
 
-  // for(let i = 0; i<state.notes.length; i++){
-  //   state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
-  // }
+
   return{
    notes: filters(state.notes, state.filters),
   }
@@ -92,7 +96,7 @@ else {
 }
 
 const mapDispatchToProps=(dispatch, props)=>{
-  console.log('dispatching notes');
+
   return{
     startSetNotes: ()=>{dispatch(startSetNotes())}
   }

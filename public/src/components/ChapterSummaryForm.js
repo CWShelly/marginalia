@@ -72,14 +72,14 @@ onSubmit=(e)=>{
 
     return(
       <div>
-    {this.state.errorNote && <p className="note-error">{this.state.errorNote}</p>}
+    {this.state.errorNote && <p  >{this.state.errorNote}</p>}
 
 
 
-<form className="note-form" onSubmit={this.onSubmit}>
+<form  onSubmit={this.onSubmit}>
   <p>Add a Chapter Summary</p>
   <textarea
-  className="form-textArea"
+
   type="text"
   placeholder="Enter your note here."
 
@@ -88,7 +88,7 @@ onSubmit=(e)=>{
   />
 
   <p>Chapter Number:
-  <input className="note-form-input"
+  <input
   type="number"
   placeholder="Chapter"
   value={this.state.chapter_number}
@@ -98,7 +98,7 @@ onSubmit=(e)=>{
 
   <button disabled={!this.state.chapter_number ||
 
-     !this.state.summary } className="form-button-book">Add Chapter Summary</button>
+     !this.state.summary }  >Add Chapter Summary</button>
   </form>
 
       </div>

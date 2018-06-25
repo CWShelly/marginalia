@@ -1,0 +1,72 @@
+h1{
+  // color: grey;
+}
+
+// .testRow{
+//   border: 1px dotted red;
+// }
+p{
+  font-size: 1.4rem;
+}
+
+.note{
+  border-bottom: 1px solid grey;
+}
+ 
+.JumboHeaderImg{
+  background-image: url("/images/jumbo_skyline.jpg");
+  height: 467px;
+
+}
+
+.tags{
+  background-color: #d3d9e2;
+  // color: white;
+}
+
+.tags-list{
+  display: flex;
+  flex-direction: row;
+}
+
+
+textarea{
+  color:blue;
+}
+
+
+// .list-group{
+//   display: flex;
+//   display: column-reverse;
+//   background: red;
+// }
+.profile-image{
+  width: 30vh;
+}
+
+.display-4, .lead{
+  color: white;
+}
+
+textarea{
+  height: 40vh;
+}
+
+.note-entry{
+  height: 40vh;
+  color: blue;
+
+}
+
+.reverse-list{
+  // background: red !important;
+display: flex;
+flex-direction: column-reverse;
+
+}
+
+.normal-list{
+    // background: blue !important;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import moment from 'moment';
 
 export default class NoteForm extends React.Component{
@@ -19,12 +19,12 @@ export default class NoteForm extends React.Component{
       remainingCharacters: 500,
       tagArr:props.note? Object.keys(props.note.tags) : [],
       tags: props.note ? props.note.tags : {},
-      input: ''
+      input: '',
+      message: ''
     }
 
   }
 componentDidMount(){
-
 
   const last_state=JSON.parse(localStorage.getItem('note_state'))
 
@@ -56,6 +56,13 @@ componentDidMount(){
         this.setState(()=>({error: ''}));
         if(!this.state.error){
         // this.state.tag = {}
+        this.setState(()=>({message: "Adding"}))
+        console.log(this.state.message);
+
+        setTimeout(()=>{
+          console.log("ADDING");
+          this.setState(()=>({message:''}))
+        },400)
         }
       }
     })
@@ -92,13 +99,13 @@ componentDidMount(){
 
   onChapterNumberChange = (e) =>{
 
-   const chapter_number= parseInt( e.target.value);
+   const chapter_number= e.target.value
    this.setState(()=>({ chapter_number}));
   }
 
   onPageNumberChange = (e) =>{
 
-    const page_number = parseInt( e.target.value);
+    const page_number =  e.target.value;
 
     this.setState(()=>({ page_number }));
 
@@ -137,7 +144,7 @@ handleInputChange=(e)=>{
 
 handleInputKeyDown=(e)=>{
 
- 
+
   if(e.keyCode === 13){
     const value = e.target.value.trim();
     this.setState(()=>({
@@ -167,79 +174,89 @@ handleRemoveItem=(itemToRemove, key)=>{
   render(){
 
     return(
-      <div>
-    {this.state.errorNote && <p className="note-error">{this.state.errorNote}</p>}
-
-  <div>
-        <ul className="tag-list">
-        {this.state.tagArr.map((item, x)=>{
-          return <li className="tag-list"  key={x}
-        >
-          <span><button className="add-tag">{item}</button>
-          <button  className="form-button-check"   onClick={(e)=>{
-            this.handleRemoveItem(item, x)
-          }}>x</button></span>
-          </li>
-        })}
-        <p>
-        <label>add tags:</label><input
-        value={this.state.input}
-        onChange={this.handleInputChange}
-        onKeyDown={this.handleInputKeyDown} />
-        </p>
-        </ul>
+      <Fragment>
 
 
-  </div>
+<div>
+  {this.state.errorNote && <p>{this.state.errorNote}</p>}
+      <ul className="list-inline tags mr-2" >
+          {this.state.tagArr.map((item, x)=>{
+            return <li className="list-inline-item tags-list" key={x}>
+            <span><button className="btn btn-primary btn-xs">{item}</button>
+            <button className="btn btn-primary btn-xs"    onClick={(e)=>{
+              this.handleRemoveItem(item, x)
+            }}>x</button></span>
+            </li>
+          })}
+          <p>
+            <label className="mr-2">add tags:</label>
+            <input
+            value={this.state.input}
+            onChange={this.handleInputChange}
+            onKeyDown={this.handleInputKeyDown} />
+          </p>
+      </ul>
 
-<form className="note-form" onSubmit={this.sendToDB}>
-  <textarea
-  className="form-textArea"
-  type="text"
-  placeholder="Enter your note here."
-  maxLength="500"
-  value={this.state.note}
-  onChange={this.onNoteChange}
-  />
-  <p>{this.state.remainingCharacters} characters left.</p>
-  <p>Chapter Number:
-  <input className="note-form-input"
-  type="number"
-  placeholder="Chapter"
-  value={this.state.chapter_number}
-  onChange={this.onChapterNumberChange}
-  /></p>
 
-  <p>Page Number:
-  <input
-  className="note-form-input"
-  type="number"
-  placeholder="Page"
-  value={this.state.page_number}
-  onChange={this.onPageNumberChange}
-  />
-  </p>
+    <form onSubmit={this.sendToDB}>
+    <div className="form-group">
+        <textarea
+          type="text"
+          className="form-control form-control-lg"
+          placeholder="Enter your note here."
+          maxLength="500"
+          value={this.state.note}
+          onChange={this.onNoteChange}
+          />
 
-  <p>Paragraph Number:
-  <input
-  className="note-form-input"
-  type="number"
-  placeholder="Paragraph"
-  value={this.state.paragraph_number}
-  onChange={this.onParagraphNumberChange}
-  />
-  </p>
+      <p>{this.state.remainingCharacters} characters left.</p>
+</div>
 
-  <button disabled={!this.state.chapter_number ||
-     !this.state.page_number ||
-     !this.state.paragraph_number ||
-     !this.state.note } className="form-button-book">Add Note</button>
-  </form>
+<div className="form-group">
 
-      </div>
+      <label  >Chapter Number:</label>
+      <input
+      type="text"
+      className="form-control "
+      placeholder="Chapter"
+      value={this.state.chapter_number}
+      onChange={this.onChapterNumberChange}
+      />
+
+</div>
+
+<div className="form-group">
+      <label  >Page Number:</label>
+        <input
+      className="form-control "
+        type="text"
+        placeholder="Page"
+        value={this.state.page_number}
+        onChange={this.onPageNumberChange}
+        />
+
+</div>
+
+<div className="form-group">
+     <label  >Paragraph Number:</label>
+      <input
+      type="number"
+      placeholder="Paragraph"
+        className="form-control"
+      value={this.state.paragraph_number}
+      onChange={this.onParagraphNumberChange}
+      />
+
+</div>
+      <button className="btn btn-primary btn-lg"disabled={!this.state.chapter_number ||
+         !this.state.page_number ||
+         !this.state.paragraph_number ||
+         !this.state.note }  >Add Note</button>
+      </form>
+</div>
+<p>{this.state.message}</p>
+      </Fragment>
     )
-
-
 
 }
 }

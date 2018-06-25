@@ -27,7 +27,7 @@ export class ViewOtherLibraries extends React.Component{
 render(){
 
   return(
-    <div className="container">
+    <div >
     <BookList />
 
      </div>

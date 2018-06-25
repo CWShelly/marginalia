@@ -7,9 +7,7 @@ import uuidv4 from 'uuid/v4';
 class UserListItem extends React.Component{
 
  onHandleClick = ()=>{
-   console.log(this.props);
-   console.log('clicked');
-   // console.log(this.props.user_id);
+
    localStorage.setItem('browse_id', this.props.user_id)
 
  }
@@ -19,7 +17,7 @@ class UserListItem extends React.Component{
     return(
 
 
-      <div className="book-list-item-subcontainer">
+      <div >
 
 
         <div><Link to={`/browseOtherLibraries`} onClick={this.onHandleClick}>{this.props.user_name}</Link>
@@ -28,13 +26,13 @@ class UserListItem extends React.Component{
         {this.props.tags &&
         <div> interests: {' '}
           {Object.keys(this.props.tags).map((item)=>{
-           return  <a className="tag"
+           return  <a  
            key={uuidv4()}>{item + '  '}</a>
          })}
         </div>}
 
         {this.props.profile_image &&
-           <img className="profile-image" src={this.props.profile_image}  />}
+           <img   src={this.props.profile_image}  />}
 </div>
        </div>
 

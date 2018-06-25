@@ -17,7 +17,7 @@ export class ViewUsers extends React.Component{
 render(){
 
   return(
-    <div className="container">
+    <div >
     <ListFilters history={this.props.history}/>
   <UserList history={this.props.history} />
 

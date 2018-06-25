@@ -36,9 +36,7 @@ export default class ProfileForm extends React.Component{
        interests: arr,
        tags: arr
      }))
-     // console.log(arr);
-     // console.log(this.state.interests);
-     // console.log(this.state.tags);
+ 
      resolve(x)
      reject('failure')
 
@@ -214,17 +212,17 @@ console.log(this.state.interests);
 
   render(){
 
-console.log(this.props);
+
     return(
-      <div className="container-book-form">
+      <div >
 
       <div>
-            <ul className="tag-list">
+            <ul  >
             {this.state.interestsArr.map((item, x)=>{
-              return <li className="tag-list"  key={x}
+              return <li    key={x}
             >
-              <span><button className="add-tag">{item}</button>
-              <button  className="form-button-check"   onClick={(e)=>{
+              <span><button  >{item}</button>
+              <button   onClick={(e)=>{
                 this.handleRemoveItem(item, x)
               }}>x</button></span>
               </li>
@@ -247,10 +245,10 @@ console.log(this.props);
       <input type="file"
       id="fileButton" onChange={this.sendToStorage}/>
 
-      {this.state.error && <p className="form-error" >{this.state.error}</p>}
+      {this.state.error && <p >{this.state.error}</p>}
       <form   onSubmit={this.onSubmit}>
 
-      <input className="book-input"
+      <input
       type="text"
       placeholder="User Name"
       value={this.state.user_name}
@@ -258,7 +256,7 @@ console.log(this.props);
       />
 
 
-      <input  className="book-input"
+      <input
 
       type="text"
       placeholder="Bio"
@@ -266,7 +264,7 @@ console.log(this.props);
       onChange={this.onUserBioChange}
       />
 
-      <input  className="book-input"
+      <input
       type="text"
       placeholder="Location"
       value={this.state.user_location}
@@ -274,7 +272,7 @@ console.log(this.props);
       />
 
 
-      <button className="form-button-book">  Create Profile</button>
+      <button >  Create Profile</button>
 
       </form>
 

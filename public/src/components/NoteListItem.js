@@ -8,20 +8,20 @@ render(){
 
   return(
 
-    <div>
-    <p className="note" >    {this.props.note}</p>
+    <div className="note mb-2 mt-2">
+    <p> {this.props.note}</p>
 
-        <div className="reference">
+        <div  >
         {this.props.title + ''} chapter:{this.props.chapter_number + ' '}
            page:{this.props.page_number}   paragraph:{this.props.paragraph_number}
          <ul> tags: {' '}
            {Object.keys(this.props.tags).map((item)=>{
-            return  <a className="tag"
+            return  <a
             key={uuidv4()}>{item + '  '}</a>
           })}
          </ul>
 
-           {localStorage.getItem('auth_id') === localStorage.getItem('browse_id') &&  <Link className="edit" to={`/editNote/${this.props.id}`}>Edit</Link>}
+           {localStorage.getItem('auth_id') === localStorage.getItem('browse_id') &&  <Link  to={`/editNote/${this.props.id}`}>Edit</Link>}
        </div>
 
     </div>

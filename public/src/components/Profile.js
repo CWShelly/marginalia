@@ -40,41 +40,38 @@ componentDidMount(){
 
 
 render(){
- 
+
   return(
-    <div className="container">
-
-    <div className="view">
-
+    <div>
 
          {!this.props.profile &&
            <AddProfile history={this.props.history}/>}
-    </div>
-    {this.props.profile &&
-    <div>
 
-    <div>
-
-   <div className="profile-container">
           {this.props.profile &&
-          <div><p>{this.props.profile.user_name}</p>
-          <p>Bio: {this.props.profile.user_bio}</p>
-           <p>Location: {this.props.profile.user_location}</p>
-        </div>}
 
+             <div className="row testRow" >
+                {
+                  this.props.profile &&
+                <div className="col-sm-12 col-md-6 mt-4">
+                   <p>{this.props.profile.user_name}</p>
+                   <p>Bio: {this.props.profile.user_bio}</p>
+                   <p>Location: {this.props.profile.user_location}</p>
+                   <Link  to={`/editProfile/${this.props.profile.id}`}>
+                   <span  >Edit{' '}</span><i className="fa fa-wrench"></i>
+                   </Link>
+               </div>
+            }
 
-      {this.props.profile.profile_image &&
-         <img className="profile-image" src={this.props.profile.profile_image}  />}
-    </div>
+                    {this.props.profile.profile_image &&
+                      <div className="col-sm-12 col-md-6 mr-auto">
+                     <img className="profile-image mt-4 mb-4"
+                     src={this.props.profile.profile_image} />
+                     </div>
 
+                   }
+          </div>
 
-
-    </div>
-    <Link className="edit" to={`/editProfile/${this.props.profile.id}`}>
-     <span className="book-item-edit">Edit{' '}</span><i className="fa fa-wrench"></i>
-    </Link>
-</div>
-}
+    }
      </div>
 
   )

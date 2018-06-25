@@ -18,7 +18,6 @@ constructor(props){
 
  componentDidMount(){
 
-
   console.log(localStorage.getItem('auth_id')
    === localStorage.getItem('browse_id'));
 if(localStorage.getItem('auth_id') !== localStorage.getItem('browse_id')){
@@ -33,7 +32,7 @@ if(localStorage.getItem('auth_id') !== localStorage.getItem('browse_id')){
  render(){
 
    return(
-     <div className="book-container" >
+     <div>
 
       {this.props.books.length === 0 && this.state.same && <p>Add a book to get started</p>}
           {this.props.books.length === 0 && !this.state.same && <p> No books added yet.</p>}
