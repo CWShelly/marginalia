@@ -32,7 +32,7 @@ if(localStorage.getItem('auth_id') !== localStorage.getItem('browse_id')){
  render(){
 
    return(
-     <div>
+     <div className="mb-4">
 
       {this.props.books.length === 0 && this.state.same && <p>Add a book to get started</p>}
           {this.props.books.length === 0 && !this.state.same && <p> No books added yet.</p>}

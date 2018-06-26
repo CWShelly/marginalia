@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -21,7 +21,7 @@ class BookListItem extends React.Component{
       <div className="row">
           <div className="col-md-4 col-sm-12">
 
-              <Link className="mb-4"
+              <Link className="mb-4 link"
               to={`/viewNotes/${this.props.title}`} onClick={this.onHandleClick}
               >
               {this.props.title} by {this.props.author_first_name} {this.props.author_last_name}
@@ -29,8 +29,8 @@ class BookListItem extends React.Component{
               <div  >
                  {localStorage.getItem('auth_id') === localStorage.getItem('browse_id')
                  && !this.props.history &&
-                  <Link  to={`/edit/${this.props.id}`}>
-                   <span >Edit{' '}</span><i className="fa fa-wrench"></i>
+                  <Link className="link" to={`/edit/${this.props.id}`}>
+                   <span >Edit{' '}</span><i className="fa fa-wrench link "></i>
                  </Link>
                }
               </div>

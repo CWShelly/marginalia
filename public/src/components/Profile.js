@@ -1,6 +1,6 @@
 
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import AddProfile from './AddProfile';
 
 import { startAddProfile } from '../actions/profiles';
@@ -42,14 +42,14 @@ componentDidMount(){
 render(){
 
   return(
-    <div>
+    <Fragment>
 
          {!this.props.profile &&
            <AddProfile history={this.props.history}/>}
 
           {this.props.profile &&
 
-             <div className="row" >
+             <Fragment>
 
 
              {this.props.profile.profile_image &&
@@ -72,10 +72,10 @@ render(){
             }
 
 
-          </div>
+          </Fragment>
 
     }
-     </div>
+     </Fragment>
 
   )
 }
