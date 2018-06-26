@@ -49,10 +49,19 @@ render(){
 
           {this.props.profile &&
 
-             <div className="row testRow" >
+             <div className="row" >
+
+
+             {this.props.profile.profile_image &&
+               <div className="col-sm-4 col-md-6">
+              <img  className="mx-auto rounded-circle profile-image"
+              src={this.props.profile.profile_image} />
+              </div>
+
+            }
                 {
                   this.props.profile &&
-                <div className="col-sm-12 col-md-6 mt-4">
+                <div className="col-sm-4 col-md-6 mt-4">
                    <p>{this.props.profile.user_name}</p>
                    <p>Bio: {this.props.profile.user_bio}</p>
                    <p>Location: {this.props.profile.user_location}</p>
@@ -62,13 +71,7 @@ render(){
                </div>
             }
 
-                    {this.props.profile.profile_image &&
-                      <div className="col-sm-12 col-md-6 mr-auto">
-                     <img className="profile-image mt-4 mb-4"
-                     src={this.props.profile.profile_image} />
-                     </div>
 
-                   }
           </div>
 
     }

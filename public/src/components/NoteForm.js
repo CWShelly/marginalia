@@ -20,7 +20,7 @@ export default class NoteForm extends React.Component{
       tagArr:props.note? Object.keys(props.note.tags) : [],
       tags: props.note ? props.note.tags : {},
       input: '',
-      message: ''
+      message: 'Add Note'
     }
 
   }
@@ -54,16 +54,7 @@ componentDidMount(){
           this.setState(()=>({error:'Please enter a tag'}))
       } else{
         this.setState(()=>({error: ''}));
-        if(!this.state.error){
-        // this.state.tag = {}
-        this.setState(()=>({message: "Adding"}))
-        console.log(this.state.message);
 
-        setTimeout(()=>{
-          console.log("ADDING");
-          this.setState(()=>({message:''}))
-        },400)
-        }
       }
     })
     .then(()=>{
@@ -76,7 +67,17 @@ componentDidMount(){
        else{
 
         localStorage.setItem('note_state', JSON.stringify(this.state))
-        this.setState(()=>({errorNote: ''}));
+        this.setState(()=>({errorNote: '', message: 'Adding'}));
+
+
+        // this.setState(()=>({message: "Adding"}))
+        setTimeout(()=>{
+          console.log("ADDING");
+          this.setState(()=>({message:'Add Note'}))
+        },400)
+
+
+
         this.props.onSubmit({
           chapter_number: this.state.chapter_number,
           page_number: this.state.page_number,
@@ -248,13 +249,13 @@ handleRemoveItem=(itemToRemove, key)=>{
       />
 
 </div>
-      <button className="btn btn-primary btn-lg"disabled={!this.state.chapter_number ||
+      <button className="btn btn-primary btn-lg mb-4" disabled={!this.state.chapter_number ||
          !this.state.page_number ||
          !this.state.paragraph_number ||
-         !this.state.note }  >Add Note</button>
+         !this.state.note }  >{this.state.message}</button>  
       </form>
 </div>
-<p>{this.state.message}</p>
+
       </Fragment>
     )
 

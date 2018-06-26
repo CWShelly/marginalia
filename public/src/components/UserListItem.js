@@ -20,19 +20,19 @@ class UserListItem extends React.Component{
       <div >
 
 
-        <div><Link to={`/browseOtherLibraries`} onClick={this.onHandleClick}>{this.props.user_name}</Link>
-
+        <div><Link to={`/browseOtherLibraries`}
+         onClick={this.onHandleClick}>{this.props.user_name}</Link>
 
         {this.props.tags &&
         <div> interests: {' '}
           {Object.keys(this.props.tags).map((item)=>{
-           return  <a  
+           return  <a
            key={uuidv4()}>{item + '  '}</a>
          })}
         </div>}
 
         {this.props.profile_image &&
-           <img   src={this.props.profile_image}  />}
+           <img className="rounded-circle profile-image"  src={this.props.profile_image}  />}
 </div>
        </div>
 
