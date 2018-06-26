@@ -48,15 +48,18 @@ export class Header extends React.Component{
 </div>
 
 
-  <Jumbotron className="JumboHeaderImg">
+  <Jumbotron className="JumboHeaderImg fluid">
 
+       <div className="jumbo-inner-div ">
 
-        <h1 className="display-4">For Critical Readers.</h1>
-        <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel aperiam repellat ad doloribus aspernatur
-         ex nobis nam porro magni qui provident sit nisi, ut dolore sapiente alias dignissimos assumenda cum.</p>
-       <p className="lead">
-        <a className="btn btn-primary btn-lg" href="#" role="button"> Learn More</a>
-      </p>
+          <h1 className="display-4 mt-4">For Critical Readers.</h1>
+          <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel aperiam repellat ad doloribus aspernatur
+           ex nobis nam porro magni qui provident sit nisi, ut dolore sapiente alias dignissimos assumenda cum.</p>
+         <p className="lead">
+          <a className="btn btn-primary btn-lg mb-2" href="#" role="button"> Learn More</a>
+        </p>
+
+      </div>
 
  </Jumbotron>
 

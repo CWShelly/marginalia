@@ -85,8 +85,10 @@ if(props.history.location.pathname.slice(1,10)
 
 
 else {
-
-
+  for(let i = 0; i<state.notes.length; i++){
+    state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
+  }
+ 
   return{
    notes: filters(state.notes, state.filters),
   }
