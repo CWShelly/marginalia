@@ -29,18 +29,18 @@ onClick = ()=>{
 
     return(
       <div className="container-fluid" >
-
+<div className="row">
            <Profile history={this.props.history} />
-
+</div>
     <div className="row mt-4 mb-4 bg-primary">
         <div className="col">
 
-           <button  className="btn btn-primary" onClick={this.onClick}> Add a book</button>
-
-               {this.state.display &&
-                 <div>
-                  <AddBook  history={this.props.history} />
-                 </div>}
+           <button  className="btn btn-primary" onClick={this.onClick}>
+           Add a book</button>
+           {this.state.display &&
+             <div>
+              <AddBook  history={this.props.history} />
+             </div>}
         </div>
 
             <div className="col">
