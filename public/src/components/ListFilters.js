@@ -8,7 +8,7 @@ export class ListFilters extends React.Component{
 
 
   onTextChange=(e)=>{
- 
+
    this.props.setTextFilter(e.target.value);
  }
 
@@ -21,26 +21,30 @@ export class ListFilters extends React.Component{
 
 
   render(){
-// console.log(this.props.history.location.pathname.slice(1,7));
+
     return(
       <div>
 
   <div>
   {this.props.history.location.pathname.slice(1,7) !== "browse" &&
   <div>
+  <div className="form-group ml-4">
     <label><i className="fa fa-search"></i>{" "}<span >Search Text</span>
       </label>
-        <input type="text" value={this.props.filters.text} onChange={
+        <input  className="form-control" type="text" value={this.props.filters.text} onChange={
             this.onTextChange
           }/>
+          </div>
 </div>}
 
       <div>
+        <div className="form-group ml-4">
       <label> <i className="fa fa-search"></i>{" "} <span  >Search Tags</span>
        </label>
-        <input type="text" value={this.props.filters.tag} onChange={
+        <input className="form-control" type="text" value={this.props.filters.tag} onChange={
             this.onTagChange
           }/>
+          </div>
       </div>
 
 

@@ -37,7 +37,7 @@ render(){
 
 console.log(this.state.auth_id === localStorage.getItem('browse_id'));
   return(
-    <div className="row">
+    <div className="row ">
 
 
 
@@ -56,7 +56,7 @@ console.log(this.state.auth_id === localStorage.getItem('browse_id'));
               </div>
 
               <div>
-            <NoteList history={this.props.history} />
+            <NoteList className="note-list" history={this.props.history} />
             </div>
 
              </div>

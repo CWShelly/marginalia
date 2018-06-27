@@ -10,22 +10,21 @@ import { Jumbotron, Container } from 'reactstrap'
 export class Header extends React.Component{
 
   state={
-    user_info:JSON.parse(localStorage.getItem(`firebase:authUser:${process.env.FIREBASE_API_KEY}:[DEFAULT]`))
+    user_info:JSON.parse(localStorage.getItem(`firebase:authUser:${process.env.FIREBASE_API_KEY}:[DEFAULT]`)),
+    user_name:localStorage.getItem('user_name')
 
   }
 
-
+  // <p>{this.state.user_info.displayName ? this.state.user_info.displayName : 'for readers'}</p>
   render(){
-
+console.log(this.state.user_name);
     return(
-
-
       <Fragment>
       <Container fluid>
             <div className="row">
                   <div className="col ml-2">
                     <h1  >Marginalia Geek</h1>
-                    <p>{this.state.user_info.displayName ? this.state.user_info.displayName : 'for readers'}</p>
+                    <p>{this.state.user_name}</p>
                   </div>
 
                      <nav className="navbar navbar-expand navbar nav-bg">

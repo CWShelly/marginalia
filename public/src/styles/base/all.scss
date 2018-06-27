@@ -1,12 +1,16 @@
 
-p{
-  font-size: 1.4rem;
+.display-4, .lead{
+  color: white;
 }
 
-.link{
-  font-size: 1.2rem;
-  color: grey;
+
+
+
+.JumboHeaderImg{
+  background-image: url("/images/bean538.jpg");
+  height: 538px;
 }
+
 .jumbo-inner-div{
   background: rgba(102, 102, 153, 0.5)
   // opacity: 0.5;
@@ -15,15 +19,34 @@ p{
 .jumbo-inner-div .lead{
   font-size: 1.6rem;
 }
+
+.login-button{
+  height: 10vh;
+  background-color: rgba(66, 185, 244,0.5) !important;
+  font-size: 2.6rem !important;
+  // color: white;
+}
+.link{
+  font-size: 1.2rem;
+  color: grey;
+}
 .note{
   border-bottom: 1px solid grey;
 }
-
-.JumboHeaderImg{
-  background-image: url("/images/bean538.jpg");
-  height: 538px;
+.note-entry{
+  height: 40vh;
+  color: blue;
 
 }
+ 
+
+p{
+  font-size: 1.4rem;
+}
+.profile-image{
+  width:20vh;
+}
+
 
 .tags{
   background-color: #d3d9e2;
@@ -35,40 +58,19 @@ p{
   flex-direction: row;
 }
 
-
-textarea{
-  color:blue;
-}
-
-
-
-.profile-image{
-  width:20vh;
-}
-
-.display-4, .lead{
-  color: white;
-}
-
-textarea{
-  height: 40vh;
-}
-
-.note-entry{
-  height: 40vh;
-  color: blue;
-
-}
-
 .reverse-list{
-  // background: red !important;
 display: flex;
 flex-direction: column-reverse;
 
 }
 
 .normal-list{
-    // background: blue !important;
   display: flex;
   flex-direction: column;
+}
+
+
+textarea{
+  color:blue;
+    height: 40vh;
 }
