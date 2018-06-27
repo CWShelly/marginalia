@@ -249,10 +249,10 @@ handleRemoveItem=(itemToRemove, key)=>{
       />
 
 </div>
-      <button className="btn btn-primary btn-lg mb-4" disabled={!this.state.chapter_number ||
+      <button className="btn btn-secondary btn-block mb-4" disabled={!this.state.chapter_number ||
          !this.state.page_number ||
          !this.state.paragraph_number ||
-         !this.state.note }  >{this.state.message}</button>  
+         !this.state.note }  >{this.state.message}</button>
       </form>
 </div>
 

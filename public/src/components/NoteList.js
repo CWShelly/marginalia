@@ -18,11 +18,7 @@ constructor(props){
     author_first_name: localStorage.getItem('author_first'),
     author_last_name:localStorage.getItem('author_last'),
     title: localStorage.getItem('title'),
-    order: true,
-    _style:{
-      background:'black'
-    }
-
+    order: false
   }
 }
 
@@ -30,20 +26,18 @@ onClick = ()=>{
   this.setState((prevState)=>({
     order: !prevState.order
   }))
-  console.log(this.state.order);
 }
 
 componentDidMount(){
 
 this.props.startSetNotes()
 }
-    // <ul style={{display: "flex", display: this.state.order ? "column-reverse" : "column"}}>
   render(){
 
        return(
         <Fragment>
 
-        <button className="btn btn-primary btn-lg mb-4"  onClick={this.onClick}>{this.state.order
+        <button className="btn btn-secondary btn-block mb-4 ml-4"  onClick={this.onClick}>{this.state.order
           ? "view first to most recent" : "view most recent first"  }</button>
     <ul className={this.state.order ? "normal-list" : "reverse-list"}>
         {this.props.notes.map((note)=>{
@@ -88,7 +82,7 @@ else {
   for(let i = 0; i<state.notes.length; i++){
     state.notes[i].tag_keys = Object.keys(state.notes[i].tags)
   }
- 
+
   return{
    notes: filters(state.notes, state.filters),
   }

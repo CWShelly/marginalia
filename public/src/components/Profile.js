@@ -40,7 +40,8 @@ componentDidMount(){
 
 
 render(){
-
+  console.log(this.props.profile.user_name);
+  localStorage.setItem('user_name', this.props.profile.user_name)
   return(
     <Fragment>
 
