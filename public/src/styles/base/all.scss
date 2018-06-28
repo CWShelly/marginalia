@@ -3,31 +3,38 @@
   color: white;
 }
 
-
-
-
 .JumboHeaderImg{
   background-image: url("/images/bean538.jpg");
   height: 538px;
 }
 
 .jumbo-inner-div{
-  background: rgba(102, 102, 153, 0.5)
+  background: rgba(102, 102, 153, 0.7)
   // opacity: 0.5;
 }
 
 .jumbo-inner-div .lead{
   font-size: 1.6rem;
+  // color: white;
 }
 
 .login-button{
-  height: 10vh;
+  height: 15vh;
   background-color: rgba(66, 185, 244,0.5) !important;
-  font-size: 2.6rem !important;
-  // color: white;
+  font-size: 2.8rem !important;
+  color: white;
 }
 .link{
   font-size: 1.2rem;
+  color: grey;
+}
+
+.nav-item{
+  font-size: 1.4rem;
+
+}
+
+.nav-link{
   color: grey;
 }
 .note{
@@ -38,7 +45,7 @@
   color: blue;
 
 }
- 
+
 
 p{
   font-size: 1.4rem;

@@ -12,7 +12,10 @@ import { Link } from 'react-router-dom';
        to={`/about`}>Marginalia Geek</Link>
        </p>
 
-      <button className="btn btn-block login-button" onClick={startLogin}>Enter</button>
+      <button className="btn btn-block login-button " onClick={startLogin}>
+      <i className="fa fa-sign-in"></i>
+
+      </button>
 
 
    </div>
