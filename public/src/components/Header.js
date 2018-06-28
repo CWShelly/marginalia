@@ -11,13 +11,13 @@ export class Header extends React.Component{
 
   state={
     user_info:JSON.parse(localStorage.getItem(`firebase:authUser:${process.env.FIREBASE_API_KEY}:[DEFAULT]`)),
-    user_name:localStorage.getItem('user_name')
+    user_name:localStorage.getItem('user_name') || 'Guest'
 
   }
 
   // <p>{this.state.user_info.displayName ? this.state.user_info.displayName : 'for readers'}</p>
   render(){
-console.log(this.state.user_name);
+this.state.user_name && console.log(this.state.user_name);
     return(
       <Fragment>
       <Container fluid>
@@ -52,8 +52,7 @@ console.log(this.state.user_name);
        <div className="jumbo-inner-div ">
 
           <h1 className="display-4 mt-4">For Critical Readers.</h1>
-          <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel aperiam repellat ad doloribus aspernatur
-           ex nobis nam porro magni qui provident sit nisi, ut dolore sapiente alias dignissimos assumenda cum.</p>
+          <p className="lead"></p>
          <p className="lead">
           <a className="btn btn-primary btn-lg mb-2" href="#" role="button"> Learn More</a>
         </p>
