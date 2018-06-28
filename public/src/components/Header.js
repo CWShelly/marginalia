@@ -54,7 +54,7 @@ this.state.user_name && console.log(this.state.user_name);
           <h1 className="display-4 mt-4">For Critical Readers.</h1>
           <p className="lead"></p>
          <p className="lead">
-          <a className="btn btn-primary btn-lg mb-2" href="#" role="button"> Learn More</a>
+          <a className="btn btn-secondary btn-lg mb-2" href="#" role="button"> Learn More</a>
         </p>
 
       </div>
