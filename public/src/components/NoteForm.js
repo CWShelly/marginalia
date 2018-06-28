@@ -183,10 +183,10 @@ handleRemoveItem=(itemToRemove, key)=>{
       <ul className="list-inline tags mr-2" >
           {this.state.tagArr.map((item, x)=>{
             return <li className="list-inline-item tags-list" key={x}>
-            <span><button className="btn btn-primary btn-xs">{item}</button>
-            <button className="btn btn-primary btn-xs"    onClick={(e)=>{
+            <span><button className="btn btn-outline-secondary btn-xs" style={{color:"white"}}>{item}</button>
+            <a  onClick={(e)=>{
               this.handleRemoveItem(item, x)
-            }}>x</button></span>
+            }}>x</a></span>
             </li>
           })}
           <p>
