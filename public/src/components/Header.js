@@ -52,9 +52,9 @@ this.state.user_name && console.log(this.state.user_name);
        <div className="jumbo-inner-div ">
 
           <h1 className="display-4 mt-4">For Critical Readers.</h1>
-          <p className="lead"></p>
-         <p className="lead">
-          <a className="btn btn-secondary btn-lg mb-2" href="#" role="button"> Learn More</a>
+          <p className="lead ml-2">Research is formalized curiosity. It is poking and prying with a purpose.</p>
+         <p className="lead text-right mr-4">
+          Zora Neale Hurston
         </p>
 
       </div>
