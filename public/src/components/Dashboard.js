@@ -24,14 +24,16 @@ onClick = ()=>{
   }))
 }
 
-  // <Button className="btn-danger">Test Button Bootstrap</Button>
+
   render(){
 
     return(
       <div className="container-fluid" >
-<div className="row">
-           <Profile history={this.props.history} />
-</div>
+          <div className="row d-flex justify-content-center"  >
+            <Profile history={this.props.history} />
+          </div>
+
+
     <div className="row mt-4 mb-4" style={{background:"rgb(102, 102, 153)"}}>
         <div className="col">
 
