@@ -57,7 +57,7 @@ render(){
 
 
              {this.props.profile.profile_image &&
-               <div className="col-sm-4 col-md-6">
+               <div className="col-sm-4 col-md-4" >
               <img  className="mx-auto rounded-circle profile-image"
               src={this.props.profile.profile_image} />
               </div>
@@ -65,10 +65,11 @@ render(){
             }
                 {
                   this.props.profile &&
-                <div className="col-sm-4 col-md-6 mt-4">
+                <div className="col-sm-4 col-md-4 mt-4">
                    <p>{this.props.profile.user_name}</p>
                    <p>Bio: {this.props.profile.user_bio}</p>
                    <p>Location: {this.props.profile.user_location}</p>
+                   <p> {this.props.books.length} books</p>
                    <Link  to={`/editProfile/${this.props.profile.id}`}>
                    <span  >Edit{' '}</span><i className="fa fa-wrench"></i>
                    </Link>
@@ -88,10 +89,10 @@ render(){
 
 const mapStateToProps = (state)=>{
 
-
     if(state.profiles){
           return {
            profile: state.profiles[0],
+           books: state.books
           }
     }
     else{
