@@ -12,8 +12,10 @@ const config = {
 };
   firebase.initializeApp(config);
 
+ console.log(process.env.NODE_ENV);
 const database = firebase.database();
 const storage = firebase.storage();
+console.log(firebase.storage);
 // const database = firebase.firestore(app)
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
