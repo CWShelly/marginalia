@@ -1,6 +1,6 @@
 import database from '../firebase/firebase'
 
- 
+
 export const addBook = (book)=>({
   type: 'ADD_BOOK',
   book
@@ -20,7 +20,8 @@ export const startAddBook = (bookData = {}) => {
         owner_id
 
   } = bookData;
-  const book = {owner_id, tags, author_last_name, author_first_name, title, createdAt, show_book}
+  const book = {owner_id, tags, author_last_name,
+    author_first_name, title, createdAt, show_book}
   console.log(book);
 
   database.ref(`users/${uid}/books`).push(book)
