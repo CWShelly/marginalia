@@ -24,7 +24,7 @@ this.state.user_name && console.log(this.state.user_name);
             <div className="row">
                   <div className="col ml-2">
                     <h1  >Marginalia Geek</h1>
-                    <p>{this.state.user_name}</p>
+                    <p>{this.state.user_name && this.state.user_name}</p>
                   </div>
 
                      <nav className="navbar navbar-expand navbar nav-bg">
