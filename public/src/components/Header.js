@@ -11,11 +11,12 @@ export class Header extends React.Component{
 
   state={
     user_info:JSON.parse(localStorage.getItem(`firebase:authUser:${process.env.FIREBASE_API_KEY}:[DEFAULT]`)),
-    user_name:localStorage.getItem('user_name') || 'Guest'
+    user_name:localStorage.getItem('user_name') || ''
 
   }
 
   // <p>{this.state.user_info.displayName ? this.state.user_info.displayName : 'for readers'}</p>
+     // <Link  className="btn btn-primary dash-btn" to="/viewAllNotes" role="button" >View Your Notes</Link>
   render(){
 this.state.user_name && console.log(this.state.user_name);
     return(
@@ -36,6 +37,9 @@ this.state.user_name && console.log(this.state.user_name);
                          </li>
                          <li className="nav-item">
                            <NavLink to="/browse" className="nav-link">Peruse</NavLink>
+                         </li>
+                         <li className="nav-item">
+                           <NavLink to="/viewAllNotes" className="nav-link">Collection</NavLink>
                          </li>
                          <li className="nav-item">
                            <a onClick={this.props.startLogout} className="nav-link">Logout</a>

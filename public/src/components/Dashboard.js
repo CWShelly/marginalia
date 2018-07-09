@@ -33,18 +33,21 @@ onClick = ()=>{
 
 
     <div className="row mt-4 mb-4" style={{background:"rgb(102, 102, 153)"}}>
-        <div className="col">
+        <div className="col-sm-12">
            <button  className="btn btn-primary dash-btn" onClick={this.onClick}>
            Add a book</button>
+
            {this.state.display &&
-             <div>
-              <AddBook  history={this.props.history} />
-             </div>}
+             <div className="row">
+               <div className="col-sm-12">
+                <AddBook  history={this.props.history} />
+               </div>
+
+             </div>
+           }
         </div>
 
-            <div className="col">
-               <Link  className="btn btn-primary dash-btn" to="/viewAllNotes" role="button" >View Your Notes</Link>
-            </div>
+
       </div>
            <div>
               <div>

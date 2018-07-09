@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 import { Link } from 'react-router-dom';
@@ -35,7 +35,7 @@ export class LogIn extends React.Component{
     }
 
     componentDidMount(){
-      console.log('hello it mounted login');
+
       this.getQuote()
 
     }
@@ -43,18 +43,24 @@ export class LogIn extends React.Component{
     render(){
 
       return(
-        <div className="JumboHeaderImg">
-            <p className="lead"> <Link style={{color:"white"}}
-            to={`/about`}>Marginalia Geek</Link>
-            </p>
+<Fragment>  <p className="lead"> <Link style={{color:"grey"}}
+  to={`/about`}>Marginalia Geek</Link>
+  </p>
+        <div className="jumbotron jumbotron-fluid JumboHeaderImg">
 
-           <button className="btn btn-block login-button " onClick={this.props.startLogin}>
+        <div className="container login-container mx-auto">
 
-           <p>{this.state.selectedQuote && this.state.selectedQuote._quote}</p>
-           <p>{this.state.selectedQuote &&  this.state.selectedQuote.person}</p>
-           <p><i className="fa fa-sign-in"></i></p>
-           </button>
+        <h1 className="display-4 text-center">{this.state.selectedQuote && this.state.selectedQuote._quote}</h1>
+        <p className="lead text-center">{this.state.selectedQuote &&  this.state.selectedQuote.person}</p>
+
+         <button className="btn btn-block login-button mx-auto" onClick={this.props.startLogin}>
+            <p>Enter <i className="fa fa-sign-in"></i></p>
+         </button>
+
         </div>
+
+        </div>
+        </Fragment>
       )
     }
 }

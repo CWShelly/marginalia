@@ -1,4 +1,11 @@
 
+.bookform{
+  border: 1px dotted white;
+}
+
+.bookform-label{
+  color: white !important;
+}
 .dash-btn{
   background: rgb(102, 102, 153) !important;
   border: 0 !important;
@@ -8,8 +15,14 @@
 }
 
 .JumboHeaderImg{
+  display: block;
   background-image: url("/images/bean538.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 538px;
+  max-height: 100%;
+  width: 100%;
+  max-width: 100%;
 }
 
 .jumbo-inner-div{
@@ -22,17 +35,24 @@
 
 }
 
-.login-button{
-  height: 15vh;
-  background-color: rgba(66, 185, 244,0.5) !important;
-  font-size: 3.0rem !important;
-  color: white;
-}
 .link{
   font-size: 1.2rem;
   color: grey;
 }
 
+.login-button{
+  height: 15vh;
+  // background-color: rgba(102, 102, 153, 0.5) !important;
+  // background-color: white !important;
+    background-color: transparent !important;
+  font-size: 5.0rem !important;
+  color: white;
+  // color:  rgb(102, 102, 153) !important;
+}
+
+.login-container{
+  background-color: rgba(102, 102, 153, 0.70) !important;
+}
 .nav-item{
   font-size: 1.4rem;
 
@@ -63,6 +83,11 @@
 p{
   font-size: 1.4rem;
 }
+.private-button{
+  background: white !important;
+  color: rgb(102, 102, 153) !important;
+}
+
 .profile-image{
   width:20vh;
 }
