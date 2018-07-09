@@ -153,12 +153,12 @@ export default class BookForm extends React.Component{
   render(){
 
     return(
-      <Fragment  >
+      <Fragment >
 
 
 
-<div className="row">
-<button className="btn btn-primary btn-lg"
+<div className="row bookform mx-auto mb-4 mt-4">
+<button className="btn private-button btn-block mt-4 ml-2 mb-4"
 onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public" }
 </button>
 {this.state.error && <p   >{this.state.error}</p>}
@@ -175,7 +175,7 @@ onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public
                 })}
 
               <p>
-                <label>add tags:</label><input
+                <label className="bookform-label">add tags:</label><input
                 value={this.state.input}
                 onChange={this.handleInputChange}
                 onKeyDown={this.handleInputKeyDown} />
@@ -185,7 +185,7 @@ onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public
   <div className="col-sm-12">
           <form onSubmit={this.onSubmit}>
           <div className="form-group">
-          <label>Author Last Name</label>
+          <label className="bookform-label">Author Last Name</label>
             <input
             type="text"
             className="form-control"
@@ -196,7 +196,7 @@ onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public
             </div>
 
             <div className="form-group">
-            <label>Author First Name</label>
+            <label className="bookform-label">Author First Name</label>
             <input
             type="text"
             className="form-control"
@@ -207,7 +207,7 @@ onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public
            </div>
 
            <div className="form-group">
-           <label>Title</label>
+           <label className="bookform-label">Title</label>
             <input
             type="text"
             placeholder="Title"
@@ -217,7 +217,7 @@ onClick={this.onClick}>Click to make {this.state.show_book ? "private": " public
             />
             </div>
 
-            <button className="btn btn-primary btn-lg"> Add Book</button>
+            <button className="btn private-button btn-block mb-4"> {this.props.buttonText}</button>
 
           </form>
 </div>

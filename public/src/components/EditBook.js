@@ -12,6 +12,9 @@
 
 
  export class EditBook extends React.Component{
+   state={
+     buttonText: 'Update'
+   }
 
 
    onSubmit=(book)=>{

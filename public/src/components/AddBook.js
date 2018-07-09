@@ -6,6 +6,9 @@ import BookForm from './BookForm';
 
 export class AddBook extends React.Component{
 
+state={
+  buttonText: "Add Book"
+}
  onSubmit=(book)=>{
      this.props.startAddBook(book);
      this.props.history.push('/')
@@ -16,6 +19,7 @@ export class AddBook extends React.Component{
     return (
       <div>
          <BookForm
+           buttonText={this.state.buttonText}
            onSubmit={this.onSubmit}
          />
       </div>
