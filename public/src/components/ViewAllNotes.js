@@ -7,10 +7,10 @@ import ListFilters from './ListFilters'
 
      return(
        <div className="row" >
-       <div className="col-sm-12 col-md-6">
+       <div className="col-sm-12">
            <ListFilters history={this.props.history}/>
        </div>
-       <div className="col-sm-12 col-md-6">
+       <div className="col-sm-12">
        <NoteList history={this.props.history} />
        </div>
        </div>
