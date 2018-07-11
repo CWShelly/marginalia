@@ -17,6 +17,8 @@ class BookListItem extends React.Component{
   }
 
   render(){
+    // console.log('HEYYYY');
+    // console.log(this.props);
     return(
       <div className="row">
           <div className="col-md-4 col-sm-12">
@@ -41,7 +43,7 @@ class BookListItem extends React.Component{
          <div className="col-md-4 col-sm-12">
 
             <Link to={`/viewSummaries/${this.props.title}`}
-             onClick={this.onHandleClick}>Chapter Summaries</Link>
+            >Chapter Summaries</Link>
           </div>
 
 
