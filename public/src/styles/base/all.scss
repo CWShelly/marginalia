@@ -11,10 +11,10 @@
   background: rgb(102, 102, 153) !important;
   border: 0 !important;
 }
-.dashboard-container{
-  border-top: 10px solid rgb(102, 102, 153);
-
-}
+// .dashboard-container{
+//   border-bottom: 10px solid rgb(102, 102, 153);
+//
+// }
 .display-4, .lead{
   color: white;
 }
@@ -28,6 +28,7 @@
   max-height: 100%;
   width: 100%;
   max-width: 100%;
+    border-bottom: 20px solid rgb(102, 102, 153);
 }
 
 .jumbo-inner-div{
