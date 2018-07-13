@@ -26,8 +26,8 @@ onClick = ()=>{
   render(){
 
     return(
-      <div className="container-fluid" >
-          <div className="row d-flex justify-content-center"  >
+      <div className="container-fluid dashboard-container mt-0">
+          <div className="row d-flex justify-content-center">
             <Profile history={this.props.history} />
           </div>
 

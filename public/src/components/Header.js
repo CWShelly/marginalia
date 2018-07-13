@@ -51,7 +51,7 @@ this.state.user_name && console.log(this.state.user_name);
 </div>
 
 
-  <Jumbotron className="JumboHeaderImg fluid">
+  <Jumbotron className="JumboHeaderImg fluid no-gutters">
 
        <div className="jumbo-inner-div ">
 
