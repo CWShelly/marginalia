@@ -7,7 +7,9 @@
  export class EditNote extends React.Component{
    onSubmit=(note)=>{
    this.props.startEditNote(this.props.note.id, note);
-   this.props.history.push('/');
+
+            this.props.history.push(`/viewNotes/${this.props.note.title}`)
+
 }
     onRemove = ()=>{
 
@@ -16,12 +18,13 @@
         return note.id !== this.props.note.id
       }
 
-      this.props.history.push('/');
+   
+         this.props.history.push(`/viewNotes/${this.props.note.title}`)
     }
 
 
   render(){
- 
+console.log(this.props.note.title);
     return (
       <div>
       Editing:
