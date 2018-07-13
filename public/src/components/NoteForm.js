@@ -180,10 +180,10 @@ handleRemoveItem=(itemToRemove, key)=>{
 
 <div>
   {this.state.errorNote && <p>{this.state.errorNote}</p>}
-      <ul className="list-inline tags mr-2" >
+      <ul className="list-inline mr-2" >
           {this.state.tagArr.map((item, x)=>{
             return <li className="list-inline-item tags-list" key={x}>
-            <span><button className="btn btn-outline-secondary btn-xs" style={{color:"white"}}>{item}</button>
+            <span><button className="btn tags-button btn-xs" >{item}</button>
             <a  onClick={(e)=>{
               this.handleRemoveItem(item, x)
             }}>x</a></span>

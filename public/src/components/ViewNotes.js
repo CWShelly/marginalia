@@ -37,11 +37,11 @@ render(){
 
 console.log(this.state.auth_id === localStorage.getItem('browse_id'));
   return(
-    <div className="row ">
+    <div className="row no-gutters">
 
 
 
-                <div className="col-sm-12 col-md-4 ml-4">
+                <div className="col-sm-12 ml-1 col-md-6">
                     <h1>My Notes for {this.state.title}</h1>
                  {
                    this.state.auth_id === localStorage.getItem('browse_id')
@@ -50,7 +50,7 @@ console.log(this.state.auth_id === localStorage.getItem('browse_id'));
                </div>
 
 
-       <div className="col-sm-12 col-md-6">
+       <div className="col-sm-12 col-md-5">
               <div className="mb-4">
                   <ListFilters history={this.props.history}/>
               </div>
