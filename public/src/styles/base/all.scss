@@ -6,9 +6,14 @@
 .bookform-label{
   color: white !important;
 }
+
 .dash-btn{
   background: rgb(102, 102, 153) !important;
   border: 0 !important;
+}
+.dashboard-container{
+  border-top: 10px solid rgb(102, 102, 153);
+
 }
 .display-4, .lead{
   color: white;
@@ -92,11 +97,11 @@ p{
   width:20vh;
 }
 
-
-.tags{
-  background-color: #d3d9e2;
-  // color: white;
-}
+//
+// .tags{
+//   background-color: #d3d9e2;
+//   // color: white;
+// }
 .tags-button{
 color: white !important;
 background-color: rgb(102, 102, 153) !important;
