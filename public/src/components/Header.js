@@ -21,7 +21,7 @@ export class Header extends React.Component{
 this.state.user_name && console.log(this.state.user_name);
     return(
       <Fragment>
-      <Container fluid>
+
             <div className="row">
                   <div className="col ml-2">
                     <h1  >Marginalia Geek</h1>
@@ -51,21 +51,21 @@ this.state.user_name && console.log(this.state.user_name);
 </div>
 
 
-  <Jumbotron className="JumboHeaderImg fluid no-gutters">
+  <div className="JumboHeaderImg fluid no-gutters">
 
        <div className="jumbo-inner-div ">
 
-          <h1 className="display-4 mt-4">For Critical Readers.</h1>
-          <p className="lead ml-2">Research is formalized curiosity. It is poking and prying with a purpose.</p>
+          <h1 className="display-4 ml-4 mt-4">For Critical Readers.</h1>
+          <p className="lead ml-5">Research is formalized curiosity. It is poking and prying with a purpose.</p>
          <p className="lead text-right mr-4">
           Zora Neale Hurston
         </p>
 
       </div>
 
- </Jumbotron>
+ </div>
 
-</Container>
+
  </Fragment>
 
 
